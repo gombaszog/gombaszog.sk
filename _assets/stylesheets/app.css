@@ -184,6 +184,35 @@
     border-bottom-right-radius:.5em;
 }
 
+.program-sor {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+.program-datum {
+    font-size: 2em !important;
+    font-weight: bold;
+    clear: both;
+    margin-top: 5%;
+}
+
+.program-ido {
+    text-align: right;
+    margin-right: 10px;
+    float: left;
+    width: 10%;
+}
+
+.program-nev {
+    float: left;
+    font-weight: bold;
+}
+
+.program-helyszin {
+    float: right;
+}
+
 #ticket a.btn { 
   border-radius: 0px;
 }
