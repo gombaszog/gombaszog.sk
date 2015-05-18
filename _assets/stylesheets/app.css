@@ -455,6 +455,10 @@ p.text-justified {
   text-align: justify;
 }
 
+.entry-content p {
+  text-rendering: auto;
+}
+
 footer img {
   opacity: 0.8;
   filter:alpha(opacity=80);
