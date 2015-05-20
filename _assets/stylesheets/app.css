@@ -602,12 +602,12 @@ input.has-error {
     padding-top: 0px;
   }
   #navigation .navbar-nav li a:hover {
-    background: rgba(0, 151, 192, 0.7) !important;
+    background: rgba(0, 151, 192, 0.9) !important;
     color: #fff !important;
 
   }
   #navigation .navbar-nav li a.active {
-    background: rgba(0, 151, 192, 0.7) !important;
+    background: rgba(0, 151, 192, 0.9) !important;
     color: #fff !important;
   }
   #navigation .navbar-nav li a {
@@ -616,7 +616,7 @@ input.has-error {
     padding-top: 5px;
     padding-bottom: 5px;
     display: block;
-    background: rgba(0, 151, 192, 0.4);
+    background: rgba(0, 151, 192, 0.7);
   }
 
   #dalnap .album-heading h3 { 
