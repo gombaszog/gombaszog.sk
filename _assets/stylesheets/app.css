@@ -443,6 +443,10 @@ a.footer-gplus:hover {
   color: #DD4B39;
 }
 
+a.footer-scu:hover {
+  color: #f50;
+}
+
 #post-content img {
   width: 100%;
 }
@@ -453,6 +457,10 @@ a.footer-gplus:hover {
 
 p.text-justified {
   text-align: justify;
+}
+
+.entry-content p {
+  text-rendering: auto;
 }
 
 footer img {
