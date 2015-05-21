@@ -92,7 +92,7 @@ iframe{
 }
 
 #navigation .navbar{
-    margin-bottom: 10px;
+    margin-bottom: 0.5vw;
 }
 
 #navigation .navbar-brand{
@@ -300,19 +300,18 @@ footer .social-link a {
 ******* Home CSS ******** PALI
 **************************/
 
-/*logo and background adjust*/
-.bgfix{
-	padding-bottom: -webkit-calc(8% + 8vw);
-	padding-bottom: calc(8% + 8vw);
-	padding-bottom: -o-calc(8% + 8vw);
-	padding-bottom: -moz-calc(8% + 8vw);
-}
-
 /*Home not visible if screen is small*/
 @media only screen and (max-width: 611px){
 	#home{
 		display: none;
 	}
+}
+
+#home{
+	padding-bottom: calc(28vw - 100px);
+	padding-bottom: -webkit-calc(28vw - 100px);
+	padding-bottom: -o-calc(28vw - 100px);
+	padding-bottom: -moz-calc(28vw - 100px);
 }
 
 #home img.vereb {
