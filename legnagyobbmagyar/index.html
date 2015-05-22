@@ -1,0 +1,50 @@
+---
+layout: none
+hidden: true
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gombaszögi Nyári Tábor - GombaKvíz</title>
+  <meta charset="utf-8">
+  <meta property="og:image" content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{% asset_path og.jpg %}{% endif %}">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  {% stylesheet app %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+  <header id="navigation">    
+    <div class="navbar" role="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/"><h1><img src="{% asset_path logo.png %}" alt="logo"></h1></a>
+            </div>
+          </div>
+          <div class="col-sm-9" style="margin-top: 10px;">
+            <nav class="navbar-right collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+              </ul>
+            </nav>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </header> <!--/#navigation-->
+  <div id="fb-root"></div>
+    <div class="container fb-content">
+      <div class="bg">
+      <h1>legnagyobbmagyar</h1>
+    </div>
+  </div>
+</body>
+</html>
