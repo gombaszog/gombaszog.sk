@@ -172,3 +172,24 @@ getUrlVars = function() { // get url variables
   });
   return vars;
 } 
+
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+  var results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+jQuery(document).ready(function($){
+  $(window).load(function() {
+    if ($('#pay-form').length > 0) {
+      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+        $.each( data, function( key, val ) {
+            $("#"+key).val(val);
+        });
+        $("#pay-form").removeClass("hidden-form");
+      });
+    }
+  });
+});
+
