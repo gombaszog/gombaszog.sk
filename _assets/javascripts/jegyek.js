@@ -183,11 +183,22 @@ function getParameterByName(name) {
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
-      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
-        $.each( data, function( key, val ) {
-            $("#"+key).val(val);
-        });
-        $("#pay-form").removeClass("hidden-form");
+      $.getJSON("https://felho.gombaszog.sk/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+        var msg = "";
+        if(data.status == "waiting") {
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;. A fizetéshez kattints a PayPal-os képre:";
+          $.each( data, function( key, val ) {
+              $("#"+key).val(val);
+          });
+          $("#pay-form").removeClass("hidden-form");
+        } else if(data.status == "dropped") {
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni három órás időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
+        } else if(data.status == "completed") {
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />ezt a jegyet már kifizetted. Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
+        } else {
+          msg = "A jegy nem található. Kérlek, ellenőrizd a linket, vagy lépj kapcsolatba velünk a jegyek@gombaszog.sk címen.";
+        }
+        $('#msg').html(msg);
       });
     }
   });
