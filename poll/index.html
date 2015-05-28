@@ -62,7 +62,7 @@ group: otletborze
             if (response.authResponse) { // logged in
               FB.api('/me/permissions', function(response) { // request permissions
                 r = response.data[0];
-                if (r.publish_actions && r.rsvp_event && r.user_likes && r.email && r.user_birthday && r.user_hometown && r.user_location && r.basic_info) {
+                if (r.publish_actions && r.rsvp_event && r.user_likes && r.email && r.user_birthday && r.user_hometown && r.user_location && r.public_profile) {
                   FB.api({method: "pages.isFan", page_id: "185520844831085"}, function (response) { // check if user liked the page
                     if (response) {
                       data = {};
@@ -93,7 +93,7 @@ group: otletborze
             } else { 
               jQuery("#poll").html("<strong style=\"color: red;\">A szavazáshoz először be kell lenned jelentkezned a Facebookon!</strong>");
             }
-          }, {scope: 'publish_actions,rsvp_event,user_likes,email,user_birthday,user_hometown,user_location,basic_info'});
+          }, {scope: 'publish_actions,rsvp_event,user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
         });
         jQuery(".poll-buttonspace").append(btn);
       } else {
