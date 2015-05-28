@@ -61,8 +61,17 @@ group: otletborze
           FB.login(function(response) { // log in
             if (response.authResponse) { // logged in
               FB.api('/me/permissions', function(response) { // request permissions
-                r = response.data[0];
-                if (r.publish_actions && r.rsvp_event && r.user_likes && r.email && r.user_birthday && r.user_hometown && r.user_location && r.public_profile) {
+                r = response.data;
+                checkPerm = function(a, p) {
+                    for(var i = 0; i < a.length; i++) {
+                        console.log(a[i]);
+                        if(a[i].permission == p && a[i].status == "granted") {
+                            return true;
+                            }
+                    }
+                    return false;
+                };
+                if (checkPerm(r, "publish_actions") && checkPerm(r, "rsvp_event") && checkPerm(r, "user_likes") && checkPerm(r, "email") && checkPerm(r, "user_birthday") && checkPerm(r, "user_hometown") && checkPerm(r, "user_location") && checkPerm(r, "public_profile")) {
                   FB.api({method: "pages.isFan", page_id: "185520844831085"}, function (response) { // check if user liked the page
                     if (response) {
                       data = {};
