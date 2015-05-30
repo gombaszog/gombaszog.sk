@@ -6,7 +6,7 @@ if ($("#sajto-hirek").length > 0) {
   function sajto_page(page_active) {
     $("#sajto-hirek").empty();
     for(var i=(page_active-1)*sajto_page_size+2; i < (page_active)*sajto_page_size+2 && i<=sajto_data_rows; i++)
-      if(sajto_data[i]['B']=='1')
+      if(sajto_data[i]['F']=='1')
         $("#sajto-hirek").append('<li><strong>'+sajto_data[i]['B']+'</strong>: <a href="'+sajto_data[i]['E']+'" target="_blank">'+sajto_data[i]['D']+'</a></li>');
 
     $("#sajto-pages").empty();
