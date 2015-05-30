@@ -19,19 +19,14 @@ if ($("#sajto-hirek").length > 0) {
 
   $.getJSON("https://spreadsheets.google.com/feeds/cells/1PVopI292rFYQppL-LeMRec8RkAKuJBDBtWMxViIu5T0/od6/public/basic?alt=json").done(function (data) {
     data.feed.entry.forEach(function(e) {
-        if (typeof(sajto_data[parseInt(e.title.$t.replace(/[A-Z]+/, ''))]) == 'undefined') {
-          sajto_data[parseInt(e.title.$t.replace(/[A-Z]+/, ''))] = {};
-          sajto_data_rows += 1;
+        if ( e.title.$t.replace(/[0-9]+/, '')=='A' ) {
+          sajto_data[++sajto_data_rows] = {};
         }
-        sajto_data[parseInt(e.title.$t.replace(/[A-Z]+/, ''))][e.title.$t.replace(/[0-9]+/, '')] = e.content.$t;
-    });
-    for ( var i=sajto_data_rows-1; i>=0; i--) {
-        if(sajto_data[i]['F']=='0'){
+        sajto_data[sajto_data_rows][e.title.$t.replace(/[0-9]+/, '')] = e.content.$t;
+        if( e.title.$t.replace(/[0-9]+/, '')=='F' && e.content.$t=='0' ){
           sajto_data_rows--;
-          sajto_data.splice(i,1);
         }
-    }
-
+    });
     sajto_page(1);
   });
 
