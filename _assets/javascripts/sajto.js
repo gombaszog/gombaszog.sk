@@ -6,8 +6,7 @@ if ($("#sajto-hirek").length > 0) {
   function sajto_page(page_active) {
     $("#sajto-hirek").empty();
     for(var i=(page_active-1)*sajto_page_size+2; i < (page_active)*sajto_page_size+2 && i<=sajto_data_rows; i++)
-      if(sajto_data[i]['F']=='1')
-        $("#sajto-hirek").append('<li><strong>'+sajto_data[i]['B']+'</strong>: <a href="'+sajto_data[i]['E']+'" target="_blank">'+sajto_data[i]['D']+'</a></li>');
+      $("#sajto-hirek").append('<li><strong>'+sajto_data[i]['B']+'</strong>: <a href="'+sajto_data[i]['E']+'" target="_blank">'+sajto_data[i]['D']+'</a></li>');
 
     $("#sajto-pages").empty();
     /*for(var i=1; i < sajto_data_rows/sajto_page_size+1; i++)
@@ -26,6 +25,12 @@ if ($("#sajto-hirek").length > 0) {
         }
         sajto_data[parseInt(e.title.$t.replace(/[A-Z]+/, ''))][e.title.$t.replace(/[0-9]+/, '')] = e.content.$t;
     });
+    for ( var i=sajto_data_rows-1; i>=0; i--) {
+        if(sajto_data[i]['F']=='0'){
+          sajto_data_rows--;
+          sajto_data.splice(i,1);
+        }
+    }
 
     sajto_page(1);
   });
