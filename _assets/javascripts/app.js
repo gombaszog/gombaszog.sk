@@ -98,3 +98,10 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+
+
+
+    function makeVisible(){
+      document.getElementById("buy-ticket").style.visibility = "visible";
+    }
