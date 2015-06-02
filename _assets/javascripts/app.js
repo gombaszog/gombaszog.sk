@@ -14,18 +14,8 @@
 
 
 jQuery(document).ready(function($){
-  var isVisible = false;
-$(window).scroll(function(){
-     var shouldBeVisible = $(window).scrollTop()>20 && $(window).scrollTop()<1000;
-     if (shouldBeVisible && !isVisible) {
-          isVisible = true;
-          $('.buy-ticket').show();
-     } else if (isVisible && !shouldBeVisible) {
-          isVisible = false;
-          $('.buy-ticket').hide();
-    }
-});
-  
+
+
   $(window).load(function() {
 
     // auto add target="_blank" for foreign links
@@ -110,5 +100,17 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+var isVisible = false;
+$(window).scroll(function(){
+     var shouldBeVisible = $(window).scrollTop()>20 && $(window).scrollTop()<1000;
+     if (shouldBeVisible && !isVisible) {
+          isVisible = true;
+          $('.buy-ticket').show();
+     } else if (isVisible && !shouldBeVisible) {
+          isVisible = false;
+          $('.buy-ticket').hide();
+    }
+});
 
 
