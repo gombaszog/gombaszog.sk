@@ -98,3 +98,16 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+
+var isVisible = false;
+$(window).scroll(function(){
+     var shouldBeVisible = $(window).scrollTop()>100;
+     if (shouldBeVisible && !isVisible) {
+          isVisible = true;
+          $('#buy-ticket').css( "visibility", "visible" );
+     } else if (isVisible && !shouldBeVisible) {
+          isVisible = false;
+          $('#buy-ticket').css( "visibility", "hidden" );
+    }
+});

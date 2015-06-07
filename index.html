@@ -3,13 +3,13 @@ layout: page
 title: Főoldal
 group: fooldal
 ---
-  <section id="home">
+  <section id="home" style="padding-bottom:20px;">
     <div class="container">
       <div style="width: 100%; max-width: 1147px; margin-left: auto; margin-right: auto;">
 		<a href="/" style="margin-top: 0;"><h1>
 			<img src="{% asset_path logonagy.png %}"  style="width: 100%;" />
 		</h1></a>
-      </div>
+    </div>
       <!--
       <div class="visible-lg">
         <a href="http://www.youtube.com/watch?v=9nbizIEwFu4" style="display: inline;">
@@ -48,48 +48,30 @@ group: fooldal
       </ul>
       -->
       <!-- <a href="/jegyek">JEGYELŐVÉTEL</a> -->
-    </div>
-  </section><!--/#home-->
-  
-  <section><!-- #stream -->
+
+    <section id="buy-ticket" style="position:relative; z-index:2; visibility:hidden; padding-bottom:50px; padding-top:50px">
     <div class="container">
       <div class="row">
-        
-        <div class="col-md-6">
-          <div class="bg" id="videostream">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/9nbizIEwFu4" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-        
-        <div class="col-md-6">
-          <div class="bg">
-            <!--
-            <div class="stream">
-              <ul id="stream1">
-              </ul>
+        <div class="col-sm-12" style="padding-right:30px; padding-left:0px;">
+          <div class="summer-fastival">
+            <div class="col-sm-8">
+              <h2>Gombaszögi Nyári Tábor</h2>
+              <p>Július 14-én kezdődik az idei nyár legnagyobb szlovákai magyar ifjúsági eseménye!</p>
             </div>
-            -->
-            <ul id="sajto-pages" class="pagination">
-            </ul>
-            <h3>Rólunk írták</h3>
-            <ul id="sajto-hirek">
-            </ul>
+            <div id="ticket" class="col-sm-4">
+              <a class="btn btn-primary buy-ticket" href="/jegyek" style="color: rgb(255, 255, 255);">JEGYELŐVÉTEL</a>
+            </div>
           </div>
         </div>
-        <!--
-        <div class="col-md-4">
-          <div class="single-event photo-gallery">
-            <h2 class="heading"><strong>Instagaléria</strong></h2>
-            <ul class="galery" id="instafeed">
-            </ul>
-          </div>
-        </div>
-        -->
       </div>
     </div>
-  </section><!-- /#stream -->
+  </section>
 
- 
+    </div>
+  </section><!--/#home-->
+
+  
+
   <section id="perfomars-slide">
     <div class="container">
       <div class="performance">
@@ -405,26 +387,45 @@ group: fooldal
       </div>
     </div>
   </section>
-
-  
-  <section id="buy-ticket">
+ 
+  <section><!-- #stream -->
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="summer-fastival">
-            <div class="col-sm-8">
-              <h2>Gombaszögi Nyári Tábor</h2>
-              <p>Július 14-én kezdődik az idei nyár legnagyobb szlovákai magyar ifjúsági eseménye!</p>
-            </div>
-            <div id="ticket" class="col-sm-4">
-              <a class="btn btn-primary buy-ticket" href="/jegyek">JEGYELŐVÉTEL</a>
-            </div>
+        
+        <div class="col-md-6">
+          <div class="bg" id="videostream">
+            <iframe width="560" height="315" src="//www.youtube.com/embed/9nbizIEwFu4" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
+        
+        <div class="col-md-6">
+          <div class="bg">
+            <!--
+            <div class="stream">
+              <ul id="stream1">
+              </ul>
+            </div>
+            -->
+            <ul id="sajto-pages" class="pagination">
+            </ul>
+            <h3>Rólunk írták</h3>
+            <ul id="sajto-hirek">
+            </ul>
+          </div>
+        </div>
+        <!--
+        <div class="col-md-4">
+          <div class="single-event photo-gallery">
+            <h2 class="heading"><strong>Instagaléria</strong></h2>
+            <ul class="galery" id="instafeed">
+            </ul>
+          </div>
+        </div>
+        -->
       </div>
     </div>
-  </section>
-  
+  </section><!-- /#stream -->
+
   <section id="events">
     <div class="container">
       <div class="row">
