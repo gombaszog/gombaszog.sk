@@ -103,7 +103,7 @@ $.fn.serializeObject = function() {
 
 var isVisible = false;
 $(window).scroll(function(){
-     var shouldBeVisible = $(window).scrollTop()>120 && $(window).scrollTop()<550;
+     var shouldBeVisible = $(window).scrollTop()>150 && $(window).scrollTop()<530;
      if (shouldBeVisible && !isVisible) {
           isVisible = true;
           $('#buy-ticket').show();
