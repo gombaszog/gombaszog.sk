@@ -105,9 +105,9 @@ $(window).scroll(function(){
      var shouldBeVisible = $(window).scrollTop()>50;
      if (shouldBeVisible && !isVisible) {
           isVisible = true;
-          $('#buy-ticket').show();
+          $('#buy-ticket').css( "visibility", "visible" );
      } else if (isVisible && !shouldBeVisible) {
           isVisible = false;
-          $('#buy-ticket').hide();
+          $('#buy-ticket').css( "visibility", "hidden" );
     }
 });
