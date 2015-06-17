@@ -17,8 +17,7 @@ group: blog
                   <article>
                     <header class="entry-header">
                       <div class="entry-meta">
-                        <time class="pull-left single-date" itemprop="datePublished">{{ page.date | date: '%b' | localize }} <span>{{ page.date | date: '%d' }}</span></time>
-                        <!-- p class="date">{{ post.date | date: '%Y. %B %d. %H:%M' | localize }}</p -->
+                        <p class="date">{{ post.date | date: '%Y. %B %d. %H:%M' | localize }}</p>
                       </div>
                       <h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
                       <p class="author">Szerző: <span>{{ post.author }}</span></p>
