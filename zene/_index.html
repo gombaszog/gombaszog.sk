@@ -1,35 +1,629 @@
 ---
-layout: default
+layout: page
 title: Zene
+group: zene
 ---
-  <style type="text/css">
-    html,body {
-      height: 100%;
-    }
-  </style>
-  <div id="error-page">
-    <div class="error-page-inner">
-      <div class="content-404 bg">
-        <div class="container">
-           <div class="row">
-            <div class="col-sm-6">
-              <div class="error-info">
-                <h2><span>...</span>Hamarosan!</h2>       
-              </div>              
-            </div>
-            <div class="col-sm-6">
-              <div class="back-to">
-                <p class="text-justified">Sajnáljuk, a program még nem elérhető. Kérlek, nézz vissza később.</p>
-
-                <h3>Az alábbi linkeket viszont ajánljuk figyelmedbe!</h3>
-                <ul class="pull-left">                     
-                  <li><a href="/"><i class="fa fa-hand-o-right"></i> Főoldal</a></li>
-                  <li><a href="//facebook.com/gombaszog"><i class="fa fa-hand-o-right"></i> Facebook</a></li>
-                  <li><a href="//twitter.com/gombaszog"><i class="fa fa-hand-o-right"></i> Twitter</a></li>
-                </ul>
+  <div id="fb-root" style="display: none;"></div>
+  <div id="album">
+    <div class="container">
+      <div class="album-inner">
+        <div class="row">
+          <div class="col-sm-12 col-md-8">
+            <div class="bg">
+              <h2 class="heading"><strong>Nagy</strong>színpad</h2>
+              <div id="music" class="row">
+                <div class="col-md-6">
+                 <a href="punnany" rel="follow" title="Punnany Massif">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/punnany.jpg %}" alt="Punnany Massif">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Punnany Massif</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Punnany Massif</h3>
+                          <ul>
+                            <li>július 19. - csütörtök</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="kowalsky" rel="follow" title="Kowalsky meg a Vega">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/kowa.jpg %}" alt="Kowalsky meg a Vega">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Kowalsky meg a Vega</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Kowalsky meg a Vega</h3>
+                          <ul>
+                            <li>július 17. - kedd</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="szabobalazs" rel="follow" title="Szabó Balázs Bandája">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/szabobalazs.jpg %}" alt="Szabó Balázs Bandája">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Szabó Balázs Bandája</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Szabó Balázs Bandája</h3>
+                          <ul>
+                            <li>július 17. - kedd</li>
+                          </ul>
+                          <!-- <ul> -->
+                            <!-- <li>július 12. - szerda<br/>Kezdés: 21:00</li> -->
+                          <!-- </ul> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="paso" rel="follow" title="PASO">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/paso.jpg %}" alt="AKPH">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">P.A.S.O.</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>P.A.S.O.</h3>
+                          <ul>
+                            <li>július 20. - péntek</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="lovasi" rel="follow" title="Lovasi">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/lovasi.jpg %}" alt="Lovasi">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Lovasi '18</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Lovasi '18</h3>
+                          <ul>
+                            <li>július 21. - szombat</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="ghymes" rel="follow" title="Ghymes">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/ghymes.jpg %}" alt="Ghymes">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Ghymes</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Ghymes</h3>
+                          <ul>
+                            <li>július 19. - csütörtök</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="akph" rel="follow" title="AKPH">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/akph.jpg %}" alt="AKPH">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Akkezdet Phiai</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Akkezdet Phiai</h3>
+                          <ul>
+                            <li>július 20. - péntek</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="animasoundsystem" rel="follow" title="Anima Sound System">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/anima.jpg %}" alt="Anima Sound System">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Anima Sound System</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Anima Sound System</h3>
+                          <ul>
+                            <li>július 21. - szombat</li>
+                          </ul>
+                          <!-- <ul> -->
+                            <!-- <li>július 12. - szerda<br/>Kezdés: 21:00</li> -->
+                          <!-- </ul> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="margaret" rel="follow" title="Margaret Island">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/margaret.jpg %}" alt="Margaret Island">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Margaret Island</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Margaret Island</h3>
+                          <ul>
+                            <li>július 18. - szerda</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+				        <div class="col-md-6">
+                 <a href="edda" rel="follow" title="Edda Művek">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/edda.jpg %}" alt="Edda Művek">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Edda Művek</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Edda Művek</h3>
+                          <ul>
+                            <li>július 18. - szerda</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+				        <div class="col-md-6">
+                 <a href="#" rel="follow" title="Parno Graszt">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/parno.jpg %}" alt="Parno Graszt">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Parno Graszt</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Parno Graszt</h3>
+                          <ul>
+                            <li>július 19. - csütörtök</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+				        <div class="col-md-6">
+                 <a href="jovilagvan" rel="follow" title="jóvilágvan">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/jovilagvan.jpg %}" alt="jóvilágvan">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">jóvilágvan</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>jóvilágvan</h3>
+                          <ul>
+                            <li>július 20. - péntek</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                 <a href="chikiliki" rel="follow" title="Chiki Liki Tu-a">
+                    <div class="single-album">
+                      <img src="{% asset_path zene/2018/s400/chiki.jpg %}" alt="Chiki Liki Tu-a">
+                      <div class="album-heading">
+                        <h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">Chiki Liki Tu-a</h3>
+                      </div>
+                      <div class="album-overlay">
+                        <div class="album-info">
+                          <h3>Chiki Liki Tu-a</h3>
+                          <ul>
+                            <li>július 18. - szerda</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
-           </div>
+            
+            <!--div class="bg">
+            
+              <h2 class="heading" id="chillgarden"><strong>Chill sátor</strong></h2>
+              <div id="city" class="row">
+              
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/planetm_400.jpg %}" alt="planetmalcolm">
+                    <div class="album-heading">
+                      <h3>planetmälcolm</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>planetmälcolm</h3>
+                        <ul>
+                          <li>Budapest</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/leap_400.jpg %}" alt="LEAP">
+                    <div class="album-heading">
+                      <h3>LEAP.</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>LEAP.</h3>
+                        <ul>
+                          <li>Budapest</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/zomblaze_400.jpg %}" alt="zomblaze">
+                    <div class="album-heading">
+                      <h3>zomblaze</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>zomblaze</h3>
+                        <ul>
+                          <li>Budapest</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/kelso_400.jpg %}" alt="Kelso">
+                    <div class="album-heading">
+                      <h3 style="display: none;">Majkl Kelso</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>Majkl Kelso</h3>
+                        <ul>
+                          <li>Kassa</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/carter_400.jpg %}" alt="CaRtER">
+                    <div class="album-heading">
+                      <h3>CaRtER</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>CaRtER</h3>
+                        <ul>
+                          <li></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/tryp_400.jpg %}" alt="Tryp">
+                    <div class="album-heading">
+                      <h3>TRYP</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>TRYP</h3>
+                        <ul>
+                          <li>Szepsi</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/pal_400.jpg %}" alt="PAL">
+                    <div class="album-heading">
+                      <h3>PAL</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>PAL</h3>
+                        <ul>
+                          <li>Tóth Pál Attila</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/nua2_400.jpg %}" alt="Nuuansz">
+                    <div class="album-heading">
+                      <h3>Nuuansz</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>Nuuansz</h3>
+                        <ul>
+                          <li>Kertész Kinga</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/bab_400.jpg %}" alt="bab">
+                    <div class="album-heading">
+                      <h3>bab</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>bab</h3>
+                        <ul>
+                          <li>Dudás Bálint</li>
+                          <li>VJ</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/dance_400.jpg %}" alt="dancewithvoice">
+                    <div class="album-heading">
+                      <h3>dancewithvoice</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>dancewithvoice</h3>
+                        <ul>
+                          <li>Kovács Kata</li>
+                          <li>VJ</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="single-album">
+                    <img src="{% asset_path zene/vili_400.jpg %}" alt="výlet">
+                    <div class="album-heading">
+                      <h3>výlet</h3>
+                    </div>
+                    <div class="album-overlay">
+                      <div class="album-info">
+                        <h3>výlet</h3>
+                        <ul>
+                          <li>Gábovics Vilmos</li>
+                          <li>VJ</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                </div>
+                <h2 class="heading" id="chillgarden"><strong>továbbá:</strong></h2>
+                <h3>HoFFman, PG, Lizard, F.Feterik, Raëlism, Beatprox, aëvronyk, PRDTR</h3>
+            </div-->
+          </div>
+          
+          <div id="dalnap" class="col-sm-12 col-md-4">
+            <div class="popular-albums bg">
+              <h2 class="heading" style="font-size: 22px;"><strong>Kis</strong>színpad</h2>
+              <a href="estendon" rel="follow" title="Estendon">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/estendon.jpg %}" alt="Estendon">
+                <div class="album-heading">
+                  <h3>Estendøn</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Estendøn</h3>
+                    <ul>
+                      <li>július 16. - hétfő</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <!-- <a href="margaret" rel="follow" title="Margaret">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/margaret.jpg %}" alt="Margaret Island">
+                <div class="album-heading">
+                  <h3>Margaret Island</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Margaret Island</h3>
+                    <ul>
+                      <li>július 10. - hétfő<br/>Kezdés: 21:30</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a> -->
+             
+              <a href="mongoose" rel="follow" title="Hiperkarma">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/mongoose.jpg %}" alt="mongoose">
+                <div class="album-heading">
+                  <h3>Mongoose Limit</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Mongoose Limit</h3>
+                    <ul>
+                      <li>július 18. - szerda</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="mork" rel="follow" title="Mork">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/mork.jpg %}" alt="mork">
+                <div class="album-heading">
+                  <h3>Mōrk</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Mōrk</h3>
+                    <ul>
+                      <li>július 19. - csütörtök</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="gonsofus" rel="follow" title="Gonsofus">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/gonsofus.jpg %}" alt="gonsofus">
+                <div class="album-heading">
+                  <h3>Gonsofus</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Gonsofus</h3>
+                    <ul>
+                      <li>július 20. - péntek</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="nublao" rel="follow" title="Nublao">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/nublao.jpg %}" alt="Nublao">
+                <div class="album-heading">
+                  <h3>Nublao</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Nublao</h3>
+                    <ul>
+                      <li>július 20. - péntek</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+               <a href="hiperkarma" rel="follow" title="Hiperkarma">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/hiperkarma.jpg %}" alt="Hiperkarma">
+                <div class="album-heading">
+                  <h3>Hiperkarma</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Hiperkarma</h3>
+                    <ul>
+                      <li>július 21. - szombat</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+              <a href="mandrake" rel="follow" title="Mandrake Moon">
+              <div class="single-album">
+                <img src="{% asset_path zene/2018/s400/mandrakemoon.jpg %}" alt="Mandrake Moon">
+                <div class="album-heading">
+                  <h3>Mandrake Moon</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>Mandrake Moon</h3>
+                    <ul>
+                      <li>július 21. - szombat</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+
+                        <!--div class="bg popular-albums">
+              <h2 class="heading" style="font-size: 22px;">Chill</strong></h2>
+              <ul>
+                <li>
+                  <div class="media">
+                    <a class="pull-left" href="./tollas.html"><img src="{% asset_path zene/tollas_gomba.jpg %}" alt="Tollas"></a>
+                    <div class="media-body">
+                      <a href="#"><h3>Tollas</h3></a>
+                      <ul>
+                        <li>Halle, Németország</li>
+                        <li>&nbsp;</li>
+                        <li>Alternatív, house, retro</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div--> 
+
+          </div>
+          <!-- <div id="dalnap" class="col-sm-12 col-md-4">
+            <div class="popular-albums bg">
+              <h2 class="heading" style="font-size: 22px;"><strong>DurvaCrew Chill Stage</strong></h2>
+              <a href="./durvastage">
+              <div class="single-album">
+                <img src="{% asset_path zene/drvcrwgomba800.gif %}" alt="DurvaCrew Chill Stage">
+                <div class="album-heading">
+                  <h3>DurvaCrew Chill Stage</h3>
+                </div>
+                <div class="album-overlay">
+                  <div class="album-info">
+                    <h3>DurvaCrew Chill Stage</h3>
+                    <ul>
+                      <li>minden nap</li>
+                      <li>reggeltől estig</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div> -->
+
         </div>
       </div>
     </div>

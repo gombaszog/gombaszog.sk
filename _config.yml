@@ -1,5 +1,5 @@
 name: Gombaszögi Nyári Tábor 
-markdown: redcarpet
+
 highlighter: null
 permalink: /:year/:month/:day/:title/
 url: http://www.gombaszog.sk
@@ -20,7 +20,7 @@ assets:
     - _assets/downloads  
 description: >
   A Gombaszögi Nyári Tábor, a szlovákiai magyar fiatalok hagyományos fesztiválja, találkozóhelye és szabadegyeteme! 
-  Légy Te is részese a nyár legjobb bulijának július 16-22. között!
+  Légy Te is részese a nyár legjobb bulijának július 15-21. között!
 jekyll_timeago:
   today: 'ma'
   yesterday: 'tegnap'

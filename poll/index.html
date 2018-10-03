@@ -71,7 +71,7 @@ group: otletborze
                     }
                     return false;
                 };
-                if (checkPerm(r, "publish_actions") && checkPerm(r, "rsvp_event") && checkPerm(r, "email") && checkPerm(r, "user_birthday") && checkPerm(r, "user_hometown") && checkPerm(r, "user_location") && checkPerm(r, "public_profile")) {
+                if ( checkPerm(r, "email") && checkPerm(r, "user_birthday") && checkPerm(r, "user_hometown") && checkPerm(r, "user_location") && checkPerm(r, "public_profile")) {
                   data = {};
                   jQuery.each(jQuery(".poll-progress.selected"), function(k,v) {
                     data[jQuery(v).data("value")] = 1;
@@ -87,10 +87,22 @@ group: otletborze
                     data: {votes: data}
                   }).done(function(data) {
                     jQuery("#poll").html("<strong style=\"color: red;\">"+data.message+" Az oldal pár másodpercen belül újratöltődik...</strong>");
-                    setTimeout(function() {document.location.reload();}, 5000);
+                    document.getElementById("navigation").scrollIntoView();
+                    if(data.votes){
+                      FB.ui({
+                          method: 'share',
+                          href: 'https://gombaszog.sk/poll',
+                          quote: "Ki lépjen fel 2019-ban Gombaszögön? Én rájuk szavaztam: " + data.votes + ". Szavazz te is, és nyerj ingyenes belépőjegyet!",
+                      }, function(response){
+                        setTimeout(function() {document.location.reload();}, 5000);
+                      });
+                    }
+                    else{
+                      setTimeout(function() {document.location.reload();}, 5000);
+                    }
                   }).fail(ajax_error);
                 } else { // refresh for permissions
-				  console.log("Permission error, details: publish_actions: " + checkPerm(r, "publish_actions") + 
+				  console.log("Permission error, details: publish_actions: " + "false" + 
 						" rsvp_event: " + checkPerm(r, "rsvp_event") + 
 						" email: " + checkPerm(r, "email") + 
 						" user_birthday: " + checkPerm(r, "user_birthday") + 
@@ -103,7 +115,7 @@ group: otletborze
             } else { 
               jQuery("#poll").html("<strong style=\"color: red;\">A szavazáshoz először be kell lenned jelentkezned a Facebookon!</strong>");
             }
-          }, {scope: 'publish_actions,rsvp_event,email,user_birthday,user_hometown,user_location,public_profile'});
+          }, {scope: 'email,user_birthday,user_hometown,user_location,public_profile'});
         });
         jQuery(".poll-buttonspace").append(btn);
       } else {
@@ -134,8 +146,8 @@ group: otletborze
     </h3>    
     <div>
       <p class="justified">
-        <span class="lang-hu">Melyik együttest látnád szívesen 2018-ban Gombaszög nagyszínpadán? Szavazz kedvencedre, és mi megpróbáljuk összehozni! <strong>A szavazók közt egy egész hetes táborbelépőt sorsolunk ki!</strong></span>
-        <span class="lang-sk" style="display: none;">Ktorú kapelu by si najradšej vypočul v roku 2018 na Gombaseckom Letnom Tábore? Hlasuj na svoju obľúbenú kapelu a podľa našich možností sa pokúsime splniť tvoje želanie! <strong>Po ukončení hlasovania vyžrebujeme jedného z hlasujúcich, ktorý získa celotýždenný lístok!</strong></span>
+        <span class="lang-hu">Melyik együttest látnád szívesen 2019-ben Gombaszög nagyszínpadán? Szavazz kedvencedre, és mi megpróbáljuk összehozni! <strong>A szavazók közt egy egész hetes táborbelépőt sorsolunk ki!</strong></span>
+        <span class="lang-sk" style="display: none;">Ktorú kapelu by si najradšej vypočul v roku 2019 na Gombaseckom Letnom Tábore? Hlasuj na svoju obľúbenú kapelu a podľa našich možností sa pokúsime splniť tvoje želanie! <strong>Po ukončení hlasovania vyžrebujeme jedného z hlasujúcich, ktorý získa celotýždenný lístok!</strong></span>
         <span class="lang-en" style="display: none;">Which band would you like to enjoy in the Gombaszögi Summer Camp this year? Vote for your favorite, and we try to invite them! <strong>If you vote, you have the chance to win the free ticket to the camp!</strong></span>
       </p>
       <p class="justified"><em>
