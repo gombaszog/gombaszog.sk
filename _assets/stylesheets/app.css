@@ -850,3 +850,22 @@ div.biglogo {
 .splash-section:hover .splash-nav-image, .splash-section:active .splash-nav-image {
   transform: scale(1.2);
 }
+
+.slider-item-wrapper {
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.slider-item-title h3 {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  padding: 20px;
+  margin-bottom: 0px;
+  background: rgba(26, 188, 156, 0.7);
+}
