@@ -903,3 +903,11 @@ div.biglogo {
   top: 5px;
   z-index: 11;
 }
+
+.right-slider-control {
+  right: 10px;
+}
+
+.left-slider-control {
+  right: 30px;
+}
