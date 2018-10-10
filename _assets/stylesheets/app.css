@@ -852,7 +852,8 @@ div.biglogo {
 }
 
 .slider-item-wrapper {
-  height: 450px;
+  height: 500px;
+  max-height: 80%;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -868,4 +869,37 @@ div.biglogo {
   padding: 20px;
   margin-bottom: 0px;
   background: rgba(26, 188, 156, 0.7);
+}
+
+.item:nth-child(1) .slider-item-title h3 {
+  background: rgba(26, 188, 156, 0.7);
+}
+.item:nth-child(2) .slider-item-title h3 {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(3) .slider-item-title h3 {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(4) .slider-item-title h3 {
+  background: rgba(155, 89, 182, 0.7);
+}
+.item:nth-child(5) .slider-item-title h3 {
+  background: rgba(241, 196, 15, 0.7);
+}
+.item:nth-child(6) .slider-item-title h3 {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(7) .slider-item-title h3 {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(8) .slider-item-title h3 {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.left-slider-control, .right-slider-control {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  top: 5px;
+  z-index: 11;
 }
