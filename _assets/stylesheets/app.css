@@ -911,3 +911,22 @@ div.biglogo {
 .left-slider-control {
   right: 30px;
 }
+
+.camping-info-icon {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.camping-info-icon-icon {
+  float: left;
+  width: 8rem;
+  color: #ee3a24;
+  font-size: 3.4rem;
+  line-height: 7.4rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
+div.camping-info-icon-icon div.info span {
+  font-size: 16px;
+}
