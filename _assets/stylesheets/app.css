@@ -932,35 +932,30 @@ div.biglogo {
   text-align: center;
 }
 
-.camping-info-icon.time {
-  color: #ee3a24;
+.camping-info-wrapper {
+  display: flex;
+  height: fit-content;
+  float: left;
+  margin: 5px;
 }
 
-.camping-info-icon.time .camping-info-wrapper {
+.camping-info-wrapper.time {
+  color: #ee3a24;
   background-color: rgba(66,33,33,.1);
 }
 
-.camping-info-icon.distance {
+.camping-info-wrapper.distance {
   color: #24aaee;
-}
-
-.camping-info-icon.distance .camping-info-wrapper {
   background-color: rgba(33,33,66,.1);
 }
 
-.camping-info-icon.map {
+.camping-info-wrapper.map {
   color: #ee9624;
-}
-
-.camping-info-icon.map .camping-info-wrapper {
   background-color: rgba(45,33,45,.1);
 }
 
-.camping-info-icon.traffic {
+.camping-info-wrapper.traffic {
   color: #598c65;
-}
-
-.camping-info-icon.traffic .camping-info-wrapper {
   background-color: rgba(33,66,33,.1);
 }
 
