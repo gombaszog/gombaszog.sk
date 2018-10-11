@@ -917,16 +917,22 @@ div.biglogo {
   padding-bottom: 10px;
 }
 
+.camping-info-wrapper {
+  border-radius: 3rem;
+  height: fit-content;
+  background-color: rgba(33,33,33,.1);
+  display: flex;
+  padding: 10px 0;
+}
+
 .camping-info-icon-icon {
   float: left;
   width: 8rem;
   color: #ee3a24;
-  font-size: 3.4rem;
-  line-height: 7.4rem;
+  font-size: 3.4rem !important;
   text-align: center;
-  border-radius: 50%;
 }
 
-div.camping-info-icon-icon div.info span {
-  font-size: 16px;
+div.camping-info-icon div.info {
+  margin-top: 4px;
 }
