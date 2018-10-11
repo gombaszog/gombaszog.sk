@@ -920,7 +920,7 @@ div.biglogo {
 .camping-info-wrapper {
   border-radius: 3rem;
   height: fit-content;
-  background-color: rgba(33,33,33,.1);
+  width: fit-content;
   display: flex;
   padding: 10px 0;
 }
@@ -928,11 +928,35 @@ div.biglogo {
 .camping-info-icon-icon {
   float: left;
   width: 8rem;
-  color: #ee3a24;
   font-size: 3.4rem !important;
   text-align: center;
 }
 
+.camping-info-icon.time {
+  color: #ee3a24;
+}
+
+.camping-info-icon.time .camping-info-wrapper {
+  background-color: rgba(66,33,33,.1);
+}
+
+.camping-info-icon.distance {
+  color: #24aaee;
+}
+
+.camping-info-icon.distance .camping-info-wrapper {
+  background-color: rgba(33,33,66,.1);
+}
+
+.camping-info-icon.traffic {
+  color: #598c65;
+}
+
+.camping-info-icon.traffic .camping-info-wrapper {
+  background-color: rgba(33,66,33,.1);
+}
+
 div.camping-info-icon div.info {
   margin-top: 4px;
+  margin-right: 20px;
 }
