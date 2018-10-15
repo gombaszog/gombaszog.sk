@@ -922,21 +922,16 @@ div.biglogo {
   height: fit-content;
   width: fit-content;
   display: flex;
-  padding: 10px 0;
+  padding: 10px;
+  float: left;
+  margin: 5px;
 }
 
 .camping-info-icon-icon {
   float: left;
-  width: 8rem;
+  width: 6rem;
   font-size: 3.4rem !important;
   text-align: center;
-}
-
-.camping-info-wrapper {
-  display: flex;
-  height: fit-content;
-  float: left;
-  margin: 5px;
 }
 
 .camping-info-wrapper.time {
