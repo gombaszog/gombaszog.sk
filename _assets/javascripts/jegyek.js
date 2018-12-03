@@ -84,7 +84,7 @@ if ($(".ticket-form").length > 0) {
     tmp = $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val());
     if (tmp) price += parseFloat(tmp);
     // we keep this line with empty array to have it in the future
-    // tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
+    tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
     // free if the birth date is before 1990
     // tmp = (Date.parse($("#ticket_birth").val()) < 631148400000 ? -originalPrice : 0);
     if (tmp) price += parseFloat(tmp);
