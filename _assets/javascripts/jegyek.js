@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = [];
+  var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
   captcha_reload = function() { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?'+Date.now()+')');
     $('#ticket_captcha').val("");
@@ -139,7 +139,7 @@ if ($(".ticket-form").length > 0) {
             $(".ticket-hidden").slideToggle("slow");
           });
         }
-      }, {scope: 'publish_actions,user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
+      }, {scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
     });
     //manual
     $('.ticket-manual').click(function (e) {
