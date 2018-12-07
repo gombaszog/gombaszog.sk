@@ -273,6 +273,7 @@ if ($(".ticket-form").length > 0) {
     $('#ticket_zip').val( $('#'+value+' .setlPSC').html() );
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
+    calculateTicketPrice();
   }
 
   (function(d, s, id) {
