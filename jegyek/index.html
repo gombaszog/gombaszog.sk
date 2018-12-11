@@ -37,7 +37,7 @@ group: jegyek
                 <h2>Ingyenes hetijegy</h2>
                 <p class="price">&euro;0</p>
                 <p class="price-content">
-                  A Galántai és Vágsellyei járás lakóinak <br>július 7-ig
+                  A Galántai és Vágsellyei<br> járás lakóinak <br>július 7-ig
                 </p>
                 <a class="btn btn-primary btn-pricing">Regisztráció</a>
               </div>
@@ -546,6 +546,14 @@ group: jegyek
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-12">
+                    <p class="text-justified"><input id="ticket_gift" name="ticket[gift]" type="checkbox">
+                    <label for="ticket_gift">A <strong>jegyet</strong> ajándékba vásárlom.</label></p>
+                    <div class="form-group col-md-4" style='display:none;' id='ticket_for_box'>
+                        <label class="control-label" for="ticket_for">Ajándékozott e-mail címe?<i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide annak az e-mail címe, aki az ajándékot kapja."></i></a></label>
+                         <input type="email" class="form-control" id="ticket_for" placeholder="Ide küldjük az ajándék jegyet!" name="ticket[gift_for]" pattern="[^@]+@[^@]+\.[^@]+" />
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <p class="text-justified"><input id="ticket_confirm_aszf" name="ticket[confirm_aszf]" type="checkbox">
                     <label for="ticket_confirm_aszf"><strong>Elfogadom</strong> az <a href="#aszf" data-toggle="modal" data-target="#aszf">általános szerződési feltételeket és adatvédelmi irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>

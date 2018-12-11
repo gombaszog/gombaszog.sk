@@ -152,6 +152,10 @@ if ($(".ticket-form").length > 0) {
     });
     // submit
     $('form#ticket').submit(function (e) {
+      if ($("#ticket_gift").prop("checked") && $('#ticket_for').val() == '') {
+        e.preventDefault();
+        return alert("A továbblépéshez kérünk, add meg az ajándékozott e-mail címét.");
+      }
       if (!$("#ticket_confirm_aszf").prop("checked")) {
         e.preventDefault();
         return alert("A továbblépéshez kérünk, fogadd el az általános szerződési feltételeinket és adatvédelmi irányelveinket.");
@@ -198,6 +202,10 @@ if ($(".ticket-form").length > 0) {
       }
     });
   };
+
+  $('#ticket_gift').on('change', function(){
+    $('#ticket_for_box').slideToggle(500);
+  });
 
   $('#ticket_city').on('keyup',function(){
     if(this.value.length >= 3 && $('#ticket_country').val() == 'SK'){
