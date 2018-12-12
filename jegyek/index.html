@@ -60,7 +60,7 @@ group: jegyek
                   <div class="col-sm-8">
                     <h3>Partivonat</h3>
                     <p>Csak elővételben <span>&euro;25</span></p>
-                    <p>Válaszd a partivonatot &quot;Mivel érkezel?&quot; kérdésnél</p>
+                    <p>Válaszd a partivonatot &quot;Érkezés módja?&quot; kérdésnél</p>
                   </div>
                 </div>
               </div>
@@ -116,6 +116,7 @@ group: jegyek
           </div>
           <div class="ticket-hidden">
             <form role="form" class="ticket-form" action="/jegyek/sikertelen" method="POST" id="ticket">
+              <h2>A jegytulajdonos adatai</h2>
               <input type="hidden" name="cmd" value="_ext-enter">
               <input type="hidden" name="redirect_cmd" value="_xclick">
               <input type="hidden" name="business" value="gombaszog@gmail.com" />
@@ -135,15 +136,15 @@ group: jegyek
               <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="ticket_last_name">Vezetékneved</label>
+                    <label for="ticket_last_name">Vezetéknév</label>
                     <input type="text" class="form-control" id="ticket_last_name" placeholder="" name="ticket[last_name]" required title="Kérjük, ide add meg a vezetékneved!" />
                   </div>
                   <div class="form-group">
-                    <label for="ticket_first_name">Keresztneved</label>
+                    <label for="ticket_first_name">Keresztnév</label>
                     <input type="text" class="form-control" id="ticket_first_name" placeholder="" name="ticket[first_name]" required title="Kérjük, ide add meg a keresztneved!" />
                   </div>
                   <div class="form-group">
-                    <label for="ticket_email">E-mail címed <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el a jegyedet! Egy elővételhez csak egy e-mail cím használható!"></i></label>
+                    <label for="ticket_email">E-mail cím<i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el a jegyedet! Egy elővételhez csak egy e-mail cím használható!"></i></label>
                     <input type="email" class="form-control" id="ticket_email" placeholder="Ide küldjük a jegyed!" name="ticket[email]" required pattern="[^@]+@[^@]+\.[^@]+" />
                   </div>
                   <div class="form-group">
@@ -376,7 +377,7 @@ group: jegyek
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="ticket_voucher">Kupon kód<i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Itt adhatod meg, ki ajánlotta a tábort, vagy a kedvezményre feljogosító kuponod kódját."></i></label>
+                    <label class="control-label" for="ticket_voucher">Kupon kód <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Itt adhatod meg, ki ajánlotta a tábort, vagy a kedvezményre feljogosító kuponod kódját."></i></label>
                     <input type="text" class="form-control" id="ticket_voucher" placeholder="Kupon kód" name="ticket[voucher]" pattern="[0-9]{12}" title="A kupon kódja tizenként számjegyből áll" />
                   </div>
                   <div class="form-group">
@@ -386,13 +387,13 @@ group: jegyek
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label class="control-label" for="ticket_what">Mivel foglalkozol?</label>
+                    <label class="control-label" for="ticket_what">Foglalkozás</label>
                     <select id="ticket_what" name="ticket[stat_what]" class="form-control">
-                      <option value="egyetem">Egyetemista vagyok</option>
-                      <option value="erettsegi">Most érettségiztem</option>
-                      <option value="kozepiskola">Középiskolában tanulok</option>
-                      <option value="munka">Dolgozom</option>
-                      <option value="munkanelkuli">Munkanélküli vagyok</option>
+                      <option value="egyetem">Egyetemista</option>
+                      <option value="erettsegi">Frissen érettségizett</option>
+                      <option value="kozepiskola">Középiskolás</option>
+                      <option value="munka">Dolgozó</option>
+                      <option value="munkanelkuli">Munkanélküli</option>
                       <option value="egyeb">Egyéb</option>
                     </select>
                   </div>
@@ -401,7 +402,7 @@ group: jegyek
                     <input type="text" class="form-control" id="ticket_where" placeholder="" name="ticket[stat_where]"/>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="ticket_bus">Mivel érkezel? <a class="nocolor" href="/info#utazas" target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
+                    <label class="control-label" for="ticket_bus">Érkezés módja <a class="nocolor" href="/info#utazas" target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
                     <select id="ticket_bus" name="ticket[bus]" class="form-control influence">
                       <option value="gyalog">Gyalog</option>
                       <option value="bicikli">Biciklivel</option>
@@ -412,7 +413,7 @@ group: jegyek
                     </select>
                   </div>
                   <div class="form-group">
-                    <label class="control-label" for="ticket_housing">Hol fogsz aludni? <a class="nocolor" href="/info#szallas" target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ha valaki más intézi a szállásod, hagyd alapértelmezetten! Bővebb információkért kattints!"></i></a></label>
+                    <label class="control-label" for="ticket_housing">Szállás <a class="nocolor" href="/info#szallas" target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ha valaki más intézi a szállásod, hagyd alapértelmezetten! Bővebb információkért kattints!"></i></a></label>
                     <select id="ticket_housing" name="ticket[housing]" class="form-control influence">
                       <option value="0">Már kifizetett sátorban/panzióban</option>
                       <option value="sator" data-price="10.0">Sátorban +10€</option>
@@ -548,10 +549,10 @@ group: jegyek
               <div class="row">
                 <div class="col-md-12">
                     <p class="text-justified"><input id="ticket_gift" name="ticket[gift]" type="checkbox">
-                    <label for="ticket_gift">A <strong>jegyet</strong> ajándékba vásárlom.</label></p>
+                    <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label></p>
                     <div class="form-group col-md-4" style='display:none;' id='ticket_from_box'>
-                        <label class="control-label" for="ticket_from">Ajándékozó e-mail címe?<i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide annak az e-mail címe, aki az ajándékot küldi."></i></a></label>
-                        <p>(Ide küldjük a jegyet)</p>
+                        <p>Ebben az esetben a jegyet az itt megadott e-mail címére küldjük. A fenti adatok a jegy tulajdonosra vonatkoznak.</p>
+                        <label class="control-label" for="ticket_from">Ajándékozó e-mail címe <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide annak az e-mail címe, aki az ajándékot küldi."></i></a></label>
                          <input type="email" class="form-control" id="ticket_from" placeholder="Ez a vásárló e-mail címe!" name="ticket[gift_from]" pattern="[^@]+@[^@]+\.[^@]+" />
                     </div>
                 </div>
