@@ -144,8 +144,8 @@ group: jegyek
                     <input type="text" class="form-control" id="ticket_first_name" placeholder="" name="ticket[first_name]" required title="Kérjük, ide add meg a keresztneved!" />
                   </div>
                   <div class="form-group">
-                    <label for="ticket_email">E-mail cím<i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el a jegyedet! Egy elővételhez csak egy e-mail cím használható!"></i></label>
-                    <input type="email" class="form-control" id="ticket_email" placeholder="Ide küldjük a jegyed!" name="ticket[email]" required pattern="[^@]+@[^@]+\.[^@]+" />
+                    <label for="ticket_email">E-mail cím <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el a jegyedet! Ha ajándékba vásárolnád a jegyet, lejjebb tudod megadni az emailcímet. Egy elővételhez csak egy e-mail cím használható!"></i></label>
+                    <input type="email" class="form-control" id="ticket_email" placeholder="A jegytulajdonos e-mail címe!" name="ticket[email]" required pattern="[^@]+@[^@]+\.[^@]+" />
                   </div>
                   <div class="form-group">
                     <label for="ticket_phone">Telefonszám <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Országkóddal teljes formájában, például +421901234567"></i></label>
@@ -549,11 +549,10 @@ group: jegyek
               <div class="row">
                 <div class="col-md-12">
                     <p class="text-justified"><input id="ticket_gift" name="ticket[gift]" type="checkbox">
-                    <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label></p>
+                    <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label> <small>Akkor jelöld be, ha azt szeretnéd, hogy a jegyet ne a tulajdonosának, hanem egy másik, itt megadott e-mailcímre küldjük, így ajándékba tudod adni.</small></p>
                     <div class="form-group col-md-4" style='display:none;' id='ticket_from_box'>
-                        <p>Ebben az esetben a jegyet az itt megadott e-mail címére küldjük. A fenti adatok a jegy tulajdonosra vonatkoznak.</p>
-                        <label class="control-label" for="ticket_from">Ajándékozó e-mail címe <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide annak az e-mail címe, aki az ajándékot küldi."></i></a></label>
-                         <input type="email" class="form-control" id="ticket_from" placeholder="Ez a vásárló e-mail címe!" name="ticket[gift_from]" pattern="[^@]+@[^@]+\.[^@]+" />
+                        <label class="control-label" for="ticket_from">Ajándékozó e-mail címe <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide küldjük a jegyet"></i></a></label>
+                         <input type="email" class="form-control" id="ticket_from" placeholder="Ide küldjük a jegyet!" name="ticket[gift_from]" pattern="[^@]+@[^@]+\.[^@]+" />
                     </div>
                 </div>
                 <div class="col-md-12">
