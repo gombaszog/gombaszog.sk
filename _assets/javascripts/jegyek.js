@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = [];
+  var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
   captcha_reload = function() { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?'+Date.now()+')');
     $('#ticket_captcha').val("");
@@ -84,7 +84,7 @@ if ($(".ticket-form").length > 0) {
     tmp = $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val());
     if (tmp) price += parseFloat(tmp);
     // we keep this line with empty array to have it in the future
-    // tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
+    tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
     // free if the birth date is before 1990
     // tmp = (Date.parse($("#ticket_birth").val()) < 631148400000 ? -originalPrice : 0);
     if (tmp) price += parseFloat(tmp);
@@ -139,7 +139,7 @@ if ($(".ticket-form").length > 0) {
             $(".ticket-hidden").slideToggle("slow");
           });
         }
-      }, {scope: 'publish_actions,user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
+      }, {scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
     });
     //manual
     $('.ticket-manual').click(function (e) {
@@ -152,6 +152,10 @@ if ($(".ticket-form").length > 0) {
     });
     // submit
     $('form#ticket').submit(function (e) {
+      if ($("#ticket_gift").prop("checked") && $('#ticket_from').val() == '') {
+        e.preventDefault();
+        return alert("A továbblépéshez kérünk, add meg az ajándékozott e-mail címét.");
+      }
       if (!$("#ticket_confirm_aszf").prop("checked")) {
         e.preventDefault();
         return alert("A továbblépéshez kérünk, fogadd el az általános szerződési feltételeinket és adatvédelmi irányelveinket.");
@@ -179,6 +183,7 @@ if ($(".ticket-form").length > 0) {
           $("#ticket_custom").val(data.custom);
           $("#ticket_amount").val(data.amount);
           $("#ticket_name").val(data.name);
+          $("#ticket_email").val(data.email);
           $("form#ticket").attr("action", data.action);
           ret = data.ok;
         } else {
@@ -198,6 +203,10 @@ if ($(".ticket-form").length > 0) {
       }
     });
   };
+
+  $('#ticket_gift').on('change', function(){
+    $('#ticket_from_box').slideToggle(500);
+  });
 
   $('#ticket_city').on('keyup',function(){
     if(this.value.length >= 3 && $('#ticket_country').val() == 'SK'){
@@ -273,6 +282,7 @@ if ($(".ticket-form").length > 0) {
     $('#ticket_zip').val( $('#'+value+' .setlPSC').html() );
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
+    calculateTicketPrice();
   }
 
   (function(d, s, id) {

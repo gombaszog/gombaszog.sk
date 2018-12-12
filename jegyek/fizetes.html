@@ -1,0 +1,56 @@
+---
+layout: default
+title: Jegyek
+permalink: /jegyek/fizetes/index.html
+---
+  <style type="text/css">
+    html,body {
+      height: 100%;
+    }
+    .hidden-form {
+        display: none;
+    }
+  </style>
+  <div id="error-page">
+    <div class="error-page-inner">
+      <div class="content-404 bg">
+        <div class="container">
+           <div class="row">
+             <div id="msg"> </div>
+             <div id="pay-form" class="hidden-form">
+               <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                 <input type="hidden" name="first_name" id="first_name" value=""/>
+                 <input type="hidden" name="last_name" id="last_name" value=""/>
+                 <input type="hidden" name="email" id="email" value=""/>
+                 <input type="hidden" name="address1" id="address1" value=""/>
+                 <input type="hidden" name="city" id="city" value=""/>
+                 <input type="hidden" name="zip" id="zip" value=""/>
+                 <input type="hidden" name="country" id="country" value=""/>
+
+                 <input type="hidden" name="night_phone_a" id="night_phone_a" value=""/>
+                 <input type="hidden" name="night_phone_b" id="night_phone_b" value=""/>
+                 <input type="hidden" name="custom" id="custom" value=""/>
+                 <input type="hidden" name="amount" id="amount" value=""/>
+                 <input type="hidden" name="item_name" id="item_name" value=""/>
+
+                 <input type="hidden" name="cmd" value="_ext-enter"/>
+                 <input type="hidden" name="redirect_cmd" value="_xclick"/>
+                 <input type="hidden" name="business" value="gombaszog@gmail.com"/>
+                 <input type="hidden" name="no_shipping" value="1"/>
+                 <input type="hidden" name="currency_code" value="EUR"/>
+                 <input type="hidden" name="notify_url" value="https://www.gombaszog.sk/api/ticket/ipn"/>
+                 <input type="hidden" name="return" value="https://www.gombaszog.sk/jegyek/sikeres"/>
+                 <input type="hidden" name="cancel_return" value="https://www.gombaszog.sk/jegyek/sikertelen"/>
+                 <input type="hidden" name="item_number" value="Belépő/Vstupné"/>
+                 <input type="hidden" name="quantity" value="1"/>
+                 <input type="hidden" name="charset" value="utf-8"/>
+                 <input type="hidden" name="address_override" value="1"/>
+
+                 <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+               </form>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
