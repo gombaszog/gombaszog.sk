@@ -949,6 +949,10 @@ div.biglogo {
   background-color: rgba(45,33,45,.1);
 }
 
+.camping-info-wrapper.map a {
+  color: #ee9624;
+}
+
 .camping-info-wrapper.traffic {
   color: #598c65;
   background-color: rgba(33,66,33,.1);
