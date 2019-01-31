@@ -170,6 +170,13 @@ jQuery(document).ready(function($){
       }
     });
 
+    // add 
+    $('.dropdown').hover(function() {
+      $(this).addClass('open');
+    },
+    function() {
+        $(this).removeClass('open');
+    });
 
   });
 });
