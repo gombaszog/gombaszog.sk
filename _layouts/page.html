@@ -33,7 +33,7 @@ layout: default
                     <a id="drop-rolunk" {% if page.group == 'rolunk' %} class="active"{% endif %} href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Rólunk <b class="caret"></b></a>
                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop-rolunk">
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="/rolunk/gombaszog-ma">Gombaszög ma</a></li>
-                        <li role="presentation"><a {% if page.group == 'rolunk' && page.subgroup == 'gombaszog-tortenete' %} class="active"{% endif %} role="menuitem" tabindex="-1" href="/rolunk/gombaszog-tortenete">Gombaszög története</a></li>
+                        <li role="presentation"><a {% if (page.group == 'rolunk' && page.subgroup == 'gombaszogtortenete') %} class="active"{% endif %} role="menuitem" tabindex="-1" href="/rolunk/gombaszog-tortenete">Gombaszög története</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="/rolunk/szervezok">Szervezők</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="/rolunk/tamogatok-es-partnerek">Támogatók és partnerek</a></li>
