@@ -91,6 +91,7 @@ subgroup: gombaszogszervezok
         </div>
       </div>
     </div>
+  
     <div class="bg">
       <h2 class="heading" id="onkentesek"><strong>Sztaff</strong></h2>
       <div id="onkentesek" class="row">
@@ -115,12 +116,12 @@ subgroup: gombaszogszervezok
           <div class="single-album">
             <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
             <div class="album-heading">
-              <h3>Médiasátor</h3>
-              <p>Kommunikáció, kiadványszerkesztés, informatika</p>
+              <h3>Csapatjáték</h3>
+              <p>Csapatjáték sztaff</p>
             </div>
             <div class="album-overlay">
               <div class="album-info">
-                <h3>Médiasátor</h3>
+                <h3>Csapatjáték</h3>
                 <ul class="icon-list">
                   <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
                 </ul>
@@ -213,247 +214,181 @@ subgroup: gombaszogszervezok
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-
-    <div class="bg">
-      <h2 class="heading" id="helyszin">Hol <strong>lesz</strong>?</h2>
-      <div class="row">
-        <div class="col-md-7">
-          <p class="text-justified">A Gombaszögi Nyári Tábor helyszíne a <strong>gombaszögi kemping</strong>.</p>
-          <p class="text-justified">Gombaszög Szalóc településrésze, Gömörben, a Sajó-völgyében, a Szilicei-fennsík
-            lábánál fekszik. A településrész mára elnéptelenedett, neve mégis ismerősen cseng a legtöbbünk fülében az
-            ifjúsági találkozóknak, illetve a cseppkőbarlangnak köszönhetően. Utóbbit az UNESCO világörökségnek
-            nyilvánította, érdekesség, hogy a barlangban találhatóak a Föld leghosszabb szalmacseppkövei. A táborhely
-            felett elterülő Szilicei-fennsíkot nemzeti parknak nyilvánították.</p>
-        </div>
-        <div class="col-md-5">
-          <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDIkUQcdVfsej4r7ThzziEibiNYKXqRIww&v=3.exp'></script>
-          <div style='overflow:hidden;height:280px;width:430px;'>
-            <div id='gmap_canvas' style='height:280px;width:430px;'></div>
-            <div><small><a href="http://embedgooglemaps.com"> embed google maps </a></small></div>
-            <div><small><a href="https://termsofusegenerator.net">terms of use example</a></small></div>
-            <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Zeneszekció</h3>
+              <p>Kétkezi melódiák</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Zeneszekció</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <script type='text/javascript'>
-            function init_map() {
-              var myOptions = {
-                zoom: 15,
-                center: new google.maps.LatLng(48.5637716, 20.46654220000005),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-              };
-              map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-              marker = new google.maps.Marker({
-                map: map,
-                position: new google.maps.LatLng(48.5637716, 20.46654220000005)
-              });
-              infowindow = new google.maps.InfoWindow({
-                content: '<strong>Szalóc / Slavec</strong><br>Gombaszögi Nyári Tábor<br>'
-              });
-              google.maps.event.addListener(marker, 'click', function () {
-                infowindow.open(map, marker);
-              });
-              infowindow.open(map, marker);
-            }
-            google.maps.event.addDomListener(window, 'load', init_map);
-          </script>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Gombaovi</h3>
+              <p>Gyerekek</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Gombaovi</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Szikrabuzik</h3>
+              <p>Minden, ami villany</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Szikrabuzik</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="bg">
-      <h2 class="heading" id="utazas">Hogy <strong>jutok oda</strong>?</h2>
-      <div class="row">
-        <div class="col-md-12">
-          <a name="partybusz"></a>
-          <h3>Partivonat</h3>
-          <p class="text-justified">Kezdődjön a buli már otthon! Foglalj helyet a <strong>gombaszögi különvonatra</strong>,
-            amely egyenesen a tábor melletti állomásra visz! A nosztalgiaszerelvény Dunaszerdahelyről indul, megállói
-            előreláthatólag a következőképpen alakulnak: Nagymegyer, Komárom, Ógyalla, Érsekújvár, Köbölkút, Párkány,
-            Zselíz, Léva, Zólyom, Losonc és Fülek. A pontos menetrend a tábor közeledtével kerül nyilvánosságra. A
-            különvonat odafelé a nulladik napon (július 15., hétfő) reggel indul, és a tábor utáni reggel (július 21,
-            vasárnap) tér vissza, ára oda-vissza 26 euró. A különvonatra <strong>csak előre megvásárolt jeggyel</strong>
-            lehet felszállni. A vonatjegyet a hetibérlettel együtt (ingyenes hetibérlet esetén is) <a href="http://gombaszog.sk/jegyek/"
-              target="_blank">az online jegyvásárlási felületünkön</a> tudod beszerezni. Amennyiben már megvetted a
-            hetibérleted, vagy regisztráltál az ingyenes jegyre, akkor sincs gond, csak írj az utazas@gombaszog.sk
-            címre.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-7">
-          <h3>Tömegközlekedés</h3>
-          <p class="text-justified"><strong>Menetrend szerinti buszokkal</strong> Rozsnyóról (Rožňava), Pelsőcről
-            (Plešivec), Kassáról (Košice) vagy Szepsiből (Moldava nad Bodvou) lehet megközelíteni a kempinget. A
-            legközelebbi <strong>vasútállomás</strong> Rozsnyón illetve Pelsőcön található, ahová Pozsonyból és
-            Kassáról járnak gyorsvonatok. Bővebb információkért és pontos menetrendekért látogass el <a href="http://cp.sk"
-              target="_blank">cp.sk</a> portálra, vagy használd a keresőnket!</p>
-        </div>
-        <div class="col-md-5">
-          <h3>&nbsp;</h3>
-          <form action="https://cp.hnonline.sk/vlakbus/spojenie/" target="_blank" role="form" method="GET" class="form-horizontal">
-            <input type="hidden" name="time" value="6:00" />
-            <div class="form-group">
-              <label class="control-label col-md-3" for="from">Honnét (szlovákul)</label>
-              <div class="col-md-8">
-                <input id="from" name="f" type="text" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3" for="to">Hová</label>
-              <div class="col-md-8">
-                <select id="to" name="t" class="form-control">
-                  <option value="Slavec,,Gombasecká jaskyňa">Gombaszög</option>
-                  <option value="Rožňava">Rozsnyó</option>
-                  <option value="Slavec">Szalóc (1 km a tábortól)</option>
 
-                </select>
+    <div class="bg">
+      <h2 class="heading" id="onkentesek"><strong>Társszervezők</strong></h2>
+      <div id="onkentesek" class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Médiasátor</h3>
+              <p>Kommunikáció, kiadványszerkesztés, informatika</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Médiasátor</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-md-3" for="when">Mikor</label>
-              <div class="col-md-6">
-                <select id="when" name="date" class="form-control">
-                  <option value="15.07.2019">Nulladik nap - július 15.</option>
-                  <option value="16.07.2019">Első nap - július 16.</option>
-                  <option value="17.07.2019">Második nap - július 17.</option>
-                  <option value="18.07.2019">Harmadik nap - július 18.</option>
-                  <option value="19.07.2019">Negyedik nap - július 19.</option>
-                  <option value="20.07.2019">Ötödik nap - július 20.</option>
-                </select>
-              </div>
-              <div class="col-md-2">
-                <button name="submit" value="true" class="btn-primary btn btn-xs pull-right"><i class="fa fa-search fa-fw"></i></button>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Csapatjáték</h3>
+              <p>Csapatjáték sztaff</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Csapatjáték</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div style="margin-top: 30px;" clclassass="col-md-6">
-          <a href="https://maps.google.com/maps?ll=48.65555,20.598378&z=14&t=m&hl=hu-HU&gl=HU&mapclient=embed&saddr=&daddr=48.6561530,+20.6072710"
-            target="_blank" rel="nofollow"></a>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Kocsmasztaff</h3>
+              <p>Pultozás, kocsma üzemeltetés</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Kocsmasztaff</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h3>Autó, bicikli, stopp</h3>
-          <p class="text-justified">Gombaszög Rozsnyótól kilenc kilométerre található, a Tornaljára, illetve
-            Rimaszombatba vezető főút mentén. A tábornak otthont adó autókemping a Szilice felé vezető út mentén, a
-            Gombaszögi barlang bejáratánál található. Az autóval érkezők a tábor melletti parkolót használhatják a
-            regisztrációt követően. A kemping területe teljesen autómentes, viszont a kerékpáros közlekedés
-            megengedett.</p>
-          <p class="text-justified">A tábor <strong>GPS koordinátái</strong> a következők: <strong>48.563772; 20.466542</strong>.
-          </p>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Porta</h3>
+              <p>Beléptetés, információ</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Beléptetés, információ</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="bg">
-      <h2 class="heading" id="etkezes">Mit fogok <strong>enni és inni</strong>?</h2>
-      <div class="row">
-        <div class="col-md-7">
-          <p class="text-justified">A tábor büféiben <strong>frissítőket, szeszes italokat, hideg és meleg ételeket</strong>
-            kínálunk. Fontos változás az előző évekhez képest, hogy <strong>megszűnik a lecsópasz</strong> intézménye,
-            helyette viszont változatosabb, viszont továbbra is pénztárcabarát reggeli és estebéd menüvel bővül a
-            kínálatunk. Az étlapon szereplő ételek közé tartozik a gírosz, a csirkemell, a szőgyéni kemencés lepény,
-            valamint lángos többféle feltéttel és egyéb klasszikus fesztiváli ételek. Gondoltunk a vegetáriánusokra is,
-            akik választhatnak a rántott sajt és a hús nélküli pizzák közül.</p>
-          <p class="text-justified">A tábor területén üzemel egy <strong>non-stop kocsma</strong>, ahol mindenféle
-            nedűhöz hozzá lehet jutni. A <strong>Szifon</strong> pedig többféle házi szörppel és kávéval várja a
-            kempingben bóklászókat.</p>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Sofőrszekció</h3>
+              <p>Sofőrködés, beszerzés</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Sofőrszekció</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-5">
-          <img src="{% asset_path kajakontent.jpg %}" class="img-responsive" alt="Étkezés" />
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Kártyaszekció</h3>
+              <p>Feltöltő kártyák kezelése</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Kártyaszekció</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="bg">
-      <h2 class="heading" id="szallas">Hol fogok <strong>aludni</strong>?</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <img src="{% asset_path satrak.jpg %}" class="img-responsive" alt="Sátrak" />
-        </div>
-        <div class="col-md-6">
-          <h3>Sátorozás a tábor területén</h3>
-          <p class="text-justified">A tábor területén sátorban vagy lakókocsiban lehet éjszakázni az arra kijelölt
-            területeken. A kemping elhelyezkedése miatt célszerű felkészülni hidegebb éjszakákra is. Minden sátor után
-            <strong>sátordíjat</strong> kell fizetni, melynek ára 10&euro; a tábor teljes idejére, a lakókocsisoknak
-            30&euro;. A sátordíj egységes, függetlenül a sátor méretétől, célszerű tehát többen lakni egy sátorban.</p>
-        </div>
-      </div>
-    </div>
-    <div class="bg">
-      <h2 class="heading" id="egyeb">Egyéb <strong>fontos</strong> tudnivalók</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h3>18 éven aluliak</h3>
-          <p class="text-justified">15 éven aluliaknak a tábor látogatása csak szülői/törvényes képviselői <strong>felügyelet
-              mellett ajánlott</strong>! Ha már elmúltál 15 éves, és a <strong>nulladik napon</strong> (július 15.) még
-            nem töltötted be a 18-at, akkor csak egy <strong>kinyomtatott és aláírt</strong> szülői/törvényes
-            képviselői beleegyezéssel engedhetünk be a tábor területére. Ezt a dokumentumot <a href="{% asset_path under18b.pdf %}"
-              target="_blank">itt</a> tudod letölteni, de internetes jegyelővétel esetén automatikusan hozzácsatoljuk a
-            jegyedhez. A tábori szabályzat bizonyos pontokban <strong>külön kitér a kiskorúakra</strong>, tehát érdemes
-            azt áttanulmányozni. <a href="{% asset_path 2019_rules.pdf %}" target="_blank">Ide</a> kattintva meg is
-            tekintheted! </br> A legkisebbeket a <strong>Gombaovi</strong> várja, ahol szakképzett óvónénik mellett a
-            csemeték is pompásan szórakozhatnak, amíg a szülők a tábor előadásait és koncertjeit élvezik.</p>
-        </div>
-        <div class="col-md-6">
-          <img src="{% asset_path gyerekkel.jpg %}" class="img-responsive" alt="18 év alatt" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-push-4">
-          <h3>Tábori szabályzat</h3>
-          <p class="text-justified">A táborban tartózkodáshoz és mindenki biztonsága érdekében lefektettünk bizonyos <a
-              href="{% asset_path 2019_rules.pdf %}" target="_blank">szabályokat</a>. Ezek elfogadása és betartása
-            <strong>mindenkinek kötelező</strong> a szabályszegés akár kizárást is vonhat maga után!</p>
-          <h3>Fő a biztonság</h3>
-          <p class="text-justified">A tábort idén is profi <strong>két- és négylábú</strong> biztonsági őrök őrzik és
-            védik majd, valamint a rend őrei is a közelben (Rozsnyó) tanyáznak. Az esetleges rosszullétet, könnyebb
-            sérüléseket és egyéb egészségügyi panaszokat <strong>tábororvosunk</strong> a nap 24 órájában kezeli, de
-            komolyabb probléma esetén a rozsnyói kórház csupán tíz perc autóval.</p>
-        </div>
-        <div class="col-md-4 col-md-pull-8">
-          &nbsp;<br />
-          <img src="{% asset_path tuzolto.jpg %}" class="img-responsive" alt="18 év alatt" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-7">
-          <h3>Internet-hozzáférés</h3>
-          <p class="text-justified">A gombaszögi kemping érintetlen szépsége egyben azt jelenti, hogy a tábornak
-            otthont adó völgybe csak igen sovány mobil-térerő jut be. Könnyen előfordulhat, hogy telefonoddal egy
-            magasabb pontra kell sétálnod, ha zavartalanul szeretnél telefonálni. A mobil internet pedig ezen a vidéken
-            viszonylag ritka jelenség, bár mindez nagyban függ attól, milyen szolgáltatód van. A teljes képhez hozzá
-            tartozik, hogy a probléma megoldásán közvetlenül a mobilszolgáltatókkal közösen dolgozunk.</p>
-          <p class="text-justified">A tábor területén több vezeték nélküli hálózatot is működtetünk, de ezek nem
-            mindegyike biztosít internet-hozzáférést. Legtöbbjük valamilyen belső adattovábbításra (képek, videók,
-            statisztikák) vagy pedig a sajtósoknak van fenntartva. Sajnos a környék gyenge internetes lefedettsége
-            miatt nem tudjuk garantálni, hogy a felesleges sávszélességünk lérhető legyen mindenki számára, de
-            igyekszünk ezt megoldani.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="img-responsive" src="{% asset_path wifi.jpg %}" alt="Internet-hozzáférés" style="margin-top: 20px;" />
-        </div>
-      </div>
-    </div>
-    <div class="bg">
-      <h2 class="heading" id="etkezes"><strong>Csatlakozz</strong> csapatunkhoz!</h2>
-      <div class="row">
-        <div class="col-md-7">
-          <p class="text-justified">Légy te is Gombaszög csapatának a része! <strong>Ha szívesen dolgoznál együtt több
-              mint száz önkéntessel</strong>, ha szeretnél hozzájárulni Gombaszög és így a felvidéki fiatalság
-            fejlődéséhez és feltöltődéséhez, írj nekünk az info<i class="fa fa-exclamation-circle"></i>gombaszog.sk
-            címre! Kérjük, pár sorban foglald össze, ki vagy, honnan jöttél, mihez értesz, és mi az, amiben szívesen
-            tevékenykednél.</p>
-          <p class="text-justified">Gombaszög erejét a több mint kéttucatnyi társszervező civil szervezet adja, akik
-            szerepet vállalnak a programok létrehozásában, a tábor lebonyolításában, vagy a felépítésében. <strong>Ha
-              egyesületetekkel, polgári társulásotokkal vagy bármilyen más szerveződésetekkel</strong> csatlakoznátok
-            Gombaszög csapatához, írjatok az info<i class="fa fa-exclamation-circle"></i>gombaszog.sk címre egy rövid
-            bemutatkozást, és pár sort arról, mihez tudnátok hozzájárulni!</p>
-          <p class="text-justified">A rendezvényen számos szolgáltatást külső partnerekkel végzünk. Ha <strong>árusként
-              szeretnél jelentkezni</strong>, kérlek, írj a info<i class="fa fa-exclamation-circle"></i>gombaszog.sk
-            címre, vagy keresd Kocskovics Petit, akinek a telefonszámát pár sorral lejjebb találod.</p>
-        </div>
-        <div class="col-md-5">
-          <img src="{% asset_path csatlakozz.jpg %}" class="img-responsive" alt="Csapat" />
+        <div class="col-md-3 col-sm-6">
+          <div class="single-album">
+            <img src="{% asset_path kapcsolat/mediasatorpng.png %}" alt="Médiasátor">
+            <div class="album-heading">
+              <h3>Műszaki brigád</h3>
+              <p>Kétkezi melódiák</p>
+            </div>
+            <div class="album-overlay">
+              <div class="album-info">
+                <h3>Műszaki brigád</h3>
+                <ul class="icon-list">
+                  <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
