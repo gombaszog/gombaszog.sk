@@ -701,12 +701,12 @@ input.has-error {
 .profile { margin-bottom: 30px;}
 .profile .single-album {margin-bottom: 10px;}
 
-#rolunk-szervezok .single-album {
+.rolunk-szervezok .single-album {
   background-color: #ffffffb5;
 }
 
-#rolunk-szervezok .single-album p {
-  color: #FFFFFF !important;
+#rolunk-szervezok .album-info p {
+  color: #FFFFFF;
   font-weight: bold;
 }
 
