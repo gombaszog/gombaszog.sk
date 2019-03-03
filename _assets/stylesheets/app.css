@@ -705,7 +705,7 @@ input.has-error {
   background-color: #ffffffb5;
 }
 
-#rolunk-szervezok .album-info p {
+.rolunk-szervezok .album-info p {
   color: #FFFFFF;
   font-weight: bold;
 }
