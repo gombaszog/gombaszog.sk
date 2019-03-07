@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function() {
-    $.getJSON("/api/ticket/available").done(function (data) {
+    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
       $.each(data.bus, function(k,v) {
         $("#ticket_bus").append(
           $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' (még '+v.free+' hely) +'+parseInt(v.price)+'&euro;</option>')
@@ -28,7 +28,9 @@ if ($(".ticket-form").length > 0) {
           $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' +'+parseInt(v.price)+'&euro;</option>')
         );
       });
-      $('#price').data('price', data.ticket).html(data.ticket);
+      $('#hetijegy').data('price', data.ticketweek);
+      $('#napijegy').data('price', data.ticketday);
+      $('#price').html(data.ticketweek);
     });
   }
   mark = function (e) {
@@ -73,7 +75,21 @@ if ($(".ticket-form").length > 0) {
   }
 
   var calculateTicketPrice = function() {
-    price = parseFloat($('#price').data('price'));
+    if($('#ticket_category').val() == 'hetijegy'){
+      price = parseFloat($('#hetijegy').data('price'));
+    }
+    else if($('#ticket_category').val() == 'napijegy'){
+      var countDays = 0;
+      $('.days input').each(function(){
+        if($(this).is(':checked')){
+          countDays += 1;
+        }
+      });
+      price = parseFloat($('#napijegy').data('price')) * countDays;
+      if(price >= parseFloat($('#hetijegy').data('price'))){
+        alert("Elérted a hetijegy árát, inkább vegyél azt");
+      }
+    }
     var originalPrice = price;
     tmp = $("#ticket_housing option:selected").data('price');
     if (tmp) price += parseFloat(tmp);
@@ -162,6 +178,7 @@ if ($(".ticket-form").length > 0) {
       }
       $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
       ret = false;
+      console.log($("form#ticket").serializeObject());
       $.ajax({
         url: '/api/ticket',
         type: 'POST',
@@ -203,6 +220,16 @@ if ($(".ticket-form").length > 0) {
       }
     });
   };
+
+  $('#ticket_category').on('change', function(){
+    if($('#ticket_category').val() == 'napijegy'){
+      $('#select_days').fadeIn(500);
+    }
+    else{
+      $('#select_days').hide();
+    }
+    $(".days").prop( "checked", false );
+  });
 
   $('#ticket_gift').on('change', function(){
     $('#ticket_from_box').slideToggle(500);
@@ -257,7 +284,6 @@ if ($(".ticket-form").length > 0) {
         });
       }
       catch(err){
-        console.log('test');
         $('#settlement_fill').html('');
         $('#settlement_fill').slideUp(500);
       }

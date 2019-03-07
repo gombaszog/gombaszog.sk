@@ -420,6 +420,13 @@ group: jegyek
                       <option value="sator" data-price="10.0">Sátorban +10€</option>
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label class="control-label" for="ticket_category">Jegytípus </label>
+                    <select id="ticket_category" name="ticket[category]" class="form-control influence">
+                      <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
+                      <option value="napijegy" id='napijegy' data-price="">Napijegy</option>
+                    </select>
+                  </div>
                   <div class="row" style="display: none">
                     <div class="col-xs-7">
                       <div class="form-group">
@@ -545,6 +552,49 @@ group: jegyek
                     </div>
                   </div>
                   <label>&nbsp;</label>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-md-12 form-group' id='select_days' style='display:none;'>
+                  <div>
+                    <label class="control-label" for="ticket_days">Melyik napokra?</label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_hetfo">
+                      <input type="checkbox" class='influence' name="ticket[nap_hetfo]" id="ticket_nap_hetfo" value="1">
+                      Hétfő
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_kedd">
+                      <input type="checkbox" class='influence' name="ticket[nap_kedd]" id="ticket_nap_kedd" value="1">
+                      Kedd
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_szerda">
+                      <input type="checkbox" class='influence' name="ticket[nap_szerda]" id="ticket_nap_szerda" value="1">
+                      Szerda
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_csutortok">
+                      <input type="checkbox" class='influence' name="ticket[nap_csutortok]" id="ticket_nap_csutortok" value="1">
+                      Csütörtök
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_péntek">
+                      <input type="checkbox" class='influence' name="ticket[nap_pentek]" id="ticket_nap_pentek" value="1">
+                      Péntek
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_szombat">
+                      <input type="checkbox" class='influence' name="ticket[nap_szombat]" id="ticket_nap_szombat" value="1">
+                      Szombat
+                    </label>
+                  </div>
                 </div>
               </div>
               <div class="row">
