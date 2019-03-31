@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function() {
-    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
+    $.getJSON("/api/ticket/available").done(function (data) {
       $.each(data.bus, function(k,v) {
         $("#ticket_bus").append(
           $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' (még '+v.free+' hely) +'+parseInt(v.price)+'&euro;</option>')
@@ -45,8 +45,12 @@ if ($(".ticket-form").length > 0) {
     } else if (e.email == "retry") {
       $("#ticket_email").removeClass("has-error");
       alert("Valamikor az elmúlt három órában már próbálkoztál egy jegyelővétellel, de nem jártál sikerrel. Az egyes újrapróbálkozások között minimum három órának kell eltelnie, tehát arra kérünk várd ki ezt az időt és később próbálkozz újra!");
-    } else if (e.price) {
+    } else if (e.price || e.empty) {
       alert("A fizetendő összeg nem lehet 0€!");
+    } else if (e.noday){
+      alert("Nincs kiválasztva nap")
+    } else if (e.wrongtype){
+      alert("Rossz jegytípus van kiválasztva")
     } else alert("Hoppá! Az űrlapot hibásan töltötted ki, a javítandó mezőket megjelöltük pirossal!");
   }
 
@@ -75,29 +79,35 @@ if ($(".ticket-form").length > 0) {
   }
 
   var calculateTicketPrice = function() {
+    price = 0;
     if($('#ticket_category').val() == 'hetijegy'){
-      price = parseFloat($('#hetijegy').data('price'));
+      price = !$('#ticket_category').is(':disabled') ? parseFloat($('#hetijegy').data('price')) : 0;
     }
     else if($('#ticket_category').val() == 'napijegy'){
       var countDays = 0;
+      var countAllDays = 0;
       $('.days input').each(function(){
         if($(this).is(':checked')){
-          countDays += 1;
+          
+          countAllDays += 1;
+          if(!$(this).is(':disabled')){
+            countDays += 1;
+          }
         }
       });
       price = parseFloat($('#napijegy').data('price')) * countDays;
-      if(price >= parseFloat($('#hetijegy').data('price'))){
+      if((parseFloat($('#napijegy').data('price')) * countAllDays) >= parseFloat($('#hetijegy').data('price'))){
         alert("Elérted a hetijegy árát, inkább vegyél azt");
       }
     }
     var originalPrice = price;
-    tmp = $("#ticket_housing option:selected").data('price');
+    tmp = !$("#ticket_housing").is(':disabled') ? $("#ticket_housing option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp = $("#ticket_food option:selected").data('price');
+    tmp =  !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp = $("#ticket_bus option:selected").data('price');
+    tmp =  !$("#ticket_bus").is(':disabled') ? $("#ticket_bus option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp = $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val());
+    tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
     if (tmp) price += parseFloat(tmp);
     // we keep this line with empty array to have it in the future
     tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
@@ -167,7 +177,7 @@ if ($(".ticket-form").length > 0) {
       $(".ticket-hidden").slideToggle("slow");
     });
     // submit
-    $('form#ticket').submit(function (e) {
+    $('form.ticket-orig').submit(function (e) {
       if ($("#ticket_gift").prop("checked") && $('#ticket_from').val() == '') {
         e.preventDefault();
         return alert("A továbblépéshez kérünk, add meg az ajándékozott e-mail címét.");
@@ -308,7 +318,6 @@ if ($(".ticket-form").length > 0) {
     $('#ticket_zip').val( $('#'+value+' .setlPSC').html() );
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
-    calculateTicketPrice();
   }
 
   (function(d, s, id) {
@@ -342,19 +351,108 @@ jQuery(document).ready(function($){
         var msg = "";
         if(data.status == "waiting") {
           msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;. A fizetéshez kattints a PayPal-os képre:";
+          $('#ticket-addition').remove();
           $.each( data, function( key, val ) {
               $("#"+key).val(val);
           });
           $("#pay-form").removeClass("hidden-form");
         } else if(data.status == "dropped") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni három órás időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni 2 napos időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
         } else if(data.status == "completed") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />ezt a jegyet már kifizetted. Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
+          msg = "Kedves "+data.ticket_last_name+" "+data.ticket_first_name+", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
+          $('#pay-form').remove();
+          $('form')[0].reset();
+          $('#ticket_voucher').val(getUrlVars().voucher);
+          captcha_reload();
+          loadVars();
+          console.log(data);
+          $.each( data, function( key, val ) {
+            if(key == "ticket_nap_hetfo" || 
+                key == "ticket_nap_kedd" || 
+                key == "ticket_nap_szerda"  || 
+                key == "ticket_nap_csutortok" || 
+                key == "ticket_nap_pentek" || 
+                key == "ticket_nap_szombat"){
+                  $("#"+key).click()
+                        .attr('disabled', 'disabled');
+                }
+            else{
+              $("#"+key).val(val)
+                        .change();
+            }
+            if(key == 'ticket_category' && val == "napijegy"){
+              $('#select_days').fadeIn(500);
+            }
+            else if(key == 'ticket_category' && val == "hetijegy"){
+              $(".days").prop( "checked", false );
+              $('#ticket_category').attr('disabled', 'disabled');
+              $('#ticket_voucher').attr('disabled', 'disabled');
+            }
+            if(key == 'ticket_tent' && val == true){
+              $('#ticket_housing').val('0')
+                                  .attr('disabled', 'disabled')
+            }
+            else if(key == 'ticket_housing_id' && val != null){
+              $('#ticket_housing').val('0')
+                                  .attr('disabled', 'disabled')
+            }
+            if(key == 'ticket_bus' && val != null){
+              setTimeout( function(){
+                $("#"+key).attr('disabled', 'disabled');
+                $("#"+key).val(val)
+                          .change();
+              }, 1000);
+            }
+          });
         } else {
           msg = "A jegy nem található. Kérlek, ellenőrizd a linket, vagy lépj kapcsolatba velünk a jegyek@gombaszog.sk címen.";
         }
         $('#msg').html(msg);
       });
+
+
+
+      $('form.ticket-addition').submit(function(e){
+        if (!$("#ticket_confirm_aszf").prop("checked")) {
+          e.preventDefault();
+          return alert("A továbblépéshez kérünk, fogadd el az általános szerződési feltételeinket és adatvédelmi irányelveinket.");
+        }
+        $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
+        ret = false;
+        console.log($("form#ticket-addition").serializeObject());
+        $.ajax({
+          url: 'https://felho.gombaszog.sk/api/ticket/addition',
+          type: 'POST',
+          timeout: 2000,
+          async: false,
+          data: $("form#ticket").serializeObject(),
+          dataType: 'json'
+        }).done(function (data) {
+          if (data.ok) {
+            $("#ticket_first_name").attr("name", "first_name");
+            $("#ticket_last_name").attr("name", "last_name");
+            $("#ticket_email").attr("name", "email");
+            $("#ticket_address").attr("name", "address1");
+            $("#ticket_city").attr("name", "city");
+            $("#ticket_zip").attr("name", "zip");
+            $("#ticket_country").attr("name", "country");
+            $("#ticket_phone_a").val(data.phone_a)
+            $("#ticket_phone").attr("name", "night_phone_b").val(data.phone_b);
+            $("#ticket_custom").val(data.custom);
+            $("#ticket_amount").val(data.amount);
+            $("#ticket_name").val(data.name);
+            $("#ticket_email").val(data.email);
+            $("form#ticket").attr("action", data.action);
+            ret = data.ok;
+          } else {
+            mark(data);
+            $('#buybutton').html("&nbsp;Tovább&nbsp;");
+            e.preventDefault();
+          }
+        });
+        
+        return ret;
+      })
     }
   });
 });
