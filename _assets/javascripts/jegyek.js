@@ -137,10 +137,8 @@ if ($(".ticket-form").length > 0) {
     // autoload captcha
     $('.re-captcha').click(captcha_reload);
     // facebook
-    $('.ticket-fb').click(function(e) {
-      e.preventDefault();
+    $('.ticket-fb').click(function() {
       $('form')[0].reset();
-      $('#ticket_voucher').val(getUrlVars().voucher);
       captcha_reload();
       FB.login(function(response) { // log in
         if (response.authResponse) { // logged in
@@ -168,13 +166,12 @@ if ($(".ticket-form").length > 0) {
       }, {scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
     });
     //manual
-    $('.ticket-manual').click(function (e) {
+    $('.ticket-orig').on('load', function (e) {
       e.preventDefault();
       $('form')[0].reset();
       $('#ticket_voucher').val(getUrlVars().voucher);
       captcha_reload();
       loadVars();
-      $(".ticket-hidden").slideToggle("slow");
     });
     // submit
     $('form.ticket-orig').submit(function (e) {
@@ -347,7 +344,7 @@ function getParameterByName(name) {
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
-      $.getJSON("https://felho.gombaszog.sk/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
         var msg = "";
         if(data.status == "waiting") {
           msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;. A fizetéshez kattints a PayPal-os képre:";
@@ -373,9 +370,11 @@ jQuery(document).ready(function($){
                 key == "ticket_nap_csutortok" || 
                 key == "ticket_nap_pentek" || 
                 key == "ticket_nap_szombat"){
-                  $("#"+key).click()
+                  if(val == 1){
+                    $("#"+key).click()
                         .attr('disabled', 'disabled');
-                }
+                  }
+            }
             else{
               $("#"+key).val(val)
                         .change();
@@ -421,7 +420,7 @@ jQuery(document).ready(function($){
         ret = false;
         console.log($("form#ticket-addition").serializeObject());
         $.ajax({
-          url: 'https://felho.gombaszog.sk/api/ticket/addition',
+          url: '/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,

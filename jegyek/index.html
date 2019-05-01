@@ -77,7 +77,7 @@ group: jegyek
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <!--div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path kaja.png %}" class="img-responsive" />
@@ -87,37 +87,20 @@ group: jegyek
                     <p>Lecsópasz nincs!</p>
                     <p>Helyette <span>pénztárcabarát</span> reggeli és esti menü</p>
                   </div>
-                </div>
+                </div-->
               </div>
             </div>
           </div>
           <!-- jegyvetel start -->
 
-          <div class="ticket-hidden" style="display: block;">
-            <h2 class="text-center roll-here" style="padding-bottom: 1em;">A jegyelővétel/regisztráció megkezdéséhez válassz egy kitöltési opciót:</h2>
-            <div class="row">
-              <div class="col-md-4 text-center col-md-offset-2">
-                <a class="ticket-fb" href="#">
-                  <i class="fa fa-facebook-square fa-5x"></i>
-                  <h3>Facebook app használata</h3>
-                  <p><small>Az app a vásárlás után engedélyek függvényében<br />képet posztol a faladra,<br />és hozzáad a Facebook-eseményhez.</small></p>
-                </a>
-              </div>
-              <div class="col-md-4 text-center">
-                <a class="ticket-manual" href="#">
-                  <i class="fa fa-edit fa-5x"></i>
-                  <h3>Adatok kitöltése kézzel</h3>
-                  <p><small>Ha szeretsz többet pötyögni <i class="fa fa-smile-o"></i></small></p>
-                </a>
-              </div>
-            </div>
             <!--h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel július 14. éjfélig fogadja a rendeléseket!</h4-->
             <!--h4 class="text-center">Segítségért olvasd el <a href="/2014/06/09/vigyazz-kesz-indul-a-jegyvasar/#leiras" target="_blank">leírásunkat</a> a jegyelővétel menetéről!</h4-->
             <!--h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll, pár óra türelmet kérünk!</h2-->
           </div>
-          <div class="ticket-hidden">
+          <div class="roll-here">
+            <br>
             <form role="form" class="ticket-form ticket-orig" action="/jegyek/sikertelen" method="POST" id="ticket">
-              <h2>A jegytulajdonos adatai</h2>
+              <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook segítségével</button></h2>
               <input type="hidden" name="cmd" value="_ext-enter">
               <input type="hidden" name="redirect_cmd" value="_xclick">
               <input type="hidden" name="business" value="gombaszog@gmail.com" />
