@@ -45,6 +45,8 @@ if ($(".ticket-form").length > 0) {
     } else if (e.email == "retry") {
       $("#ticket_email").removeClass("has-error");
       alert("Valamikor az elmúlt három órában már próbálkoztál egy jegyelővétellel, de nem jártál sikerrel. Az egyes újrapróbálkozások között minimum három órának kell eltelnie, tehát arra kérünk várd ki ezt az időt és később próbálkozz újra!");
+    } else if (e.buyweek) {
+      alert("Vegyél inkább hetijegyet, mivel ingyen van.");
     } else if (e.price || e.empty) {
       alert("A fizetendő összeg nem lehet 0€!");
     } else if (e.noday){
@@ -217,6 +219,29 @@ if ($(".ticket-form").length > 0) {
         }
       });
       return ret;
+    });
+
+    $('form#ticket-barcode-find').submit(function (e) {
+      e.preventDefault();
+      var barcode = $('#barcode_find').val();
+      $.ajax({
+        url: '/api/ticket/find/'+barcode,
+        type: 'GET',
+        timeout: 2000,
+        async: false,
+        dataType: 'json'
+      }).done(function (data) {
+        if (data.redirect) {
+          window.location.href = data.redirect;
+        } else {
+          alert("Nincs ilyen jegy vagy még nem volt kifizetve.");
+        }
+      });
+      return ret;
+    });
+
+    $('#ticket_barcode_box').click(function(e){
+      $('#ticket_barcode_find_box').slideToggle(500);
     });
 
     $('#ticket').bind("keyup keypress", function(e) {

@@ -612,6 +612,23 @@ group: jegyek
               <input type="hidden" name="ticket[fbid]" id="ticket_fbid"/>
               <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token"/>
             </form>
+            <br>
+            <form role="form" class="ticket-form redirect-completed" action="/jegyek/sikertelen" method="GET" id="ticket-barcode-find">
+              <div class="col-md-12">
+                  <p style='text-align: center;'>
+                  <button id="ticket_barcode_box" class='btn btn-warning btn-md' type="button">Szeretnék a jegyemhez<strong> kiegészítőt </strong> venni.</button>
+                  <div class="form-group col-md-offset-2 col-md-8" style='display:none;' id='ticket_barcode_find_box'>
+                      <br>
+                      <label class="control-label" for="barcode_find">A jegyem vonalkódja <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ez található a jegyen"></i></a></label>
+                      <div class="input-group" style='text-align: middle;'>
+                        <input type="text" class="form-control" id="barcode_find" placeholder="Ez található a jegyen" name="barcode_find" />
+                        <span class="input-group-btn">
+                          <button id="search_barcode" type="submit" class='btn btn-primary btn-xs'>Keresés</button>
+                        </span>
+                      </div>
+                  </div>
+              </div>
+            </form>
           </div>
           <!-- jegyvetel end
           -->
