@@ -159,7 +159,6 @@ if ($(".ticket-form").length > 0) {
               $('#ticket_birth').val([date[0],date[2],date[1]].join("-"));
             }
             // show the form
-            loadVars();
             alert("Betöltöttük a Facebook adataidat, de kérünk még ellenőrizd, hogy megfelelnek-e a a valóságnak!");
             setTimeout(calculateTicketPrice, 1000);
             $(".ticket-hidden").slideToggle("slow");
@@ -168,13 +167,12 @@ if ($(".ticket-form").length > 0) {
       }, {scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
     });
     //manual
-    $('.ticket-orig').on('load', function (e) {
-      e.preventDefault();
+    if ( $('.ticket-orig').length > 0 ){
       $('form')[0].reset();
       $('#ticket_voucher').val(getUrlVars().voucher);
       captcha_reload();
       loadVars();
-    });
+    }
     // submit
     $('form.ticket-orig').submit(function (e) {
       if ($("#ticket_gift").prop("checked") && $('#ticket_from').val() == '') {
