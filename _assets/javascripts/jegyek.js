@@ -235,11 +235,6 @@ if ($(".ticket-form").length > 0) {
           alert("Nincs ilyen jegy vagy még nem volt kifizetve.");
         }
       });
-      return ret;
-    });
-
-    $('#ticket_barcode_box').click(function(e){
-      $('#ticket_barcode_find_box').slideToggle(500);
     });
 
     $('#ticket').bind("keyup keypress", function(e) {

@@ -100,7 +100,7 @@ group: jegyek
           <div class="roll-here">
             <br>
             <form role="form" class="ticket-form ticket-orig" action="/jegyek/sikertelen" method="POST" id="ticket">
-              <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook segítségével</button></h2>
+              <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook segítségével</button> <button id="ticket_barcode_box" data-toggle="modal" data-target="#ticket-barcode-modal" class='btn btn-warning btn-sm' type="button">Szeretnék a jegyemhez<strong> kiegészítőt </strong> venni.</button></h2>
               <input type="hidden" name="cmd" value="_ext-enter">
               <input type="hidden" name="redirect_cmd" value="_xclick">
               <input type="hidden" name="business" value="gombaszog@gmail.com" />
@@ -612,23 +612,6 @@ group: jegyek
               <input type="hidden" name="ticket[fbid]" id="ticket_fbid"/>
               <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token"/>
             </form>
-            <br>
-            <form role="form" class="ticket-form redirect-completed" action="/jegyek/sikertelen" method="GET" id="ticket-barcode-find">
-              <div class="col-md-12">
-                  <p style='text-align: center;'>
-                  <button id="ticket_barcode_box" class='btn btn-warning btn-md' type="button">Szeretnék a jegyemhez<strong> kiegészítőt </strong> venni.</button>
-                  <div class="form-group col-md-offset-2 col-md-8" style='display:none;' id='ticket_barcode_find_box'>
-                      <br>
-                      <label class="control-label" for="barcode_find">A jegyem vonalkódja <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ez található a jegyen"></i></a></label>
-                      <div class="input-group" style='text-align: middle;'>
-                        <input type="text" class="form-control" id="barcode_find" placeholder="Ez található a jegyen" name="barcode_find" />
-                        <span class="input-group-btn">
-                          <button id="search_barcode" type="submit" class='btn btn-primary btn-xs'>Keresés</button>
-                        </span>
-                      </div>
-                  </div>
-              </div>
-            </form>
           </div>
           <!-- jegyvetel end
           -->
@@ -636,6 +619,31 @@ group: jegyek
       </div>
     </div>
   </div>
+
+  
+    <div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="#ticket-barcode-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="ticket-barcode-label">Kiegészítő jegy vásárlása</h4>
+          </div>
+          <div class="modal-body" >
+            <form role="form" class="ticket-form redirect-completed row" action="/jegyek/sikertelen" method="GET" id="ticket-barcode-find">
+              <div class="form-group col-md-offset-2 col-md-8" id='ticket_barcode_find_box'>
+                <label class="control-label" for="barcode_find">A jegyem vonalkódja <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ez található a jegyen"></i></a></label>
+                <div class="input-group" style='text-align: middle;'>
+                  <input type="text" class="form-control" id="barcode_find" placeholder="Ez található a jegyen" name="barcode_find" />
+                  <span class="input-group-btn">
+                    <button id="search_barcode" type="submit" class='btn btn-primary btn-xs'>Keresés</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="modal fade" id="aszf" tabindex="-1" role="dialog" aria-labelledby="#aszf_label" aria-hidden="true">
     <div class="modal-dialog">
