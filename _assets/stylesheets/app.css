@@ -788,3 +788,9 @@ div.biglogo {
 .setlRow:hover{
   background-color: lightgrey;
 }
+
+.days{
+  display: inline-block;
+  margin-top:5px !important;
+  padding-right:20px;
+}
