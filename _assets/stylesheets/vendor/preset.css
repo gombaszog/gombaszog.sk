@@ -407,6 +407,136 @@ button:hover,
   background: rgba(46, 204, 113, 0.7);
 }
 
+.item:nth-child(11) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+.item:nth-child(11) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(11) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(11) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(155, 89, 182, 0.7);
+}
+
+.item:nth-child(12) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+.item:nth-child(12) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(12) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(12) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.item:nth-child(13) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(13) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(13) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(155, 89, 182, 0.7);
+}
+.item:nth-child(13) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.item:nth-child(14) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(14) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+.item:nth-child(14) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(14) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(46, 204, 113, 0.7);
+}
+
+.item:nth-child(15) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+.item:nth-child(15) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(15) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(15) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.item:nth-child(16) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(16) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(16) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(155, 89, 182, 0.7);
+}
+.item:nth-child(16) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.item:nth-child(17) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+.item:nth-child(17) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(17) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(17) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(155, 89, 182, 0.7);
+}
+
+.item:nth-child(18) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+.item:nth-child(18) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(18) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(18) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.item:nth-child(19) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(211, 84, 0, 0.7);
+}
+.item:nth-child(19) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(52, 152, 219, 0.7);
+}
+.item:nth-child(19) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(155, 89, 182, 0.7);
+}
+.item:nth-child(19) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.item:nth-child(20) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
+  background: rgba(231, 76, 60, 0.7);
+}
+.item:nth-child(20) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
+  background: rgba(26, 188, 156, 0.7);
+}
+.item:nth-child(20) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
+  background: rgba(230, 126, 34, 0.7);
+}
+.item:nth-child(20) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
+  background: rgba(46, 204, 113, 0.7);
+
+
 
 #music a .single-album .album-heading,
 #city .single-album .album-heading 
