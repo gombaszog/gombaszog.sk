@@ -17,7 +17,7 @@ permalink: /jegyek/fizetes/index.html
         <div class="container">
            <div class="row">
              <div id="msg"> </div>
-             <div id="pay-form" class="hidden-form">
+             <!--div id="pay-form" class="hidden-form">
                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                  <input type="hidden" name="first_name" id="first_name" value=""/>
                  <input type="hidden" name="last_name" id="last_name" value=""/>
@@ -48,7 +48,7 @@ permalink: /jegyek/fizetes/index.html
 
                  <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
                </form>
-             </div>
+             </div>-->
 
              <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="POST" id="ticket">
               <h2>A jegytulajdonos adatai</h2>
@@ -395,9 +395,14 @@ permalink: /jegyek/fizetes/index.html
               </div>
               <div class="row">
                 <div class="col-md-9">
-                  <p class="text-justified"><small>
-                   A jegyeket a <strong>PayPal</strong> felületén bankkártyával vagy PayPal számlával lehet kifizetni. Sikeres tranzakció esetén a jegyet <strong>a megadott e-mail címre</strong> küldjük el. Ha kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac] gombaszog [pont] sk</strong> e-mail címre!
-                  </small></p>
+                    A jegyeket a ideiglenesen <strong>kizárólag banki átutalással</strong>, illetve <strong>személyesen</strong> lehet kifizetni. Sikeres tranzakció esetén a jegyet <strong>a megadott e-mail címre</strong> küldjük el. Ha kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac] gombaszog [pont] sk</strong> e-mail címre!
+                  </p>
+                  <p class="text-justified"></p>
+                    Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt napon belül meg kell érkeznie az alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló <strong>itt megadott e-mailcímét.</strong>
+                  </p>
+                  <p class="text-justified"></p>
+                    Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi irodánkban (Duna rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
+                  </p>
                   <p class="text-justified"><small>
                    Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a <strong>"Tovább"</strong> gombra való kattintás után jelenik meg.
                   </small></p>
@@ -405,7 +410,7 @@ permalink: /jegyek/fizetes/index.html
                 <div class="col-md-3">
                   <h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span id="price"></span>€*</strong></h2>
                   <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button></p>
-                  <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p>
+                  <!--p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p-->
                 </div>
               </div>
               <input type="hidden" name="ticket[fbid]" id="ticket_fbid"/>
