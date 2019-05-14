@@ -361,7 +361,7 @@ jQuery(document).ready(function($){
       $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
         var msg = "";
         if(data.status == "waiting") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";
+          /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
           /* temporary */
           $('.ticket-price-success-pay').html('A jegy ára: <strong>&euro;' + data.amount + '</strong>');
           /* temporary */
