@@ -134,10 +134,12 @@ if ($(".ticket-form").length > 0) {
       }, "slow");
     });
     $('#btn-dayticket').click(function() {
-      $("#ticket_category").val("napijegy")
+      $("#ticket_category").val("napijegy");
+      $('#select_days').fadeIn(500);
     });
     $('#btn-weekticket').click(function() {
-      $("#ticket_category").val("hetijegy")
+      $("#ticket_category").val("hetijegy");
+      $('#select_days').hide();
     });
     // calculate price
     $('.influence').on("change", calculateTicketPrice);
