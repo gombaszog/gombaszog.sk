@@ -128,10 +128,17 @@ if ($(".ticket-form").length > 0) {
       version: 'v2.9'
     });
     // scroller
-    $('.btn-pricing').click(function() {
+    $('.btn-pricing-weekticket').click(function() {
       $('body,html').animate({
         scrollTop: $('.roll-here').offset().top
       }, "slow");
+      $("#ticket_category").val("hetijegy")
+    });
+    $('.btn-pricing-dayticket').click(function() {
+      $('body,html').animate({
+        scrollTop: $('.roll-here').offset().top
+      }, "slow");
+      $("#ticket_category").val("napijegy")
     });
     // calculate price
     $('.influence').on("change", calculateTicketPrice);
