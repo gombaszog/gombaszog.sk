@@ -203,8 +203,8 @@ if ($(".ticket-form").length > 0) {
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
-          $("form#ticket").attr("action", "/jegyek/sikeres/?amount="+data.amount);
-          ret = data.ok;
+          document.location.replace("/jegyek/sikeres?amount="+data.amount);
+          ret = false;
         } else {
           mark(data);
           $('#buybutton').html("&nbsp;Tovább&nbsp;");
@@ -446,8 +446,8 @@ jQuery(document).ready(function($){
             $("#ticket_amount").val(data.amount);
             $("#ticket_first_name").attr("name", "first_name");
             $("#ticket_last_name").attr("name", "last_name");
-            $("form#ticket").attr("action", "/jegyek/sikeres/?amount="+data.amount);
-            ret = data.ok;
+            document.location.replace("/jegyek/sikeres?amount="+data.amount);
+            ret = false;
           } else {
             mark(data);
             $('#buybutton').html("&nbsp;Tovább&nbsp;");
@@ -460,7 +460,14 @@ jQuery(document).ready(function($){
     }
 
     if($('.ticket-price-success').length > 0){
-      $('.ticket-price-success').html('A jegy ára: <strong>&euro;' + window.location.search.split('=')[1] + '</strong>');
+      if(window.location.search.split('=')[1] == 0){
+        $(".hide-this").hide();
+        $(".show-this").show();
+      }
+      else{
+        $('.ticket-price-success').html('A jegy ára: <strong>&euro;' + window.location.search.split('=')[1] + '</strong>');
+        $(".show-this").hide();
+      }
     }
   });
 });
