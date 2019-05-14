@@ -203,7 +203,7 @@ if ($(".ticket-form").length > 0) {
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
-          $("form#ticket").attr("action", "/jegyek/sikeres");
+          $("form#ticket").attr("action", "/jegyek/sikeres/?amount="+data.amount);
           ret = data.ok;
         } else {
           mark(data);
@@ -354,6 +354,7 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
@@ -361,6 +362,9 @@ jQuery(document).ready(function($){
         var msg = "";
         if(data.status == "waiting") {
           msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";
+          /* temporary */
+          $('.ticket-price-success-pay').html('A jegy ára: <strong>&euro;' + data.amount + '</strong>');
+          /* temporary */
           $('#ticket-addition').remove();
           $.each( data, function( key, val ) {
               $("#"+key).val(val);
@@ -422,8 +426,6 @@ jQuery(document).ready(function($){
         $('#msg').html(msg);
       });
 
-
-
       $('form.ticket-addition').submit(function(e){
         if (!$("#ticket_confirm_aszf").prop("checked")) {
           e.preventDefault();
@@ -444,7 +446,7 @@ jQuery(document).ready(function($){
             $("#ticket_amount").val(data.amount);
             $("#ticket_first_name").attr("name", "first_name");
             $("#ticket_last_name").attr("name", "last_name");
-            $("form#ticket").attr("action", "/jegyek/sikeres");
+            $("form#ticket").attr("action", "/jegyek/sikeres/?amount="+data.amount);
             ret = data.ok;
           } else {
             mark(data);
@@ -455,6 +457,10 @@ jQuery(document).ready(function($){
         
         return ret;
       })
+    }
+
+    if($('.ticket-price-success').length > 0){
+      $('.ticket-price-success').html('A jegy ára: <strong>&euro;' + window.location.search.split('=')[1] + '</strong>');
     }
   });
 });
