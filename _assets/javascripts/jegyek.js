@@ -1,7 +1,7 @@
 if ($(".ticket-form").length > 0) {
   var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
   captcha_reload = function() { // reload captcha image
-    $('#ticket_captcha').css('background-image', 'url(http://localhost:3000//api/captcha?'+Date.now()+')');
+    $('#ticket_captcha').css('background-image', 'url(/api/captcha?'+Date.now()+')');
     $('#ticket_captcha').val("");
   }
   getUrlVars = function() { // get url variables
@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function() {
-    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
+    $.getJSON("/api/ticket/available").done(function (data) {
       $.each(data.bus, function(k,v) {
         $("#ticket_bus").append(
           $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' (még '+v.free+' hely) +'+parseInt(v.price)+'&euro;</option>')
@@ -195,7 +195,7 @@ if ($(".ticket-form").length > 0) {
       ret = false;
       console.log($("form#ticket").serializeObject());
       $.ajax({
-        url: 'http://localhost:3000/api/ticket',
+        url: '/api/ticket',
         type: 'POST',
         timeout: 2000,
         async: false,
@@ -224,7 +224,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: 'http://localhost:3000/api/ticket/find/'+barcode,
+        url: '/api/ticket/find/'+barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -364,7 +364,7 @@ function getParameterByName(name) {
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
-      $.getJSON("http://localhost:3000/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
         var msg = "";
         if(data.status == "waiting") {
           msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro; <br /> <br /> <a href='"+data.redirect_to+"' class='btn btn-primary btn-sm'>Fizetés</a>";
@@ -435,7 +435,7 @@ jQuery(document).ready(function($){
         ret = false;
         console.log($("form#ticket-addition").serializeObject());
         $.ajax({
-          url: 'http://localhost:3000/api/ticket/addition',
+          url: '/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
