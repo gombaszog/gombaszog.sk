@@ -102,22 +102,6 @@ group: jegyek
             <br>
             <form role="form" class="ticket-form ticket-orig" action="/jegyek/sikertelen" method="POST" id="ticket">
               <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook segítségével</button> <button id="ticket_barcode_box" data-toggle="modal" data-target="#ticket-barcode-modal" class='btn btn-warning btn-sm' type="button">Szeretnék a jegyemhez<strong> kiegészítőt </strong> venni.</button></h2>
-              <input type="hidden" name="cmd" value="_ext-enter">
-              <input type="hidden" name="redirect_cmd" value="_xclick">
-              <input type="hidden" name="business" value="gombaszog@gmail.com" />
-              <input type="hidden" name="charset" value="utf-8" />
-              <input type="hidden" name="currency_code" value="EUR" />
-              <input type="hidden" name="address_override" value="1" />
-              <input type="hidden" name="no_shipping" value="1" />
-              <input type="hidden" name="notify_url" value="https://www.gombaszog.sk/api/ticket/ipn" />
-              <input type="hidden" name="return" value="https://www.gombaszog.sk/jegyek/sikeres" />
-              <input type="hidden" name="cancel_return" value="https://www.gombaszog.sk/jegyek/sikertelen" />
-              <input type="hidden" name="quantity" value="1" />
-              <input type="hidden" name="item_number" value="Belépő/Vstupné" />
-              <input type="hidden" name="amount" value="0" id="ticket_amount" />
-              <input type="hidden" name="custom" value="" id="ticket_custom" />
-              <input type="hidden" name="item_name" value="BELEPO/VSTUPNE" id="ticket_name" />
-              <input type="hidden" name="night_phone_a" value="421" id="ticket_phone_a" />
               <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
@@ -351,7 +335,7 @@ group: jegyek
                           <label for="ticket_city">Település <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Településed neve"></i></label>
                           <input type="text" class="form-control" id="ticket_city" placeholder="" autocomplete='nope' name="ticket[city]" required  title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!" />
                         </div>
-                        <div id='settlement_fill' style='';></div>
+                        <div id='settlement_fill'></div>
                       </div>
                     </div>
                     <div class="col-xs-5">
@@ -597,15 +581,6 @@ group: jegyek
               </div>
               <div class="row">
                 <div class="col-md-9">
-                  <p class="text-justified">
-                   A jegyeket a ideiglenesen <strong>kizárólag banki átutalással</strong>, illetve <strong>személyesen</strong> lehet kifizetni. Sikeres tranzakció esetén a jegyet <strong>a megadott e-mail címre</strong> küldjük el. Ha kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac] gombaszog [pont] sk</strong> e-mail címre!
-                  </p>
-                  <p class="text-justified"></p>
-                    Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt napon belül meg kell érkeznie az alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló <strong>itt megadott e-mail címet.</strong>
-                  </p>
-                  <p class="text-justified"></p>
-                    Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi irodánkban (Duna rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
-                  </p>
                   <p class="text-justified"><small>
                    Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a <strong>"Tovább"</strong> gombra való kattintás után jelenik meg.
                   </small></p>
@@ -613,7 +588,7 @@ group: jegyek
                 <div class="col-md-3">
                   <h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span id="price"></span>€*</strong></h2>
                   <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button></p>
-                  <!--p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p-->
+                  <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p>
                 </div>
               </div>
               <input type="hidden" name="ticket[fbid]" id="ticket_fbid"/>

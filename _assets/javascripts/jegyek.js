@@ -1,7 +1,7 @@
 if ($(".ticket-form").length > 0) {
   var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
   captcha_reload = function() { // reload captcha image
-    $('#ticket_captcha').css('background-image', 'url(/api/captcha?'+Date.now()+')');
+    $('#ticket_captcha').css('background-image', 'url(http://localhost:3000//api/captcha?'+Date.now()+')');
     $('#ticket_captcha').val("");
   }
   getUrlVars = function() { // get url variables
@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function() {
-    $.getJSON("/api/ticket/available").done(function (data) {
+    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
       $.each(data.bus, function(k,v) {
         $("#ticket_bus").append(
           $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' (még '+v.free+' hely) +'+parseInt(v.price)+'&euro;</option>')
@@ -195,7 +195,7 @@ if ($(".ticket-form").length > 0) {
       ret = false;
       console.log($("form#ticket").serializeObject());
       $.ajax({
-        url: '/api/ticket',
+        url: 'http://localhost:3000/api/ticket',
         type: 'POST',
         timeout: 2000,
         async: false,
@@ -203,8 +203,14 @@ if ($(".ticket-form").length > 0) {
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
-          document.location.replace("/jegyek/sikeres?amount="+data.amount);
-          ret = false;
+          if(data.action){
+            $("form#ticket").attr('action', data.action);
+            ret = data.ok;
+          }
+          else if(data.redirect_to){
+            document.location.replace(data.redirect_to);
+            ret = false;
+          } 
         } else {
           mark(data);
           $('#buybutton').html("&nbsp;Tovább&nbsp;");
@@ -218,7 +224,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: '/api/ticket/find/'+barcode,
+        url: 'http://localhost:3000/api/ticket/find/'+barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -358,17 +364,11 @@ function getParameterByName(name) {
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
-      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+      $.getJSON("http://localhost:3000/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
         var msg = "";
         if(data.status == "waiting") {
-          /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
-          /* temporary */
-          $('.ticket-price-success-pay').html('A jegy ára: <strong>&euro;' + data.amount + '</strong>');
-          /* temporary */
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro; <br /> <br /> <a href='"+data.redirect_to+"' class='btn btn-primary btn-sm'>Fizetés</a>";
           $('#ticket-addition').remove();
-          $.each( data, function( key, val ) {
-              $("#"+key).val(val);
-          });
           $("#pay-form").removeClass("hidden-form");
         } else if(data.status == "dropped") {
           msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
@@ -435,7 +435,7 @@ jQuery(document).ready(function($){
         ret = false;
         console.log($("form#ticket-addition").serializeObject());
         $.ajax({
-          url: '/api/ticket/addition',
+          url: 'http://localhost:3000/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
@@ -443,10 +443,7 @@ jQuery(document).ready(function($){
           dataType: 'json'
         }).done(function (data) {
           if (data.ok) {
-            $("#ticket_amount").val(data.amount);
-            $("#ticket_first_name").attr("name", "first_name");
-            $("#ticket_last_name").attr("name", "last_name");
-            document.location.replace("/jegyek/sikeres?amount="+data.amount);
+            document.location.replace(data.redirect_to);
             ret = false;
           } else {
             mark(data);
