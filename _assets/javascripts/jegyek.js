@@ -203,21 +203,8 @@ if ($(".ticket-form").length > 0) {
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
-          $("#ticket_first_name").attr("name", "first_name");
-          $("#ticket_last_name").attr("name", "last_name");
-          $("#ticket_email").attr("name", "email");
-          $("#ticket_address").attr("name", "address1");
-          $("#ticket_city").attr("name", "city");
-          $("#ticket_zip").attr("name", "zip");
-          $("#ticket_country").attr("name", "country");
-          $("#ticket_phone_a").val(data.phone_a)
-          $("#ticket_phone").attr("name", "night_phone_b").val(data.phone_b);
-          $("#ticket_custom").val(data.custom);
-          $("#ticket_amount").val(data.amount);
-          $("#ticket_name").val(data.name);
-          $("#ticket_email").val(data.email);
-          $("form#ticket").attr("action", data.action);
-          ret = data.ok;
+          document.location.replace("/jegyek/sikeres?amount="+data.amount);
+          ret = false;
         } else {
           mark(data);
           $('#buybutton').html("&nbsp;Tovább&nbsp;");
@@ -367,20 +354,24 @@ function getParameterByName(name) {
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+
 jQuery(document).ready(function($){
   $(window).load(function() {
     if ($('#pay-form').length > 0) {
       $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
         var msg = "";
         if(data.status == "waiting") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;. A fizetéshez kattints a PayPal-os képre:";
+          /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
+          /* temporary */
+          $('.ticket-price-success-pay').html('A jegy ára: <strong>&euro;' + data.amount + '</strong>');
+          /* temporary */
           $('#ticket-addition').remove();
           $.each( data, function( key, val ) {
               $("#"+key).val(val);
           });
           $("#pay-form").removeClass("hidden-form");
         } else if(data.status == "dropped") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni 2 napos időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
+          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
         } else if(data.status == "completed") {
           msg = "Kedves "+data.ticket_last_name+" "+data.ticket_first_name+", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
           $('#pay-form').remove();
@@ -435,8 +426,6 @@ jQuery(document).ready(function($){
         $('#msg').html(msg);
       });
 
-
-
       $('form.ticket-addition').submit(function(e){
         if (!$("#ticket_confirm_aszf").prop("checked")) {
           e.preventDefault();
@@ -454,21 +443,11 @@ jQuery(document).ready(function($){
           dataType: 'json'
         }).done(function (data) {
           if (data.ok) {
+            $("#ticket_amount").val(data.amount);
             $("#ticket_first_name").attr("name", "first_name");
             $("#ticket_last_name").attr("name", "last_name");
-            $("#ticket_email").attr("name", "email");
-            $("#ticket_address").attr("name", "address1");
-            $("#ticket_city").attr("name", "city");
-            $("#ticket_zip").attr("name", "zip");
-            $("#ticket_country").attr("name", "country");
-            $("#ticket_phone_a").val(data.phone_a)
-            $("#ticket_phone").attr("name", "night_phone_b").val(data.phone_b);
-            $("#ticket_custom").val(data.custom);
-            $("#ticket_amount").val(data.amount);
-            $("#ticket_name").val(data.name);
-            $("#ticket_email").val(data.email);
-            $("form#ticket").attr("action", data.action);
-            ret = data.ok;
+            document.location.replace("/jegyek/sikeres?amount="+data.amount);
+            ret = false;
           } else {
             mark(data);
             $('#buybutton').html("&nbsp;Tovább&nbsp;");
@@ -478,6 +457,17 @@ jQuery(document).ready(function($){
         
         return ret;
       })
+    }
+
+    if($('.ticket-price-success').length > 0){
+      if(window.location.search.split('=')[1] == 0){
+        $(".hide-this").hide();
+        $(".show-this").show();
+      }
+      else{
+        $('.ticket-price-success').html('A jegy ára: <strong>&euro;' + window.location.search.split('=')[1] + '</strong>');
+        $(".show-this").hide();
+      }
     }
   });
 });
