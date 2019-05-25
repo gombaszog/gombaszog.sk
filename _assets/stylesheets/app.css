@@ -794,3 +794,9 @@ div.biglogo {
   margin-top:5px !important;
   padding-right:20px;
 }
+
+@media(min-width: 992px){
+  .special-offset{
+    margin-left:12%;
+  }
+}
