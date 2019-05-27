@@ -2,7 +2,7 @@ name: Gombaszögi Nyári Tábor
 markdown: redcarpet
 highlighter: null
 permalink: /:year/:month/:day/:title/
-url: http://www.gombaszog.sk
+url: https://www.gombaszog.sk
 paginate: 3
 paginate_path: /blog/page-:num
 timezone: Europe/Bratislava

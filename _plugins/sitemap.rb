@@ -154,7 +154,7 @@ module Jekyll
       
       "
   <url>
-      <loc>#{site.config['domain']}#{baseurl}#{path}</loc>
+      <loc>https://gombaszog.sk#{baseurl}#{path}</loc>
       <lastmod>#{date.strftime("%Y-%m-%d")}</lastmod>#{if changefreq.length > 0
           "\n      <changefreq>#{changefreq}</changefreq>" end}
   </url>"
