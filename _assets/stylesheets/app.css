@@ -800,3 +800,16 @@ div.biglogo {
     margin-left:12%;
   }
 }
+
+.sponsor-images img {
+  max-width: 100px;
+}
+
+.sponsor-images img.footer-wide,
+.tamogatok img.footer-wide{
+  max-width:150px;
+}
+
+.sponsor-images p.highlighted:hover{
+  color: rgb(238, 58, 36) !important;
+}
