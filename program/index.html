@@ -1,36 +1,29 @@
 ---
-layout: default
+layout: page
 title: Program
 group: program
 ---
-  <style type="text/css">
-    html,body {
-      height: 100%;
-    }
-  </style>
-  <div id="error-page">
-    <div class="error-page-inner">
-      <div class="content-404 bg">
-        <div class="container">
-           <div class="row">
-            <div class="col-sm-6">
-              <div class="error-info">
-                <h2><span>...</span>Hamarosan!</h2>       
-              </div>              
-            </div>
-            <div class="col-sm-6">
-              <div class="back-to">
-                <p class="text-justified">Sajnáljuk, a program még nem elérhető. Kérlek, nézz vissza később.</p>
-
-                <h3>Az alábbi linkeket viszont ajánljuk figyelmedbe!</h3>
-                <ul class="pull-left">                     
-                  <li><a href="/"><i class="fa fa-hand-o-right"></i> Főoldal</a></li>
-                  <li><a href="//facebook.com/gombaszog"><i class="fa fa-hand-o-right"></i> Facebook</a></li>
-                  <li><a href="//twitter.com/gombaszog"><i class="fa fa-hand-o-right"></i> Twitter</a></li>
-                </ul>
+  <div id="latest-events">
+    <div class="container">
+      <div class="event-inner">
+        <div class="row">
+          <div id="latest-event-content" class="col-sm-12 col-md-12">
+            <div class="bg">
+              <h2 class="heading"><strong>Program</strong></h2>
+              <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="day-set active"><a href="#hetfo" role="tab" data-toggle="tab">Hétfő</a></li>
+				        <li class="day-set"><a href="#kedd" role="tab" data-toggle="tab">Kedd</a></li>
+                <li class="day-set"><a href="#szerda" role="tab" data-toggle="tab">Szerda</a></li>
+                <li class="day-set"><a href="#csutortok" role="tab" data-toggle="tab">Csütörtök</a></li>
+                <li class="day-set"><a href="#pentek" role="tab" data-toggle="tab">Péntek</a></li>
+                <li class="day-set"><a href="#szombat" role="tab" data-toggle="tab">Szombat</a></li>
+                <li class="day-set"><a href="#vasarnap" role="tab" data-toggle="tab">Vasárnap</a></li>
+              </ul>
+              <div class="tab-content program">
+                {% dyn_program %}
               </div>
             </div>
-           </div>
+          </div>
         </div>
       </div>
     </div>

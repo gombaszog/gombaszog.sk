@@ -1,0 +1,116 @@
+---
+layout: page
+title: Program
+group: program
+---
+
+<style>
+    div#full-program div.program-wrap:nth-child(even) {background: #A4A4A422}
+    div#full-program div.program-wrap:nth-child(odd) {background: #E8E8E822}
+    div.program-wrap {padding: 5px}
+    div#full-program {color: white}
+	h3#location-title{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	div.program-start{
+		float: left;
+		width: 50px;
+	}
+	div.program-title{
+		font-weight: bold;
+	}
+	div.program-description{
+		font-size: smaller;
+		margin-bottom: 10px;
+	}
+	div.program-day-wrap{
+		padding: 5px 10px;
+		margin-bottom: 10px;
+	}
+	div.program-day-monday{
+		background-color: #01222A;
+	}
+	div.program-day-tuesday{
+		background-color: #232A11;
+	}
+	div.program-day-wednesday{
+		background-color: #2A1123;
+	}
+	div.program-day-thursday{
+		background-color: #21130A;
+	}
+	div.program-day-friday{
+		background-color: #131A31;
+	}
+	div.program-day-saturday{
+		background-color: #1A2103;
+	}
+	div.program-day-sunday{
+		background-color: #21211A;
+	}
+</style>
+
+<div id="press">
+    <div class="container">
+        <div class="bg">
+            <div class="row">
+                <h2 class="heading" style="padding-left:15px;"><strong>Teljes program</strong></h2>
+                <div id="full-program"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var renderFullProgram = function(fullProgram) {
+        var fullProgramDiv = document.getElementById("full-program");
+		fullProgramDiv.innerHTML = "";
+		var napNevek = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+		var napNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+		var actNap = null;
+		var actNapWrap = null;
+		for(var i=0; i<fullProgram.length; i++){
+            var actProgram = fullProgram[i];
+            var formattedDate = new Date(actProgram.start);
+            if(formattedDate.getDay()!=actNap){
+					var actDay = formattedDate.getDay();
+                    actNapWrap = document.createElement("DIV");
+                    actNapWrap.setAttribute("class", "program-day-wrap program-day-" + napNames[actDay]);
+                    actNapWrap.innerHTML = ("<h3>" + napNevek[actDay] + "</h3>");
+                    fullProgramDiv.appendChild(actNapWrap);
+					actNap = actDay;
+                }
+                var actProgramDiv = document.createElement("DIV");
+                actProgramDiv.setAttribute("class", "program-wrap");
+                actProgramDiv.innerHTML = "<div class=\"program-start\">" + formattedDate.getHours() + ":" + formattedDate.getMinutes() + (formattedDate.getMinutes()<10?"0":"") + "</div>"+
+                                "<div class=\"program-location\">" + actProgram.location + "</div>"+
+								"<div class=\"program-title\">" + actProgram.name + "</div>"+
+								"<div class=\"program-description\">" + actProgram.description + "</div>";
+				actNapWrap.appendChild(actProgramDiv);
+		}
+    }
+
+	var getFullProgram = function(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET", '/api/program');
+        xmlhttp.timeout = 7000;
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState === 4) {
+                if(xmlhttp.status === 200){
+                    var answer = JSON.parse(xmlhttp.responseText);
+                    renderFullProgram(answer.program);
+                } else {
+                    console.log('Program fetch error: ' + xmlhttp.statusText );
+                }
+            }
+        }
+        xmlhttp.send();
+	}
+
+    document.addEventListener('DOMContentLoaded', function(){
+        setTimeout(function(){
+            getFullProgram();
+        }, 20);
+    });
+</script>
