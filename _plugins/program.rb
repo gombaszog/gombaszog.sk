@@ -192,7 +192,7 @@ class ProgramTable < Liquid::Tag
                 html.tr(:class => "program-day-wrap") do
                 e['start'] = Time.parse e['start']
                 e['end'] = Time.parse e['end']
-                html.td(:class => "program-start") { html.text "#{ e['start'].strftime('%k:%M') } - #{ e['end'].strftime('%k:%M') } " }
+                html.td(:class => "program-start") { html.text "#{ e['start'].strftime('%k:%M') }" }
                 html.td(:class => "program-location") { html.text  "#{ e['location'] }"}
                 html.td(:class => "program-title") { html.text "#{e['name']}" }
                 html.td(:class => "program-description") { html.text "#{e['description']}" }
@@ -205,4 +205,57 @@ class ProgramTable < Liquid::Tag
     @html.to_html
   end
   Liquid::Template.register_tag('table_render', self)
+end
+
+
+class ProgramList < Liquid::Tag
+
+  def render context
+
+    day_l_map = {
+      "Monday"    => "Hétfő",
+      "Tuesday"   => "Kedd",
+      "Wednesday" => "Szerda",
+      "Thursday"  => "Csütörtök",
+      "Friday"    => "Péntek",
+      "Saturday"  => "Szombat",
+      "Sunday"    => "Vasárnap",
+    }
+
+    data = JSON.parse File.read '_program.json'
+    byday = {}
+    data.each do |e|
+      t = Time.parse(e['start'])
+      day = t.to_date
+      day = day.strftime('%A')
+      byday[day] = {
+        :events => [],
+        :locations => [],
+        :partners => []
+      } if byday[day] == nil
+      byday[day][:events] << e
+      byday[day][:locations] << e['location'] unless byday[day][:locations].include? e['location']
+      byday[day][:partners] << e['partner'] unless byday[day][:partners].include? e['partner']
+    end
+    @html = Nokogiri::HTML::DocumentFragment.parse ""
+    Nokogiri::HTML::Builder.with(@html) do |html|
+      html.div(:class => "program-day-wrap") do
+        html.table(:class => "program-day-wrap") do
+          byday.each do |d,l|
+            l[:events].each do |e|
+                html.tr(:class => "program-day-wrap") do
+                e['start'] = Time.parse e['start']
+                e['end'] = Time.parse e['end']
+                html.td(:class => "program-start") { html.text "#{ e['start'].strftime('%Y-%m-%d %H:%M') } - #{ e['end'].strftime('%Y-%m-%d %H:%M ') } " }
+                html.td(:class => "program-location") { html.text  "#{ e['location'] }"}
+                html.td(:class => "program-title") { html.text "#{e['name']}" }
+              end
+            end
+          end
+        end
+      end
+    end
+    @html.to_html
+  end
+  Liquid::Template.register_tag('list_render', self)
 end
