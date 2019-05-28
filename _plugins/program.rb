@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'nokogiri'
 
-class ProgramTag < Liquid::Tag
+class ProgramDefault < Liquid::Tag
 
   def render context
 
@@ -96,5 +96,113 @@ class ProgramTag < Liquid::Tag
     end
     @html.to_html
   end
-  Liquid::Template.register_tag('dyn_program', self)
+  Liquid::Template.register_tag('default_render', self)
+end
+
+class ProgramFull < Liquid::Tag
+
+  def render context
+
+    day_l_map = {
+      "Monday"    => "Hétfő",
+      "Tuesday"   => "Kedd",
+      "Wednesday" => "Szerda",
+      "Thursday"  => "Csütörtök",
+      "Friday"    => "Péntek",
+      "Saturday"  => "Szombat",
+      "Sunday"    => "Vasárnap",
+    }
+
+    data = JSON.parse File.read '_program.json'
+    byday = {}
+    data.each do |e|
+      t = Time.parse(e['start'])
+      day = t.to_date
+      day = day-1 if t.strftime("%H").to_i < 5
+      day = day.strftime('%A') # todo 4:00
+      byday[day] = {
+        :events => [],
+        :locations => [],
+        :partners => []
+      } if byday[day] == nil
+      byday[day][:events] << e
+      byday[day][:locations] << e['location'] unless byday[day][:locations].include? e['location']
+      byday[day][:partners] << e['partner'] unless byday[day][:partners].include? e['partner']
+    end
+    @html = Nokogiri::HTML::DocumentFragment.parse ""
+    Nokogiri::HTML::Builder.with(@html) do |html|
+      byday.each do |d,l|
+        html.div(:class => "program-day-wrap program-day-"+ d) do
+          html.h3 {html.text day_l_map[d] }
+          l[:events].each do |e|
+              html.div(:class => "program-wrap") do
+              e['start'] = Time.parse e['start']
+              e['end'] = Time.parse e['end']
+              html.div(:class => "program-start") { html.text "#{ e['start'].strftime('%k:%M') }"}
+              html.div(:class => "program-location") { html.text  "#{ e['location'] }"}
+              html.div(:class => "program-title") { html.text "#{e['name']}" }
+              html.div(:class => "program-description") { html.text "#{e['description']}" }
+            end
+          end
+        end
+      end
+    end
+    @html.to_html
+  end
+  Liquid::Template.register_tag('full_render', self)
+end
+
+class ProgramTable < Liquid::Tag
+
+  def render context
+
+    day_l_map = {
+      "Monday"    => "Hétfő",
+      "Tuesday"   => "Kedd",
+      "Wednesday" => "Szerda",
+      "Thursday"  => "Csütörtök",
+      "Friday"    => "Péntek",
+      "Saturday"  => "Szombat",
+      "Sunday"    => "Vasárnap",
+    }
+
+    data = JSON.parse File.read '_program.json'
+    byday = {}
+    data.each do |e|
+      t = Time.parse(e['start'])
+      day = t.to_date
+      day = day-1 if t.strftime("%H").to_i < 5
+      day = day.strftime('%A') # todo 4:00
+      byday[day] = {
+        :events => [],
+        :locations => [],
+        :partners => []
+      } if byday[day] == nil
+      byday[day][:events] << e
+      byday[day][:locations] << e['location'] unless byday[day][:locations].include? e['location']
+      byday[day][:partners] << e['partner'] unless byday[day][:partners].include? e['partner']
+    end
+    @html = Nokogiri::HTML::DocumentFragment.parse ""
+    Nokogiri::HTML::Builder.with(@html) do |html|
+      byday.each do |d,l|
+        html.div(:class => "program-day-wrap") do
+          html.h3 {html.text day_l_map[d] }
+          html.table(:class => "program-day-wrap") do
+            l[:events].each do |e|
+                html.tr(:class => "program-day-wrap") do
+                e['start'] = Time.parse e['start']
+                e['end'] = Time.parse e['end']
+                html.td(:class => "program-start") { html.text "#{ e['start'].strftime('%k:%M') } - #{ e['end'].strftime('%k:%M') } " }
+                html.td(:class => "program-location") { html.text  "#{ e['location'] }"}
+                html.td(:class => "program-title") { html.text "#{e['name']}" }
+                html.td(:class => "program-description") { html.text "#{e['description']}" }
+              end
+            end
+          end
+        end
+      end
+    end
+    @html.to_html
+  end
+  Liquid::Template.register_tag('table_render', self)
 end
