@@ -723,3 +723,52 @@ group: jegyek
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Festival",
+      "name": "Gombaszögi Nyári Tábor",
+      "startDate": "2019-07-15T08:00+0200",
+      "endDate": "2019-07-21T16:00+0200",
+      "location": {
+        "@type": "Place",
+        "name": "Gombaszögi Nyári Tábor",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "161 Gombasek",
+          "addressLocality": "Slavec",
+          "postalCode": "04911",
+          "addressCountry": "SK"
+        }
+      },
+      "image": [
+        "{% asset_path og.jpg %}"
+       ],
+      "description": "{{ site.description }}",
+      "offers": [
+        { 
+          "@type": "Offer",
+          "url": "https://www.gombaszog.sk/jegyek",
+          "price": "55",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Hetijegy"
+          }
+        },
+        { 
+          "@type": "Offer",
+          "url": "https://www.gombaszog.sk/jegyek",
+          "price": "15",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Napijegy"
+          }
+        }
+       ]
+    }
+  </script>
