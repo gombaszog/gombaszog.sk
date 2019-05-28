@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Dosis', sans-serif;
-    background-image: url('<%= asset_path "vardomb.jpg" %>');
+    background-image: url(asset-path('vardomb.jpg'));
     background-color: #0f582f;
     background-position: center 0;
     background-repeat: no-repeat;
