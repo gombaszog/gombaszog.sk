@@ -15,22 +15,22 @@ group: jegyek
                 <h2>Helyszíni<br />hetijegy</h2>
                 <p class="price">&euro;69</p>
                 <p class="price-content">6 nap<br>helyszínen</p>
-                
               </div>
             </li>
             <li class="xplore">
               <div class="regular-price">
-                <h2>Tavaszi<br />hetijegy</h2>
-                <p class="price">&euro;55</p>
-                <p class="price-content">6 nap<br>csak elővételben</p>
+                <h2>Napijegy<span>Július 7-ig</span></h2>
+                <p class="price">&euro;15</p>
+                <p class="price-content">1 nap<br>elővételben</p>
+                <a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>
               </div>
             </li>
             <li class="rock">
               <div class="regular-price">
-                <h2>Téli<br />hetijegy<span>Február 28-ig</span></h2>
-                <p class="price">&euro;45</p>
+                <h2>Tavaszi<br />hetijegy<span>Május 31-ig</span></h2>
+                <p class="price">&euro;55</p>
                 <p class="price-content">6 nap<br>csak elővételben</p>
-                <a class="btn btn-primary btn-pricing">Jegyelővétel</a>
+                <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
               </div>
             </li>
             <li class="xplore">
@@ -45,9 +45,9 @@ group: jegyek
             </li>
             <li class="vip">
               <div class="regular-price">
-                <h2>Napijegy</h2>
-                <p class="price">&euro;15</p>
-                <p class="price-content">1 nap<br>helyszínen</p>
+                <h2>Nyári<br />hetijegy</h2>
+                <p class="price">&euro;59</p>
+                <p class="price-content">6 nap<br>csak elővételben</p>
               </div>
             </li>
           </ul>
@@ -74,10 +74,11 @@ group: jegyek
                     <h3>Sátorjegy</h3>
                     <p>Sátranként <span>&euro;10</span></p>
                     <p>Sátranként egyszer kell kifizetni</p>
+                    <p>A sátorjegy a Bebek-kempingbe szól</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <!--div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path kaja.png %}" class="img-responsive" />
@@ -87,37 +88,21 @@ group: jegyek
                     <p>Lecsópasz nincs!</p>
                     <p>Helyette <span>pénztárcabarát</span> reggeli és esti menü</p>
                   </div>
-                </div>
+                </div-->
               </div>
             </div>
           </div>
           <!-- jegyvetel start -->
 
-          <div class="ticket-hidden" style="display: block;">
-            <h2 class="text-center roll-here" style="padding-bottom: 1em;">A jegyelővétel/regisztráció megkezdéséhez válassz egy kitöltési opciót:</h2>
-            <div class="row">
-              <div class="col-md-4 text-center col-md-offset-2">
-                <a class="ticket-fb" href="#">
-                  <i class="fa fa-facebook-square fa-5x"></i>
-                  <h3>Facebook app használata</h3>
-                  <p><small>Az app a vásárlás után engedélyek függvényében<br />képet posztol a faladra,<br />és hozzáad a Facebook-eseményhez.</small></p>
-                </a>
-              </div>
-              <div class="col-md-4 text-center">
-                <a class="ticket-manual" href="#">
-                  <i class="fa fa-edit fa-5x"></i>
-                  <h3>Adatok kitöltése kézzel</h3>
-                  <p><small>Ha szeretsz többet pötyögni <i class="fa fa-smile-o"></i></small></p>
-                </a>
-              </div>
-            </div>
             <!--h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel július 14. éjfélig fogadja a rendeléseket!</h4-->
             <!--h4 class="text-center">Segítségért olvasd el <a href="/2014/06/09/vigyazz-kesz-indul-a-jegyvasar/#leiras" target="_blank">leírásunkat</a> a jegyelővétel menetéről!</h4-->
-            <!--h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll, pár óra türelmet kérünk!</h2-->
+            <!--h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll, pár nap türelmet kérünk!</h2-->
+            <h3 class="text-center" style="padding-bottom: 1em; color: red">Rajtunk kívülálló okok miatt ideiglenesen csak átutalással vagy személyesen lehet fizetni.<br /><small>Részletek a jegyvételi űrlap alatt, a Tovább gomb mellett.</small></h3>
           </div>
-          <div class="ticket-hidden">
-            <form role="form" class="ticket-form" action="/jegyek/sikertelen" method="POST" id="ticket">
-              <h2>A jegytulajdonos adatai</h2>
+          <div class="roll-here" style="">
+            <br>
+            <form role="form" class="ticket-form ticket-orig" action="/jegyek/sikertelen" method="POST" id="ticket">
+              <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook segítségével</button> <button id="ticket_barcode_box" data-toggle="modal" data-target="#ticket-barcode-modal" class='btn btn-warning btn-sm' type="button">Szeretnék a jegyemhez<strong> kiegészítőt </strong> venni.</button></h2>
               <input type="hidden" name="cmd" value="_ext-enter">
               <input type="hidden" name="redirect_cmd" value="_xclick">
               <input type="hidden" name="business" value="gombaszog@gmail.com" />
@@ -420,6 +405,13 @@ group: jegyek
                       <option value="sator" data-price="10.0">Sátorban +10€</option>
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label class="control-label" for="ticket_category">Jegytípus </label>
+                    <select id="ticket_category" name="ticket[category]" class="form-control influence">
+                      <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
+                      <option value="napijegy" id='napijegy' data-price="">Napijegy</option>
+                    </select>
+                  </div>
                   <div class="row" style="display: none">
                     <div class="col-xs-7">
                       <div class="form-group">
@@ -547,10 +539,53 @@ group: jegyek
                   <label>&nbsp;</label>
                 </div>
               </div>
+              <div class='row'>
+                <div class='col-md-12 form-group' id='select_days' style='display:none;'>
+                  <div>
+                    <label class="control-label" for="ticket_days">Melyik napokra?</label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_hetfo">
+                      <input type="checkbox" class='influence' name="ticket[nap_hetfo]" id="ticket_nap_hetfo" value="1">
+                      Hétfő
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_kedd">
+                      <input type="checkbox" class='influence' name="ticket[nap_kedd]" id="ticket_nap_kedd" value="1">
+                      Kedd
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_szerda">
+                      <input type="checkbox" class='influence' name="ticket[nap_szerda]" id="ticket_nap_szerda" value="1">
+                      Szerda
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_csutortok">
+                      <input type="checkbox" class='influence' name="ticket[nap_csutortok]" id="ticket_nap_csutortok" value="1">
+                      Csütörtök
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_péntek">
+                      <input type="checkbox" class='influence' name="ticket[nap_pentek]" id="ticket_nap_pentek" value="1">
+                      Péntek
+                    </label>
+                  </div>
+                  <div class="checkbox days">
+                    <label for="ticket_nap_szombat">
+                      <input type="checkbox" class='influence' name="ticket[nap_szombat]" id="ticket_nap_szombat" value="1">
+                      Szombat
+                    </label>
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-12">
                     <p class="text-justified"><input id="ticket_gift" name="ticket[gift]" type="checkbox">
-                    <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label> <small>Akkor jelöld be, ha azt szeretnéd, hogy a jegyet ne a tulajdonosának, hanem egy másik, itt megadott e-mailcímre küldjük, így ajándékba tudod adni.</small></p>
+                    <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label> <small>Akkor jelöld be, ha azt szeretnéd, hogy a jegyet ne a tulajdonosának, hanem egy másik, itt megadott e-mail címre küldjük, így ajándékba tudod adni.</small></p>
                     <div class="form-group col-md-4" style='display:none;' id='ticket_from_box'>
                         <label class="control-label" for="ticket_from">Ajándékozó e-mail címe <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ide küldjük a jegyet"></i></a></label>
                          <input type="email" class="form-control" id="ticket_from" placeholder="Ide küldjük a jegyet!" name="ticket[gift_from]" pattern="[^@]+@[^@]+\.[^@]+" />
@@ -558,14 +593,20 @@ group: jegyek
                 </div>
                 <div class="col-md-12">
                     <p class="text-justified"><input id="ticket_confirm_aszf" name="ticket[confirm_aszf]" type="checkbox">
-                    <label for="ticket_confirm_aszf"><strong>Elfogadom</strong> az <a href="#aszf" data-toggle="modal" data-target="#aszf">általános szerződési feltételeket és adatvédelmi irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>
+                    <label for="ticket_confirm_aszf"><strong>Elfogadom</strong> az <a href="/altalanos-szerzodesi-feltetelek">általános szerződési feltételeket és adatvédelmi irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-9">
-                  <p class="text-justified"><small>
-                   A jegyeket a <strong>PayPal</strong> felületén bankkártyával vagy PayPal számlával lehet kifizetni. Sikeres tranzakció esetén a jegyet <strong>a megadott e-mail címre</strong> küldjük el. Ha kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac] gombaszog [pont] sk</strong> e-mail címre!
-                  </small></p>
+                  <p class="text-justified">
+                   A jegyeket a ideiglenesen <strong>kizárólag banki átutalással</strong>, illetve <strong>személyesen</strong> lehet kifizetni. Sikeres tranzakció esetén a jegyet <strong>a megadott e-mail címre</strong> küldjük el. Ha kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac] gombaszog [pont] sk</strong> e-mail címre!
+                  </p>
+                  <p class="text-justified"></p>
+                    Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt napon belül meg kell érkeznie az alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló <strong>itt megadott e-mail címet.</strong>
+                  </p>
+                  <p class="text-justified"></p>
+                    Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi irodánkban (Duna rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
+                  </p>
                   <p class="text-justified"><small>
                    Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a <strong>"Tovább"</strong> gombra való kattintás után jelenik meg.
                   </small></p>
@@ -573,7 +614,7 @@ group: jegyek
                 <div class="col-md-3">
                   <h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span id="price"></span>€*</strong></h2>
                   <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button></p>
-                  <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p>
+                  <!--p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok" class="img-responsive"/></p-->
                 </div>
               </div>
               <input type="hidden" name="ticket[fbid]" id="ticket_fbid"/>
@@ -586,6 +627,31 @@ group: jegyek
       </div>
     </div>
   </div>
+
+  
+    <div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="#ticket-barcode-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="ticket-barcode-label">Kiegészítő jegy vásárlása</h4>
+          </div>
+          <div class="modal-body" >
+            <form role="form" class="ticket-form redirect-completed row" action="/jegyek/sikertelen" method="GET" id="ticket-barcode-find">
+              <div class="form-group col-md-offset-2 col-md-8" id='ticket_barcode_find_box'>
+                <label class="control-label" for="barcode_find">A jegyem vonalkódja <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ez található a jegyen"></i></a></label>
+                <div class="input-group" style='text-align: middle;'>
+                  <input type="text" class="form-control" id="barcode_find" placeholder="Ez található a jegyen" name="barcode_find" />
+                  <span class="input-group-btn">
+                    <button id="search_barcode" type="submit" class='btn btn-primary btn-xs'>Keresés</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="modal fade" id="aszf" tabindex="-1" role="dialog" aria-labelledby="#aszf_label" aria-hidden="true">
     <div class="modal-dialog">
@@ -658,3 +724,52 @@ group: jegyek
       </div>
     </div>
   </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Festival",
+      "name": "Gombaszögi Nyári Tábor",
+      "startDate": "2019-07-15T08:00+0200",
+      "endDate": "2019-07-21T16:00+0200",
+      "location": {
+        "@type": "Place",
+        "name": "Gombaszögi Nyári Tábor",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "161 Gombasek",
+          "addressLocality": "Slavec",
+          "postalCode": "04911",
+          "addressCountry": "SK"
+        }
+      },
+      "image": [
+        "{% asset_path og.jpg %}"
+       ],
+      "description": "{{ site.description }}",
+      "offers": [
+        { 
+          "@type": "Offer",
+          "url": "https://www.gombaszog.sk/jegyek",
+          "price": "55",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Hetijegy"
+          }
+        },
+        { 
+          "@type": "Offer",
+          "url": "https://www.gombaszog.sk/jegyek",
+          "price": "15",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Napijegy"
+          }
+        }
+       ]
+    }
+  </script>

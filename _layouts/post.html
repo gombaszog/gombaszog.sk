@@ -76,6 +76,35 @@ group: blog
       </div>
     </div>
   </div>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      },
+      "headline": "{{ page.title }}",
+      "image": [
+        "{{site.url }}{{ page.thumbnail }}"
+       ],
+      "datePublished": "{{ page.date }}",
+      "dateModified": "{{ page.date }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gombaszög",
+        "logo": {
+          "@type": "ImageObject",
+            "url": "https://www.gombaszog.sk/favicon.ico"
+        }
+      },
+      "url": "{{ site.url }}{{ page.url }}"
+    }
+  </script>
   <script type="text/javascript">
     window.___gcfg = {lang: 'hu'};
     (function() {

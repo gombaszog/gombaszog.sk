@@ -1,11 +1,6 @@
 ---
 layout: default
 ---
-<style type="text/css">
-  .sponsor-images img {
-    max-width: 100px!important;
-  }
-</style>
     <header id="navigation">    
       <div class="navbar" role="banner">
         <div class="container">
@@ -40,8 +35,8 @@ layout: default
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="/rolunk/csatlakozz-csapatunkhoz">Csatlakozz csapatunkhoz!</a></li>
                     </ul>
                   </li>
-                  <!--li><a {% if page.group == 'zene' %} class="active"{% endif %}href="/zene">Zene</a></li>
-                  <li><a {% if page.group == 'program' %} class="active"{% endif %}href="/program">Program</a></li-->
+                  <li><a {% if page.group == 'zene' %} class="active"{% endif %}href="/zene">Zene</a></li>
+                  <li><a {% if page.group == 'program' %} class="active"{% endif %}href="/program">Program</a></li>
                   <li><a {% if page.group == 'terkep' %} class="active"{% endif %}href="/terkep">Térkép</a></li>
                   <li><a {% if page.group == 'jegyek' %} class="active"{% endif %}href="/jegyek">Jegyek</a></li>
                   <li><a {% if page.group == 'info' %} class="active"{% endif %}href="/info">Infó</a></li>
@@ -68,17 +63,17 @@ layout: default
             <div class="updates-links bg sponsor-images">
               <div class="col-sm-12 col-md-8">
                 <h4>Szervezők</h4>         
-                <img src="{% asset_path sm_logo.png %}"/>     
-                <a href="http://www.diakhalozat.sk" target="_blank"><img src="{% asset_path tsz/dh_logo.png %}"/></a>
-                <a href="http://www.aed.cz" target="_blank"><img src="{% asset_path tsz/tsz_aed.png %}"/></a>
-                <a href="http://www.kafedik.net" target="_blank"><img src="{% asset_path tsz/tsz_kafedik.png %}"/></a>
-                <a href="http://www.jaik.sk" target="_blank"><img src="{% asset_path tsz/tsz_jaik.png %}"/></a>
-                <a href="http://www.jugyik.sk" target="_blank"><img src="{% asset_path tsz/tsz_jugyik.png %}"/></a>               
-                <a href="http://www.kikelet.sk" target="_blank"><img src="{% asset_path tsz/tsz_kikelet.png %}"/></a>
-                <a href="http://www.jomod.sk" target="_blank"><img src="{% asset_path tsz/tsz_jomod.png %}"/></a>
-                <img src="{% asset_path tsz/tsz_mikad.png %}"/>
-                <a href="http://kaszasattiladiakkor.hu/" target="_blank"><img src="{% asset_path tsz/tsz_kad.png %}"/></a>
-                <img src="{% asset_path tsz/tsz_jadik.png %}"/>
+                <img src="{% asset_path logos/szervezok/sm_logo.png %}" alt='Sine Metu Polgári Társulás' />     
+                <a href="http://www.diakhalozat.sk" target="_blank"><img src="{% asset_path logos/szervezok/dh_logo.png %}" alt='Diákhálózat' /></a>
+                <a href="http://www.aed.cz" target="_blank"><img src="{% asset_path logos/szervezok/tsz_aed.png %}" alt='Ady Endre Diákkör - Prága' /></a>
+                <a href="http://www.kafedik.net" target="_blank"><img src="{% asset_path logos/szervezok/tsz_kafedik.png %}" alt='Kazinczy Ferenc Diákklub - Brünn' /></a>
+                <a href="http://www.jaik.sk" target="_blank"><img src="{% asset_path logos/szervezok/tsz_jaik.png %}" alt='József Attila Ifjúsági Klub - Pozsony' /></a>
+                <a href="http://www.jugyik.sk" target="_blank"><img src="{% asset_path logos/szervezok/tsz_jugyik.png %}" alt='Juhász Gyula Ifjúsági Klub - Nyitra' /></a>               
+                <img src="{% asset_path logos/szervezok/tsz_kikelet.png %}" alt='KIKELET - Kassa' />
+                <img src="{% asset_path logos/szervezok/tsz_jomod.png %}" alt='Jókai Mór Diákkör - Komárom' />
+                <img src="{% asset_path logos/szervezok/tsz_mikad.png %}" alt='Mikszáth Kálmán Diákklub - Besztercebánya' />
+                <a href="http://kaszasattiladiakkor.hu/" target="_blank"><img src="{% asset_path logos/szervezok/tsz_kad.png %}" alt='Kaszás Attila Diákkör - Budapest'/></a>
+                <img src="{% asset_path logos/szervezok/tsz_jadik.png %}" alt='Jedlik Ányos Diákkör - Győr' />
               </div>
               <div class="col-sm-12 col-md-4">
                 <h4>Kapcsolat</h4>
@@ -101,9 +96,6 @@ layout: default
                   <a href="https://instagram.com/gombaszog" target="_blank" class="footer-ig" title="Instagram">
                     <i class="fa fa-instagram"></i>
                   </a>
-                  <a href="https://plus.google.com/103167436782316691617" target="_blank" class="footer-gplus" title="Google+">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
                   <a href="/feed" target="_blank" class="footer-rss" title="RSS">
                     <i class="fa fa-rss-square"></i>
                   </a>
@@ -114,85 +106,91 @@ layout: default
             <div class="updates-links bg sponsor-images">
         <div class="col-md-12">
           <h4>Társszervezők</h4>
-          <img src="{% asset_path tamogatok/guri.png %}"/>
-          <img src="{% asset_path tamogatok/promino.png %}"/>
-          <img src="{% asset_path tamogatok/tandem.png %}"/>
-          <img src="{% asset_path tamogatok/b612.png %}"/>
-          <img src="{% asset_path tamogatok/tokolosh.png %}"/>
-          <img src="{% asset_path tamogatok/szakkoli.png %}"/>
-          <img src="{% asset_path tamogatok/csacsi.png %}"/>
-          <img src="{% asset_path tamogatok/fef.png %}"/>
-          <img src="{% asset_path tamogatok/korona.png %}"/>
-          <img src="{% asset_path tamogatok/ujszo.png %}"/>    
-          <img src="{% asset_path tamogatok/kue.png %}"/>
-          <img src="{% asset_path tamogatok/tarsreflexintezet.png %}"/>
-          <img src="{% asset_path tamogatok/vandorlass.png %}"/>
-          <img src="{% asset_path tamogatok/kisebbsegijogvedo.png %}"/>
-          <img src="{% asset_path tamogatok/trafik.png %}"/>
-          <img src="{% asset_path tamogatok/masik.png %}"/>
-          <img src="{% asset_path tamogatok/HHH.png %}"/>
-          <img src="{% asset_path tamogatok/patria.png %}"/>
-          <img src="{% asset_path tamogatok/bumm.png %}"/>
-          <img src="{% asset_path tamogatok/szoba.png %}"/>
-          <img src="{% asset_path tamogatok/erthetoelet.png %}"/>
-          <img src="{% asset_path tamogatok/forum.png %}"/>
+          <img src="{% asset_path logos/tarsszervezok/guri.png %}" alt='Gurigongo symposium' />
+          <img src="{% asset_path logos/tarsszervezok/tandem.png %}" alt='Tandem' />
+          <img src="{% asset_path logos/tarsszervezok/b612.png %}" alt='B-612' />
+          <img src="{% asset_path logos/tarsszervezok/tokolosh.png %}" alt='Médiasátor - Tokolosh Team' />
+          <img src="{% asset_path logos/tarsszervezok/szakkoli.png %}" alt='Pozsonyi Magyar Szakkollégium' />
+          <img src="{% asset_path logos/tarsszervezok/csacsi.png %}" alt='Sárga Szamár' />
+          <img src="{% asset_path logos/tarsszervezok/fef.png %}" alt='FÉF' />
+          <img src="{% asset_path logos/tarsszervezok/korona.png %}" alt='Korona' />
+          <img src="{% asset_path logos/tarsszervezok/ujszo.png %}" alt='Új Szó' />  
+          <img src="{% asset_path logos/tarsszervezok/vandorlass.png %}" alt='Vándorláss' />  
+          <img src="{% asset_path logos/tarsszervezok/kisebbsegijogvedo.png %}" alt='Kisebbségi Jogvédő Intézet' />
+          <img src="{% asset_path logos/tarsszervezok/masik.png %}" alt='Márai Sándor Írói Kör' />
+          <img src="{% asset_path logos/tarsszervezok/HHH.png %}" alt='Hagyományok Háza Hálózat' />
+          <img src="{% asset_path logos/tarsszervezok/bumm.png %}" alt='bumm.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/erthetoelet.png %}" alt='Érthető Élet Polgári Társulás' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/szoba.png %}" alt='SZOBA' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/patria.png %}" alt='Pátria Rádió' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/forum.png %}" alt='Fórum' />
+          <img src="{% asset_path logos/tarsszervezok/trafik.png %}" alt='trafik.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/tarsreflexintezet.png %}" alt='Társadalmi Reflexió intézet' class='footer-wide' />  
+          <img src="{% asset_path logos/tarsszervezok/promino.png %}" alt='Kisebbségekért Pro Minoritate Alapítvány' class='footer-wide' />  
+          <img src="{% asset_path logos/tarsszervezok/kue.png %}" alt='Külpolitikai Újságírásért Egyesület' class='footer-wide' />
         </div>
       </div>
       <div class="updates-links bg sponsor-images">
         <div class="col-md-12">
           <h4>Támogatók</h4>
-          <img src="{% asset_path tamogatok/miniszterelnokseg.png %}"/>
-          <img src="{% asset_path tamogatok/bga.png %}"/>
-          <img src="{% asset_path tamogatok/slovnaft.png %}"/>
-          <img src="{% asset_path tamogatok/kka.png %}"/>
-          <img src="{% asset_path tamogatok/hun.png %}"/>
-          <img src="{% asset_path tamogatok/balassi.png %}"/>
-          <img src="{% asset_path tamogatok/otp.png %}"/>
-          <img src="{% asset_path tamogatok/padoc.png %}"/>       
-          <img src="{% asset_path tamogatok/zb.png %}"/>          
-          <img src="{% asset_path tamogatok/nka.png %}"/>
-          <img src="{% asset_path tamogatok/regiomax.png %}"/>          
-          <img src="{% asset_path tamogatok/tcom.png %}"/>
-          <img src="{% asset_path tamogatok/orange.png %}"/>
-          <img src="{% asset_path tamogatok/mocs.png %}"/>   
-          <img src="{% asset_path tamogatok/rakoczi.png %}"/>
-          <img src="{% asset_path tamogatok/kassamegye.png %}"/>
-          <img src="{% asset_path tamogatok/terraincognita.png %}"/>
-          <img src="{% asset_path tamogatok/carmeuse.png %}"/>
-          <img src="{% asset_path tamogatok/kominvent.png %}"/>
+          <img src="{% asset_path logos/tamogatok/miniszterelnokseg.png %}" alt='Miniszterelnökség - Nemzetpolitikai Államtitkárság'/>
+          <img src="{% asset_path logos/tamogatok/bga.png %}" alt='Bethlen Gábor Alap' />
+          <img src="{% asset_path logos/tamogatok/slovnaft.png %}" alt='Slovnaft' />
+          <img src="{% asset_path logos/tamogatok/hun.png %}" alt='Emberi Erőforrások Minisztériuma' />
+          <img src="{% asset_path logos/tamogatok/balassi.png %}" alt='Balassi intézet' />
+          <img src="{% asset_path logos/tamogatok/regiomax.png %}" alt='Regiomax' />
+          <img src="{% asset_path logos/tamogatok/azeninformatikusom.png %}" alt='Az én informatikusom' />
+          <img src="{% asset_path logos/tamogatok/kka.png %}" alt='Kult Minor' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/zb.png %}" alt='Zlatý Bažant' class='footer-wide' /> 
+          <img src="{% asset_path logos/tamogatok/tcom.png %}" alt='Telekom' />
+          <img src="{% asset_path logos/tamogatok/orange.png %}" alt='Orange' />
+          <img src="{% asset_path logos/tamogatok/mocs.png %}" alt='Dunamocs' />   
+          <img src="{% asset_path logos/tamogatok/rakoczi.png %}" alt='Rákóczi Szövetség' />         
+          <img src="{% asset_path logos/tamogatok/nka.png %}" alt='Nemzeti Kulturális Alap' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/kominvent.png %}" alt='Kominvent' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/otp.png %}" alt='OTP Bank' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/padoc.png %}" alt='Pallas Athéné Domus Concordiae Alapítvány' class='footer-wide' />    
+          <img src="{% asset_path logos/tamogatok/carmeuse.png %}" alt='Carmeuse' /> 
+          <img src="{% asset_path logos/tamogatok/terraincognita.png %}" alt='Terra Incognita' />
+          <img src="{% asset_path logos/tamogatok/kassamegye.png %}" alt='Kassa megye' class='footer-wide' />  
+          <br/>
           <p class="highlighted">Jurenka Oszkár, Jurenka Csaba, Mácsadi Tamás, Horkay László, Belák Csaba, Hamelli János, Hamelli Marián</p>
         </div>
       </div>
       <div class="updates-links bg sponsor-images">
         <div class="col-md-12">
           <h4>Médiapartnerek</h4>
-          <img src="{% asset_path tamogatok/parameter.png %}"/>
-          <img src="{% asset_path tamogatok/gomorilap.png %}" style="max-width:200px;"/>
-          <img src="{% asset_path tamogatok/ujszo.png %}"/>
-          <img src="{% asset_path tamogatok/vasarnap.png %}"/>
-          <img src="{% asset_path tamogatok/bumm.png %}"/>
-          <img src="{% asset_path tamogatok/televizio.png %}"/>
-          <img src="{% asset_path tamogatok/atempo.png %}"/>
-          <img src="{% asset_path tamogatok/rozsnyovidek.png %}"/>
-          <img src="{% asset_path tamogatok/citystar.png %}"/>
-          <img src="{% asset_path tamogatok/felvidekma.png %}"/>
-          <img src="{% asset_path tamogatok/figyelo.png %}"/>
-          <img src="{% asset_path tamogatok/hireksk.png %}"/>
-          <img src="{% asset_path tamogatok/tokolosh.png %}"/>
-          <img src="{% asset_path tamogatok/ahojszia.png %}"/>
-          <img src="{% asset_path tamogatok/trafik.png %}"/>
-          <img src="{% asset_path mediaspajz.png %}"/>
-          <img src="{% asset_path tamogatok/hirnok.png %}"/>
-          <img src="{% asset_path tamogatok/delta.png %}"/>
-          <img src="{% asset_path tamogatok/patria.png %}"/>
-          <img src="{% asset_path tamogatok/sportolunk.png %}"/>      
-          <img src="{% asset_path tamogatok/ma7.png %}"/>      
+          <img src="{% asset_path logos/tamogatok/parameter.png %}" alt='Paraméter' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/gomorilap.png %}" alt='Gömörilap' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/vasarnap.png %}" alt='Vasárnap' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/bumm.png %}" alt='bumm.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/televizio.png %}" alt='Magyar interaktív televízió' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/atempo.png %}" alt='atempo.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/ujszo.png %}" alt='Új Szó' />
+          <img src="{% asset_path logos/tamogatok/rozsnyovidek.png %}" alt='Rozsnyó Vidék' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/citystar.png %}" alt='CityStar' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/tokolosh.png %}" alt='Médiasátor - Tokolosh Team' />
+          <img src="{% asset_path logos/tamogatok/felvidekma.png %}" alt='Felvidék ma' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/figyelo.png %}" alt='Kassai figyelő' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/hireksk.png %}" alt='hirek.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/trafik.png %}" alt='trafik.sk' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/mediaspajz.png %}" alt='Médiaspajz' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/hirnok.png %}" alt='Dunamocsi Hírnök' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/ma7.png %}" alt='ma7' />  
+          <img src="{% asset_path logos/tamogatok/delta.png %}" alt='Delta' class='footer-wide' />
+          <img src="{% asset_path logos/tarsszervezok/patria.png %}" alt='Pátria Rádió' class='footer-wide' />
+          <img src="{% asset_path logos/tamogatok/ahojszia.png %}" alt='AhojSzia' />
+          <img src="{% asset_path logos/tamogatok/sportolunk.png %}" alt='sportolunk.sk' class='footer-wide' />      
+            
+              
         </div>
       </div>
 
 
             <div class="footer text-center bg">
               <p>© Gombaszögi Nyári Tábor 2010-2019<br>
+              <a href="/altalanos-szerzodesi-feltetelek" title="Általános Szerződési Feltételek">Általános Szerződési Feltételek</a> - 
+              <a href="/altalanos-szerzodesi-feltetelek/sk" title="Všeobecné obchodné podmienky">Všeobecné obchodné podmienky</a><br><br>
               Created by <a href="http://mediasator.tumblr.com/" target="_blank">Médiasátor a.k.a. Tokolosh TeaM</a> </p> 
             </div><!--/#footer-->
           </div>        

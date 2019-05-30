@@ -472,10 +472,10 @@ if ($("#gomba-map").length > 0) {
 			if(actLocation == programFS[i].location){
 				actProgram = programFS[i];
 				var formattedDate = new Date(actProgram.start);
-				if(formattedDate.getDay()!=actNap){
+				if(!actNap || (formattedDate.getDay() != actNap && formattedDate.getHours() >= 4)){
 					var actDay = formattedDate.getDay();
 					actNapWrap = $("<div class=\"program-day-wrap program-day-" + napNames[actDay] + "\"><h4>" + napNevek[actDay] + "</h4></div>").appendTo($("#location-program"));
-					actNap=actDay;
+					actNap = actDay;
 				}
 				actNapWrap.append("<div class=\"program-wrap\">"+
 								"<div class=\"program-start\">" + formattedDate.getHours() + ":" + formattedDate.getMinutes() + (formattedDate.getMinutes()<10?"0":"") + "</div>"+
