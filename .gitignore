@@ -27,3 +27,4 @@ _posts
 _program.json
 
 .asset-cache
+*.swp

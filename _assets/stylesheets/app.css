@@ -8,6 +8,22 @@
  *= require vendor/select2-bootstrap
  */
 
+
+div.checkbox.days
+{
+  height: 200px;
+/*  background-color: #39b3d7; */
+}
+
+div.checkbox.days.A
+{
+  background:rgba(57,179,215,0.5);
+}
+
+div.checkbox.days.B
+{
+}
+
 div.progress.poll-progress span
 {
   margin-left: 5px;

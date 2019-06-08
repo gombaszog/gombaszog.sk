@@ -471,3 +471,16 @@ jQuery(document).ready(function($){
     }
   });
 });
+
+function PartiVonatEvent(checkbox) {
+	var list = document.getElementById('ticket_bus');
+
+	if (checkbox.checked) {
+		list.options.selectedIndex = 6;
+	}
+	else {
+		list.options.selectedIndex = 0;
+	}
+
+	calculateTicketPrice();
+}
