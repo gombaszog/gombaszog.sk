@@ -84,7 +84,7 @@ group: blog
         "@type": "WebPage",
         "@id": "{{ site.url }}{{ page.url }}"
       },
-      "headline": "{{ page.title }}",
+      "headline": "{{ page.title | escape }}",
       "image": [
         "{{site.url }}{{ page.thumbnail }}"
        ],
