@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+  - 2.1.0
+
+before_script:
+ - rm ./_plugins/pagination.rb
+ - touch _program.json
+ - echo  "[]"> ./_program.json
+
+script: bundle exec jekyll build
+
+cache: bundler # caching bundler gem packages will speed up build
+
+sudo: false
+
+# Optional: disable email notifications about the outcome of your builds
+notifications:
+  email: false

@@ -6,12 +6,12 @@ url: http://test.gombaszog.sk:8765
 paginate: 3
 paginate_path: /blog/page-:num
 timezone: Europe/Bratislava
-exclude: ['sexrobots.txt', 'README.md', 'LICENSE', 'Gemfile', 'Makefile', '_deprecated']
+exclude: ['sexrobots.txt', 'README.md', 'LICENSE', 'Gemfile', 'Makefile', '_deprecated', 'vendor']
 excerpt_separator: <!--more-->
 minify_html: false
 assets:
-  js_compressor: 
-  css_compressor: 
+  js_compressor:
+  css_compressor:
   sources:
     - _assets/images
     - _assets/javascripts
