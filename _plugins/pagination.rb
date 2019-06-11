@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 module Jekyll
   module Generators
     class Pagination < Generator
       def paginate(site, page)
         all_posts = []
-        site.site_payload['site']['posts'].each do |p|
-          next if p.categories.include?('otletborze')
+        site.site_payload["site"]["posts"].each do |p|
+          next if p.categories.include?("otletborze")
           all_posts << p
         end
-        pages = Pager.calculate_pages(all_posts, site.config['paginate'].to_i)
+        pages = Pager.calculate_pages(all_posts, site.config["paginate"].to_i)
         (1..pages).each do |num_page|
           pager = Pager.new(site, num_page, all_posts, pages)
           if num_page > 1

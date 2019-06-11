@@ -2,73 +2,111 @@
 layout: page
 group: blog
 ---
-  <div id="blog">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="blog-inner">
-            <div id="content" class="col-sm-8 site-content bg">
-              <article>
-                <header class="entry-header">
-                  <div class="entry-meta">
+<div id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="blog-inner">
+          <div id="content" class="col-sm-8 site-content bg">
+            <article>
+              <header class="entry-header">
+                <div class="entry-meta">
 
-                    <time class="pull-left single-date" itemprop="datePublished" datetime="{{ page.date | date: '%FT%RZ' | localize }}">{{ page.date | date: '%b' | localize }} <span>{{ page.date | date: '%d' }}</span></time>
-                  </div>
-                  <h2 class="entry-title">{{ page.title }}</h2>
-                  <p class="author">Szerző: <span>{{ page.author }}</span></p>
-                </header>
-                <div class="entry-content" id="post-content">
-                  {{ content }}
+                  <time class="pull-left single-date" itemprop="datePublished"
+                    datetime="{{ page.date | date: '%FT%RZ' | localize }}">{{ page.date | date: '%b' | localize }}
+                    <span>{{ page.date | date: '%d' }}</span></time>
                 </div>
-              </article>
+                <h2 class="entry-title">{{ page.title }}</h2>
+                <p class="author">Szerző: <span>{{ page.author }}</span></p>
+              </header>
+              <div class="entry-content" id="post-content">
+                {{ content }}
+              </div>
+            </article>
 
-              <div class="share-post">
-                <div class="row">
-                  <div class="pull-left">
-                    <div class="like g-plusone" data-size="medium"></div>
-                  </div>
-                  <div class="pull-left">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="gombaszog" data-lang="hu" data-related="gombaszog" data-hashtags="gombaszog">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                  </div>
-                  <div class="pull-left">
-                    {% fb_like %}
-                  </div>
+            <div class="share-post">
+              <div class="row">
+                <div class="pull-left">
+                  <div class="like g-plusone" data-size="medium"></div>
                 </div>
-                <div class="row" style="margin-top: 20px;">
-                  <p class="tags">{% for tag in page.tags %}
-                    <span class="label label-{% cycle 'primary','success','info','warning','danger' %}">
-                      <i class="fa fa-tag fa-fw"></i>&nbsp;{{ tag }}
-                    </span>&nbsp;
-                  {% endfor %}</p>
+                <div class="pull-left">
+                  <a href="https://twitter.com/share" class="twitter-share-button" data-via="gombaszog" data-lang="hu"
+                    data-related="gombaszog" data-hashtags="gombaszog">Tweet</a>
+                  <script>
+                    ! function (d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                      if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }
+                    }(document, 'script', 'twitter-wjs');
+
+                  </script>
+                </div>
+                <div class="pull-left">
+                  {% fb_like %}
                 </div>
               </div>
-              <div class="comments row" id="comments">
-                <h2 class="heading heading-two">Hozzászólások</h2>
-                <div id="disqus_thread" style='background-color: #292F33 !important; border-radius:5px; padding:5px;'></div>
-                <script type="text/javascript">
-                    var disqus_shortname = 'gombaszog';
-                    (function() {
-                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              <div class="row" style="margin-top: 20px;">
+                <p class="tags">{% for tag in page.tags %}
+                  <span class="label label-{% cycle 'primary','success','info','warning','danger' %}">
+                    <i class="fa fa-tag fa-fw"></i>&nbsp;{{ tag }}
+                  </span>&nbsp;
+                  {% endfor %}</p>
               </div>
             </div>
-            <div id="sidebar" class="col-sm-4">
-              <div class="sidebar-inner">
-                <div class="widget bg">
-                  <img src="{{ page.thumbnail }}" alt="" class="img-responsive" />
-                </div>
-                <div class="widget bg">
-                  <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgombaszog&amp;width&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=267323596708516" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true" width="100%"></iframe>
-                </div>
-                <div class="widget bg">
-                  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/gombaszog" data-widget-id="467343846192320512">Tweets by @gombaszog</a>
-                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                </div>
+            <div class="comments row" id="comments">
+              <h2 class="heading heading-two">Hozzászólások</h2>
+              <div id="disqus_thread" style='background-color: #292F33 !important; border-radius:5px; padding:5px;'>
+              </div>
+              <script type="text/javascript">
+                var disqus_shortname = 'gombaszog';
+                (function () {
+                  var dsq = document.createElement('script');
+                  dsq.type = 'text/javascript';
+                  dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(
+                    dsq);
+                })();
+
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered
+                  by Disqus.</a></noscript>
+              <a href="http://disqus.com" class="dsq-brlink">comments powered by <span
+                  class="logo-disqus">Disqus</span></a>
+            </div>
+          </div>
+          <div id="sidebar" class="col-sm-4">
+            <div class="sidebar-inner">
+              <div class="widget bg">
+                <img src="{{ page.thumbnail }}" alt="" class="img-responsive" />
+              </div>
+              <div class="widget bg">
+                <iframe
+                  src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgombaszog&amp;width&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=267323596708516"
+                  scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;"
+                  allowTransparency="true" width="100%"></iframe>
+              </div>
+              <div class="widget bg">
+                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/gombaszog"
+                  data-widget-id="467343846192320512">Tweets by @gombaszog</a>
+                <script>
+                  ! function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + "://platform.twitter.com/widgets.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  }(document, "script", "twitter-wjs");
+
+                </script>
               </div>
             </div>
           </div>
@@ -76,40 +114,48 @@ group: blog
       </div>
     </div>
   </div>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ site.url }}{{ page.url }}"
-      },
-      "headline": "{{ page.title | escape }}",
-      "image": [
-        "{{site.url }}{{ page.thumbnail }}"
-       ],
-      "datePublished": "{{ page.date }}",
-      "dateModified": "{{ page.date }}",
-      "author": {
-        "@type": "Person",
-        "name": "{{ page.author }}"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Gombaszög",
-        "logo": {
-          "@type": "ImageObject",
-            "url": "https://www.gombaszog.sk/favicon.ico"
-        }
-      },
-      "url": "{{ site.url }}{{ page.url }}"
-    }
-  </script>
-  <script type="text/javascript">
-    window.___gcfg = {lang: 'hu'};
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/platform.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
+</div>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    },
+    "headline": "{{ page.title | escape }}",
+    "image": [
+      "{{site.url }}{{ page.thumbnail }}"
+    ],
+    "datePublished": "{{ page.date }}",
+    "dateModified": "{{ page.date }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gombaszög",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.gombaszog.sk/favicon.ico"
+      }
+    },
+    "url": "{{ site.url }}{{ page.url }}"
+  }
+
+</script>
+<script type="text/javascript">
+  window.___gcfg = {
+    lang: 'hu'
+  };
+  (function () {
+    var po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+
+</script>

@@ -1,8 +1,10 @@
-require 'nokogiri'
+# frozen_string_literal: true
+
+require "nokogiri"
 module Jekyll
   module StripFilter
     def strip(input)
-      input.gsub /\{%[^%]*%\}/, ''
+      input.gsub %r!\{%[^%]*%\}!, ""
       input = Nokogiri::HTML(input).text
     end
   end
