@@ -8,6 +8,12 @@
  *= require vendor/select2-bootstrap
  */
 
+#partivonat-label {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: normal;
+  margin-left: 5px;
+}
 
 .pricing-content select {
   height: 40px !important;
