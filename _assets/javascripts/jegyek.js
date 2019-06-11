@@ -136,10 +136,12 @@ if ($(".ticket-form").length > 0) {
     $('#btn-dayticket').click(function() {
       $("#ticket_category").val("napijegy");
       $('#select_days').fadeIn(500);
+      calculateTicketPrice();
     });
     $('#btn-weekticket').click(function() {
       $("#ticket_category").val("hetijegy");
       $('#select_days').hide();
+      calculateTicketPrice();
     });
     // calculate price
     $('.influence').on("change", calculateTicketPrice);
@@ -471,3 +473,16 @@ jQuery(document).ready(function($){
     }
   });
 });
+
+function PartiVonatEvent(checkbox) {
+	var list = document.getElementById('ticket_bus');
+
+	if (checkbox.checked) {
+		list.options.selectedIndex = 6;
+	}
+	else {
+		list.options.selectedIndex = 0;
+	}
+
+	calculateTicketPrice();
+}
