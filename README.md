@@ -6,8 +6,8 @@ gombaszog.sk
 
 ### Description
 
-The Gombasek Summer Camp is the traditional festival of Hungarian-speaking young people living in Slovakia. You can read more about it [here](http://www.gombaszog.sk). 
-The festival's website is created from the *master* branch of this repository.
+Gombaszögi Nyári Tábor is a traditional festival of the hungarian youth living in Slovakia. You can read more about it on our [website](https://www.gombaszog.sk). 
+The festival's website is created from the *master* branch.
 
 ### Requires
 
