@@ -85,8 +85,10 @@ class ProgramDefault < Liquid::Tag
                         html.p { html << e["description"] }
                       end
                     end
-                    html.div(:class => "col-md-2 visible-lg visible-md") do
-                      html.img(:src => e["logo"], :class => "img-responsive")
+                    if e["logo"]
+                      html.div(:class => "col-md-2 visible-lg visible-md") do
+                        html.img(:src => e["logo"], :class => "img-responsive", :alt => (e["partner"]).to_s)
+                      end
                     end
                   end
                 end

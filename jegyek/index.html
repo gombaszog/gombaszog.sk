@@ -12,7 +12,7 @@ group: jegyek
         <ul class="clearfix">
           <li class="regular">
             <div class="regular-price">
-              <h2>Helyszíni<br />hetijegy</h2>
+              <h2>Helyszíni<br>hetijegy</h2>
               <p class="price">&euro;69</p>
               <p class="price-content">6 nap<br>helyszínen</p>
             </div>
@@ -27,7 +27,7 @@ group: jegyek
           </li>
           <li class="rock">
             <div class="regular-price">
-              <h2>Nyári<br />hetijegy<span>Július 7-ig</span></h2>
+              <h2>Nyári<br>hetijegy<span>Július 7-ig</span></h2>
               <p class="price">&euro;59</p>
               <p class="price-content">6 nap<br>csak elővételben</p>
               <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
@@ -45,7 +45,7 @@ group: jegyek
           </li>
           <li class="vip">
             <div class="regular-price">
-              <h2>Tavaszi<br />hetijegy<span>Május 31-ig</span></h2>
+              <h2>Tavaszi<br>hetijegy<span>Május 31-ig</span></h2>
               <p class="price">&euro;55</p>
               <p class="price-content">6 nap<br>csak elővételben</p>
             </div>
@@ -66,7 +66,7 @@ group: jegyek
         {% comment %} <h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2> {% endcomment %}
         <h3 class="text-center" style="padding-bottom: 1em; color: red">Rajtunk kívülálló okok miatt
-          ideiglenesen csak átutalással vagy személyesen lehet fizetni.<br /><small>Részletek a jegyvételi
+          ideiglenesen csak átutalással vagy személyesen lehet fizetni.<br><small>Részletek a jegyvételi
             űrlap alatt, a Tovább gomb mellett.</small></h3>
 
         <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="POST"
@@ -76,7 +76,7 @@ group: jegyek
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
-                    <img src="{% asset_path jegy.png %}" class="img-responsive" />
+                    <img src="{% asset_path jegy.png %}" alt="Jegy ikon" class="img-responsive" />
                   </div>
                   <div class="col-sm-8">
                     <label class="control-label" for="ticket_category">Jegytípus </label>
@@ -92,18 +92,18 @@ group: jegyek
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
-                    <img src="{% asset_path sator.png %}" class="img-responsive" />
+                    <img src="{% asset_path sator.png %}" alt="Sátor ikon" class="img-responsive" />
                   </div>
                   <div class="col-sm-8">
                     <label class="control-label" for="ticket_housing">Szállás <a class="nocolor" href="/info#szallas"
-                        target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
-                          data-placement="bottom"
+                        target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
+                          data-toggle="tooltip" data-placement="bottom"
                           title="Ha valaki más intézi a szállásod, hagyd alapértelmezetten! Bővebb információkért kattints!"></i></a></label>
                     <select id="ticket_housing" name="ticket[housing]" class="form-control influence">
                       <option value="0">Már kifizetett sátorban/panzióban</option>
                       <option value="sator" data-price="10.0">Sátorban +10€</option>
                     </select>
-                    <small>Sátranként egy sátorjegy szükséges. <br />A sátorjegy a Bebek kempingbe szól.</small>
+                    <small>Sátranként egy sátorjegy szükséges. <br>A sátorjegy a Bebek kempingbe szól.</small>
                   </div>
                 </div>
               </div>
@@ -111,19 +111,19 @@ group: jegyek
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
-                    <img src="{% asset_path vonat_icon.png %}" class="img-responsive" />
+                    <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
                   </div>
                   <div class="col-sm-8">
                     <label class="control-label">
                       Utazás
-                      <a class="nocolor" href="/info#utazas" target="_blank"><i class="fa fa-info-circle info-tooltip"
-                          data-toggle="tooltip" data-placement="bottom"
+                      <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
+                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                           title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
                     </label>
                     <p><input type="checkbox" name="" id="partivonat-check" value=""
                         style="float: left; width: 25px; height: 25px;" onchange='PartiVonatEvent(this);'><label
                         for="partivonat-check" id="partivonat-label">Partivonat +26€</label></p>
-                    <small>A jegy oda-vissza érvényes.<br /><a href="/info#utazas" target="_blank">Bővebb információ
+                    <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb információ
                         itt.</a></small>
                   </div>
                 </div>
@@ -149,9 +149,9 @@ group: jegyek
                   id="ticket_nap_hetfo" value="1">
               </div>
               <div><small>
-                  • Bohemian Betyars<br />
-                  • Transnomad<br />
-                  <em>... és sokan mások!</em><br /><br />
+                  • Bohemian Betyars<br>
+                  • Transnomad<br>
+                  <em>... és sokan mások!</em><br><br>
                 </small></div>
             </div>
           </label>
@@ -165,9 +165,9 @@ group: jegyek
                   id="ticket_nap_kedd" value="1">
               </div>
               <div><small>
-                  • Majka<br />
-                  • Kaukázus<br />
-                  <em>... és sokan mások!</em><br /><br />
+                  • Majka<br>
+                  • Kaukázus<br>
+                  <em>... és sokan mások!</em><br><br>
                 </small></div>
             </div>
           </label>
@@ -181,10 +181,10 @@ group: jegyek
                   id="ticket_nap_szerda" value="1">
               </div>
               <div><small>
-                  • Leander Kills<br />
-                  • Follow the flow<br />
-                  • Anima Sound System<br />
-                  <em>... és sokan mások!</em><br />
+                  • Leander Kills<br>
+                  • Follow the Flow<br>
+                  • Anima Sound System<br>
+                  <em>... és sokan mások!</em><br>
                 </small></div>
             </div>
           </label>
@@ -198,10 +198,10 @@ group: jegyek
                   id="ticket_nap_csutortok" value="1">
               </div>
               <div><small>
-                  • Road<br />
-                  • Intim Torna Illegál<br />
-                  • Alvin és a mókusok<br />
-                  <em>... és sokan mások!</em><br />
+                  • Road<br>
+                  • Intim Torna Illegál<br>
+                  • Alvin és a mókusok<br>
+                  <em>... és sokan mások!</em><br>
                 </small></div>
             </div>
           </label>
@@ -215,10 +215,10 @@ group: jegyek
                   id="ticket_nap_pentek" value="1">
               </div>
               <div><small>
-                  • JVV<br />
-                  • Rúzsa Magdi<br />
-                  • Skaar<br />
-                  <em>... és sokan mások!</em><br />
+                  • JVV<br>
+                  • Rúzsa Magdi<br>
+                  • Skaar<br>
+                  <em>... és sokan mások!</em><br>
                 </small></div>
             </div>
           </label>
@@ -232,10 +232,10 @@ group: jegyek
                   id="ticket_nap_szombat" value="1">
               </div>
               <div><small>
-                  • István a király<br />
-                  • Anna and the Barbies<br />
-                  • Besh o Drom<br />
-                  <em>... és sokan mások!</em><br />
+                  • István a király<br>
+                  • Anna and the Barbies<br>
+                  • Besh o Drom<br>
+                  <em>... és sokan mások!</em><br>
                 </small></div>
             </div>
           </label>
@@ -511,7 +511,7 @@ group: jegyek
                     name="ticket[city]" required
                     title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!" />
                 </div>
-                <div id='settlement_fill' style='' ;></div>
+                <div id='settlement_fill'></div>
               </div>
             </div>
             <div class="col-xs-5">
@@ -557,7 +557,8 @@ group: jegyek
           </div>
           <div class="form-group">
             <label class="control-label" for="ticket_bus">Érkezés módja <a class="nocolor" href="/info#utazas"
-                target="_blank"><i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
+                  data-toggle="tooltip" data-placement="bottom"
                   title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
             <select id="ticket_bus" name="ticket[bus]" class="form-control influence">
               <option value="gyalog">Gyalog</option>
@@ -568,7 +569,7 @@ group: jegyek
               <option value="egyeb">Egyéb</option>
             </select>
           </div>
-          <div class="row" style="display: none">
+          {% comment %} <div class="row">
             <div class="col-xs-7">
               <div class="form-group">
                 <label class="control-label" for="ticket_food">Mit ennél? <a class="nocolor" href="/info#etkezes"
@@ -590,7 +591,7 @@ group: jegyek
                   name="ticket[beer]" value="0" data-price="10.0" />
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
         </div>
         <div class="col-md-3">
           <div class="form-group">
@@ -657,7 +658,7 @@ group: jegyek
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label" for="ticket_from">Honnét tudsz a táborról?</label>
+            <label class="control-label">Honnét tudsz a táborról?</label>
             <div class="row">
               <div class="col-sm-6">
                 <div class="checkbox">
@@ -701,7 +702,7 @@ group: jegyek
               </div>
             </div>
           </div>
-          <label>&nbsp;</label>
+          <br>
         </div>
       </div>
       <div class="row">
@@ -776,7 +777,7 @@ group: jegyek
 </div>
 
 
-<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="#ticket-barcode-label"
+<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -805,7 +806,7 @@ group: jegyek
   </div>
 </div>
 
-<div class="modal fade" id="aszf" tabindex="-1" role="dialog" aria-labelledby="#aszf_label" aria-hidden="true">
+<div class="modal fade" id="aszf" tabindex="-1" role="dialog" aria-labelledby="aszf_label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -836,12 +837,12 @@ group: jegyek
           üzlet által megadott teljes árát tartalmazza. Árunak számít minden, az Üzemeltető által a
           gombaszog.sk oldal
           érvényes árlistáján közzétett termék vagy szolgáltatás.</p>
-        <p class="text-justified">Az Üzemeltető elérhetőségei:<br />
-          Sine Metu P.T.<br />
-          97946 Moča - Dunamocs 37<br />
-          Szlovákia<br />
-          Telefonos elérhetőség: +421 917 746 851 (10.00 és 18:00 közt hívható)<br />
-          E-mail: info@gombaszog.sk<br />
+        <p class="text-justified">Az Üzemeltető elérhetőségei:<br>
+          Sine Metu P.T.<br>
+          97946 Moča - Dunamocs 37<br>
+          Szlovákia<br>
+          Telefonos elérhetőség: +421 917 746 851 (10.00 és 18:00 közt hívható)<br>
+          E-mail: info@gombaszog.sk<br>
           A Vásárló elektronikus árurendelése és a fizetés menete, ahogy a Vásárló személyes adatai is,
           védettek. A
           személyes és bizalmas információk biztonságosan mentésre kerülnek a gombaszog.sk oldalon.</p>
@@ -1001,9 +1002,6 @@ group: jegyek
             adatbázisa jelszóval védett illetve titkosított. A rendezvény során, nyomon követhető módon, a
             jegykezelő
             személyzet delegált, saját jelszóval rendelkező tagjai férhetnek hozzá az adatokhoz.</p>
-          <h4></h4>
-          <p class="text-justified"></p>
-          <h4></h4>
           <p class="text-justified"></p>
           <h3>9. Végső rendelkezések</h3>
           <p class="text-justified">Az Üzemeltető nem vállal felelősséget a kárért, amelyet a Vásárló hibás
@@ -1043,18 +1041,24 @@ group: jegyek
         "addressLocality": "Slavec",
         "postalCode": "04911",
         "addressCountry": "SK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.563772,
+        "longitude": 20.466542
       }
     },
     "image": [
-      "{% asset_path og.jpg %}"
+      "{{ site.url }}{% asset_path og.jpg %}"
     ],
     "description": "{{ site.description }}",
     "offers": [{
         "@type": "Offer",
         "url": "https://www.gombaszog.sk/jegyek",
-        "price": "55",
+        "price": "59",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2019-06-01T01:00+0200",
         "itemOffered": {
           "@type": "Product",
           "name": "Hetijegy"
@@ -1066,10 +1070,72 @@ group: jegyek
         "price": "15",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2019-06-01T01:00+0200",
         "itemOffered": {
           "@type": "Product",
           "name": "Napijegy"
         }
+      }
+    ],
+    "performer": [{
+        "@type": "MusicGroup",
+        "name": "Alvin és a Mókusok"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Majka"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Bohemian Betyars"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Transnomad"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Kaukázus"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Leander Kills"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Follow the Flow"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Anima Sound System"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Leander Kills"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Road"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Jóvilágvan"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Rúzsa Magdi"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Skaar"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Anna and the Barbies"
+      },
+      {
+        "@type": "MusicGroup",
+        "name": "Besh o Drom"
       }
     ]
   }
