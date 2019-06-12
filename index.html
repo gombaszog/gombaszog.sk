@@ -787,7 +787,7 @@ group: fooldal
           {% for post in site.posts limit: 4 %}
           <div class="media">
             <div class="pull-left">
-              <a href="{{ post.url }}"><img src="{{ post.thumbnail | replace: 'image_','thb_image_' }}" alt=""
+              <a href="{{ post.url }}"><img src="{{ post.thumbnail | replace: 'image_','thb_image_' }}" alt="{{ post.title}}"
                   width="125"></a>
             </div>
             <div class="media-body">
