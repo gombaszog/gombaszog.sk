@@ -6,7 +6,9 @@ gombaszog.sk
 
 ### Description
 
-Gombaszögi Nyári Tábor is a traditional festival of the hungarian youth living in Slovakia. You can read more about it on our [website](https://www.gombaszog.sk). 
+Gombaszögi Nyári Tábor is a traditional festival of the hungarian youth living in Slovakia.
+You can read more about it on our [website](https://www.gombaszog.sk).
+
 The festival's website is created from the *master* branch.
 
 ### Requires
