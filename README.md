@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/gombaszog/gombaszog.sk.svg?branch=master)](https://travis-ci.org/gombaszog/gombaszog.sk)
+[![Dependency Status](https://img.shields.io/badge/dependency-ruby%202.1.0-blue.svg)](https://www.ruby-lang.org/en/news/2013/12/25/ruby-2-1-0-is-released/)
+
 gombaszog.sk
 ============
 
