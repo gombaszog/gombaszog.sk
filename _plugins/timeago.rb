@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 module Jekyll
   module Timeago
-
     DAYS_PER = {
-      :days => 1,
-      :weeks => 7,
+      :days   => 1,
+      :weeks  => 7,
       :months => 30,
-      :years => 365
-    }
+      :years  => 365,
+    }.freeze
 
     # Max level of detail
     # years > months > weeks > days
@@ -27,38 +28,34 @@ module Jekyll
 
     # Validates inputs
     def validate!(input, depth)
-      unless depth_allowed?(depth)
-        raise "Invalid depth level: #{depth.inspect}"
-      end
+      raise "Invalid depth level: #{depth.inspect}" unless depth_allowed?(depth)
 
-      unless input.is_a?(Date) || input.is_a?(Time)
-        raise "Invalid input type: #{input.inspect}"
-      end
+      raise "Invalid input type: #{input.inspect}" unless input.is_a?(Date) || input.is_a?(Time)
     end
 
     # Get plugin configuration from site. Returns an empty hash if not provided.
     def config
-      @config ||= @context.registers[:site].config['jekyll_timeago']
+      @config ||= @context.registers[:site].config["jekyll_timeago"]
     end
 
     def strings
       {
-        :today         => config['today'] || 'today',
-        :yesterday     => config['yesterday'] || 'yesterday',
-        :tomorrow      => config['tomorrow'] || 'tomorrow',
-        :and           => config['and'] ||'and',
-        :suffix        => config['suffix'] || 'ago',
-        :prefix        => config['prefix'] || '',
-        :suffix_future => config['suffix_future'] || '',
-        :prefix_future => config['prefix_future'] || 'in',
-        :years         => config['years'] || 'years',
-        :year          => config['year'] || 'year',
-        :months        => config['months'] || 'months',
-        :month         => config['month'] || 'month',
-        :weeks         => config['weeks'] || 'weeks',
-        :week          => config['week'] || 'week',
-        :days          => config['days'] || 'days',
-        :day           => config['day'] || 'day'
+        :today         => config["today"] || "today",
+        :yesterday     => config["yesterday"] || "yesterday",
+        :tomorrow      => config["tomorrow"] || "tomorrow",
+        :and           => config["and"] || "and",
+        :suffix        => config["suffix"] || "ago",
+        :prefix        => config["prefix"] || "",
+        :suffix_future => config["suffix_future"] || "",
+        :prefix_future => config["prefix_future"] || "in",
+        :years         => config["years"] || "years",
+        :year          => config["year"] || "year",
+        :months        => config["months"] || "months",
+        :month         => config["month"] || "month",
+        :weeks         => config["weeks"] || "weeks",
+        :week          => config["week"] || "week",
+        :days          => config["days"] || "days",
+        :day           => config["day"] || "day",
       }
     end
 
@@ -97,13 +94,13 @@ module Jekyll
       days       = DAYS_PER[time_range]
       num_elems  = days_passed / days
       range_type = if num_elems == 1
-        t(time_range[0...-1]) # singularize key
-      else
-        t(time_range)
+                     t(time_range[0...-1]) # singularize key
+                   else
+                     t(time_range)
       end
 
       current_slots << "#{num_elems} #{range_type}"
-      pending_days  = days_passed - (num_elems*days)
+      pending_days = days_passed - (num_elems * days)
       build_time_ago_slots(pending_days, depth - 1, current_slots)
     end
 
@@ -123,7 +120,7 @@ module Jekyll
 
     # Validate if allowed level of detail
     def depth_allowed?(depth)
-      (1..MAX_DEPTH_LEVEL).include?(depth)
+      (1..MAX_DEPTH_LEVEL).cover?(depth)
     end
 
     # Array to sentence: ['1 month', '1 week', '5 days'] => "1 month, 1 week and 5 days"
@@ -131,7 +128,7 @@ module Jekyll
       if slots.length == 1
         slots[0]
       else
-        "#{slots[0...-1].join(', ')} #{t(:and)} #{slots[-1]}"
+        "#{slots[0...-1].join(", ")} #{t(:and)} #{slots[-1]}"
       end
     end
   end

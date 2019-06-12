@@ -1,31 +1,31 @@
 if ($(".ticket-form").length > 0) {
   var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
-  captcha_reload = function() { // reload captcha image
-    $('#ticket_captcha').css('background-image', 'url(/api/captcha?'+Date.now()+')');
+  captcha_reload = function () { // reload captcha image
+    $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
   }
-  getUrlVars = function() { // get url variables
+  getUrlVars = function () { // get url variables
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
       vars[key] = value;
     });
     return vars;
   }
-  loadVars = function() {
+  loadVars = function () {
     $.getJSON("/api/ticket/available").done(function (data) {
-      $.each(data.bus, function(k,v) {
+      $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
-          $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' (még '+v.free+' hely) +'+parseInt(v.price)+'&euro;</option>')
+          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
         );
       });
-      $.each(data.housing, function(k,v) {
+      $.each(data.housing, function (k, v) {
         $("#ticket_housing").append(
-          $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+(v.capacity > 0 ? ' ('+v.capacity+' ágyas)' : '')+' +'+parseInt(v.price)+'&euro;</option>')
+          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + (v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' + parseInt(v.price) + '&euro;</option>')
         );
       });
-      $.each(data.food, function(k,v) {
+      $.each(data.food, function (k, v) {
         $("#ticket_food").append(
-          $('<option value="'+v.id+'" data-price="'+v.price+'">'+v.name+' +'+parseInt(v.price)+'&euro;</option>')
+          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' +' + parseInt(v.price) + '&euro;</option>')
         );
       });
       $('#hetijegy').data('price', data.ticketweek);
@@ -35,8 +35,8 @@ if ($(".ticket-form").length > 0) {
   }
   mark = function (e) {
     captcha_reload();
-    $.each(e, function(k,v) {
-      $("#ticket_"+k).addClass("has-error").change(function() {
+    $.each(e, function (k, v) {
+      $("#ticket_" + k).addClass("has-error").change(function () {
         $(this).removeClass("has-error");
       });
     });
@@ -49,27 +49,27 @@ if ($(".ticket-form").length > 0) {
       alert("Vegyél inkább hetijegyet, mivel ingyen van.");
     } else if (e.price || e.empty) {
       alert("A fizetendő összeg nem lehet 0€!");
-    } else if (e.noday){
+    } else if (e.noday) {
       alert("Nincs kiválasztva nap")
-    } else if (e.wrongtype){
+    } else if (e.wrongtype) {
       alert("Rossz jegytípus van kiválasztva")
     } else alert("Hoppá! Az űrlapot hibásan töltötted ki, a javítandó mezőket megjelöltük pirossal!");
   }
 
-  var addLeadingZeros = function(toWhat) {
+  var addLeadingZeros = function (toWhat) {
     if (typeof toWhat !== "string" || toWhat.length > 1) {
       return toWhat;
     }
     return ("0" + toWhat);
   }
 
-  var handleStupidBirtDateFormats = function() {
+  var handleStupidBirtDateFormats = function () {
     var actDateTxt = $("#ticket_birth").val();
     if (!actDateTxt) return; // not yet filled
     if (/^(19[0-9]{2}|20[01][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(actDateTxt)) return; // actually, good
     if (/^[^0-9]*(19[0-9]{2}|20[01][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/.test(actDateTxt)) {
       // actually, almost good, correct it
-      actDateTxt = actDateTxt.replace(/^.*(19[0-9]{2}|20[01][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/, function(match, p1, p2, p3) {
+      actDateTxt = actDateTxt.replace(/^.*(19[0-9]{2}|20[01][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/, function (match, p1, p2, p3) {
         return addLeadingZeros(p1) + "-" + addLeadingZeros(p2) + "-" + addLeadingZeros(p3);
       });
       $("#ticket_birth").val(actDateTxt);
@@ -80,34 +80,33 @@ if ($(".ticket-form").length > 0) {
     return;
   }
 
-  var calculateTicketPrice = function() {
+  var calculateTicketPrice = function () {
     price = 0;
-    if($('#ticket_category').val() == 'hetijegy'){
+    if ($('#ticket_category').val() == 'hetijegy') {
       price = !$('#ticket_category').is(':disabled') ? parseFloat($('#hetijegy').data('price')) : 0;
-    }
-    else if($('#ticket_category').val() == 'napijegy'){
+    } else if ($('#ticket_category').val() == 'napijegy') {
       var countDays = 0;
       var countAllDays = 0;
-      $('.days input').each(function(){
-        if($(this).is(':checked')){
-          
+      $('.days input').each(function () {
+        if ($(this).is(':checked')) {
+
           countAllDays += 1;
-          if(!$(this).is(':disabled')){
+          if (!$(this).is(':disabled')) {
             countDays += 1;
           }
         }
       });
       price = parseFloat($('#napijegy').data('price')) * countDays;
-      if((parseFloat($('#napijegy').data('price')) * countAllDays) >= parseFloat($('#hetijegy').data('price'))){
+      if ((parseFloat($('#napijegy').data('price')) * countAllDays) >= parseFloat($('#hetijegy').data('price'))) {
         alert("Elérted a hetijegy árát, inkább vegyél azt");
       }
     }
     var originalPrice = price;
     tmp = !$("#ticket_housing").is(':disabled') ? $("#ticket_housing option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp =  !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
+    tmp = !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp =  !$("#ticket_bus").is(':disabled') ? $("#ticket_bus option:selected").data('price') : 0;
+    tmp = !$("#ticket_bus").is(':disabled') ? $("#ticket_bus option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
     tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
     if (tmp) price += parseFloat(tmp);
@@ -119,7 +118,7 @@ if ($(".ticket-form").length > 0) {
     $('#price').html(price);
   }
 
-  window.fbAsyncInit = function() {
+  window.fbAsyncInit = function () {
     // initialize facebook
     FB.init({
       appId: '267323596708516',
@@ -128,17 +127,17 @@ if ($(".ticket-form").length > 0) {
       version: 'v2.9'
     });
     // scroller
-    $('.btn-pricing').click(function() {
+    $('.btn-pricing').click(function () {
       $('body,html').animate({
         scrollTop: $('.roll-here').offset().top
       }, "slow");
     });
-    $('#btn-dayticket').click(function() {
+    $('#btn-dayticket').click(function () {
       $("#ticket_category").val("napijegy");
       $('#select_days').fadeIn(500);
       calculateTicketPrice();
     });
-    $('#btn-weekticket').click(function() {
+    $('#btn-weekticket').click(function () {
       $("#ticket_category").val("hetijegy");
       $('#select_days').hide();
       calculateTicketPrice();
@@ -149,14 +148,14 @@ if ($(".ticket-form").length > 0) {
     // autoload captcha
     $('.re-captcha').click(captcha_reload);
     // facebook
-    $('.ticket-fb').click(function() {
+    $('.ticket-fb').click(function () {
       $('form')[0].reset();
       captcha_reload();
-      FB.login(function(response) { // log in
+      FB.login(function (response) { // log in
         if (response.authResponse) { // logged in
           FB.api('/me', {
-              fields: ['last_name', 'first_name', 'email', 'location', 'birthday']
-            }, function(profile) { // get user data
+            fields: ['last_name', 'first_name', 'email', 'location', 'birthday']
+          }, function (profile) { // get user data
             $('#ticket_fb_token').val(response.authResponse['accessToken']);
             $('#ticket_fbid').val(profile.id);
             $('#ticket_email').val(profile.email);
@@ -166,7 +165,7 @@ if ($(".ticket-form").length > 0) {
             $('#ticket_where').val((profile.location ? profile.location.name : null));
             if (profile.birthday) {
               var date = profile.birthday.split("/").reverse(); // preparse date
-              $('#ticket_birth').val([date[0],date[2],date[1]].join("-"));
+              $('#ticket_birth').val([date[0], date[2], date[1]].join("-"));
             }
             // show the form
             alert("Betöltöttük a Facebook adataidat, de kérünk még ellenőrizd, hogy megfelelnek-e a a valóságnak!");
@@ -174,10 +173,12 @@ if ($(".ticket-form").length > 0) {
             $(".ticket-hidden").slideToggle("slow");
           });
         }
-      }, {scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'});
+      }, {
+        scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'
+      });
     });
     //manual
-    if ( $('.ticket-orig').length > 0 ){
+    if ($('.ticket-orig').length > 0) {
       $('form')[0].reset();
       $('#ticket_voucher').val(getUrlVars().voucher);
       captcha_reload();
@@ -205,7 +206,7 @@ if ($(".ticket-form").length > 0) {
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
-          document.location.replace("/jegyek/sikeres?amount="+data.amount);
+          document.location.replace("/jegyek/sikeres?amount=" + data.amount);
           ret = false;
         } else {
           mark(data);
@@ -220,7 +221,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: '/api/ticket/find/'+barcode,
+        url: '/api/ticket/find/' + barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -234,7 +235,7 @@ if ($(".ticket-form").length > 0) {
       });
     });
 
-    $('#ticket').bind("keyup keypress", function(e) {
+    $('#ticket').bind("keyup keypress", function (e) {
       var code = e.keyCode || e.which;
       if (code == 13) {
         e.preventDefault();
@@ -243,48 +244,46 @@ if ($(".ticket-form").length > 0) {
     });
   };
 
-  $('#ticket_category').on('change', function(){
-    if($('#ticket_category').val() == 'napijegy'){
+  $('#ticket_category').on('change', function () {
+    if ($('#ticket_category').val() == 'napijegy') {
       $('#select_days').fadeIn(500);
-    }
-    else{
+    } else {
       $('#select_days').hide();
     }
-    $(".days").prop( "checked", false );
+    $(".days").prop("checked", false);
   });
 
-  $('#ticket_gift').on('change', function(){
+  $('#ticket_gift').on('change', function () {
     $('#ticket_from_box').slideToggle(500);
   });
 
-  $('#ticket_city').on('keyup',function(){
-    if(this.value.length >= 3 && $('#ticket_country').val() == 'SK'){
-      try{
-        $.getJSON("https://velemjaro.sk/api/settlementsearchpublic/"+this.value).done(function (data) {
-          if(data.success == true){
+  $('#ticket_city').on('keyup', function () {
+    if (this.value.length >= 3 && $('#ticket_country').val() == 'SK') {
+      try {
+        $.getJSON("https://velemjaro.sk/api/settlementsearchpublic/" + this.value).done(function (data) {
+          if (data.success == true) {
             $('#settlement_fill').html('');
-            $.each(data.result, function(key,value) {
-              if(key >= 5){
+            $.each(data.result, function (key, value) {
+              if (key >= 5) {
                 return 'five';
-              }
-              else{
+              } else {
                 var setlRow = document.createElement('div');
                 setlRow.className = 'setlRow';
-                setlRow.setAttribute('id','setlRow_'+key);
-                setlRow.setAttribute('onclick','fillSettlement("setlRow_'+key+'")');
+                setlRow.setAttribute('id', 'setlRow_' + key);
+                setlRow.setAttribute('onclick', 'fillSettlement("setlRow_' + key + '")');
                 var setlDivOne = document.createElement('div');
                 var setlDivTwo = document.createElement('div');
                 var setlNameHU = document.createElement('strong');
-                  setlNameHU.className = 'setlNameHU';
-                  setlNameHU.innerHTML = value.magyarnev;
+                setlNameHU.className = 'setlNameHU';
+                setlNameHU.innerHTML = value.magyarnev;
                 var setlNameSK = document.createElement('strong');
-                  setlNameSK.className = 'setlNameSK';
-                  setlNameSK.innerHTML = ', '+value.szlovaknev;
+                setlNameSK.className = 'setlNameSK';
+                setlNameSK.innerHTML = ', ' + value.szlovaknev;
                 var setlPSC = document.createElement('small');
-                  setlPSC.className = 'setlPSC';
-                  setlPSC.innerHTML = value.iranyitoszam;
+                setlPSC.className = 'setlPSC';
+                setlPSC.innerHTML = value.iranyitoszam;
                 var setlJaras = document.createElement('small');
-                  setlJaras.innerHTML = ' - '+value.jarasmnevi;
+                setlJaras.innerHTML = ' - ' + value.jarasmnevi;
 
                 setlDivOne.appendChild(setlNameHU);
                 setlDivOne.appendChild(setlNameSK);
@@ -298,52 +297,52 @@ if ($(".ticket-form").length > 0) {
               }
             });
             $('#settlement_fill').slideDown(500);
-          }
-          else{
+          } else {
             $('#settlement_fill').html('');
             $('#settlement_fill').slideUp(500);
           }
         });
-      }
-      catch(err){
+      } catch (err) {
         $('#settlement_fill').html('');
         $('#settlement_fill').slideUp(500);
       }
-    }
-    else{
+    } else {
       $('#settlement_fill').html('');
       $('#settlement_fill').slideUp(500);
     }
   });
 
-  $(document).click(function(){
+  $(document).click(function () {
     $('#settlement_fill').hide();
   });
 
-  $('#ticket_country').on('change', function(){
+  $('#ticket_country').on('change', function () {
     $('#settlement_fill').html('');
     $('#settlement_fill').hide();
   });
 
-  function fillSettlement(value){
-    $('#ticket_city').val( $('#'+value+' .setlNameHU').html() );
-    $('#ticket_zip').val( $('#'+value+' .setlPSC').html() );
+  function fillSettlement(value) {
+    $('#ticket_city').val($('#' + value + ' .setlNameHU').html());
+    $('#ticket_zip').val($('#' + value + ' .setlPSC').html());
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
   }
 
-  (function(d, s, id) {
+  (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
-  } (document, 'script', 'facebook-jssdk'));
+  }(document, 'script', 'facebook-jssdk'));
 }
 
-getUrlVars = function() { // get url variables
+getUrlVars = function () { // get url variables
   var vars = {};
-  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
     vars[key] = value;
   });
   return vars;
@@ -357,68 +356,65 @@ function getParameterByName(name) {
 }
 
 
-jQuery(document).ready(function($){
-  $(window).load(function() {
+jQuery(document).ready(function ($) {
+  $(window).load(function () {
     if ($('#pay-form').length > 0) {
-      $.getJSON("/api/ticket/paynow/"+getParameterByName("q")).done(function (data) {
+      $.getJSON("/api/ticket/paynow/" + getParameterByName("q")).done(function (data) {
         var msg = "";
-        if(data.status == "waiting") {
+        if (data.status == "waiting") {
           /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
           /* temporary */
           $('.ticket-price-success-pay').html('A jegy ára: <strong>&euro;' + data.amount + '</strong>');
           /* temporary */
           $('#ticket-addition').remove();
-          $.each( data, function( key, val ) {
-              $("#"+key).val(val);
+          $.each(data, function (key, val) {
+            $("#" + key).val(val);
           });
           $("#pay-form").removeClass("hidden-form");
-        } else if(data.status == "dropped") {
-          msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
-        } else if(data.status == "completed") {
-          msg = "Kedves "+data.ticket_last_name+" "+data.ticket_first_name+", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
+        } else if (data.status == "dropped") {
+          msg = "Kedves " + data.last_name + " " + data.first_name + ", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
+        } else if (data.status == "completed") {
+          msg = "Kedves " + data.ticket_last_name + " " + data.ticket_first_name + ", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
           $('#pay-form').remove();
           $('form')[0].reset();
           $('#ticket_voucher').val(getUrlVars().voucher);
           captcha_reload();
           loadVars();
           console.log(data);
-          $.each( data, function( key, val ) {
-            if(key == "ticket_nap_hetfo" || 
-                key == "ticket_nap_kedd" || 
-                key == "ticket_nap_szerda"  || 
-                key == "ticket_nap_csutortok" || 
-                key == "ticket_nap_pentek" || 
-                key == "ticket_nap_szombat"){
-                  if(val == 1){
-                    $("#"+key).click()
-                        .attr('disabled', 'disabled');
-                  }
+          $.each(data, function (key, val) {
+            if (key == "ticket_nap_hetfo" ||
+              key == "ticket_nap_kedd" ||
+              key == "ticket_nap_szerda" ||
+              key == "ticket_nap_csutortok" ||
+              key == "ticket_nap_pentek" ||
+              key == "ticket_nap_szombat") {
+              if (val == 1) {
+                $("#" + key).click()
+                  .attr('disabled', 'disabled');
+              }
+            } else {
+              $("#" + key).val(val)
+                .change();
             }
-            else{
-              $("#"+key).val(val)
-                        .change();
-            }
-            if(key == 'ticket_category' && val == "napijegy"){
+            if (key == 'ticket_category' && val == "napijegy") {
               $('#select_days').fadeIn(500);
-            }
-            else if(key == 'ticket_category' && val == "hetijegy"){
-              $(".days").prop( "checked", false );
+            } else if (key == 'ticket_category' && val == "hetijegy") {
+              $(".days").prop("checked", false);
               $('#ticket_category').attr('disabled', 'disabled');
               $('#ticket_voucher').attr('disabled', 'disabled');
             }
-            if(key == 'ticket_tent' && val == true){
+            if (key == 'ticket_tent' && val == true) {
               $('#ticket_housing').val('0')
-                                  .attr('disabled', 'disabled')
-            }
-            else if(key == 'ticket_housing_id' && val != null){
+                .attr('disabled', 'disabled')
+            } else if (key == 'ticket_housing_id' && val != null) {
               $('#ticket_housing').val('0')
-                                  .attr('disabled', 'disabled')
+                .attr('disabled', 'disabled')
             }
-            if(key == 'ticket_bus' && val != null){
-              setTimeout( function(){
-                $("#"+key).attr('disabled', 'disabled');
-                $("#"+key).val(val)
-                          .change();
+            if (key == 'ticket_bus' && val != null) {
+              setTimeout(function () {
+                $("#" + key).attr('disabled', 'disabled');
+                $("#" + key).val(val)
+                  .change();
               }, 1000);
             }
           });
@@ -428,7 +424,7 @@ jQuery(document).ready(function($){
         $('#msg').html(msg);
       });
 
-      $('form.ticket-addition').submit(function(e){
+      $('form.ticket-addition').submit(function (e) {
         if (!$("#ticket_confirm_aszf").prop("checked")) {
           e.preventDefault();
           return alert("A továbblépéshez kérünk, fogadd el az általános szerződési feltételeinket és adatvédelmi irányelveinket.");
@@ -448,7 +444,7 @@ jQuery(document).ready(function($){
             $("#ticket_amount").val(data.amount);
             $("#ticket_first_name").attr("name", "first_name");
             $("#ticket_last_name").attr("name", "last_name");
-            document.location.replace("/jegyek/sikeres?amount="+data.amount);
+            document.location.replace("/jegyek/sikeres?amount=" + data.amount);
             ret = false;
           } else {
             mark(data);
@@ -456,17 +452,16 @@ jQuery(document).ready(function($){
             e.preventDefault();
           }
         });
-        
+
         return ret;
       })
     }
 
-    if($('.ticket-price-success').length > 0){
-      if(window.location.search.split('=')[1] == 0){
+    if ($('.ticket-price-success').length > 0) {
+      if (window.location.search.split('=')[1] == 0) {
         $(".hide-this").hide();
         $(".show-this").show();
-      }
-      else{
+      } else {
         $('.ticket-price-success').html('A jegy ára: <strong>&euro;' + window.location.search.split('=')[1] + '</strong>');
         $(".show-this").hide();
       }
@@ -475,14 +470,13 @@ jQuery(document).ready(function($){
 });
 
 function PartiVonatEvent(checkbox) {
-	var list = document.getElementById('ticket_bus');
+  var list = document.getElementById('ticket_bus');
 
-	if (checkbox.checked) {
-		list.options.selectedIndex = 6;
-	}
-	else {
-		list.options.selectedIndex = 0;
-	}
+  if (checkbox.checked) {
+    list.options.selectedIndex = 6;
+  } else {
+    list.options.selectedIndex = 0;
+  }
 
-	calculateTicketPrice();
+  calculateTicketPrice();
 }

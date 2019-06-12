@@ -3,71 +3,90 @@ layout: page
 title: Hírek
 group: blog
 ---
-  <div id="blog">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="row">          
-            <div class="col-sm-8">
-              <div id="content" class="site-content bg">
-                <h2 class="heading">Legfrissebb <strong>híreink</strong></h2>
+<div id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-8">
+            <div id="content" class="site-content bg">
+              <h2 class="heading">Legfrissebb <strong>híreink</strong></h2>
 
-                {% assign post_list = paginator.posts %}
-                {% for post in post_list %}
-                  <article>
-                    <header class="entry-header">
-                      <div class="entry-meta">
-                        <p class="date" itemprop="datePublished">{{ post.date | date: '%Y. %B %d. %H:%M' | localize }}</p>
-                      </div>
-                      <h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-                      <p class="author">Szerző: <span>{{ post.author }}</span></p>
-                      <div class="entry-thumbnail">
-                        <a href="{{ post.url }}"><img src="{{ post.thumbnail }}" alt=""></a>
-                      </div>
-                    </header>
-                    <div class="entry-content">
-                      <p>{{ post.excerpt | strip | markdownify | strip_html | truncatewords: 150 }} </p>             
-                      <a class="more-link" href="{{ post.url }}">Olvasd tovább...</a>
-                    </div>
-                  </article>
-                {% endfor %}
+              {% assign post_list = paginator.posts %}
+              {% for post in post_list %}
+              <article>
+                <header class="entry-header">
+                  <div class="entry-meta">
+                    <p class="date" itemprop="datePublished">{{ post.date | date: '%Y. %B %d. %H:%M' | localize }}</p>
+                  </div>
+                  <h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                  <p class="author">Szerző: <span>{{ post.author }}</span></p>
+                  <div class="entry-thumbnail">
+                    <a href="{{ post.url }}"><img src="{{ post.thumbnail }}" alt=""></a>
+                  </div>
+                </header>
+                <div class="entry-content">
+                  <p>{{ post.excerpt | strip | markdownify | strip_html | truncatewords: 150 }} </p>
+                  <a class="more-link" href="{{ post.url }}">Olvasd tovább...</a>
+                </div>
+              </article>
+              {% endfor %}
 
-                <div class="pager">
-                  <ul class="pager">
-                    {% if paginator.previous_page %}
-                    {% if paginator.previous_page == 1 %}
-                    <li class="previous"><a href="/blog" title="Előző oldal">&larr; Legújabb bejegyzések</a></li>
-                    {% else %}
-                    <li class="previous"><a href="/blog/page-{{paginator.previous_page }}/" title="Előző oldal">&laquo; Újabb bejegyzések</a></li>
-                    {% endif %}
-                    {% endif %}
-                    {% if paginator.next_page %} 
-                    <li class="next"><a href="/blog/page-{{ paginator.next_page }}/" title="Következő oldal">Régebbi bejegyzések &rarr;</a></li>
-                    {% endif %} 
-                  </ul>
-                </div>            
-              </div>
-            </div>
-            <div id="sidebar" class="col-sm-4 sidebar-inner">
-              <div class="widget bg">
-                <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgombaszog&amp;width&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=267323596708516" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true" width="100%"></iframe>
-              </div>
-
-              <!--div class="single-event photo-gallery">
-                  <h2 class="heading"><strong>Instagaléria</strong></h2>
-                  <ul class="galery" id="instafeed" />
-              </div-->
-              <div class="widget bg">
-                <h2 class="heading"><strong>Élőkép</strong></h2>
-                <div class="livepic-wrapper"><a href="/camp-live/"><img id="livepic" src="http://kadbudapest.hu/gombcam/igynezkimostakemping.jpg" /></a></div>
-              </div>
-              <div class="widget bg">
-                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/gombaszog" data-widget-id="467343846192320512">Tweets by @gombaszog</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              <div class="pager">
+                <ul class="pager">
+                  {% if paginator.previous_page %}
+                  {% if paginator.previous_page == 1 %}
+                  <li class="previous"><a href="/blog" title="Előző oldal">&larr; Legújabb bejegyzések</a></li>
+                  {% else %}
+                  <li class="previous"><a href="/blog/page-{{paginator.previous_page }}/" title="Előző oldal">&laquo;
+                      Újabb bejegyzések</a></li>
+                  {% endif %}
+                  {% endif %}
+                  {% if paginator.next_page %}
+                  <li class="next"><a href="/blog/page-{{ paginator.next_page }}/" title="Következő oldal">Régebbi
+                      bejegyzések &rarr;</a></li>
+                  {% endif %}
+                </ul>
               </div>
             </div>
           </div>
-        </div>        
+          <div id="sidebar" class="col-sm-4 sidebar-inner">
+            <div class="widget bg">
+              <iframe
+                src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgombaszog&amp;width&amp;height=258&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=267323596708516"
+                scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;"
+                allowTransparency="true" width="100%"></iframe>
+            </div>
+
+            {% comment %}<div class="single-event photo-gallery">
+              <h2 class="heading"><strong>Instagaléria</strong></h2>
+              <ul class="galery" id="instafeed" />
+            </div> {% endcomment %}
+            <div class="widget bg">
+              <h2 class="heading"><strong>Élőkép</strong></h2>
+              <div class="livepic-wrapper"><a href="/camp-live/"><img id="livepic"
+                    src="http://kadbudapest.hu/gombcam/igynezkimostakemping.jpg" /></a></div>
+            </div>
+            <div class="widget bg">
+              <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/gombaszog"
+                data-widget-id="467343846192320512">Tweets by @gombaszog</a>
+              <script>
+                ! function (d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                  if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }
+                }(document, "script", "twitter-wjs");
+
+              </script>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>

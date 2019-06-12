@@ -1,6 +1,6 @@
 .btn.btn-primary,
 button {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .news-letter input {
@@ -14,22 +14,22 @@ button {
 .btn.btn-primary,
 button,
 .news-letter .btn-primary,
-#main-contact-form .btn-primary, 
+#main-contact-form .btn-primary,
 .buy-ticket,
 .upcoming .big-date p,
 .latest-post .date,
-.pager li a:hover, 
+.pager li a:hover,
 .pager li a:focus,
 .single-date,
 .comment-box .btn-default,
-.comment-box .form-control:focus, 
+.comment-box .form-control:focus,
 #contact-page .form-control:focus,
 #latest-event-content .pagination li a:hover,
 .regular-price .btn-pricing,
 .flexslider.item_dateWrapper ul li.flex-active-slide,
 #tab-wrap.upcoming_event .big-date,
 #latest-event-content .pagination li a.active,
-.pager li a.active{
+.pager li a.active {
   background-color: #76C2A8;
 }
 
@@ -41,7 +41,7 @@ button,
 }
 
 a,
-#navigation .open a, 
+#navigation .open a,
 #home a,
 .summer-fastival h2,
 .twitter-updates a,
@@ -54,48 +54,49 @@ a,
 .widget .tagcloud .btn-default,
 .error-info h2 span,
 .event-content-inner .event-title,
-.price{
-  color: rgb(238,58,36);
+.price {
+  color: rgb(238, 58, 36);
 }
 
 .more-link,
 .entry-header .entry-title a,
 .entry-header .author span {
   /*color: rgba(241, 196, 15, 1.0) !important;*/
-  color: rgb(238,58,36) !important;
+  color: rgb(238, 58, 36) !important;
 }
+
 .more-link:hover,
 .entry-header .entry-title a:hover,
 .entry-header .author span:hover {
   /*color: rgba(241, 196, 15, 0.7) !important;*/
-  color: rgba(238,58,36, 0.7) !important;
+  color: rgba(238, 58, 36, 0.7) !important;
 }
 
-a:focus, 
+a:focus,
 a:hover,
-#navigation .open a:hover, 
-#navigation .open a:focus, 
-#navigation .navbar-nav li a.active, 
+#navigation .open a:hover,
+#navigation .open a:focus,
+#navigation .navbar-nav li a.active,
 #navigation .navbar-nav li a:focus,
 #navigation .navbar-nav li a:hover,
-#navigation .navbar-nav li a:active, 
+#navigation .navbar-nav li a:active,
 .quick-links ul li a:hover,
 .quick-links .fa-facebook:hover,
 .quick-links .fa-twitter:hover,
 .quick-links .fa-google-plus:hover,
 .quick-links .fa-youtube:hover,
-.small-date ul li a:hover, 
-.small-date ul li a:focus, 
+.small-date ul li a:hover,
+.small-date ul li a:focus,
 .small-date ul li a:active,
 #carousel.item_dateWrapper li.active a,
-.left-perfomer-control:active, 
-.right-perfomer-control:active, 
-.right-perfomer-control:focus, 
-.left-perfomer-control:focus, 
-.left-perfomer-control:hover, 
+.left-perfomer-control:active,
+.right-perfomer-control:active,
+.right-perfomer-control:focus,
+.left-perfomer-control:focus,
+.left-perfomer-control:hover,
 .right-perfomer-control:hover,
-.widget ul li a:active, 
-.widget ul li a:focus, 
+.widget ul li a:active,
+.widget ul li a:focus,
 .widget ul li a:hover,
 .share-post .social-link a:hover,
 .social-networks ul li a:hover,
@@ -115,7 +116,7 @@ a:hover,
 #latest-event-content .latest-event:hover .tab .active,
 #navigation li:hover>a {
   /*color: #76C2A8;*/
-  color: rgba(238,58,36, 0.7);
+  color: rgba(238, 58, 36, 0.7);
 }
 
 /* button hover color */
@@ -123,169 +124,297 @@ a:hover,
 .btn.btn-primary:hover,
 button:hover,
 #main-contact-form .btn-primary:hover,
-.buy-ticket:hover
-{
+.buy-ticket:hover {
   background: #76C2A8;
 }
 
-.sc-player ol.sc-trackslist li.active{
+.sc-player ol.sc-trackslist li.active {
   border-color: #76C2A8;
 }
 
 
 .album-overlay .album-info,
-.tour-content{
-  background-color: rgba(0,192,245,0.8);
+.tour-content {
+  background-color: rgba(0, 192, 245, 0.8);
 }
 
-.gyoztes1 .album-info {background: rgba(26, 188, 156, 0.7)!important;}
+.gyoztes1 .album-info {
+  background: rgba(26, 188, 156, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(1) .single-album .album-heading,
 .col-lg-6:nth-child(1) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(1) .single-album .album-overlay .album-info 
-{background: rgba(26, 188, 156, 0.7);}
-.gyoztes2 .album-info {background: rgba(211, 84, 0, 0.7)!important;}
+.col-md-4:nth-child(1) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.gyoztes2 .album-info {
+  background: rgba(211, 84, 0, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(2) .single-album .album-heading,
 .col-lg-6:nth-child(2) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(2) .single-album .album-overlay .album-info  
-{background: rgba(211, 84, 0, 0.7);}
-.gyoztes3 .album-info {background: rgba(52, 152, 219, 0.7)!important;}
+.col-md-4:nth-child(2) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
+.gyoztes3 .album-info {
+  background: rgba(52, 152, 219, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(3) .single-album .album-heading,
 .col-lg-6:nth-child(3) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(3) .single-album .album-overlay .album-info  
-{background: rgba(52, 152, 219, 0.7);}
-.gyoztes4 .album-info {background: rgba(155, 89, 182, 0.7)!important;}
+.col-md-4:nth-child(3) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
+.gyoztes4 .album-info {
+  background: rgba(155, 89, 182, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(4) .single-album .album-heading,
 .col-lg-6:nth-child(4) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(4) .single-album .album-overlay .album-info  
-{background: rgba(155, 89, 182, 0.7);}
-.gyoztes5 .album-info {background: rgba(241, 196, 15, 0.7)!important;}
+.col-md-4:nth-child(4) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
+.gyoztes5 .album-info {
+  background: rgba(241, 196, 15, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(5) .single-album .album-heading,
 .col-lg-6:nth-child(5) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(5) .single-album .album-overlay .album-info  
-{background: rgba(241, 196, 15, 0.7);}
-.gyoztes6 .album-info {background: rgba(230, 126, 34, 0.7)!important;}
+.col-md-4:nth-child(5) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.gyoztes6 .album-info {
+  background: rgba(230, 126, 34, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(6) .single-album .album-heading,
 .col-lg-6:nth-child(6) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(6) .single-album .album-overlay .album-info  
-{background: rgba(230, 126, 34, 0.7);}
-.gyoztes7 .album-info {background: rgba(231, 76, 60, 0.7)!important;}
+.col-md-4:nth-child(6) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
+.gyoztes7 .album-info {
+  background: rgba(231, 76, 60, 0.7) !important;
+}
+
 #dalnap .col-md-4:nth-child(7) .single-album .album-heading,
 .col-lg-6:nth-child(7) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(7) .single-album .album-overlay .album-info  
-{background: rgba(231, 76, 60, 0.7);}
+.col-md-4:nth-child(7) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(8) .single-album .album-heading,
 .col-lg-6:nth-child(8) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(8) .single-album .album-overlay .album-info 
-{background: rgba(26, 188, 156, 0.7);}
+.col-md-4:nth-child(8) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(9) .single-album .album-heading,
 .col-lg-6:nth-child(9) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(9) .single-album .album-overlay .album-info  
-{background: rgba(211, 84, 0, 0.7);}
+.col-md-4:nth-child(9) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(10) .single-album .album-heading,
 .col-lg-6:nth-child(10) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(10) .single-album .album-overlay .album-info  
-{background: rgba(52, 152, 219, 0.7);}
+.col-md-4:nth-child(10) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(11) .single-album .album-heading,
 .col-lg-6:nth-child(11) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(11) .single-album .album-overlay .album-info  
-{background: rgba(155, 89, 182, 0.7);}
+.col-md-4:nth-child(11) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(12) .single-album .album-heading,
 .col-lg-6:nth-child(12) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(12) .single-album .album-overlay .album-info  
-{background: rgba(241, 196, 15, 0.7);}
+.col-md-4:nth-child(12) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(13) .single-album .album-heading,
 .col-lg-6:nth-child(13) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(13) .single-album .album-overlay .album-info  
-{background: rgba(230, 126, 34, 0.7);}
+.col-md-4:nth-child(13) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(14) .single-album .album-heading,
 .col-lg-6:nth-child(14) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(14) .single-album .album-overlay .album-info  
-{background: rgba(231, 76, 60, 0.7);}
+.col-md-4:nth-child(14) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(15) .single-album .album-heading,
 .col-lg-6:nth-child(15) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(15) .single-album .album-overlay .album-info 
-{background: rgba(26, 188, 156, 0.7);}
+.col-md-4:nth-child(15) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(16) .single-album .album-heading,
 .col-lg-6:nth-child(16) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(16) .single-album .album-overlay .album-info  
-{background: rgba(211, 84, 0, 0.7);}
+.col-md-4:nth-child(16) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(17) .single-album .album-heading,
 .col-lg-6:nth-child(17) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(17) .single-album .album-overlay .album-info  
-{background: rgba(52, 152, 219, 0.7);}
+.col-md-4:nth-child(17) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(18) .single-album .album-heading,
 .col-lg-6:nth-child(18) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(18) .single-album .album-overlay .album-info  
-{background: rgba(155, 89, 182, 0.7);}
+.col-md-4:nth-child(18) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(19) .single-album .album-heading,
 .col-lg-6:nth-child(19) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(19) .single-album .album-overlay .album-info  
-{background: rgba(241, 196, 15, 0.7);}
+.col-md-4:nth-child(19) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(20) .single-album .album-heading,
 .col-lg-6:nth-child(20) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(20) .single-album .album-overlay .album-info  
-{background: rgba(230, 126, 34, 0.7);}
+.col-md-4:nth-child(20) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(21) .single-album .album-heading,
 .col-lg-6:nth-child(21) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(21) .single-album .album-overlay .album-info  
-{background: rgba(231, 76, 60, 0.7);}
+.col-md-4:nth-child(21) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(22) .single-album .album-heading,
 .col-lg-6:nth-child(22) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(22) .single-album .album-overlay .album-info 
-{background: rgba(26, 188, 156, 0.7);}
+.col-md-4:nth-child(22) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(23) .single-album .album-heading,
 .col-lg-6:nth-child(23) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(23) .single-album .album-overlay .album-info  
-{background: rgba(211, 84, 0, 0.7);}
+.col-md-4:nth-child(23) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(24) .single-album .album-heading,
 .col-lg-6:nth-child(24) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(24) .single-album .album-overlay .album-info  
-{background: rgba(52, 152, 219, 0.7);}
+.col-md-4:nth-child(24) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(25) .single-album .album-heading,
 .col-lg-6:nth-child(25) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(25) .single-album .album-overlay .album-info  
-{background: rgba(155, 89, 182, 0.7);}
+.col-md-4:nth-child(25) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(26) .single-album .album-heading,
 .col-lg-6:nth-child(26) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(26) .single-album .album-overlay .album-info  
-{background: rgba(241, 196, 15, 0.7);}
+.col-md-4:nth-child(26) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(27) .single-album .album-heading,
 .col-lg-6:nth-child(27) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(27) .single-album .album-overlay .album-info  
-{background: rgba(230, 126, 34, 0.7);}
+.col-md-4:nth-child(27) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
 #dalnap .col-md-4:nth-child(28) .single-album .album-heading,
 .col-lg-6:nth-child(28) .single-album .album-overlay .album-info,
-.col-md-4:nth-child(28) .single-album .album-overlay .album-info  
-{background: rgba(231, 76, 60, 0.7);}
+.col-md-4:nth-child(28) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
 
 
-.col-md-6:nth-child(1) .single-album .album-overlay .album-info {background: rgba(26, 188, 156, 0.7);}
-.col-md-6:nth-child(2) .single-album .album-overlay .album-info {background: rgba(211, 84, 0, 0.7);}
-.col-md-6:nth-child(3) .single-album .album-overlay .album-info {background: rgba(52, 152, 219, 0.7);}
-.col-md-6:nth-child(4) .single-album .album-overlay .album-info {background: rgba(155, 89, 182, 0.7);}
-.col-md-6:nth-child(5) .single-album .album-overlay .album-info {background: rgba(241, 196, 15, 0.7);}
-.col-md-6:nth-child(6) .single-album .album-overlay .album-info {background: rgba(230, 126, 34, 0.7);}
-.col-md-6:nth-child(7) .single-album .album-overlay .album-info {background: rgba(231, 76, 60, 0.7);}
-.col-md-6:nth-child(8) .single-album .album-overlay .album-info {background: rgba(26, 188, 156, 0.7);}
-.col-md-6:nth-child(9) .single-album .album-overlay .album-info {background: rgba(211, 84, 0, 0.7);}
-.col-md-6:nth-child(10) .single-album .album-overlay .album-info {background: rgba(52, 152, 219, 0.7);}
-.col-md-6:nth-child(11) .single-album .album-overlay .album-info {background: rgba(155, 89, 182, 0.7);}
-.col-md-6:nth-child(12) .single-album .album-overlay .album-info {background: rgba(241, 196, 15, 0.7);}
-.col-md-6:nth-child(14) .single-album .album-overlay .album-info {background: rgba(230, 126, 34, 0.7);}
-.col-md-6:nth-child(15) .single-album .album-overlay .album-info {background: rgba(231, 76, 60, 0.7);}
-.col-md-6:nth-child(16) .single-album .album-overlay .album-info {background: rgba(26, 188, 156, 0.7);}
-.col-md-6:nth-child(17) .single-album .album-overlay .album-info {background: rgba(230, 126, 34, 0.7);}
-.col-md-6:nth-child(18) .single-album .album-overlay .album-info {background: rgba(46, 204, 113, 0.7);}
+.col-md-6:nth-child(1) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.col-md-6:nth-child(2) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
+.col-md-6:nth-child(3) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
+.col-md-6:nth-child(4) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
+.col-md-6:nth-child(5) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.col-md-6:nth-child(6) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
+.col-md-6:nth-child(7) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
+
+.col-md-6:nth-child(8) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.col-md-6:nth-child(9) .single-album .album-overlay .album-info {
+  background: rgba(211, 84, 0, 0.7);
+}
+
+.col-md-6:nth-child(10) .single-album .album-overlay .album-info {
+  background: rgba(52, 152, 219, 0.7);
+}
+
+.col-md-6:nth-child(11) .single-album .album-overlay .album-info {
+  background: rgba(155, 89, 182, 0.7);
+}
+
+.col-md-6:nth-child(12) .single-album .album-overlay .album-info {
+  background: rgba(241, 196, 15, 0.7);
+}
+
+.col-md-6:nth-child(14) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
+.col-md-6:nth-child(15) .single-album .album-overlay .album-info {
+  background: rgba(231, 76, 60, 0.7);
+}
+
+.col-md-6:nth-child(16) .single-album .album-overlay .album-info {
+  background: rgba(26, 188, 156, 0.7);
+}
+
+.col-md-6:nth-child(17) .single-album .album-overlay .album-info {
+  background: rgba(230, 126, 34, 0.7);
+}
+
+.col-md-6:nth-child(18) .single-album .album-overlay .album-info {
+  background: rgba(46, 204, 113, 0.7);
+}
 
 .item:nth-child(1) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(1) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(1) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(1) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
@@ -293,12 +422,15 @@ button:hover,
 .item:nth-child(2) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(2) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(2) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(2) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -306,12 +438,15 @@ button:hover,
 .item:nth-child(3) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(3) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(3) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(3) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -319,12 +454,15 @@ button:hover,
 .item:nth-child(4) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(4) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(4) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(4) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(46, 204, 113, 0.7);
 }
@@ -332,12 +470,15 @@ button:hover,
 .item:nth-child(5) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(5) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(5) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(5) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -345,12 +486,15 @@ button:hover,
 .item:nth-child(6) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(6) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(6) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(6) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -358,12 +502,15 @@ button:hover,
 .item:nth-child(7) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(7) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(7) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(7) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
@@ -371,12 +518,15 @@ button:hover,
 .item:nth-child(8) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(8) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(8) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(8) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -384,12 +534,15 @@ button:hover,
 .item:nth-child(9) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(9) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(9) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(9) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -397,12 +550,15 @@ button:hover,
 .item:nth-child(10) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(10) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(10) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(10) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(46, 204, 113, 0.7);
 }
@@ -410,12 +566,15 @@ button:hover,
 .item:nth-child(11) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(11) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(11) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(11) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
@@ -423,12 +582,15 @@ button:hover,
 .item:nth-child(12) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(12) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(12) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(12) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -436,12 +598,15 @@ button:hover,
 .item:nth-child(13) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(13) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(13) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(13) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -449,12 +614,15 @@ button:hover,
 .item:nth-child(14) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(14) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(14) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(14) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(46, 204, 113, 0.7);
 }
@@ -462,12 +630,15 @@ button:hover,
 .item:nth-child(15) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(15) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(15) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(15) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -475,12 +646,15 @@ button:hover,
 .item:nth-child(16) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(16) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(16) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(16) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -488,12 +662,15 @@ button:hover,
 .item:nth-child(17) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(17) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(17) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(17) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
@@ -501,12 +678,15 @@ button:hover,
 .item:nth-child(18) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
+
 .item:nth-child(18) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(18) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(18) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
@@ -514,12 +694,15 @@ button:hover,
 .item:nth-child(19) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(211, 84, 0, 0.7);
 }
+
 .item:nth-child(19) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(52, 152, 219, 0.7);
 }
+
 .item:nth-child(19) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(155, 89, 182, 0.7);
 }
+
 .item:nth-child(19) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(241, 196, 15, 0.7);
 }
@@ -527,21 +710,23 @@ button:hover,
 .item:nth-child(20) .performer-list li:nth-child(1) .perfomer-wrapper .overlay {
   background: rgba(231, 76, 60, 0.7);
 }
+
 .item:nth-child(20) .performer-list li:nth-child(2) .perfomer-wrapper .overlay {
   background: rgba(26, 188, 156, 0.7);
 }
+
 .item:nth-child(20) .performer-list li:nth-child(3) .perfomer-wrapper .overlay {
   background: rgba(230, 126, 34, 0.7);
 }
+
 .item:nth-child(20) .performer-list li:nth-child(4) .perfomer-wrapper .overlay {
   background: rgba(46, 204, 113, 0.7);
 }
 
 
 #music a .single-album .album-heading,
-#city .single-album .album-heading 
-{
-    bottom: 0px;
+#city .single-album .album-heading {
+  bottom: 0px;
   left: 0;
   padding: 15px;
   padding-bottom: 5px;
@@ -550,16 +735,17 @@ button:hover,
   width: 100%;
   text-shadow:
     2px 2px 0 #292e42,
-   -1px -1px 0 #292e42,  
+    -1px -1px 0 #292e42,
     1px -1px 0 #292e42,
-   -1px  1px 0 #292e42,
-    1px  1px 0 #292e42;
+    -1px 1px 0 #292e42,
+    1px 1px 0 #292e42;
 }
-#music a 
-{
+
+#music a {
   text-decoration: none;
   color: #E0E0E0;
 }
+
 .latest-event ul li {
   border-bottom: 1px solid #006f8d;
 }
@@ -567,8 +753,9 @@ button:hover,
 .latest-event ul {
   background-color: #00bff3;
 }
+
 .rock {
-  background-color: #00bff3!important;
+  background-color: #00bff3 !important;
 }
 
 .rock:before {
@@ -576,29 +763,28 @@ button:hover,
 }
 
 .rock:after {
-  border-top:322px solid #00bff3;
+  border-top: 322px solid #00bff3;
 }
 
 .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(odd) {
-  background: rgba(0,192,245,0.7);
-} 
+  background: rgba(0, 192, 245, 0.7);
+}
 
 .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(even) {
-  background: rgba(0, 151, 192,.7);
+  background: rgba(0, 151, 192, .7);
 }
 
 
 @media (max-width: 767px) {
+
   .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(1),
-  .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(4)
-  {
-    background: rgba(0,192,245,0.7);
+  .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(4) {
+    background: rgba(0, 192, 245, 0.7);
   }
 
   .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(2),
-  .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(3)
-  {
-    background: rgba(0, 151, 192,.7);
+  .event-content-inner .themeum_kcoundown ul.countdown-row li.countdown-section:nth-child(3) {
+    background: rgba(0, 151, 192, .7);
   }
 
   #navigation .navbar-nav li ul.sub-menu li a:hover,

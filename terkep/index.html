@@ -3,96 +3,114 @@ layout: page
 title: Térkép
 group: terkep
 ---
-      <style type="text/css">
-	img#gomba-map{
-		width: 100%;
-	}
-	div#location-details{
-		position: absolute;
-		display: none;
-		padding: 10px;
-		max-width: 400px;
-		max-height: 160px;
-		min-width: 100px;
-		min-height: 40px;
-		background-color: #111111;
-		color: #EEE;
-	}
-	div#location-details:hover{
-		cursor: pointer;
-	}
-	div#location-description {
-		font-size: smaller;
-	}
-	h3#location-title{
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
-	div.program-start{
-		float: left;
-		width: 50px;
-	}
-	div.program-title{
-		font-weight: bold;
-	}
-	div.program-description{
-		font-size: smaller;
-		margin-bottom: 10px;
-	}
-	div.program-day-wrap{
-		padding: 5px 10px;
-		margin-bottom: 10px;
-	}
-	div.program-day-monday{
-		background-color: #01222A;
-	}
-	div.program-day-tuesday{
-		background-color: #232A11;
-	}
-	div.program-day-wednesday{
-		background-color: #2A1123;
-	}
-	div.program-day-thursday{
-		background-color: #21130A;
-	}
-	div.program-day-friday{
-		background-color: #131A31;
-	}
-	div.program-day-saturday{
-		background-color: #1A2103;
-	}
-	div.program-day-sunday{
-		background-color: #21211A;
-	}
+<style type="text/css">
+  img#gomba-map {
+    width: 100%;
+  }
+
+  div#location-details {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    max-width: 400px;
+    max-height: 160px;
+    min-width: 100px;
+    min-height: 40px;
+    background-color: #111111;
+    color: #EEE;
+  }
+
+  div#location-details:hover {
+    cursor: pointer;
+  }
+
+  div#location-description {
+    font-size: smaller;
+  }
+
+  h3#location-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  div.program-start {
+    float: left;
+    width: 50px;
+  }
+
+  div.program-title {
+    font-weight: bold;
+  }
+
+  div.program-description {
+    font-size: smaller;
+    margin-bottom: 10px;
+  }
+
+  div.program-day-wrap {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+
+  div.program-day-monday {
+    background-color: #01222A;
+  }
+
+  div.program-day-tuesday {
+    background-color: #232A11;
+  }
+
+  div.program-day-wednesday {
+    background-color: #2A1123;
+  }
+
+  div.program-day-thursday {
+    background-color: #21130A;
+  }
+
+  div.program-day-friday {
+    background-color: #131A31;
+  }
+
+  div.program-day-saturday {
+    background-color: #1A2103;
+  }
+
+  div.program-day-sunday {
+    background-color: #21211A;
+  }
+
 </style>
 
 <div id="press">
-      <div class="container">
-        <div class="bg">
-          <div class="row">
-			<h2 class="heading" style="padding-left:15px;"><strong>Térkép</strong></h2>
-            <div class="col-sm-12">
-				<img src="{% asset_path nagyterkep.jpg %}" id="gomba-map"/>
-              <div id="location-details" data-toggle="modal" data-target=".description-modal">
-				  <h3 id="location-title"></h4>
+  <div class="container">
+    <div class="bg">
+      <div class="row">
+        <h2 class="heading" style="padding-left:15px;"><strong>Térkép</strong></h2>
+        <div class="col-sm-12">
+          <img src="{% asset_path nagyterkep.jpg %}" id="gomba-map" />
+          <div id="location-details" data-toggle="modal" data-target=".description-modal">
+            <h3 id="location-title">
+              </h4>
+          </div>
+          <div class="modal fade description-modal" tabindex="-1" role="dialog" aria-labelledby="description-f"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-body">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="description-modal-label"></h4>
+                  </div>
+                  <div class="modal-body">
+                    <p id="location-description"></p>
+                    <div id="location-program"></div>
+                  </div>
+                </div>
               </div>
-				<div class="modal fade description-modal" tabindex="-1" role="dialog" aria-labelledby="description-f" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-body">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-									<h4 class="modal-title" id="description-modal-label"></h4>
-								</div>
-								<div class="modal-body">				
-									<p id="location-description"></p>
-									<div id="location-program"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
             </div>
           </div>
         </div>
+      </div>
     </div>
+  </div>

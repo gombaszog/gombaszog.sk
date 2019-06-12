@@ -5,66 +5,90 @@ group: program
 ---
 
 <style>
-    div#full-program div.program-wrap:nth-child(even) {background: #A4A4A422}
-    div#full-program div.program-wrap:nth-child(odd) {background: #E8E8E822}
-    div.program-wrap {padding: 5px}
-    div#full-program {color: white}
-	h3#location-title{
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
-	div.program-start{
-		float: left;
-		width: 50px;	
-	}
-	div.program-title{
-		font-weight: bold;
-	}
-	div.program-description{
-		font-size: smaller;
-		margin-bottom: 10px;
-	}
-	div.program-day-wrap{
-		padding: 5px 10px;
-		margin-bottom: 10px;
-	}
-	div.program-day-Monday{
-		background-color: #01222A;
-	}
-	div.program-day-Tuesday{
-		background-color: #232A11;
-	}
-	div.program-day-Wednesday{
-		background-color: #2A1123;
-	}
-	div.program-day-Thursday{
-		background-color: #21130A;
-	}
-	div.program-day-Friday{
-		background-color: #131A31;
-	}
-	div.program-day-Saturday{
-		background-color: #1A2103;
-	}
-	div.program-day-Sunday{
-		background-color: #21211A;
-	}
+  div#full-program div.program-wrap:nth-child(even) {
+    background: #A4A4A422
+  }
+
+  div#full-program div.program-wrap:nth-child(odd) {
+    background: #E8E8E822
+  }
+
+  div.program-wrap {
+    padding: 5px
+  }
+
+  div#full-program {
+    color: white
+  }
+
+  h3#location-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  div.program-start {
+    float: left;
+    width: 50px;
+  }
+
+  div.program-title {
+    font-weight: bold;
+  }
+
+  div.program-description {
+    font-size: smaller;
+    margin-bottom: 10px;
+  }
+
+  div.program-day-wrap {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+
+  div.program-day-Monday {
+    background-color: #01222A;
+  }
+
+  div.program-day-Tuesday {
+    background-color: #232A11;
+  }
+
+  div.program-day-Wednesday {
+    background-color: #2A1123;
+  }
+
+  div.program-day-Thursday {
+    background-color: #21130A;
+  }
+
+  div.program-day-Friday {
+    background-color: #131A31;
+  }
+
+  div.program-day-Saturday {
+    background-color: #1A2103;
+  }
+
+  div.program-day-Sunday {
+    background-color: #21211A;
+  }
+
 </style>
 
 <div id="press">
-    <div class="container">
-        <div class="bg">
-            <div class="row">
-                <h2 class="heading" style="padding-left:15px;"><strong>Teljes program</strong></h2>
-				<div id="full-program">
-					{% full_render %}
-				</div>
-            </div>
+  <div class="container">
+    <div class="bg">
+      <div class="row">
+        <h2 class="heading" style="padding-left:15px;"><strong>Teljes program</strong></h2>
+        <div id="full-program">
+          {% full_render %}
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<!--script type="text/javascript">
+{% comment %} <script type="text/javascript">
     var renderFullProgram = function(fullProgram) {
         var fullProgramDiv = document.getElementById("full-program");
 		fullProgramDiv.innerHTML = "";
@@ -115,4 +139,4 @@ group: program
             getFullProgram();
         }, 20);
     });
-</script-->
+  </script> {% endcomment %}

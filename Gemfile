@@ -1,10 +1,12 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
+source "https://rubygems.org"
+
+gem "execjs"
+gem "instagram"
 gem "jekyll"
 gem "jekyll-assets"
-gem "execjs"
+gem "jekyll-minify-html"
+gem "koala"
 gem "nokogiri"
 gem "uglifier"
-gem "koala"
-gem "instagram"
-gem 'jekyll-minify-html'

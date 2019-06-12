@@ -1,4 +1,4 @@
-name: Gombaszögi Nyári Tábor 
+name: Gombaszögi Nyári Tábor
 markdown: redcarpet
 highlighter: null
 permalink: /:year/:month/:day/:title/
@@ -6,7 +6,7 @@ url: https://www.gombaszog.sk
 paginate: 3
 paginate_path: /blog/page-:num
 timezone: Europe/Bratislava
-exclude: ['sexrobots.txt', 'README.md', 'LICENSE', 'Gemfile', 'Makefile', '_deprecated']
+exclude: ['sexrobots.txt', 'README.md', 'LICENSE', 'Gemfile', 'Makefile', '_deprecated', 'vendor']
 excerpt_separator: <!--more-->
 minify_html: false
 assets:
@@ -16,10 +16,10 @@ assets:
     - _assets/images
     - _assets/javascripts
     - _assets/stylesheets
-    - _assets/fonts  
-    - _assets/downloads  
+    - _assets/fonts
+    - _assets/downloads
 description: >
-  A Gombaszögi Nyári Tábor, a szlovákiai magyar fiatalok hagyományos fesztiválja, találkozóhelye és szabadegyeteme! 
+  A Gombaszögi Nyári Tábor, a szlovákiai magyar fiatalok hagyományos fesztiválja, találkozóhelye és szabadegyeteme!
   Légy Te is részese a nyár legjobb bulijának július 15-21. között!
 jekyll_timeago:
   today: 'ma'
@@ -38,7 +38,7 @@ jekyll_timeago:
   week: 'héttel'
   days: 'nappal'
   day: 'nappal'
-keywords: 
+keywords:
 - gombaszög
 - gombaszog
 - gombaszögi
