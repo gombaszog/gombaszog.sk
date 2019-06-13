@@ -54,7 +54,7 @@ group: blog
                 <p class="tags">{% for tag in page.tags %}
                   <span class="label label-{% cycle 'primary','success','info','warning','danger' %}">
                     <i class="fa fa-tag fa-fw"></i>&nbsp;{{ tag }}
-                  </span>&nbsp;
+                  </span>
                   {% endfor %}</p>
               </div>
             </div>
@@ -83,7 +83,7 @@ group: blog
           <div id="sidebar" class="col-sm-4">
             <div class="sidebar-inner">
               <div class="widget bg">
-                <img src="{{ page.thumbnail }}" alt="" class="img-responsive" />
+                <img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="img-responsive" />
               </div>
               <div class="widget bg">
                 <iframe

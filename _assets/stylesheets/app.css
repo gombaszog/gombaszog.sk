@@ -924,3 +924,10 @@ div.biglogo {
 .sponsor-images p.highlighted:hover {
   color: rgb(238, 58, 36) !important;
 }
+
+.tags .label {
+  padding: .4em .8em .5em;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 2px;
+}
