@@ -20,18 +20,18 @@ class ProgramDefault < Liquid::Tag
 
     data = JSON.parse File.read "_program.json"
     byday = {}
+    day_l_map.each do |d, e|
+      byday[e] = {
+          :events    => [],
+          :locations => [],
+          :partners  => [],
+        }
+    end 
     data.each do |e|
       t = Time.parse(e["start"])
       day = t.to_date
       day -= 1 if t.strftime("%H").to_i < 5
       day = day.strftime("%A") # TODO: 4:00
-      if byday[day].nil?
-        byday[day] = {
-          :events    => [],
-          :locations => [],
-          :partners  => [],
-        }
-      end
       byday[day][:events] << e
       byday[day][:locations] << e["location"] unless byday[day][:locations].include? e["location"]
       byday[day][:partners] << e["partner"] unless byday[day][:partners].include? e["partner"]
