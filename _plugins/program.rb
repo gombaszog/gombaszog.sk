@@ -20,13 +20,13 @@ class ProgramDefault < Liquid::Tag
 
     data = JSON.parse File.read "_program.json"
     byday = {}
-    day_l_map.each do |d, e|
-      byday[e] = {
-          :events    => [],
-          :locations => [],
-          :partners  => [],
-        }
-    end 
+    day_l_map.each do |d, _e|
+      byday[d] = {
+        :events    => [],
+        :locations => [],
+        :partners  => [],
+      }
+    end
     data.each do |e|
       t = Time.parse(e["start"])
       day = t.to_date
@@ -45,7 +45,7 @@ class ProgramDefault < Liquid::Tag
             html.div(:class => "col-md-2 visible-md visible-lg") do
               html.ul(:class => "nav nav-pills nav-stacked filter") do
                 html.li(:class => "active alltoggle") { html.a(:href => "#") { html.text "Mutasd mind!" } }
-                html.p(:class => "filter-header") { html.text "Helyszinek:" }
+                html.p(:class => "filter-header", :style => (l[:locations].empty? && l[:events].empty? ? "display:none;" : "").to_s) { html.text "Helyszinek:" }
                 i = 0
                 l[:locations].each do |loc|
                   loc ? html.li(:class => "active location-filter", "data-toggle" => "#{day_l_map[d]}_#{i}") { html.a(:href => "#") { html.text loc } } : nil
@@ -53,7 +53,7 @@ class ProgramDefault < Liquid::Tag
                 end
                 l[:locations].include?(nil) ? html.li(:class => "active location-filter", "data-toggle" => "#{day_l_map[d]}_#{l[:locations].find_index(nil)}") { html.a(:href => "#") { html.text "Egyéb" } } : nil
 
-                html.p(:class => "filter-header") { html.text "Szervezők:" }
+                html.p(:class => "filter-header", :style => (l[:partners].empty? && l[:events].empty? ? "display:none;" : "").to_s) { html.text "Szervezők:" }
                 i = 0
                 l[:partners].each do |par|
                   par ? html.li(:class => "active partner-filter", "data-toggle" => "#{day_l_map[d]}_p_#{i}") { html.a(:href => "#") { html.text par } } : nil
@@ -93,6 +93,7 @@ class ProgramDefault < Liquid::Tag
                   end
                 end
               end
+              html.p { html.text "Még nincs erra a napra program!" } if l[:events].empty?
             end
           end
         end
