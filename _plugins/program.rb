@@ -93,7 +93,7 @@ class ProgramDefault < Liquid::Tag
                   end
                 end
               end
-              html.p { html.text "Még nincs erra a napra program!" } if l[:events].empty?
+              html.h3(:style => "margin-top:15px") { html.text "Még nincs erra a napra program!" } if l[:events].empty?
             end
           end
         end
