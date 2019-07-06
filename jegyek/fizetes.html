@@ -67,8 +67,10 @@ permalink: /jegyek/fizetes/index.html
             </form> {% endcomment %}
           </div>
 
-          <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="POST"
-            id="ticket">
+          <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget ért!</h4>
+
+          {% comment %}<form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen"
+            method="POST" id="ticket">
             <h2>A jegytulajdonos adatai</h2>
             <input type="hidden" name="cmd" value="_ext-enter">
             <input type="hidden" name="redirect_cmd" value="_xclick">
@@ -475,14 +477,16 @@ permalink: /jegyek/fizetes/index.html
                 <h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span
                       id="price"></span>€*</strong></h2>
                 <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button></p>
+                {% endcomment %}
                 {% comment %} <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok"
                     class="img-responsive" /></p> {% endcomment %}
+                {% comment %}
               </div>
             </div>
             <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
             <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
             <input type="hidden" name="ticket[extends]" id="ticket_extends" />
-          </form>
+          </form> {% endcomment %}
         </div>
       </div>
     </div>

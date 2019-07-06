@@ -22,7 +22,7 @@ group: jegyek
               <h2>Elővételes Napijegy<span>Július 7-ig</span></h2>
               <p class="price">&euro;15</p>
               <p class="price-content">1 nap<br>elővételben</p>
-              <a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>
+              {% comment %}<a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>{% endcomment %}
             </div>
           </li>
           <li class="rock">
@@ -30,7 +30,7 @@ group: jegyek
               <h2>Nyári<br>hetijegy<span>Július 7-ig</span></h2>
               <p class="price">&euro;59</p>
               <p class="price-content">6 nap<br>csak elővételben</p>
-              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
+              {% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>{% endcomment %}
             </div>
           </li>
           <li class="xplore">
@@ -40,7 +40,7 @@ group: jegyek
               <p class="price-content">
                 A Galántai és Vágsellyei<br> járás lakóinak <br>regisztráció július 7-ig
               </p>
-              <a class="btn btn-primary btn-pricing">Regisztráció</a>
+              {% comment %}<a class="btn btn-primary btn-pricing">Regisztráció</a>{% endcomment %}
             </div>
           </li>
           <li class="vip">
@@ -52,11 +52,13 @@ group: jegyek
           </li>
         </ul>
 
-        <div style="text-align: center">
+        {% comment %}<div style="text-align: center">
           Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
             data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
               jegy</strong> vásárlása</button>
-        </div>
+        </div> {% endcomment %}
+
+        <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget ért!</h4>
 
         {% comment %} <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel július
           14. éjfélig fogadja a rendeléseket!</h4> {% endcomment %}
@@ -65,7 +67,7 @@ group: jegyek
           menetéről!</h4> {% endcomment %}
         {% comment %} <h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2> {% endcomment %}
-        <h3 class="text-center" style="padding-bottom: 1em; color: red">Rajtunk kívülálló okok miatt
+        {% comment %}<h3 class="text-center" style="padding-bottom: 1em; color: red">Rajtunk kívülálló okok miatt
           ideiglenesen csak átutalással vagy személyesen lehet fizetni.<br><small>Részletek a jegyvételi
             űrlap alatt, a Tovább gomb mellett.</small></h3>
 
@@ -568,7 +570,7 @@ group: jegyek
               <option value="auto">Autóval</option>
               <option value="egyeb">Egyéb</option>
             </select>
-          </div>
+          </div> {% endcomment %}
           {% comment %} <div class="row">
             <div class="col-xs-7">
               <div class="form-group">
@@ -592,7 +594,7 @@ group: jegyek
               </div>
             </div>
           </div> {% endcomment %}
-        </div>
+        {% comment %}</div>
         <div class="col-md-3">
           <div class="form-group">
             <label for="ticket_joke">Melliké vagy? <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
@@ -762,13 +764,13 @@ group: jegyek
                 id="price"></span>€*</strong></h2>
           <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button>
           </p>
-          {% comment %} <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok"
+          {% endcomment %}{% comment %} <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok"
               class="img-responsive" /></p> {% endcomment %}
-        </div>
+        {% comment %}</div>
       </div>
       <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
       <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-      </form>
+      </form> {% endcomment %}
     </div>
     <!-- jegyvetel end	-->
   </div>
