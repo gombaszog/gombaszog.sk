@@ -14,20 +14,20 @@ $(window).load(function () {
     is_all_active = true;
   });
 
-  $(".programlist").touchwipe({
-    wipeLeft: function () {
-      console.log('left')
-      if ($(".day-set.active").next())
-        $(".day-set.active").next().find('a').click()
-    },
-    wipeRight: function () {
-      if ($(".day-set.active").prev())
-        $(".day-set.active").prev().find('a').click()
-    },
-    min_move_x: 20,
-    min_move_y: 20,
-    preventDefaultEvents: true
-  });
+  //$(".programlist").touchwipe({
+  //  wipeLeft: function () {
+  //    console.log('left')
+  //    if ($(".day-set.active").next())
+  //      $(".day-set.active").next().find('a').click()
+  //  },
+  //  wipeRight: function () {
+  //   if ($(".day-set.active").prev())
+  //      $(".day-set.active").prev().find('a').click()
+  //  },
+  //  min_move_x: 20,
+  //  min_move_y: 20,
+  //  preventDefaultEvents: true
+  //});
 
 
   is_all_active = true;
