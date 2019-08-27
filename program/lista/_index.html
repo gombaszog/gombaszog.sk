@@ -1,0 +1,47 @@
+---
+layout: page
+title: Program
+group: program
+---
+
+<style>
+  div#full-program tr:nth-child(even) {
+    background: #D4D4D4
+  }
+
+  div#full-program tr:nth-child(odd) {
+    background: #E8E8E8
+  }
+
+  div#full-program td,
+  div#full-program th {
+    padding: 5px
+  }
+
+  td.program-start {
+    width: 40%
+  }
+
+  td.program-location {
+    width: 20%
+  }
+
+  td.program-title {
+    width: 40%;
+    font-weight: bold;
+  }
+
+</style>
+
+<div id="press">
+  <div class="container">
+    <div class="bg">
+      <div class="row">
+        <h2 class="heading" style="padding-left:15px;"><strong>Teljes program</strong></h2>
+        <div id="full-program">
+          {% list_render %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
