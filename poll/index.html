@@ -79,7 +79,7 @@ group: otletborze
                   return false;
                 };
                 if (checkPerm(r, "email") && checkPerm(r, "user_location") && checkPerm(r,
-                    "public_profile")) {
+                  "public_profile")) {
                   data = {};
                   jQuery.each(jQuery(".poll-progress.selected"), function (k, v) {
                     data[jQuery(v).data("value")] = 1;
@@ -119,7 +119,6 @@ group: otletborze
                   }).fail(ajax_error);
                 } else { // refresh for permissions
                   console.log("Permission error, details: email: " + checkPerm(r, "email") +
-                    " user_location: " + checkPerm(r, "user_location") +
                     " public_profile: " + checkPerm(r, "public_profile"));
                   jQuery("#poll").html(
                     "<strong style=\"color: red;\">A szavazáshoz először engedélyezned kell az alkalmazásunkat. Ha ez megtörtént, töltsd újra az oldalat!</strong>"
@@ -132,7 +131,7 @@ group: otletborze
               );
             }
           }, {
-            scope: 'email,user_location,public_profile'
+            scope: 'email,public_profile'
           });
         });
         jQuery(".poll-buttonspace").append(btn);
