@@ -78,8 +78,7 @@ group: otletborze
                   }
                   return false;
                 };
-                if (checkPerm(r, "email") && checkPerm(r, "user_birthday") && checkPerm(r,
-                    "user_hometown") && checkPerm(r, "user_location") && checkPerm(r,
+                if (checkPerm(r, "email") && checkPerm(r, "user_location") && checkPerm(r,
                     "public_profile")) {
                   data = {};
                   jQuery.each(jQuery(".poll-progress.selected"), function (k, v) {
@@ -119,11 +118,7 @@ group: otletborze
                     }
                   }).fail(ajax_error);
                 } else { // refresh for permissions
-                  console.log("Permission error, details: publish_actions: " + "false" +
-                    " rsvp_event: " + checkPerm(r, "rsvp_event") +
-                    " email: " + checkPerm(r, "email") +
-                    " user_birthday: " + checkPerm(r, "user_birthday") +
-                    " user_hometown: " + checkPerm(r, "user_hometown") +
+                  console.log("Permission error, details: email: " + checkPerm(r, "email") +
                     " user_location: " + checkPerm(r, "user_location") +
                     " public_profile: " + checkPerm(r, "public_profile"));
                   jQuery("#poll").html(
@@ -137,7 +132,7 @@ group: otletborze
               );
             }
           }, {
-            scope: 'email,user_birthday,user_hometown,user_location,public_profile'
+            scope: 'email,user_location,public_profile'
           });
         });
         jQuery(".poll-buttonspace").append(btn);
