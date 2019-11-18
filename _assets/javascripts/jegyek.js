@@ -1,7 +1,7 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
+  var freeCities = [];
   captcha_reload = function () { // reload captcha image
-    $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
+    $('#ticket_captcha').css('background-image', 'url(http://localhost:3000/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
   }
   getUrlVars = function () { // get url variables
@@ -12,24 +12,26 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function () {
-    $.getJSON("/api/ticket/available").done(function (data) {
+    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
       $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
+          $(`<option value="${v.id}" data-price="${v.price}">${v.name} (még ${v.free} hely) +${parseInt(v.price)}'&euro;</option>`)
+        );
+      });
+      $.each(data.tent, function (k, v) {
+        $("#ticket_housing").append(
+          $(`<option value="tent_${v.id}" data-price="${v.price}">${v.name} ${(v.free > 0 && v.free < 1000) ? ' (' + v.free + ' szabad)' : ''} +${parseInt(v.price)}&euro;</option>`)
         );
       });
       $.each(data.housing, function (k, v) {
         $("#ticket_housing").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + (v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' + parseInt(v.price) + '&euro;</option>')
-        );
-      });
-      $.each(data.food, function (k, v) {
-        $("#ticket_food").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' +' + parseInt(v.price) + '&euro;</option>')
+          $(`<option value="housing_${v.id}" data-price="${v.price}">${v.name} ${v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : ''} +${parseInt(v.price)}&euro;</option>`)
         );
       });
       $('#hetijegy').data('price', data.ticketweek);
+      $('#hetijegy').html(`Hetijegy +${data.ticketweek}&euro;`);
       $('#napijegy').data('price', data.ticketday);
+      $('#napijegy').html(`Napijegy +${data.ticketday}&euro;/nap`);
       $('#price').html(data.ticketweek);
     });
   }
@@ -98,7 +100,7 @@ if ($(".ticket-form").length > 0) {
       });
       price = parseFloat($('#napijegy').data('price')) * countDays;
       if ((parseFloat($('#napijegy').data('price')) * countAllDays) >= parseFloat($('#hetijegy').data('price'))) {
-        alert("Elérted a hetijegy árát, inkább vegyél azt");
+        alert("Elérted a hetijegy árát, ezért javasoljuk, hogy inkább azt vásárold meg.");
       }
     }
     var originalPrice = price;
@@ -174,7 +176,7 @@ if ($(".ticket-form").length > 0) {
           });
         }
       }, {
-        scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'
+        scope: 'email,user_birthday,public_profile'
       });
     });
     //manual
@@ -196,24 +198,32 @@ if ($(".ticket-form").length > 0) {
       }
       $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
       ret = false;
-      console.log($("form#ticket").serializeObject());
-      $.ajax({
-        url: '/api/ticket',
-        type: 'POST',
-        timeout: 2000,
-        async: false,
-        data: $("form#ticket").serializeObject(),
-        dataType: 'json'
-      }).done(function (data) {
-        if (data.ok) {
-          document.location.replace("/jegyek/sikeres?amount=" + data.amount);
-          ret = false;
-        } else {
-          mark(data);
-          $('#buybutton').html("&nbsp;Tovább&nbsp;");
-          e.preventDefault();
-        }
-      });
+      var obj = $("form#ticket").serializeObject();
+      if (obj.ticket[housing].split('_')[0] == "tent"){
+        obj.ticket[tent] = obj.ticket[housing].split('_')[1]
+      }
+      else if(obj.ticket[housing].split('_')[0] == "housing"){
+        obj.ticket[housing] = obj.ticket[housing].split('_')[1]
+      }
+      console.log(obj);
+      // $.ajax({
+      //   url: 'http://localhost:3000/api/ticket',
+      //   type: 'POST',
+      //   timeout: 2000,
+      //   async: false,
+      //   data: $("form#ticket").serializeObject(),
+      //   dataType: 'json'
+      // }).done(function (data) {
+      //   if (data.ok) {
+      //     document.location.replace("/jegyek/sikeres?amount=" + data.amount);
+      //     ret = false;
+      //   } else {
+      //     mark(data);
+      //     $('#buybutton').html("&nbsp;Tovább&nbsp;");
+      //     e.preventDefault();
+      //   }
+      // });
+      e.preventDefault();
       return ret;
     });
 
@@ -403,13 +413,14 @@ jQuery(document).ready(function ($) {
               $('#ticket_category').attr('disabled', 'disabled');
               $('#ticket_voucher').attr('disabled', 'disabled');
             }
-            if (key == 'ticket_tent' && val == true) {
-              $('#ticket_housing').val('0')
-                .attr('disabled', 'disabled')
-            } else if (key == 'ticket_housing_id' && val != null) {
-              $('#ticket_housing').val('0')
-                .attr('disabled', 'disabled')
-            }
+            //#TODO
+            // if (key == 'ticket_tent' && val == true) {
+            //   $('#ticket_housing').val('0')
+            //     .attr('disabled', 'disabled')
+            // } else if (key == 'ticket_housing_id' && val != null) {
+            //   $('#ticket_housing').val('0')
+            //     .attr('disabled', 'disabled')
+            // }
             if (key == 'ticket_bus' && val != null) {
               setTimeout(function () {
                 $("#" + key).attr('disabled', 'disabled');
