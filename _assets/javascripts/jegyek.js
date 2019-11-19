@@ -1,7 +1,7 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = [];
+  var freeCities = ["94002", "94101", "94102", "94103", "94104", "94105", "94106", "94107", "94110", "94111", "94121", "94122", "94123", "94131", "94132", "94133", "94134", "94135", "94136", "94137", "94141", "94142", "94143", "94144", "94145", "94146", "94147", "94148", "94149", "94150", "94151", "94162", "94201", "94301", "94304", "94342", "94352", "94353", "94354", "94355", "94356", "94357", "94358", "94359", "94360", "94361", "94365"];
   captcha_reload = function () { // reload captcha image
-    $('#ticket_captcha').css('background-image', 'url(http://localhost:3000/api/captcha?' + Date.now() + ')');
+    $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
   }
   getUrlVars = function () { // get url variables
@@ -12,15 +12,15 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function () {
-    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
+    $.getJSON("/api/ticket/available").done(function (data) {
       $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
           $(`<option value="${v.id}" data-price="${v.price}">${v.name} (még ${v.free} hely) +${parseInt(v.price)}'&euro;</option>`)
         );
       });
-      $.each(data.tent, function (k, v) {
+      $.each(data.camp, function (k, v) {
         $("#ticket_housing").append(
-          $(`<option value="tent_${v.id}" data-price="${v.price}">${v.name} ${(v.free > 0 && v.free < 1000) ? ' (' + v.free + ' szabad)' : ''} +${parseInt(v.price)}&euro;</option>`)
+          $(`<option value="camp_${v.id}" data-price="${v.price}">${v.name} ${(v.free > 0 && v.free < 1000) ? ' (' + v.free + ' szabad)' : ''} +${parseInt(v.price)}&euro;</option>`)
         );
       });
       $.each(data.housing, function (k, v) {
@@ -188,6 +188,7 @@ if ($(".ticket-form").length > 0) {
     }
     // submit
     $('form.ticket-orig').submit(function (e) {
+      e.preventDefault();
       if ($("#ticket_gift").prop("checked") && $('#ticket_from').val() == '') {
         e.preventDefault();
         return alert("A továbblépéshez kérünk, add meg az ajándékozott e-mail címét.");
@@ -199,31 +200,32 @@ if ($(".ticket-form").length > 0) {
       $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
       ret = false;
       var obj = $("form#ticket").serializeObject();
-      if (obj.ticket[housing].split('_')[0] == "tent"){
-        obj.ticket[tent] = obj.ticket[housing].split('_')[1]
+      obj["ticket[camp]"] = "0"
+      if (obj["ticket[housing]"].split('_')[0] == "camp") {
+        obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+        obj["ticket[housing]"] = "0"
       }
-      else if(obj.ticket[housing].split('_')[0] == "housing"){
-        obj.ticket[housing] = obj.ticket[housing].split('_')[1]
+      else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+        obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
       }
       console.log(obj);
-      // $.ajax({
-      //   url: 'http://localhost:3000/api/ticket',
-      //   type: 'POST',
-      //   timeout: 2000,
-      //   async: false,
-      //   data: $("form#ticket").serializeObject(),
-      //   dataType: 'json'
-      // }).done(function (data) {
-      //   if (data.ok) {
-      //     document.location.replace("/jegyek/sikeres?amount=" + data.amount);
-      //     ret = false;
-      //   } else {
-      //     mark(data);
-      //     $('#buybutton').html("&nbsp;Tovább&nbsp;");
-      //     e.preventDefault();
-      //   }
-      // });
-      e.preventDefault();
+      $.ajax({
+        url: '/api/ticket',
+        type: 'POST',
+        timeout: 2000,
+        async: false,
+        data: obj,
+        dataType: 'json'
+      }).done(function (data) {
+        if (data.ok) {
+          document.location.replace("/jegyek/sikeres?amount=" + data.amount);
+          ret = false;
+        } else {
+          mark(data);
+          $('#buybutton').html("&nbsp;Tovább&nbsp;");
+          e.preventDefault();
+        }
+      });
       return ret;
     });
 
@@ -336,6 +338,7 @@ if ($(".ticket-form").length > 0) {
     $('#ticket_zip').val($('#' + value + ' .setlPSC').html());
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
+    calculateTicketPrice();
   }
 
   (function (d, s, id) {
@@ -413,14 +416,13 @@ jQuery(document).ready(function ($) {
               $('#ticket_category').attr('disabled', 'disabled');
               $('#ticket_voucher').attr('disabled', 'disabled');
             }
-            //#TODO
-            // if (key == 'ticket_tent' && val == true) {
-            //   $('#ticket_housing').val('0')
-            //     .attr('disabled', 'disabled')
-            // } else if (key == 'ticket_housing_id' && val != null) {
-            //   $('#ticket_housing').val('0')
-            //     .attr('disabled', 'disabled')
-            // }
+            if (key == 'ticket_camp_id' && val != null) {
+              $('#ticket_housing').val('0')
+                .attr('disabled', 'disabled')
+            } else if (key == 'ticket_housing_id' && val != null) {
+              $('#ticket_housing').val('0')
+                .attr('disabled', 'disabled')
+            }
             if (key == 'ticket_bus' && val != null) {
               setTimeout(function () {
                 $("#" + key).attr('disabled', 'disabled');
@@ -442,13 +444,22 @@ jQuery(document).ready(function ($) {
         }
         $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
         ret = false;
-        console.log($("form#ticket-addition").serializeObject());
+        var obj = $("form#ticket").serializeObject();
+        obj["ticket[camp]"] = "0"
+        if (obj["ticket[housing]"].split('_')[0] == "camp") {
+          obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+          obj["ticket[housing]"] = "0"
+        }
+        else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+          obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+        }
+        console.log(obj);
         $.ajax({
           url: '/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
-          data: $("form#ticket").serializeObject(),
+          data: obj,
           dataType: 'json'
         }).done(function (data) {
           if (data.ok) {
