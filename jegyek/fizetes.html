@@ -20,6 +20,19 @@ permalink: /jegyek/fizetes/index.html
         <div class="row">
           <div id="msg"> </div>
           <div id="pay-form" class="hidden-form">
+            <div>
+              <p class="text-justified">Ideiglenesen kizárólag utalással, illetve személyesen tudsz fizetni. A
+                megrendelés teljesítéséhez a jegy ellenértékét öt napon belül meg kell kapnunk.</p>
+              <p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
+                IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló által megadott
+                <strong>e-mail címet.</strong></p>
+              <p class="text-justified">Személyes fizetésre és átvételre a komáromi irodánkban van lehetőség (Duna
+                rakpart 12. - a Danubius diákotthon épülete, az Adóhivatal mellett, 945 01 Komárom, Szlovákia) </strong>
+              </p>
+              <h3 class='text-justified ticket-price-success-pay'></h3>
+              <p class="text-justified">Sikeres fizetés esetén a jegyedet e-mailben kapod meg.</p>
+              <h3>Várunk a Táborban!</h3>
+            </div>
             {% comment %}<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
               <input type="hidden" name="first_name" id="first_name" value="" />
               <input type="hidden" name="last_name" id="last_name" value="" />
@@ -233,12 +246,14 @@ permalink: /jegyek/fizetes/index.html
                   <div class="form-group">
                     <label for="ticket_last_name">Vezetéknév</label>
                     <input type="text" class="form-control" id="ticket_last_name" placeholder=""
-                      name="ticket[last_name]" required title="Kérjük, ide add meg a vezetékneved!" disabled="disabled" />
+                      name="ticket[last_name]" required title="Kérjük, ide add meg a vezetékneved!"
+                      disabled="disabled" />
                   </div>
                   <div class="form-group">
                     <label for="ticket_first_name">Keresztnév</label>
                     <input type="text" class="form-control" id="ticket_first_name" placeholder=""
-                      name="ticket[first_name]" required title="Kérjük, ide add meg a keresztneved!" disabled="disabled" />
+                      name="ticket[first_name]" required title="Kérjük, ide add meg a keresztneved!"
+                      disabled="disabled" />
                   </div>
                   <div class="form-group">
                     <label for="ticket_email">E-mail cím <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
@@ -263,7 +278,8 @@ permalink: /jegyek/fizetes/index.html
                     <input type="text" class="form-control influence" id="ticket_birth" placeholder="ÉÉÉÉ-HH-NN"
                       pattern="^(19[0-9]{2}|20[01][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$" required
                       name="ticket[birth]"
-                      title="Kérjük, a születési dátumot ÉÉÉÉ-HH-NN formában add meg, pl 1998-03-28!" disabled="disabled" />
+                      title="Kérjük, a születési dátumot ÉÉÉÉ-HH-NN formában add meg, pl 1998-03-28!"
+                      disabled="disabled" />
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -274,7 +290,8 @@ permalink: /jegyek/fizetes/index.html
                   </div>
                   <div class="form-group">
                     <label for="ticket_country">Ország</label>
-                    <select class="form-control select2" id="ticket_country" placeholder="" name="ticket[country]" disabled="disabled">
+                    <select class="form-control select2" id="ticket_country" placeholder="" name="ticket[country]"
+                      disabled="disabled">
                       <option value="SK">Szlovákia</option>
                       <option value="HU">Magyarország</option>
                       <option value="CZ">Csehország</option>
@@ -478,7 +495,8 @@ permalink: /jegyek/fizetes/index.html
                               data-toggle="tooltip" data-placement="bottom" title="Településed neve"></i></label>
                           <input type="text" class="form-control" id="ticket_city" placeholder="" autocomplete='nope'
                             name="ticket[city]" required
-                            title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!" disabled="disabled" />
+                            title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!"
+                            disabled="disabled" />
                         </div>
                       </div>
                     </div>
