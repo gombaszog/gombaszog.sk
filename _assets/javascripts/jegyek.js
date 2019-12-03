@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = ["92401", "92501", "92502", "92503", "92504", "92505", "92506", "92507", "92508", "92509", "92521", "92522", "92523", "92527", "92528", "92532", "92541", "92542", "92545", "92551", "92552", "92553", "92554", "92555", "92562", "92563", "92571", "92572", "92581", "92582", "92583", "92584", "92585", "92591", "92592", "92601", "92701", "92705", "95131", "95132", "95133"];
+  var freeCities = ["94303", "94002", "94101", "94102", "94103", "94104", "94105", "94106", "94107", "94110", "94111", "94121", "94122", "94123", "94131", "94132", "94133", "94134", "94135", "94136", "94137", "94141", "94142", "94143", "94144", "94145", "94146", "94147", "94148", "94149", "94150", "94151", "94162", "94201", "94301", "94304", "94342", "94352", "94353", "94354", "94355", "94356", "94357", "94358", "94359", "94360", "94361", "94365"];
   captcha_reload = function () { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
@@ -15,21 +15,23 @@ if ($(".ticket-form").length > 0) {
     $.getJSON("/api/ticket/available").done(function (data) {
       $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
+          $(`<option value="${v.id}" data-price="${v.price}">${v.name} (még ${v.free} hely) +${parseInt(v.price)}'&euro;</option>`)
+        );
+      });
+      $.each(data.camp, function (k, v) {
+        $("#ticket_housing").append(
+          $(`<option value="camp_${v.id}" data-price="${v.price}">${v.name} ${(v.free > 0 && v.free < 1000) ? ' (' + v.free + ' szabad)' : ''} +${parseInt(v.price)}&euro;</option>`)
         );
       });
       $.each(data.housing, function (k, v) {
         $("#ticket_housing").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + (v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' + parseInt(v.price) + '&euro;</option>')
-        );
-      });
-      $.each(data.food, function (k, v) {
-        $("#ticket_food").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' +' + parseInt(v.price) + '&euro;</option>')
+          $(`<option value="housing_${v.id}" data-price="${v.price}">${v.name} ${v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : ''} +${parseInt(v.price)}&euro;</option>`)
         );
       });
       $('#hetijegy').data('price', data.ticketweek);
+      $('#hetijegy').html(`Hetijegy +${data.ticketweek}&euro;`);
       $('#napijegy').data('price', data.ticketday);
+      $('#napijegy').html(`Napijegy +${data.ticketday}&euro;/nap`);
       $('#price').html(data.ticketweek);
     });
   }
@@ -98,7 +100,7 @@ if ($(".ticket-form").length > 0) {
       });
       price = parseFloat($('#napijegy').data('price')) * countDays;
       if ((parseFloat($('#napijegy').data('price')) * countAllDays) >= parseFloat($('#hetijegy').data('price'))) {
-        alert("Elérted a hetijegy árát, inkább vegyél azt");
+        alert("Elérted a hetijegy árát, ezért javasoljuk, hogy inkább azt vásárold meg.");
       }
     }
     var originalPrice = price;
@@ -121,7 +123,7 @@ if ($(".ticket-form").length > 0) {
   window.fbAsyncInit = function () {
     // initialize facebook
     FB.init({
-      appId: '451186618936553',
+      appId: '267323596708516',
       xfbml: true,
       status: true,
       version: 'v2.9'
@@ -174,7 +176,7 @@ if ($(".ticket-form").length > 0) {
           });
         }
       }, {
-        scope: 'user_likes,email,user_birthday,user_hometown,user_location,public_profile'
+        scope: 'email,user_birthday,public_profile'
       });
     });
     //manual
@@ -186,6 +188,7 @@ if ($(".ticket-form").length > 0) {
     }
     // submit
     $('form.ticket-orig').submit(function (e) {
+      e.preventDefault();
       if ($("#ticket_gift").prop("checked") && $('#ticket_from').val() == '') {
         e.preventDefault();
         return alert("A továbblépéshez kérünk, add meg az ajándékozott e-mail címét.");
@@ -196,13 +199,22 @@ if ($(".ticket-form").length > 0) {
       }
       $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
       ret = false;
-      console.log($("form#ticket").serializeObject());
+      var obj = $("form#ticket").serializeObject();
+      obj["ticket[camp]"] = "0"
+      if (obj["ticket[housing]"].split('_')[0] == "camp") {
+        obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+        obj["ticket[housing]"] = "0"
+      }
+      else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+        obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+      }
+      console.log(obj);
       $.ajax({
         url: '/api/ticket',
         type: 'POST',
         timeout: 2000,
         async: false,
-        data: $("form#ticket").serializeObject(),
+        data: obj,
         dataType: 'json'
       }).done(function (data) {
         if (data.ok) {
@@ -326,6 +338,7 @@ if ($(".ticket-form").length > 0) {
     $('#ticket_zip').val($('#' + value + ' .setlPSC').html());
     $('#settlement_fill').hide();
     $('#settlement_fill').html('');
+    calculateTicketPrice();
   }
 
   (function (d, s, id) {
@@ -403,7 +416,7 @@ jQuery(document).ready(function ($) {
               $('#ticket_category').attr('disabled', 'disabled');
               $('#ticket_voucher').attr('disabled', 'disabled');
             }
-            if (key == 'ticket_tent' && val == true) {
+            if (key == 'ticket_camp_id' && val != null) {
               $('#ticket_housing').val('0')
                 .attr('disabled', 'disabled')
             } else if (key == 'ticket_housing_id' && val != null) {
@@ -431,13 +444,22 @@ jQuery(document).ready(function ($) {
         }
         $('#buybutton').html("&nbsp;<i class=\"fa fa-spinner fa-spin\"></i>&nbsp;");
         ret = false;
-        console.log($("form#ticket-addition").serializeObject());
+        var obj = $("form#ticket").serializeObject();
+        obj["ticket[camp]"] = "0"
+        if (obj["ticket[housing]"].split('_')[0] == "camp") {
+          obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+          obj["ticket[housing]"] = "0"
+        }
+        else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+          obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+        }
+        console.log(obj);
         $.ajax({
           url: '/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
-          data: $("form#ticket").serializeObject(),
+          data: obj,
           dataType: 'json'
         }).done(function (data) {
           if (data.ok) {

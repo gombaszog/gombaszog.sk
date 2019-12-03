@@ -40,13 +40,14 @@ permalink: /info/sk/index.html
           </div>
         </div>
 
-        <div class="col-md-4 col-sm-6 col-lg-3 info-icon">
+        {% comment %}<div class="col-md-4 col-sm-6 col-lg-3 info-icon">
           <div class="icon fa fa-cab"></div>
           <div class="info">
             <h3>Pártyvlak</h3>
             <span>Vlakom rovno do kempingu</span>
           </div>
-        </div>
+        </div> {% endcomment %}
+        <div class='col-md-2 col-sm-3 col-lg-2'></div>
         <div class="col-md-4 col-sm-6 col-lg-3 info-icon">
           <div class="icon fa fa-calendar"></div>
           <div class="info">
@@ -93,7 +94,6 @@ permalink: /info/sk/index.html
                 max-width: none !important;
                 background: none !important
               }
-
             </style>
           </div>
           <script type='text/javascript'>
@@ -124,9 +124,8 @@ permalink: /info/sk/index.html
     </div>
     <div class="bg">
       <h2 class="heading" id="utazas"><strong>Ako</strong> sa tam dostanem?</h2>
-      <div class="row">
+      {% comment %}<div class="row">
         <div class="col-md-12">
-          <a name="partybusz"></a>
           <h3>Pártyvlak</h3>
           <p class="text-justified" style='display:none;'>
             Zarezervuj si miesto vo vlaku a o zábavu máš postarané!
@@ -139,7 +138,7 @@ permalink: /info/sk/index.html
               href="http://gombaszog.sk/jegyek/" target="_blank">našom predpredaji</a>. V prípade, že už máš kúpenú
             vstupenku a chcel by si si dokúpiť lístok na vlak, nás kontaktuj na adrese utazas@gombaszog.sk.</p>
         </div>
-      </div>
+      </div> {% endcomment %}
       <div class="row">
         <div class="col-md-7">
           <h3>Hromadná doprava</h3>
@@ -238,8 +237,9 @@ permalink: /info/sk/index.html
           <h3>Maloleté osoby</h3>
           <p class="text-justified">Maloletým do 15 rokov je účasť v tábore povolený len v sprievode rodiča alebo
             zákonného zástupcu. <br /> Maloletí od 15 do 18 rokov musia pri vstupe odovzdať písomný súhlas podpísaný
-            rodičom alebo zákonným zástupcom. Takýto dokument si vieš stiahnuť <a href="{% asset_path under18_2020.pdf %}"
-              target="_blank">tu</a>, alebo v prípade kúpy lístka online ti ho pripojíme k lístku. Jednotlivé body
+            rodičom alebo zákonným zástupcom. Takýto dokument si vieš stiahnuť <a
+              href="{% asset_path under18_2020.pdf %}" target="_blank">tu</a>, alebo v prípade kúpy lístka online ti ho
+            pripojíme k lístku. Jednotlivé body
             týkajúce sa maloletých nájdeš v táborovom poriadku, ktorý nájdeš tu. <br /> Najmenších čaká Gomba-škôlka,
             kde sa im venujú kvalifikované vychovávateľky, kým ich rodičia si užívajú programy, koncerty a pobyt v
             tábore.</p>
