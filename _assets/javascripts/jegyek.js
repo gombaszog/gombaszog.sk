@@ -25,7 +25,7 @@ if ($(".ticket-form").length > 0) {
       });
       $.each(data.housing, function (k, v) {
         $("#ticket_housing").append(
-          $('<option value="housing_' + v.id + '" data-price="' + v.price + '">' + (v.name + v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' +parseInt(v.price) +'&euro;</option>')
+          $('<option value="housing_' + v.id + '" data-price="' + v.price + '">' + v.name + (v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' +parseInt(v.price) +'&euro;</option>')
         );
       });
       $('#hetijegy').data('price', data.ticketweek);
