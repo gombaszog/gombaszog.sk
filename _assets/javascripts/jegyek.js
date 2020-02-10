@@ -449,12 +449,14 @@ jQuery(document).ready(function ($) {
         ret = false;
         var obj = $("form#ticket").serializeObject();
         obj["ticket[camp]"] = "0"
-        if (obj["ticket[housing]"].split('_')[0] == "camp") {
-          obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
-          obj["ticket[housing]"] = "0"
-        }
-        else if (obj["ticket[housing]"].split('_')[0] == "housing") {
-          obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+        if (obj['ticket[housing]']){
+          if (obj["ticket[housing]"].split('_')[0] == "camp") {
+            obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+            obj["ticket[housing]"] = "0"
+          }
+          else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+            obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+          }
         }
         console.log(obj);
         $.ajax({
