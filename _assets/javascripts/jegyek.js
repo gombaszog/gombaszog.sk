@@ -428,8 +428,8 @@ jQuery(document).ready(function ($) {
             }
             if (key == 'ticket_bus' && val != null) {
               setTimeout(function () {
-                $("#" + key).attr('disabled', 'disabled');
-                $("#" + key).val(val)
+                $("#" + 'partivonat-select').attr('disabled', 'disabled');
+                $("#" + 'partivonat-select').val(val)
                   .change();
               }, 1000);
             }
