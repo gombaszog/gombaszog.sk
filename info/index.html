@@ -36,14 +36,13 @@ group: info
             <span>Egységben az erő!</span>
           </div>
         </div>
-        {% comment %}<div class="col-md-4 col-sm-6 col-lg-3 info-icon">
+        <div class="col-md-4 col-sm-6 col-lg-3 info-icon">
           <div class="icon fa fa-cab"></div>
           <div class="info">
             <h3>Partivonat</h3>
             <span>Különvonat Gombaszögre!</span>
           </div>
-        </div> {% endcomment %}
-        <div class='col-md-2 col-sm-3 col-lg-2'></div>
+        </div>
         <div class="col-md-4 col-sm-6 col-lg-3 info-icon">
           <div class="icon fa fa-calendar"></div>
           <div class="info">
@@ -90,7 +89,6 @@ group: info
                 max-width: none !important;
                 background: none !important
               }
-
             </style>
           </div>
           <script type='text/javascript'>
@@ -121,21 +119,25 @@ group: info
     </div>
     <div class="bg">
       <h2 class="heading" id="utazas">Hogy <strong>jutok oda</strong>?</h2>
-      {% comment %}<div class="row">
+      <div class="row">
         <div class="col-md-12">
           <h3>Partivonat</h3>
-          <p class="text-justified" style='display:none;'>Kezdődjön a buli már otthon! Foglalj helyet a <strong>gombaszögi
+          <p class="text-justified">Kezdődjön a buli már otthon! Foglalj helyet a
+            <strong>gombaszögi
               különvonatra</strong>, amely egyenesen a tábor melletti állomásra visz! A nosztalgiaszerelvény
-            Dunaszerdahelyről indul, megállói a következőképpen alakulnak: Nagymegyer, Komárom, Ógyalla, Érsekújvár,
-            Köbölkút, Párkány, Zselíz, Léva, Zólyom, Losonc és Fülek. A pontos menetrend a tábor közeledtével kerül
-            nyilvánosságra. A különvonat odafelé a nulladik napon (július 13., hétfő) reggel indul, és a tábor utáni
-            reggel (július 19, vasárnap) tér vissza, ára oda-vissza 26 euró. A különvonatra <strong>csak előre
-              megvásárolt jeggyel</strong> lehet felszállni. A vonatjegyet a hetibérlettel együtt (ingyenes hetibérlet
+            <strong>Dunaszerdahelyről</strong> indul, megállói a következőképpen alakulnak: <strong>Nagymegyer, Komárom,
+              Ógyalla, Érsekújvár, Köbölkút, Párkány, Kéménd, Zselíz, Léva, Zólyom, Losonc és Fülek</strong>. A pontos
+            menetrend a tábor közeledtével kerül nyilvánosságra.<br> A vonatjegy ára függ a kiválaszott állomástól:
+            <strong>Dunaszerdahely, Nagymegyer, Komárom, Ógyalla, Érsejújvár, Köbölkút, Párkány és Kéménd</strong> megállókról 26
+            euró, <strong>Zselíz, Léva és Zólyom</strong> megállókról 21 euró, <strong>Fülek és Feled</strong> megállókról pedig 8 euró az oda-vissza út.<br> 
+            A különvonat odafelé a nulladik napon (július 13., hétfő) reggel indul, és a tábor utáni reggel (július 19, vasárnap) tér vissza.
+            A különvonatra <strong>csak előre megvásárolt jeggyel</strong> lehet felszállni. A vonatjegyet a
+            hetibérlettel együtt (ingyenes hetibérlet
             esetén is) <a href="http://gombaszog.sk/jegyek/" target="_blank">az online jegyvásárlási felületünkön</a>
             tudod beszerezni. Amennyiben már megvetted a hetibérleted, vagy regisztráltál az ingyenes jegyre, akkor
             sincs gond, vásárolj kiegészítő jegyet honlapunkon, vagy csak írj az utazas@gombaszog.sk címre.</p>
         </div>
-      </div> {% endcomment %}
+      </div>
       <div class="row">
         <div class="col-md-7">
           <h3>Tömegközlekedés</h3>
@@ -247,7 +249,8 @@ group: info
             <strong>felügyelet mellett ajánlott</strong>! Ha már elmúltál 15 éves, és a <strong>nulladik napon</strong>
             (július 13.) még nem töltötted be a 18-at, akkor csak egy <strong>kinyomtatott és aláírt</strong>
             szülői/törvényes képviselői beleegyezéssel engedhetünk be a tábor területére. Ezt a dokumentumot <a
-              href="{% asset_path under18_2020.pdf %}" target="_blank">itt</a> tudod letölteni, de internetes jegyelővétel
+              href="{% asset_path under18_2020.pdf %}" target="_blank">itt</a> tudod letölteni, de internetes
+            jegyelővétel
             esetén automatikusan hozzácsatoljuk a jegyedhez. A tábori szabályzat bizonyos pontokban <strong>külön kitér
               a kiskorúakra</strong>, tehát érdemes azt áttanulmányozni. <a href="{% asset_path rules_2020.pdf %}"
               target="_blank">Ide</a> kattintva meg is tekintheted! </br> A legkisebbeket a <strong>Gombaovi</strong>

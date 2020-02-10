@@ -67,7 +67,7 @@ group: jegyek
         {% comment %} <h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2> {% endcomment %}
 
-        <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="POST"
+        <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
           id="ticket">
           <div class="pricing-content extra-arak">
             <div class="row">
@@ -104,7 +104,7 @@ group: jegyek
                 </div>
               </div>
 
-              {% comment %}<div class="col-md-4">
+              <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
@@ -116,14 +116,17 @@ group: jegyek
                           class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                           title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
                     </label>
-                    <p><input type="checkbox" name="" id="partivonat-check" value=""
-                        style="float: left; width: 25px; height: 25px;" onchange='PartiVonatEvent(this);'><label
-                        for="partivonat-check" id="partivonat-label">Partivonat +26€</label></p>
-                    <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb információ
-                        itt.</a></small>
+                    <select id='partivonat-select' onchange='PartiVonatEvent(this);' class="form-control influence">
+                      <option value="0">Nem szeretnék vonatjegyet vásárolni</option>
+                    </select>
+                    <p>
+                      <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb
+                          információ
+                          itt.</a></small>
+                    </p>
                   </div>
                 </div>
-              </div> {% endcomment %}
+              </div>
             </div>
           </div>
           <!-- jegyvetel start -->
@@ -540,7 +543,7 @@ group: jegyek
                       target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
                         data-toggle="tooltip" data-placement="bottom"
                         title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
-                  <select id="ticket_bus" name="ticket[bus]" class="form-control influence">
+                  <select id="ticket_bus" name="ticket[bus]" class="form-control influence" onchange='PartiVonatEventForm(this);' >
                     <option value="gyalog">Gyalog</option>
                     <option value="bicikli">Biciklivel</option>
                     <option value="vonat">Vonattal</option>
@@ -700,12 +703,12 @@ group: jegyek
                     sk</strong> e-mail címre!
                 </p>
                 <p class="text-justified">
-                Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
-                napon belül meg kell
-                érkeznie az
-                alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni
-                a vásárló
-                <strong>itt megadott e-mail címet.</strong>
+                  Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
+                  napon belül meg kell
+                  érkeznie az
+                  alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni
+                  a vásárló
+                  <strong>itt megadott e-mail címet.</strong>
                 </p>
                 <p class="text-justified">
                   Külföldről érkező utalás esetén:
@@ -715,9 +718,9 @@ group: jegyek
                   <strong>Ország:</strong> Slovakia (SK)
                 </p>
                 <p class="text-justified">
-                Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi
-                irodánkban (Duna
-                rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
+                  Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi
+                  irodánkban (Duna
+                  rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
                 </p>
                 <p class="text-justified"><small>
                     Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a

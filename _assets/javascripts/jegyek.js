@@ -17,6 +17,9 @@ if ($(".ticket-form").length > 0) {
         $("#ticket_bus").append(
           $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még '+ v.free +' hely) +' + parseInt(v.price) + '&euro;</option>')
         );
+        $("#partivonat-select").append(
+          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még '+ v.free +' hely) +' + parseInt(v.price) + '&euro;</option>')
+        );
       });
       $.each(data.camp, function (k, v) {
         $("#ticket_housing").append(
@@ -108,7 +111,7 @@ if ($(".ticket-form").length > 0) {
     if (tmp) price += parseFloat(tmp);
     tmp = !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
-    tmp = !$("#ticket_bus").is(':disabled') ? $("#ticket_bus option:selected").data('price') : 0;
+    tmp = !$("#partivonat-select").is(':disabled') ? $("#partivonat-select option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
     tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
     if (tmp) price += parseFloat(tmp);
@@ -492,12 +495,30 @@ jQuery(document).ready(function ($) {
 });
 
 function PartiVonatEvent(checkbox) {
-  var list = document.getElementById('ticket_bus');
+  let list = $('#partivonat-select');
+  let travel = $('#ticket_bus');
 
-  if (checkbox.checked) {
-    list.options.selectedIndex = 6;
-  } else {
-    list.options.selectedIndex = 0;
+  if(list.val() != 0){
+    travel.val(list.val());
+
+  }
+  else{
+    list.val(0)
+    travel.val('gyalog')
+  }
+
+  calculateTicketPrice();
+}
+
+function PartiVonatEventForm(checkbox) {
+  let list = $('#partivonat-select');
+  let travel = $('#ticket_bus');
+
+  if(travel.val().length < 2){
+    list.val(travel.val());
+  }
+  else{
+    list.val(0)
   }
 
   calculateTicketPrice();
