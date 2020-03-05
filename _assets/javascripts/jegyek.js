@@ -497,8 +497,8 @@ jQuery(document).ready(function ($) {
 });
 
 function PartiVonatEvent(checkbox) {
-  let list = $('#partivonat-select');
-  let travel = $('#ticket_bus');
+  var list = $('#partivonat-select');
+  var travel = $('#ticket_bus');
 
   if(list.val() != 0){
     travel.val(list.val());
@@ -513,8 +513,8 @@ function PartiVonatEvent(checkbox) {
 }
 
 function PartiVonatEventForm(checkbox) {
-  let list = $('#partivonat-select');
-  let travel = $('#ticket_bus');
+  var list = $('#partivonat-select');
+  var travel = $('#ticket_bus');
 
   if(travel.val().length < 2){
     list.val(travel.val());
