@@ -75,7 +75,7 @@ permalink: /jegyek/fizetes/index.html
 
 
 
-          <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="POST"
+          <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="post"
             id="ticket">
             <div class="pricing-content extra-arak">
               <div class="row">
@@ -112,26 +112,29 @@ permalink: /jegyek/fizetes/index.html
                   </div>
                 </div>
 
-                {% comment %}<div class="col-md-4">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
-                    </div>
-                    <div class="col-sm-8">
-                      <label class="control-label">
-                        Utazás
-                        <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
-                            class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
-                            title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
-                      </label>
-                      <p><input type="checkbox" name="" id="partivonat-check" value=""
-                          style="float: left; width: 25px; height: 25px;" onchange='PartiVonatEvent(this);'><label
-                          for="partivonat-check" id="partivonat-label">Partivonat +26€</label></p>
-                      <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb információ
-                          itt.</a></small>
-                    </div>
+                <div class="col-md-4">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
                   </div>
-                </div> {% endcomment %}
+                  <div class="col-sm-8">
+                    <label class="control-label">
+                      Utazás
+                      <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
+                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                          title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
+                    </label>
+                    <select id='partivonat-select' name='ticket[bus]' class="form-control influence">
+                      <option value="0">Nem szeretnék vonatjegyet vásárolni</option>
+                    </select>
+                    <p>
+                      <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb
+                          információ
+                          itt.</a></small>
+                    </p>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
             <!-- jegyvetel start -->
