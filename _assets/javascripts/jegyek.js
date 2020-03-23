@@ -160,6 +160,8 @@ if ($(".ticket-form").length > 0) {
     $('.ticket-fb').click(function () {
       $('form')[0].reset();
       captcha_reload();
+      $("#ticket_donation").select2("val", "0");
+      calculateTicketPrice();
       FB.login(function (response) { // log in
         if (response.authResponse) { // logged in
           FB.api('/me', {
