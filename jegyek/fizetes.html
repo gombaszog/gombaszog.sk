@@ -301,7 +301,7 @@ permalink: /jegyek/fizetes/index.html
                   <div class="form-group">
                     <label for="ticket_country">Ország</label>
                     <select class="form-control select2" id="ticket_country" placeholder="" name="ticket[country]"
-                      disabled="disabled">
+                      disabled="disabled" style='width:auto;'>
                       <option value="SK">Szlovákia</option>
                       <option value="HU">Magyarország</option>
                       <option value="CZ">Csehország</option>
@@ -533,6 +533,20 @@ permalink: /jegyek/fizetes/index.html
                       name="ticket[captcha]"
                       style="background-size: 120px; background-position: right center; background-repeat: no-repeat;"
                       required />
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class="form-group">
+                    <label class="control-label" for="ticket_donation">Támogatás <a class="nocolor"
+                        href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
+                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                          title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
+                    <select id="ticket_donation" name="ticket[donation]" class="form-control influence" style='width:auto;'>
+                      <option value="0">Nem szeretném támogatni</option>
+                      <option value="1">1&euro;-val támogatom</option>
+                      <option value="5">5&euro;-val támogatom</option>
+                      <option value="20">20&euro;-val támogatom</option>
+                    </select>
                   </div>
                 </div>
               </div>

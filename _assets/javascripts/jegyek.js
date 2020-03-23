@@ -58,6 +58,8 @@ if ($(".ticket-form").length > 0) {
       alert("Nincs kiválasztva nap")
     } else if (e.wrongtype) {
       alert("Rossz jegytípus van kiválasztva")
+    } else if (e.donation) {
+      alert("A támogatás mezőben nem valós érték van megadva (csak számot vagy a választható elemek egyikét fogadja el az űrlap)")
     } else alert("Hoppá! Az űrlapot hibásan töltötted ki, a javítandó mezőket megjelöltük pirossal!");
   }
 
@@ -114,6 +116,8 @@ if ($(".ticket-form").length > 0) {
     tmp = !$("#partivonat-select").is(':disabled') ? $("#partivonat-select option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
     tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
+    if (tmp) price += parseFloat(tmp);
+    tmp = !$("#ticket_donation").is(':disabled') ? $("#ticket_donation").val() : 0;
     if (tmp) price += parseFloat(tmp);
     // we keep this line with empty array to have it in the future
     tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
@@ -430,6 +434,19 @@ jQuery(document).ready(function ($) {
               setTimeout(function () {
                 $("#" + 'partivonat-select').attr('disabled', 'disabled');
                 $("#" + 'partivonat-select').val(val)
+                  .change();
+              }, 1000);
+            }
+            if (key == 'ticket_donation' && parseInt(val) > 0) {
+              setTimeout(function () {
+                $("#" + 'ticket_donation').attr('disabled', 'disabled');
+                $("#" + 'ticket_donation').val(val)
+                  .change();
+              }, 1000);
+            }
+            else if (key == 'ticket_donation' && parseInt(val) == 0) {
+              setTimeout(function () {
+                $("#" + 'ticket_donation').val(parseInt(val))
                   .change();
               }, 1000);
             }
