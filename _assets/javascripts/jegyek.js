@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function () {
-    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
+    $.getJSON("/api/ticket/available").done(function (data) {
       $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
           $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
@@ -223,7 +223,7 @@ if ($(".ticket-form").length > 0) {
       }
       console.log(obj);
       $.ajax({
-        url: 'http://localhost:3000/api/ticket',
+        url: '/api/ticket',
         type: 'POST',
         timeout: 2000,
         async: false,
@@ -246,7 +246,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: 'http://localhost:3000/api/ticket/find/' + barcode,
+        url: '/api/ticket/find/' + barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -385,7 +385,7 @@ function getParameterByName(name) {
 jQuery(document).ready(function ($) {
   $(window).load(function () {
     if ($('#pay-form').length > 0) {
-      $.getJSON("http://localhost:3000/api/ticket/paynow/" + getParameterByName("q")).done(function (data) {
+      $.getJSON("/api/ticket/paynow/" + getParameterByName("q")).done(function (data) {
         var msg = "";
         if (data.status == "waiting") {
           /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
@@ -487,7 +487,7 @@ jQuery(document).ready(function ($) {
         }
         console.log(obj);
         $.ajax({
-          url: 'http://localhost:3000/api/ticket/addition',
+          url: '/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
