@@ -543,13 +543,27 @@ group: jegyek
                       target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
                         data-toggle="tooltip" data-placement="bottom"
                         title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
-                  <select id="ticket_bus" name="ticket[bus]" class="form-control influence" onchange='PartiVonatEventForm(this);' >
+                  <select id="ticket_bus" name="ticket[bus]" class="form-control influence"
+                    onchange='PartiVonatEventForm(this);'>
                     <option value="gyalog">Gyalog</option>
                     <option value="bicikli">Biciklivel</option>
                     <option value="vonat">Vonattal</option>
                     <option value="busz">Busszal</option>
                     <option value="auto">Autóval</option>
                     <option value="egyeb">Egyéb</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_donation">Támogatás - Zászlótartó <a class="nocolor"
+                      href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
+                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                        title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
+                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required>
+                    <option value="x">Még nem döntöttem</option>
+                    <option value="0">Nem szeretném támogatni</option>
+                    <option value="1">1&euro;-val támogatom</option>
+                    <option value="5">5&euro;-val támogatom</option>
+                    <option value="20">20&euro;-val támogatom</option>
                   </select>
                 </div>
               </div>

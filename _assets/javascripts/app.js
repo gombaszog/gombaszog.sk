@@ -65,7 +65,19 @@ jQuery(document).ready(function ($) {
       sync: "#carousel"
     });
     $('.info-tooltip').tooltip(); // tooltips
-    $('.select2').select2(); // select2
+    $('.select2').select2({
+      theme: "bootstrap",
+      language: "hu"
+    });
+
+    $("#ticket_donation").select2({
+      tags: true,
+      theme: "bootstrap",
+      language: "hu",
+      placeholder: "Már támogattam"
+    }).on('select2:open', function(e) {
+      $(this).data('select2').$dropdown.find(':input.select2-search__field').attr('placeholder', 'Egyéni összeg hozzáadása')
+  })
 
     //Gallery
     if ($('#instafeed').length > 0) new Instafeed({
