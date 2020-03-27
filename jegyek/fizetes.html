@@ -113,28 +113,28 @@ permalink: /jegyek/fizetes/index.html
                 </div>
 
                 <div class="col-md-4">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
-                  </div>
-                  <div class="col-sm-8">
-                    <label class="control-label">
-                      Utazás
-                      <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
-                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
-                          title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
-                    </label>
-                    <select id='partivonat-select' name='ticket[bus]' class="form-control influence">
-                      <option value="0">Nem szeretnék vonatjegyet vásárolni</option>
-                    </select>
-                    <p>
-                      <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb
-                          információ
-                          itt.</a></small>
-                    </p>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-8">
+                      <label class="control-label">
+                        Utazás
+                        <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
+                            class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                            title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
+                      </label>
+                      <select id='partivonat-select' name='ticket[bus]' class="form-control influence">
+                        <option value="0">Nem szeretnék vonatjegyet vásárolni</option>
+                      </select>
+                      <p>
+                        <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb
+                            információ
+                            itt.</a></small>
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
             <!-- jegyvetel start -->
@@ -541,7 +541,9 @@ permalink: /jegyek/fizetes/index.html
                         href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
                           class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                           title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
-                    <select id="ticket_donation" name="ticket[donation]" class="form-control influence" style='width:auto;'>
+                    <select id="ticket_donation" name="ticket[donation]" class="form-control influence"
+                      style='width:auto;'>
+                      <option value="x">Még nem döntöttem</option>
                       <option value="0">Nem szeretném támogatni</option>
                       <option value="1">1&euro;-val támogatom</option>
                       <option value="5">5&euro;-val támogatom</option>

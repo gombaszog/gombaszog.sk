@@ -558,8 +558,9 @@ group: jegyek
                       href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
                         class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                         title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
-                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence">
-                    <option value="0" selected="selected">Nem szeretném támogatni</option>
+                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required>
+                    <option value="x">Még nem döntöttem</option>
+                    <option value="0">Nem szeretném támogatni</option>
                     <option value="1">1&euro;-val támogatom</option>
                     <option value="5">5&euro;-val támogatom</option>
                     <option value="20">20&euro;-val támogatom</option>
