@@ -27,7 +27,7 @@ group: jegyek
           </li>
           <li class="rock">
             <div class="regular-price">
-              <h2>Téli <br>Hetijegy<span>Április 30-ig</span></h2>
+              <h2><br>Hetijegy<span>December 31-ig</span></h2>
               <p class="price">55&euro;</p>
               <p class="price-content">6 nap<br>csak elővételben</p>
               <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
@@ -38,16 +38,16 @@ group: jegyek
               <h2>Ingyenes hetijegy</h2>
               <p class="price">0&euro;</p>
               <p class="price-content">
-                Az Érsekújvári<br> járás lakóinak <br>regisztráció Július 5-ig
+                Az Érsekújvári<br> járás lakóinak <br>{% comment %}regisztráció Július 4-ig {% endcomment %}
               </p>
               <a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>
             </div>
           </li>
           <li class="vip">
             <div class="regular-price">
-              <h2>Tavaszi <br>Hetijegy<span>Július 5-ig</span></h2>
-              <p class="price">59&euro;</p>
-              <p class="price-content">6 nap<br>csak elővételben</p>
+              <h2>Helyszíni <br>napijegy</h2>
+              <p class="price">18&euro;</p>
+              <p class="price-content">1 nap<br>a helyszínen</p>
             </div>
           </li>
         </ul>
@@ -61,8 +61,7 @@ group: jegyek
         {% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
           ért, már csak a helyszínen lehet jegyet vásárolni!</h4>{% endcomment %}
 
-        {% comment %} <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel július
-          14. éjfélig fogadja a rendeléseket!</h4> {% endcomment %}
+        <h4 class="text-center" style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt jegy a 2021-es Gombaszögi Nyári Táborra szól.</h4>
 
         {% comment %} <h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2> {% endcomment %}
@@ -796,8 +795,10 @@ group: jegyek
     "@context": "https://schema.org",
     "@type": "Festival",
     "name": "Gombaszögi Nyári Tábor",
-    "startDate": "2020-07-13",
-    "endDate": "2020-07-19",
+    "eventStatus": "https://schema.org/EventRescheduled",
+    "previousStartDate": "2020-07-13"
+    "startDate": "2021-07-12",
+    "endDate": "2021-07-18",
     "location": {
       "@type": "Place",
       "name": "Kemping Gombaszög",
