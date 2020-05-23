@@ -17,9 +17,9 @@ hidden: true
       <title>{{ post.title | xml_escape }}</title>
       <description>{{ post.excerpt | strip | markdownify | strip_html | truncatewords: 60 | xml_escape}}</description>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-      <link>{{ site.url }}/{{ post.url }}</link>
-      <guid isPermaLink="true">{{ site.url }}/{{ post.url }}</guid>
-      <image>{{ site.url }}/{{ post.thumbnail }}</image>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+      <image>{{ site.url }}{{ post.thumbnail }}</image>
     </item>
     {% endfor %}
   </channel>
