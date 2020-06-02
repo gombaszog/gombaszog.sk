@@ -51,7 +51,7 @@ if ($("#weatherwrap").length > 0) {
     var imgNode = document.createElement("IMG");
     imgNode.setAttribute("class", "weatherimage-image");
     imgNode.setAttribute("alt", wData.weather[0].description);
-    imgNode.setAttribute("src", "http://openweathermap.org/img/w/" + wData.weather[0].icon + ".png");
+    imgNode.setAttribute("src", "https://openweathermap.org/img/w/" + wData.weather[0].icon + ".png");
     wIconWrap.appendChild(imgNode);
 
     var wTemp = document.getElementById("weathertemp");
