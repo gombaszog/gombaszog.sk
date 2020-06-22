@@ -61,7 +61,9 @@ group: jegyek
         {% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
           ért, már csak a helyszínen lehet jegyet vásárolni!</h4>{% endcomment %}
 
-        <h4 class="text-center" style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
+        <h4 class="text-center"
+          style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
+          jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
 
         {% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2>{% endcomment %}
@@ -70,7 +72,7 @@ group: jegyek
           id="ticket">
           <div class="pricing-content extra-arak">
             <div class="row">
-              <div class="col-md-4"  style='display:none !important;'>
+              <div class="col-md-4" style='display:none !important;'>
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path jegy.png %}" alt="Jegy ikon" class="img-responsive" />
@@ -523,7 +525,8 @@ group: jegyek
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="control-label" for="ticket_what">Foglalkozás</label>
-                  <select id="ticket_what" name="ticket[stat_what]" class="form-control" style='height: 34px !important; font-size: 15px !important;'>
+                  <select id="ticket_what" name="ticket[stat_what]" class="form-control"
+                    style='height: 34px !important; font-size: 15px !important;'>
                     <option value="egyetem">Egyetemista</option>
                     <option value="erettsegi">Frissen érettségizett</option>
                     <option value="kozepiskola">Középiskolás</option>
@@ -537,9 +540,9 @@ group: jegyek
                   <input type="text" class="form-control" id="ticket_where" placeholder="" name="ticket[stat_where]" />
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="ticket_bus">Érkezés módja {% comment %}<a class="nocolor" href="/info#utazas"
-                      target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
-                        data-toggle="tooltip" data-placement="bottom"
+                  <label class="control-label" for="ticket_bus">Érkezés módja {% comment %}<a class="nocolor"
+                      href="/info#utazas" target="_blank" aria-label="További információ"><i
+                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                         title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a>{% endcomment %}</label>
                   <select id="ticket_bus" name="ticket[bus]" class="form-control influence"
                     onchange='PartiVonatEventForm(this);' style='height: 34px !important; font-size: 15px !important;'>
@@ -552,11 +555,11 @@ group: jegyek
                   </select>
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="ticket_donation">Támogatás{% comment %}<a class="nocolor"
-                      href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
-                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
-                        title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a>{% endcomment %}</label>
-                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required  style='height: 34px !important; font-size: 15px !important;'>
+                  <label class="control-label" for="ticket_donation">Támogatás <i class="fa fa-info-circle info-tooltip"
+                      data-toggle="tooltip" data-placement="bottom"
+                      title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
+                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
                     <option value="x">Még nem döntöttem</option>
                     <option value="0">Nem szeretném támogatni</option>
                     <option value="10">10&euro;-val támogatom</option>
@@ -566,7 +569,8 @@ group: jegyek
                 </div>
                 <div class="form-group">
                   <label class="control-label" for="ticket_tshirt">Póló</label>
-                  <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required style='height: 34px !important; font-size: 15px !important;'>
+                  <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
                     <option value="0">Nem kérek</option>
                   </select>
                 </div>
@@ -757,7 +761,7 @@ group: jegyek
             </div>
             <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
             <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-        </form> 
+        </form>
       </div>
       <!-- jegyvetel end	-->
     </div>
