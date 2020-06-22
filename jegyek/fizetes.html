@@ -77,8 +77,10 @@ permalink: /jegyek/fizetes/index.html
 
           <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="post"
             id="ticket">
-            <h4 class="text-center" style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt jegy a 2021-es Gombaszögi Nyári Táborra szól.</h4>
-            <div class="pricing-content extra-arak">
+            <h4 class="text-center"
+              style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
+              jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
+            <div class="pricing-content extra-arak" style='display:none;'>
               <div class="row">
                 <div class="col-md-4">
                   <div class="row">
@@ -95,7 +97,7 @@ permalink: /jegyek/fizetes/index.html
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
+                {% comment %}<div class="col-md-4">
                   <div class="row">
                     <div class="col-sm-4">
                       <img src="{% asset_path sator.png %}" alt="Sátor ikon" class="img-responsive" />
@@ -111,9 +113,9 @@ permalink: /jegyek/fizetes/index.html
                       <small>Sátranként egy sátorjegy szükséges.</small>
                     </div>
                   </div>
-                </div>
+                </div>{% endcomment %}
 
-                <div class="col-md-4">
+                {% comment %}<div class="col-md-4">
                   <div class="row">
                     <div class="col-sm-4">
                       <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
@@ -135,13 +137,13 @@ permalink: /jegyek/fizetes/index.html
                       </p>
                     </div>
                   </div>
-                </div>
+                </div>{% endcomment %}
               </div>
             </div>
             <!-- jegyvetel start -->
 
 
-            <div class='row'>
+            {% comment %}<div class='row'>
               <div class='col-md-12 form-group' id='select_days' style='display:none;'>
                 <div>
                   <h3>Kérjük, válaszd ki a napokat!</h3>
@@ -247,7 +249,7 @@ permalink: /jegyek/fizetes/index.html
                   </label>
                 </div>
               </div>
-            </div>
+            </div>{% endcomment %}
 
             <div>
               <br>
@@ -538,17 +540,23 @@ permalink: /jegyek/fizetes/index.html
                 </div>
                 <div class='col-md-3'>
                   <div class="form-group">
-                    <label class="control-label" for="ticket_donation">Támogatás - Zászlótartó <a class="nocolor"
-                        href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
-                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
-                          title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
+                    <label class="control-label" for="ticket_donation">Támogatás <i
+                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                        title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
                     <select id="ticket_donation" name="ticket[donation]" class="form-control influence"
                       style='width:auto;'>
                       <option value="x">Még nem döntöttem</option>
                       <option value="0">Nem szeretném támogatni</option>
-                      <option value="1">1&euro;-val támogatom</option>
-                      <option value="5">5&euro;-val támogatom</option>
+                      <option value="10">10&euro;-val támogatom</option>
                       <option value="20">20&euro;-val támogatom</option>
+                      <option value="30">30&euro;-val támogatom</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="ticket_tshirt">Póló</label>
+                    <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
+                      style='height: 34px !important; font-size: 15px !important;'>
+                      <option value="0">Nem kérek</option>
                     </select>
                   </div>
                 </div>

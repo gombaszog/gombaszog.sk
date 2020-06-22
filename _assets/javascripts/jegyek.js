@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = ["94303", "94002", "94101", "94102", "94103", "94104", "94105", "94106", "94107", "94108", "94109", "94110", "94111", "94121", "94122", "94123", "94131", "94132", "94133", "94134", "94135", "94136", "94137", "94141", "94142", "94143", "94144", "94145", "94146", "94147", "94148", "94149", "94150", "94151", "94161", "94162", "94201", "94301", "94304", "94341", "94342", "94352", "94353", "94354", "94355", "94356", "94357", "94358", "94359", "94360", "94361", "94365", "94366"];
+  var freeCities = [];
   captcha_reload = function () { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
@@ -29,6 +29,26 @@ if ($(".ticket-form").length > 0) {
       $.each(data.housing, function (k, v) {
         $("#ticket_housing").append(
           $('<option value="housing_' + v.id + '" data-price="' + v.price + '">' + v.name + (v.capacity > 0 ? ' (' + v.capacity + ' ágyas)' : '') + ' +' + parseInt(v.price) + '&euro;</option>')
+        );
+      });
+      $.each(data.tshirt, function (k, v) {
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="XS" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (XS) +' + parseInt(v.price) + '&euro;</option>')
+        );
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="S" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (S) +' + parseInt(v.price) + '&euro;</option>')
+        );
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="M" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (M) +' + parseInt(v.price) + '&euro;</option>')
+        );
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="L" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (L) +' + parseInt(v.price) + '&euro;</option>')
+        );
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="XL" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (XL) +' + parseInt(v.price) + '&euro;</option>')
+        );
+        $("#ticket_tshirt").append(
+          $('<option value="' + v.id + '" data-size="XXL" data-price="' + v.price + '">' + v.name + (v.variant.length > 1 ? ' - ' + v.variant : '') + ' (XXL) +' + parseInt(v.price) + '&euro;</option>')
         );
       });
       $('#hetijegy').data('price', data.ticketweek);
@@ -118,6 +138,8 @@ if ($(".ticket-form").length > 0) {
     tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
     if (tmp) price += parseFloat(tmp);
     tmp = (!$("#ticket_donation").is(':disabled') && $("#ticket_donation").val() != "x") ? $("#ticket_donation").val() : 0;
+    if (tmp) price += parseFloat(tmp);
+    tmp = !$("#ticket_tshirt").is(':disabled') ? $("#ticket_tshirt option:selected").data('price') : 0;
     if (tmp) price += parseFloat(tmp);
     // we keep this line with empty array to have it in the future
     tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
@@ -214,12 +236,18 @@ if ($(".ticket-form").length > 0) {
       ret = false;
       var obj = $("form#ticket").serializeObject();
       obj["ticket[camp]"] = "0"
-      if (obj["ticket[housing]"].split('_')[0] == "camp") {
-        obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
-        obj["ticket[housing]"] = "0"
+      if (obj["ticket[housing]"] != null){
+        if (obj["ticket[housing]"].split('_')[0] == "camp") {
+          obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
+          obj["ticket[housing]"] = "0"
+        }
+        else if (obj["ticket[housing]"].split('_')[0] == "housing") {
+          obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+        }
       }
-      else if (obj["ticket[housing]"].split('_')[0] == "housing") {
-        obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
+
+      if(obj["ticket[tshirt]"] > 0){
+        obj["ticket[tshirt_size]"] = $('#ticket_tshirt option:selected').attr('data-size')
       }
       console.log(obj);
       $.ajax({
@@ -450,6 +478,13 @@ jQuery(document).ready(function ($) {
                   .change();
               }, 1000);
             }
+            if (key == 'ticket_tshirt' && val != null) {
+              setTimeout(function () {
+                $("#" + 'ticket_tshirt').attr('disabled', 'disabled');
+                $("#" + 'ticket_tshirt').val(val)
+                  .change();
+              }, 1000);
+            }
             else if (key == 'ticket_donation' && parseInt(val) == 0) {
               setTimeout(function () {
                 $("#" + 'ticket_donation').val("x")
@@ -485,6 +520,11 @@ jQuery(document).ready(function ($) {
             obj["ticket[housing]"] = obj["ticket[housing]"].split('_')[1]
           }
         }
+
+        if(obj["ticket[tshirt]"] > 0){
+          obj["ticket[tshirt_size]"] = $('#ticket_tshirt option:selected').attr('data-size')
+        }
+
         console.log(obj);
         $.ajax({
           url: '/api/ticket/addition',
