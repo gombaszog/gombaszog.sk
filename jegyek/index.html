@@ -12,65 +12,67 @@ group: jegyek
         <ul class="clearfix">
           <li class="regular">
             <div class="regular-price">
-              <h2>Helyszíni<br>hetijegy</h2>
+              {% comment %}<h2>Helyszíni<br>hetijegy</h2>
               <p class="price">69&euro;</p>
-              <p class="price-content">6 nap<br>a helyszínen</p>
+              <p class="price-content">6 nap<br>a helyszínen</p>{% endcomment %}
             </div>
           </li>
           <li class="xplore">
             <div class="regular-price">
-              <h2>Elővételes<br />Napijegy</h2>
+              {% comment %}<h2>Elővételes<br />Napijegy</h2>
               <p class="price">15&euro;</p>
               <p class="price-content">1 nap<br>csak elővételben<br>&nbsp;</p>
-              <a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>
+              <a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>{% endcomment %}
             </div>
           </li>
           <li class="rock">
             <div class="regular-price">
-              <h2><br>Hetijegy<span>December 31-ig</span></h2>
-              <p class="price">55&euro;</p>
-              <p class="price-content">6 nap<br>csak elővételben</p>
+              <h2><br>Hetijegy<span>augusztus 17-ig</span></h2>
+              <p class="price">29&euro;</p>
+              <p class="price-content">3 nap<br>csak elővételben</p>
               <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
             </div>
           </li>
           <li class="xplore">
             <div class="regular-price">
-              <h2>Ingyenes hetijegy</h2>
+              {% comment %}<h2>Ingyenes hetijegy</h2>
               <p class="price">0&euro;</p>
               <p class="price-content">
                 Az Érsekújvári<br> járás lakóinak <br>{% comment %}regisztráció Július 4-ig {% endcomment %}
               </p>
-              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>
+              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>{% endcomment %}
             </div>
           </li>
           <li class="vip">
             <div class="regular-price">
-              <h2>Helyszíni <br>napijegy</h2>
+              {% comment %}<h2>Helyszíni <br>napijegy</h2>
               <p class="price">18&euro;</p>
-              <p class="price-content">1 nap<br>a helyszínen</p>
+              <p class="price-content">1 nap<br>a helyszínen</p>{% endcomment %}
             </div>
           </li>
         </ul>
 
-        {% comment %}<div style="text-align: center; margin-top: 30px;">
+        <div style="text-align: center; margin-top: 30px;">
           Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
             data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
-              jegy</strong> vásárlása</button>{% endcomment %}
+              jegy</strong> vásárlása</button>
         </div>
 
         {% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
           ért, már csak a helyszínen lehet jegyet vásárolni!</h4>{% endcomment %}
 
-        {% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt jegy a 2021-es Gombaszögi Nyári Táborra szól.</h4>{% endcomment %}
+        <h4 class="text-center"
+          style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
+          jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
 
-        <h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
-          pár nap türelmet kérünk!</h2>
+        {% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
+          pár nap türelmet kérünk!</h2>{% endcomment %}
 
-        {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+        <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
           id="ticket">
           <div class="pricing-content extra-arak">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4" style='display:none !important;'>
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path jegy.png %}" alt="Jegy ikon" class="img-responsive" />
@@ -84,7 +86,7 @@ group: jegyek
                     <small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>
                   </div>
                 </div>
-              </div>
+              </div>{% comment %}
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
@@ -125,12 +127,11 @@ group: jegyek
                     </p>
                   </div>
                 </div>
-              </div>
+              </div>{% endcomment %}
             </div>
           </div>
           <!-- jegyvetel start -->
-
-
+          {% comment %}
           <div class='row'>
             <div class='col-md-12 form-group' id='select_days' style='display:none;'>
               <div>
@@ -237,7 +238,7 @@ group: jegyek
                 </label>
               </div>
             </div>
-          </div>
+          </div>{% endcomment %}
 
           <div>
             <br>
@@ -524,7 +525,8 @@ group: jegyek
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="control-label" for="ticket_what">Foglalkozás</label>
-                  <select id="ticket_what" name="ticket[stat_what]" class="form-control">
+                  <select id="ticket_what" name="ticket[stat_what]" class="form-control"
+                    style='height: 34px !important; font-size: 15px !important;'>
                     <option value="egyetem">Egyetemista</option>
                     <option value="erettsegi">Frissen érettségizett</option>
                     <option value="kozepiskola">Középiskolás</option>
@@ -538,12 +540,12 @@ group: jegyek
                   <input type="text" class="form-control" id="ticket_where" placeholder="" name="ticket[stat_where]" />
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="ticket_bus">Érkezés módja <a class="nocolor" href="/info#utazas"
-                      target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a></label>
+                  <label class="control-label" for="ticket_bus">Érkezés módja {% comment %}<a class="nocolor"
+                      href="/info#utazas" target="_blank" aria-label="További információ"><i
+                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                        title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a>{% endcomment %}</label>
                   <select id="ticket_bus" name="ticket[bus]" class="form-control influence"
-                    onchange='PartiVonatEventForm(this);'>
+                    onchange='PartiVonatEventForm(this);' style='height: 34px !important; font-size: 15px !important;'>
                     <option value="gyalog">Gyalog</option>
                     <option value="bicikli">Biciklivel</option>
                     <option value="vonat">Vonattal</option>
@@ -553,16 +555,23 @@ group: jegyek
                   </select>
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="ticket_donation">Támogatás - Zászlótartó <a class="nocolor"
-                      href="/ereklyes-zaszlotarto" target="_blank" aria-label="További információ"><i
-                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
-                        title="Ereklyés zászlótartó a felvidéki összetartozás jegyében Gombaszögön. Bővebb információkért kattints!"></i></a></label>
-                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required>
+                  <label class="control-label" for="ticket_donation">Támogatás <i class="fa fa-info-circle info-tooltip"
+                      data-toggle="tooltip" data-placement="bottom"
+                      title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
+                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
                     <option value="x">Még nem döntöttem</option>
                     <option value="0">Nem szeretném támogatni</option>
-                    <option value="1">1&euro;-val támogatom</option>
-                    <option value="5">5&euro;-val támogatom</option>
+                    <option value="10">10&euro;-val támogatom</option>
                     <option value="20">20&euro;-val támogatom</option>
+                    <option value="30">30&euro;-val támogatom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_tshirt">Póló</label>
+                  <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
+                    <option value="0">Nem kérek</option>
                   </select>
                 </div>
               </div>
@@ -752,7 +761,7 @@ group: jegyek
             </div>
             <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
             <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-        </form> {% endcomment %}
+        </form>
       </div>
       <!-- jegyvetel end	-->
     </div>
@@ -797,6 +806,34 @@ group: jegyek
     "name": "Gombaszögi Nyári Tábor",
     "startDate": "2021-07-12",
     "endDate": "2021-07-18",
+    "location": {
+      "@type": "Place",
+      "name": "Kemping Gombaszög",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "161 Gombasek",
+        "addressLocality": "Slavec",
+        "postalCode": "04911",
+        "addressCountry": "SK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.563772,
+        "longitude": 20.466542
+      }
+    },
+    "image": [
+      "{{ site.url }}{% asset_path og.png %}"
+    ],
+    "description": "{{ site.description }}"
+  }
+
+  {
+    "@context": "https://schema.org",
+    "@type": "Festival",
+    "name": "Gombszög Lite",
+    "startDate": "2020-08-21",
+    "endDate": "2020-08-23",
     "location": {
       "@type": "Place",
       "name": "Kemping Gombaszög",
