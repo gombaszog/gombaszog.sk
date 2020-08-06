@@ -6,6 +6,13 @@ require "nokogiri"
 
 class ProgramDefault < Liquid::Tag
   def render(_context)
+    day_l_map_lite = {
+      "Thursday"  => "csutortok",
+      "Friday"    => "pentek",
+      "Saturday"  => "szombat",
+      "Sunday"    => "vasarnap",
+    }
+
     day_l_map = {
       "Monday"    => "hetfo",
       "Tuesday"   => "kedd",
@@ -20,7 +27,7 @@ class ProgramDefault < Liquid::Tag
 
     data = JSON.parse File.read "_program.json"
     byday = {}
-    day_l_map.each do |d, _e|
+    day_l_map_lite.each do |d, _e|
       byday[d] = {
         :events    => [],
         :locations => [],
