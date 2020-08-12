@@ -931,3 +931,8 @@ div.biglogo {
   margin-top: 10px;
   margin-right: 2px;
 }
+
+.album-heading{
+  bottom:0%;
+  padding-bottom:5px;
+}
