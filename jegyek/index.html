@@ -27,10 +27,10 @@ group: jegyek
           </li>
           <li class="rock">
             <div class="regular-price">
-              <h2><br>Gombaszög Lite<span>augusztus 17-ig</span></h2>
+              <h2><br>Gombaszög Lite<span>{% comment %}augusztus 17-ig{% endcomment %}</span></h2>
               <p class="price">29&euro;</p>
               <p class="price-content">3 nap<br>csak elővételben</p>
-              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
+              {% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>{% endcomment %}
             </div>
           </li>
           <li class="xplore">
@@ -38,7 +38,7 @@ group: jegyek
               {% comment %}<h2>Ingyenes hetijegy</h2>
               <p class="price">0&euro;</p>
               <p class="price-content">
-                Az Érsekújvári<br> járás lakóinak <br>{% comment %}regisztráció Július 4-ig {% endcomment %}
+                Az Érsekújvári<br> járás lakóinak <br>regisztráció Július 4-ig 
               </p>
               <a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>{% endcomment %}
             </div>
@@ -52,23 +52,23 @@ group: jegyek
           </li>
         </ul>
 
-        <div style="text-align: center; margin-top: 30px;">
+        {% comment %}<div style="text-align: center; margin-top: 30px;">
           Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
             data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
-              jegy</strong> vásárlása</button>
+              jegy</strong> vásárlása</button>{% endcomment %}
         </div>
 
-        {% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
-          ért, már csak a helyszínen lehet jegyet vásárolni!</h4>{% endcomment %}
+        <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+          ért, a helyszinen már nem lehet jegyet vásárolni!</h4>
 
-        <h4 class="text-center"
+        {% comment %}<h4 class="text-center"
           style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
-          jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
+          jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
 
         {% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
           pár nap türelmet kérünk!</h2>{% endcomment %}
 
-        <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+        {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
           id="ticket">
           <div class="pricing-content extra-arak">
             <div class="row">
@@ -761,7 +761,7 @@ group: jegyek
             </div>
             <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
             <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-        </form>
+        </form>{% endcomment %}
       </div>
       <!-- jegyvetel end	-->
     </div>
