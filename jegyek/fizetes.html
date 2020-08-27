@@ -21,8 +21,8 @@ permalink: /jegyek/fizetes/index.html
           <div id="msg"> </div>
           <div id="pay-form" class="hidden-form">
             <div>
-              <p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.</p>
-              {% comment %}<p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
+              {% comment %}<p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.</p>{% endcomment %}
+              <p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
                 IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló által megadott
                 <strong>e-mail címet.</strong></p>
               <p class="text-justified">
@@ -34,7 +34,7 @@ permalink: /jegyek/fizetes/index.html
               </p>
               <p class="text-justified">Személyes fizetésre és átvételre a komáromi irodánkban van lehetőség (Duna
                 rakpart 12. - a Danubius diákotthon épülete, az Adóhivatal mellett, 945 01 Komárom, Szlovákia) </strong>
-              </p>{% endcomment %}
+              </p>
               <h3 class='text-justified ticket-price-success-pay'></h3>
               <p class="text-justified">Sikeres fizetés esetén a jegyedet e-mailben kapod meg.</p>
               <h3>Várunk a Táborban!</h3>
@@ -76,10 +76,10 @@ permalink: /jegyek/fizetes/index.html
 
           <form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="post"
             id="ticket">
-            <h4 class="text-center"
+            {% comment %}<h4 class="text-center"
               style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
-              jegy a 2020-as Gombaszög Lite eseményre szól.</h4>
-            <div class="pricing-content extra-arak" style='display:none;'>
+              jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
+            <div class="pricing-content extra-arak" style=''>
               <div class="row">
                 <div class="col-md-4">
                   <div class="row">
@@ -92,11 +92,11 @@ permalink: /jegyek/fizetes/index.html
                         <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
                         <option value="napijegy" id='napijegy' data-price="">Napijegy</option>
                       </select>
-                      <small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>
+                      {% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
                     </div>
                   </div>
                 </div>
-                {% comment %}<div class="col-md-4">
+                <div class="col-md-4">
                   <div class="row">
                     <div class="col-sm-4">
                       <img src="{% asset_path sator.png %}" alt="Sátor ikon" class="img-responsive" />
@@ -112,9 +112,9 @@ permalink: /jegyek/fizetes/index.html
                       <small>Sátranként egy sátorjegy szükséges.</small>
                     </div>
                   </div>
-                </div>{% endcomment %}
+                </div>
 
-                {% comment %}<div class="col-md-4">
+                <div class="col-md-4">
                   <div class="row">
                     <div class="col-sm-4">
                       <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
@@ -136,13 +136,13 @@ permalink: /jegyek/fizetes/index.html
                       </p>
                     </div>
                   </div>
-                </div>{% endcomment %}
+                </div>
               </div>
             </div>
             <!-- jegyvetel start -->
 
 
-            {% comment %}<div class='row'>
+            <div class='row'>
               <div class='col-md-12 form-group' id='select_days' style='display:none;'>
                 <div>
                   <h3>Kérjük, válaszd ki a napokat!</h3>
@@ -248,7 +248,7 @@ permalink: /jegyek/fizetes/index.html
                   </label>
                 </div>
               </div>
-            </div>{% endcomment %}
+            </div>
 
             <div>
               <br>
@@ -538,7 +538,7 @@ permalink: /jegyek/fizetes/index.html
                   </div>
                 </div>
                 <div class='col-md-3'>
-                  <div class="form-group">
+                  {% comment %}<div class="form-group">
                     <label class="control-label" for="ticket_donation">Támogatás <i
                         class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                         title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
@@ -550,13 +550,13 @@ permalink: /jegyek/fizetes/index.html
                       <option value="20">20&euro;-val támogatom</option>
                       <option value="30">30&euro;-val támogatom</option>
                     </select>
-                  </div>
-                  <div class="form-group">
+                  </div>{% endcomment %}
+                  {% comment %}<div class="form-group">
                     <label class="control-label" for="ticket_tshirt">Póló</label>
                     <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
                       style='height: 34px !important; font-size: 15px !important;'>
                       <option value="0">Nem kérek</option>
-                    </select>
+                    </select>{% endcomment %}
                   </div>
                 </div>
               </div>
