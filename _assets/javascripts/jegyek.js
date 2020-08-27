@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = [];
+  var freeCities = ["94303", "94002", "94101", "94102", "94103", "94104", "94105", "94106", "94107", "94108", "94109", "94110", "94111", "94121", "94122", "94123", "94131", "94132", "94133", "94134", "94135", "94136", "94137", "94141", "94142", "94143", "94144", "94145", "94146", "94147", "94148", "94149", "94150", "94151", "94161", "94162", "94201", "94301", "94304", "94341", "94342", "94352", "94353", "94354", "94355", "94356", "94357", "94358", "94359", "94360", "94361", "94365", "94366"];
   captcha_reload = function () { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
@@ -12,7 +12,7 @@ if ($(".ticket-form").length > 0) {
     return vars;
   }
   loadVars = function () {
-    $.getJSON("/api/ticket/available").done(function (data) {
+    $.getJSON("http://localhost:3000/api/ticket/available").done(function (data) {
       $.each(data.bus, function (k, v) {
         $("#ticket_bus").append(
           $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
@@ -236,7 +236,7 @@ if ($(".ticket-form").length > 0) {
       ret = false;
       var obj = $("form#ticket").serializeObject();
       obj["ticket[camp]"] = "0"
-      if (obj["ticket[housing]"] != null){
+      if (obj["ticket[housing]"] != null) {
         if (obj["ticket[housing]"].split('_')[0] == "camp") {
           obj["ticket[camp]"] = obj["ticket[housing]"].split('_')[1]
           obj["ticket[housing]"] = "0"
@@ -246,12 +246,12 @@ if ($(".ticket-form").length > 0) {
         }
       }
 
-      if(obj["ticket[tshirt]"] > 0){
+      if (obj["ticket[tshirt]"] > 0) {
         obj["ticket[tshirt_size]"] = $('#ticket_tshirt option:selected').attr('data-size')
       }
       console.log(obj);
       $.ajax({
-        url: '/api/ticket',
+        url: 'http://localhost:3000/api/ticket',
         type: 'POST',
         timeout: 2000,
         async: false,
@@ -274,7 +274,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: '/api/ticket/find/' + barcode,
+        url: 'http://localhost:3000/api/ticket/find/' + barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -413,7 +413,7 @@ function getParameterByName(name) {
 jQuery(document).ready(function ($) {
   $(window).load(function () {
     if ($('#pay-form').length > 0) {
-      $.getJSON("/api/ticket/paynow/" + getParameterByName("q")).done(function (data) {
+      $.getJSON("http://localhost:3000/api/ticket/paynow/" + getParameterByName("q")).done(function (data) {
         var msg = "";
         if (data.status == "waiting") {
           /*msg = "Kedves "+data.last_name+" "+data.first_name+", <br />a megrendelt jegy ára: "+data.amount+"&euro;";*/
@@ -521,13 +521,13 @@ jQuery(document).ready(function ($) {
           }
         }
 
-        if(obj["ticket[tshirt]"] > 0){
+        if (obj["ticket[tshirt]"] > 0) {
           obj["ticket[tshirt_size]"] = $('#ticket_tshirt option:selected').attr('data-size')
         }
 
         console.log(obj);
         $.ajax({
-          url: '/api/ticket/addition',
+          url: 'http://localhost:3000/api/ticket/addition',
           type: 'POST',
           timeout: 2000,
           async: false,
