@@ -21,7 +21,8 @@ permalink: /jegyek/fizetes/index.html
           <div id="msg"> </div>
           <div id="pay-form" class="hidden-form">
             <div>
-              {% comment %}<p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.</p>{% endcomment %}
+              {% comment %}<p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.
+              </p>{% endcomment %}
               <p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
                 IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni a vásárló által megadott
                 <strong>e-mail címet.</strong></p>
@@ -92,7 +93,8 @@ permalink: /jegyek/fizetes/index.html
                         <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
                         <option value="napijegy" id='napijegy' data-price="">Napijegy</option>
                       </select>
-                      {% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
+                      {% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az
+                        ár.</small>{% endcomment %}
                     </div>
                   </div>
                 </div>
@@ -538,7 +540,7 @@ permalink: /jegyek/fizetes/index.html
                   </div>
                 </div>
                 <div class='col-md-3'>
-                  {% comment %}<div class="form-group">
+                  <div class="form-group">
                     <label class="control-label" for="ticket_donation">Támogatás <i
                         class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
                         title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
@@ -546,11 +548,11 @@ permalink: /jegyek/fizetes/index.html
                       style='width:auto;'>
                       <option value="x">Még nem döntöttem</option>
                       <option value="0">Nem szeretném támogatni</option>
+                      <option value="5">5&euro;-val támogatom</option>
                       <option value="10">10&euro;-val támogatom</option>
                       <option value="20">20&euro;-val támogatom</option>
-                      <option value="30">30&euro;-val támogatom</option>
                     </select>
-                  </div>{% endcomment %}
+                  </div>
                   {% comment %}<div class="form-group">
                     <label class="control-label" for="ticket_tshirt">Póló</label>
                     <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
