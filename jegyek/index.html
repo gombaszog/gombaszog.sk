@@ -12,17 +12,16 @@ group: jegyek
         <ul class="clearfix">
           <li class="regular">
             <div class="regular-price">
-              <h2>Helyszíni<br>hetijegy</h2>
-              <p class="price">69&euro;</p>
-              <p class="price-content">6 nap<br>a helyszínen</p>
+              <h2><br></h2>
+              <p class="price"></p>
+              <p class="price-content"><br></p>
             </div>
           </li>
           <li class="xplore">
             <div class="regular-price">
-              <h2>Elővételes<br />Napijegy</h2>
-              <p class="price">15&euro;</p>
-              <p class="price-content">1 nap<br>csak elővételben<br>&nbsp;</p>
-              <a class="btn btn-primary btn-pricing" id="btn-dayticket">Jegyelővétel</a>
+				<h2>Helyszíni<br>hetijegy</h2>
+				<p class="price">69&euro;</p>
+				<p class="price-content">6 nap<br>a helyszínen</p>
             </div>
           </li>
           <li class="rock">
@@ -45,9 +44,9 @@ group: jegyek
           </li>
           <li class="vip">
             <div class="regular-price">
-              <h2>Helyszíni <br>napijegy</h2>
-              <p class="price">18&euro;</p>
-              <p class="price-content">1 nap<br>a helyszínen</p>
+              <h2><br></h2>
+              <p class="price"><br></p>
+              <p class="price-content"><br></p>
             </div>
           </li>
         </ul>
@@ -82,7 +81,7 @@ group: jegyek
                     <label class="control-label" for="ticket_category">Jegytípus </label>
                     <select id="ticket_category" name="ticket[category]" class="form-control influence">
                       <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
-                      <option value="napijegy" id='napijegy' data-price="">Napijegy</option>
+                      {% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option>{% endcomment %}
                     </select>
                     <small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>
                   </div>
@@ -106,7 +105,7 @@ group: jegyek
                 </div>
               </div>
 
-              <div class="col-md-4">
+              {% comment %}<div class="col-md-4">
                 <div class="row">
                   <div class="col-sm-4">
                     <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
@@ -127,7 +126,7 @@ group: jegyek
                           itt.</a></small>
                     </p>
                   </div>
-                </div>
+                </div>{% endcomment %}
               </div>
             </div>
           </div>
