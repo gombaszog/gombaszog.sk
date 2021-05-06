@@ -13,14 +13,14 @@ if ($(".ticket-form").length > 0) {
   }
   loadVars = function () {
     $.getJSON("/api/ticket/available").done(function (data) {
-      $.each(data.bus, function (k, v) {
-        $("#ticket_bus").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
-        );
-        $("#partivonat-select").append(
-          $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
-        );
-      });
+      //   $.each(data.bus, function (k, v) {
+      //     $("#ticket_bus").append(
+      //       $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
+      //     );
+      //     $("#partivonat-select").append(
+      //       $('<option value="' + v.id + '" data-price="' + v.price + '">' + v.name + ' (még ' + v.free + ' hely) +' + parseInt(v.price) + '&euro;</option>')
+      //     );
+      //   });
       $.each(data.camp, function (k, v) {
         $("#ticket_housing").append(
           $('<option value="camp_' + v.id + '" data-price="' + v.price + '">' + v.name + ((v.free > 0 && v.free < 1000) ? ' (' + v.free + ' szabad)' : '') + ' +' + parseInt(v.price) + '&euro;</option>')
@@ -53,8 +53,8 @@ if ($(".ticket-form").length > 0) {
       });
       $('#hetijegy').data('price', data.ticketweek);
       $('#hetijegy').html('Hetijegy ' + data.ticketweek + '&euro;');
-      $('#napijegy').data('price', data.ticketday);
-      $('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
+	  //   $('#napijegy').data('price', data.ticketday);
+      //   $('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
       $('#price').html(data.ticketweek);
     });
   }
