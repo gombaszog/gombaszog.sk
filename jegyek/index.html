@@ -34,12 +34,12 @@ group: jegyek
           </li>
           <li class="xplore">
             <div class="regular-price">
-              <h2>Ingyenes hetijegy</h2>
-              <p class="price">0&euro;</p>
+              <h2></h2>
+              <p class="price"></p>
               <p class="price-content">
-                Az Érsekújvári<br> járás lakóinak <br>{% comment %}regisztráció Július 4-ig {% endcomment %}
+                <br><br>{% comment %}regisztráció Július 4-ig {% endcomment %}
               </p>
-              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>
+              {% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>{% endcomment %}
             </div>
           </li>
           <li class="vip">
@@ -83,7 +83,7 @@ group: jegyek
                       <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
                       {% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option>{% endcomment %}
                     </select>
-                    <small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>
+                    {% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
                   </div>
                 </div>
               </div>
@@ -715,13 +715,13 @@ group: jegyek
             </div>
             <div class="row">
               <div class="col-md-9">
-                <p class="text-justified">
+                {% comment %}<p class="text-justified">
                   A megrendelt jegyek árát <strong>kizárólag személyesen, a tábori portán</strong>
                   lehet kifizetni. Ha
                   kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac]
                     gombaszog [pont]
                     sk</strong> e-mail címre!
-                </p>
+                </p>{% endcomment %}
                 <p class="text-justified">
                   Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
                   napon belül meg kell
