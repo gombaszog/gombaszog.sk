@@ -13,7 +13,7 @@ The festival's website is created from the *master* branch.
 
 ### Requires
 
-ruby 2.1.0
+`ruby 2.1.0`
 
 ### Install
 
