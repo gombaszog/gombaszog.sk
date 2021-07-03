@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gombaszog/gombaszog.sk.svg?branch=master)](https://travis-ci.org/gombaszog/gombaszog.sk)
+[![Build Status](https://api.travis-ci.com/gombaszog/gombaszog.sk.svg?branch=master)](https://travis-ci.com/github/gombaszog/gombaszog.sk)
 [![Dependency Status](https://img.shields.io/badge/dependency-ruby%202.1.0-blue.svg)](https://www.ruby-lang.org/en/news/2013/12/25/ruby-2-1-0-is-released/)
 
 gombaszog.sk
@@ -13,7 +13,7 @@ The festival's website is created from the *master* branch.
 
 ### Requires
 
-ruby 2.1.0
+`ruby 2.1.0`
 
 ### Install
 
@@ -33,7 +33,7 @@ $ bundle install
 
 ### Usage
 
-You'll have to install an ExecJS library e.g. [Node.js](http://nodejs.org).
+You'll have to install an ExecJS library e.g. [Node.js](https://nodejs.org).
 
 Run the Jekyll server inside the main directory of the repository:
 ```
@@ -47,7 +47,7 @@ If you get a Pagination error, you need to delete the *plugins/pagination.rb* fi
 
 The site will be available at: [http://localhost:4000](http://localhost:4000)
 
-For more info please visit the [Jekyll project site](http://jekyllrb.com/).
+For more info please visit the [Jekyll project site](https://jekyllrb.com/).
 
 ### License
-This source code is released under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+This source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
