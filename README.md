@@ -33,7 +33,7 @@ $ bundle install
 
 ### Usage
 
-You'll have to install an ExecJS library e.g. [Node.js](http://nodejs.org).
+You'll have to install an ExecJS library e.g. [Node.js](https://nodejs.org).
 
 Run the Jekyll server inside the main directory of the repository:
 ```
@@ -47,7 +47,7 @@ If you get a Pagination error, you need to delete the *plugins/pagination.rb* fi
 
 The site will be available at: [http://localhost:4000](http://localhost:4000)
 
-For more info please visit the [Jekyll project site](http://jekyllrb.com/).
+For more info please visit the [Jekyll project site](https://jekyllrb.com/).
 
 ### License
-This source code is released under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+This source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
