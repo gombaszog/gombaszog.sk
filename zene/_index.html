@@ -1,40 +1,618 @@
 ---
-layout: default
+layout: page
 title: Zene
 group: zene
 ---
-<style type="text/css">
-  html,
-  body {
-    height: 100%;
-  }
-
-</style>
-<div id="error-page">
-  <div class="error-page-inner">
-    <div class="content-404 bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="error-info">
-              <h2><span>...</span>Hamarosan!</h2>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="back-to">
-              <p class="text-justified">Sajnáljuk, a zenei program még nem elérhető. Kérlek, nézz vissza később.</p>
-
-              <h3>Az alábbi linkeket viszont ajánljuk figyelmedbe!</h3>
-              <ul class="pull-left">
-                <li><a href="/"><i class="fa fa-hand-o-right"></i> Főoldal</a></li>
-                <li><a href="//facebook.com/gombaszog"><i class="fa fa-hand-o-right"></i> Facebook</a></li>
-                <li><a href="//twitter.com/gombaszog"><i class="fa fa-hand-o-right"></i> Twitter</a></li>
-                <li><a href="https://www.instagram.com/gombaszog"><i class="fa fa-hand-o-right"></i> Instagram</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="fb-root" style="display: none;"></div>
+<div id="album">
+	<div class="container">
+		<div class="album-inner">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					<div class="bg">
+						<h2 class="heading"><strong>Kocsmakert</strong></h2>
+						<div id="music" class="row">
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/beshodrom.png %}" alt="Besh o droM">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Besh o droM
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Besh o droM</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/romeoverzik.png %}" alt="Rómeó vérzik">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Rómeó vérzik
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Rómeó vérzik</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/csaknekedkislany.png %}" alt="Csaknekedkislány">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Csaknekedkislány
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Csaknekedkislány</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/subscribe.png %}" alt="Rage Against The Machine tribute by Subscribe">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Rage Against The Machine tribute by Subscribe
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Rage Against The Machine tribute by Subscribe</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/jovilagvan.png %}" alt="Jóvilágvan">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Jóvilágvan
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Jóvilágvan</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/road.png %}" alt="Road">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Road
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Road</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/gorlovolka.png %}" alt="Gorlo Volka">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Gorlo Volka
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Gorlo Volka</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/bagossybrothers.png %}" alt="Bagossy Brothers Company">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Bagossy Brothers Company
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Bagossy Brothers Company</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg">
+						<h2 class="heading" id="chillgarden"><strong>Szifon</strong> Terasz</h2>
+						<div id="city" class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/endorfin.png %}" alt="endorfin">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											endorfin
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>endorfin</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/babadara.png %}" alt="Babadara">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Babadara
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Babadara</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/farkasattilatrio.png %}" alt="Farkas Attila Trió">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Farkas Attila Trió
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Farkas Attila Trió</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/toofar.png %}" alt="TooFar">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											TooFar
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>TooFar</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/akutyavacsoraja.png %}" alt="A kutya vacsorája">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											A kutya vacsorája
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>A kutya vacsorája</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/thebutchers.png %}" alt="The Butchers">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											The Butchers
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>The Butchers</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/ricsardgir.png %}" alt="Ricsárdgír">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Ricsárdgír
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Ricsárdgír</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/nightride.png %}" alt="Night Ride">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Night Ride
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Night Ride</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/regicsibeszek.png %}" alt="Régi Csibészek">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Régi Csibészek
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Régi Csibészek</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg">
+						<h2 class="heading" id="folk"><strong>Folkszöglet</strong></h2>
+						<div id="city" class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/posfa.png %}" alt="Pósfa zenekar">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Pósfa zenekar
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Pósfa zenekar</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/szalonnaesbandaja.png %}" alt="Szalonna és bandája">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Szalonna és bandája
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Szalonna és bandája</h3>
+											<ul>
+												<li>július 14. - szerda</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/muzicka.png %}" alt="Muzička">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Muzička
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Muzička</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/balogkalman.png %}" alt="Balogh Kálmán & the Gipsy Cimbalom Band feat. Branka">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Balogh Kálmán & the Gipsy Cimbalom Band feat. Branka
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Balogh Kálmán & the Gipsy Cimbalom Band feat. Branka</h3>
+											<ul>
+												<li>július 15. - csütörtök</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/fonozenekar.png %}" alt="Fonó zenekar">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Fonó zenekar
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Fonó zenekar</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/esszencia.png %}" alt="Esszencia">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Esszencia
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Esszencia</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/kerekesband.png %}" alt="Kerekes Band">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Kerekes Band
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Kerekes Band</h3>
+											<ul>
+												<li>július 16. - péntek</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/korpaseva.png %}" alt="Korpás Éva gyerekműsora">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Korpás Éva gyerekműsora
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Korpás Éva gyerekműsora</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/ferenczigyorgy.png %}" alt="Ferenczi György és a Rackajam">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Ferenczi György és a Rackajam
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Ferenczi György és a Rackajam</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="single-album">
+									<img src="{% asset_path zene/2021/otodikevszak.png %}" alt="Ötödik Évszak">
+									<div class="album-heading">
+										<h3	style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+											Ötödik Évszak
+										</h3>
+									</div>
+									<div class="album-overlay">
+										<div class="album-info">
+											<h3>Ötödik Évszak</h3>
+											<ul>
+												<li>július 17. - szombat</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<div class="popular-albums bg">
+						<h2 class="heading" style="font-size: 22px;"><strong>Korona</strong> színpad</h2>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/vargamilan.png %}" alt="Varga Milán koncertje">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Varga Milán koncertje
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Varga Milán koncertje</h3>
+									<ul>
+										<li>július 15. - csütörtök</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/goboannagobosandor.png %}" alt="Göbő Anna és Göbő Sándor koncertje">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Göbő Anna és Göbő Sándor koncertje
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Göbő Anna és Göbő Sándor koncertje</h3>
+									<ul>
+										<li>július 15. - csütörtök</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/kisszeneszek.png %}" alt="Kiss zenészek">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Kiss zenészek
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Kiss zenészek</h3>
+									<ul>
+										<li>július 16. - péntek</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/moniesazemmazenekar.png %}" alt="Móni és az Emma zenekar">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Móni és az Emma zenekar
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Móni és az Emma zenekar</h3>
+									<ul>
+										<li>július 16. - péntek</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/farkasarpad.png %}" alt="Farkas Árpád">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Farkas Árpád
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Farkas Árpád</h3>
+									<ul>
+										<li>július 17. - szombat</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="single-album">
+							<img src="{% asset_path zene/2021/wholemeal.png %}" alt="Whole Meal">
+							<div class="album-heading">
+								<h3 style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+									Whole Meal
+								</h3>
+							</div>
+							<div class="album-overlay">
+								<div class="album-info">
+									<h3>Whole Meal</h3>
+									<ul>
+										<li>július 17. - szombat</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
