@@ -1,40 +1,829 @@
 ---
-layout: default
+layout: page
 title: Jegyek
 group: jegyek
 ---
-<style type="text/css">
-  html,
-  body {
-    height: 100%;
-  }
+<div id="fb-root" style="display: none;"></div>
+<div id="pricing-table" class="container">
+  <div class="bg">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="heading"><strong>Jegyek</strong></h2>
+        <ul class="clearfix">
+          <li class="regular">
+            <div class="regular-price">
+              <h2><br></h2>
+              <p class="price"></p>
+              <p class="price-content"><br></p>
+            </div>
+          </li>
+          <li class="xplore">
+            <div class="regular-price">
+				<h2>Helyszíni<br>hetijegy</h2>
+				<p class="price">69&euro;</p>
+				<p class="price-content">4 nap<br>a helyszínen</p>
+            </div>
+          </li>
+          <li class="rock">
+            <div class="regular-price">
+              <h2><br>Hetijegy</h2>
+              <p class="price">59&euro;</p>
+              <p class="price-content">4 nap<br>csak elővételben</p>
+              <a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
+            </div>
+          </li>
+          <li class="xplore">
+            <div class="regular-price">
+              <h2></h2>
+              <p class="price"></p>
+              <p class="price-content">
+                <br><br>{% comment %}regisztráció Július 4-ig {% endcomment %}
+              </p>
+              {% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>{% endcomment %}
+            </div>
+          </li>
+          <li class="vip">
+            <div class="regular-price">
+              <h2><br></h2>
+              <p class="price"><br></p>
+              <p class="price-content"><br></p>
+            </div>
+          </li>
+        </ul>
 
-</style>
-<div id="error-page">
-  <div class="error-page-inner">
-    <div class="content-404 bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="error-info">
-              <h2><span>...</span>Hamarosan!</h2>
+        {% comment %}<div style="text-align: center; margin-top: 30px;">
+          Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
+            data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
+              jegy</strong> vásárlása</button>
+        </div>{% endcomment %}
+
+        <h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+          ért, a helyszinen már nem lehet jegyet vásárolni!<br>
+          {% comment %}<strong>A még nem kiküldött jegyeket már csak a helyszinen van lehetőség kifizetni!</strong></h4>{% endcomment %}
+
+        {% comment %}<h4 class="text-center"
+          style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
+          jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
+
+        {% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
+          pár nap türelmet kérünk!</h2>{% endcomment %}
+
+        {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+          id="ticket">
+          <div class="pricing-content extra-arak">
+            <div class="row">
+              <div class="col-md-4" style=''>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <img src="{% asset_path jegy.png %}" alt="Jegy ikon" class="img-responsive" />
+                  </div>
+                  <div class="col-sm-8">
+                    <label class="control-label" for="ticket_category">Jegytípus </label>
+                    <select id="ticket_category" name="ticket[category]" class="form-control influence">
+                      <option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
+                      {% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option>{% endcomment %}
+                    </select>
+                    {% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <img src="{% asset_path sator.png %}" alt="Sátor ikon" class="img-responsive" />
+                  </div>
+                  <div class="col-sm-8">
+                    <label class="control-label" for="ticket_housing">Szállás <a class="nocolor" href="/info#szallas"
+                        target="_blank" aria-label="További információ"><i class="fa fa-info-circle info-tooltip"
+                          data-toggle="tooltip" data-placement="bottom"
+                          title="Ha valaki más intézi a szállásod, hagyd alapértelmezetten! Bővebb információkért kattints!"></i></a></label>
+                    <select id="ticket_housing" name="ticket[housing]" class="form-control influence">
+                      <option value="0">Már kifizetett sátorban/panzióban</option>
+                    </select>
+                    <small>Sátranként egy sátorjegy szükséges.</small>
+                  </div>
+                </div>
+              </div>
+
+              {% comment %}<div class="col-md-4">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <img src="{% asset_path vonat_icon.png %}" alt="Vonat ikon" class="img-responsive" />
+                  </div>
+                  <div class="col-sm-8">
+                    <label class="control-label">
+                      Utazás
+                      <a class="nocolor" href="/info#utazas" target="_blank" aria-label="További információ"><i
+                          class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                          title="Utazz oda-vissza a Gombaszögi partivonattal! Bővebb információért kattints!"></i></a>
+                    </label>
+                    <select id='partivonat-select' onchange='PartiVonatEvent(this);' class="form-control influence">
+                      <option value="0">Nem szeretnék vonatjegyet vásárolni</option>
+                    </select>
+                    <p>
+                      <small>A jegy oda-vissza érvényes.<br><a href="/info#utazas" target="_blank">Bővebb
+                          információ
+                          itt.</a></small>
+                    </p>
+                  </div>
+                </div>{% endcomment %}
+              </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="back-to">
-              <p class="text-justified">Sajnáljuk, a jegyvásár még nem elérhető. Kérlek, nézz vissza később.</p>
+          <!-- jegyvetel start -->
+          
+          {% comment %}<div class='row'>
+            <div class='col-md-12 form-group' id='select_days' style='display:none;'>
+              <div>
+                <h3>Kérjük, válaszd ki a napokat!</h3>
+              </div>
+              <div class="ticket-days days dayMo col-md-2 col-sm-4">
+                <label for="ticket_nap_hetfo">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Hétfő</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_hetfo]"
+                        id="ticket_nap_hetfo" value="1">
+                    </div>
+                    #comment<div><small>
+                        • Bohemian Betyars<br>
+                        • Transnomad<br>
+                        <em>... és sokan mások!</em><br><br>
+                      </small></div> #endcomment
+                  </div>
+                </label>
+              </div>
+              <div class="ticket-days days dayTu col-md-2 col-sm-4">
+                <label for="ticket_nap_kedd">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Kedd</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_kedd]"
+                        id="ticket_nap_kedd" value="1">
+                    </div>
+                    #comment<div><small>
+                        • Majka<br>
+                        • Kaukázus<br>
+                        <em>... és sokan mások!</em><br><br>
+                      </small></div>#endcomment
+                  </div>
+                </label>
+              </div>
+              <div class="ticket-days days dayWe col-md-2 col-sm-4">
+                <label for="ticket_nap_szerda">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Szerda</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_szerda]"
+                        id="ticket_nap_szerda" value="1">
+                    </div>
+                    #comment<div><small>
+                        • Leander Kills<br>
+                        • Follow the Flow<br>
+                        • Anima Sound System<br>
+                        <em>... és sokan mások!</em><br>
+                      </small></div>#endcomment
+                  </div>
+                </label>
+              </div>
+              <div class="ticket-days days dayTh col-md-2 col-sm-4">
+                <label for="ticket_nap_csutortok">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Csütörtök</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_csutortok]"
+                        id="ticket_nap_csutortok" value="1">
+                    </div>
+                    #comment<div><small>
+                        • Road<br>
+                        • Intim Torna Illegál<br>
+                        • Alvin és a mókusok<br>
+                        <em>... és sokan mások!</em><br>
+                      </small></div>#endcomment
+                  </div>
+                </label>
+              </div>
+              <div class="ticket-days days dayFr col-md-2 col-sm-4">
+                <label for="ticket_nap_pentek">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Péntek</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_pentek]"
+                        id="ticket_nap_pentek" value="1">
+                    </div>
+                    #comment<div><small>
+                        • JVV<br>
+                        • Rúzsa Magdi<br>
+                        • Skaar<br>
+                        <em>... és sokan mások!</em><br>
+                      </small></div>#endcomment
+                  </div>
+                </label>
+              </div>
+              <div class="ticket-days days daySa col-md-2 col-sm-4">
+                <label for="ticket_nap_szombat">
+                  <div class="ticket-days-inner">
+                    <div class="ticket-days-header">
+                      <h3>Szombat</h3>
+                      <input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_szombat]"
+                        id="ticket_nap_szombat" value="1">
+                    </div>
+                    #comment<div><small>
+                        • István a király<br>
+                        • Anna and the Barbies<br>
+                        • Besh o Drom<br>
+                        <em>... és sokan mások!</em><br>
+                      </small></div>#endcomment
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>{% endcomment %}
 
-              <h3>Az alábbi linkeket viszont ajánljuk figyelmedbe!</h3>
-              <ul class="pull-left">
-                <li><a href="/"><i class="fa fa-hand-o-right"></i> Főoldal</a></li>
-                <li><a href="//facebook.com/gombaszog"><i class="fa fa-hand-o-right"></i> Facebook</a></li>
-                <li><a href="//twitter.com/gombaszog"><i class="fa fa-hand-o-right"></i> Twitter</a></li>
-                <li><a href="https://www.instagram.com/gombaszog"><i class="fa fa-hand-o-right"></i> Instagram</a></li>
-              </ul>
+          <div>
+            <br>
+            <h2>A jegytulajdonos adatai <button class='ticket-fb btn btn-info btn-sm'>Kitöltés Facebook
+                segítségével</button></h2>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="ticket_last_name">Vezetéknév</label>
+                  <input type="text" class="form-control" id="ticket_last_name" placeholder="" name="ticket[last_name]"
+                    required title="Kérjük, ide add meg a vezetékneved!" />
+                </div>
+                <div class="form-group">
+                  <label for="ticket_first_name">Keresztnév</label>
+                  <input type="text" class="form-control" id="ticket_first_name" placeholder=""
+                    name="ticket[first_name]" required title="Kérjük, ide add meg a keresztneved!" />
+                </div>
+                <div class="form-group">
+                  <label for="ticket_email">E-mail cím <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el a jegyedet! Ha ajándékba vásárolnád a jegyet, lejjebb tudod megadni az emailcímet. Egy elővételhez csak egy e-mail cím használható!"></i></label>
+                  <input type="email" class="form-control" id="ticket_email" placeholder="A jegytulajdonos e-mail címe!"
+                    name="ticket[email]" required pattern="[^@]+@[^@]+\.[^@]+" />
+                </div>
+                <div class="form-group">
+                  <label for="ticket_phone">Telefonszám <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
+                      data-placement="bottom" title="Országkóddal teljes formájában, például +421901234567"></i></label>
+                  <input type="text" class="form-control" id="ticket_phone" placeholder="+421xxxxxxxxx"
+                    name="ticket[phone]" required pattern="\+[1-9][0-9]{10,}"
+                    title="A telefonszámot országkóddal add meg, pl +421905123456" />
+                </div>
+                <div class="form-group">
+                  <label for="ticket_birth">Születési dátum <i class="fa fa-info-circle info-tooltip"
+                      data-toggle="tooltip" data-placement="bottom"
+                      title="Kérjük ÉÉÉÉ-HH-NN formátumban add meg, kötőjellel elválasztva!"></i></label>
+                  <input type="text" class="form-control influence" id="ticket_birth" placeholder="ÉÉÉÉ-HH-NN"
+                    pattern="^(19[0-9]{2}|20[01][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$" required
+                    name="ticket[birth]"
+                    title="Kérjük, a születési dátumot ÉÉÉÉ-HH-NN formában add meg, pl 1998-03-28!" />
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="ticket_address">Utca, házszám</label>
+                  <input type="text" class="form-control" id="ticket_address" placeholder="" name="ticket[address]"
+                    required />
+                </div>
+                <div class="form-group">
+                  <label for="ticket_country">Ország</label>
+                  <select class="form-control select2" id="ticket_country" placeholder="" name="ticket[country]">
+                    <option value="SK">Szlovákia</option>
+                    <option value="HU">Magyarország</option>
+                    <option value="CZ">Csehország</option>
+                    <option value="AT">Ausztria</option>
+                    <option value="UA">Ukrajna</option>
+                    <option value="RO">Románia</option>
+                    <option value="AF">Afganisztán</option>
+                    <option value="AL">Albánia</option>
+                    <option value="DZ">Algéria</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AG">Antigua és Barbuda</option>
+                    <option value="AR">Argentína</option>
+                    <option value="AU">Ausztrália</option>
+                    <option value="AZ">Azerbajdzsán</option>
+                    <option value="BS">Bahama-szigetek</option>
+                    <option value="BH">Bahrein</option>
+                    <option value="BD">Banglades</option>
+                    <option value="BB">Barbados</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BZ">Belize</option>
+                    <option value="BJ">Benin</option>
+                    <option value="BT">Bhután</option>
+                    <option value="GW">Bissau-Guinea</option>
+                    <option value="BO">Bolívia</option>
+                    <option value="BA">Bosznia-Hercegovina</option>
+                    <option value="BW">Botswana</option>
+                    <option value="BR">Brazília</option>
+                    <option value="BN">Brunei</option>
+                    <option value="BG">Bulgária</option>
+                    <option value="BF">Burkina Faso</option>
+                    <option value="BI">Burundi</option>
+                    <option value="CL">Chile</option>
+                    <option value="CY">Ciprus</option>
+                    <option value="KM">Comore-szigetek</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="TD">Csád</option>
+                    <option value="DK">Dánia</option>
+                    <option value="ZA">Dél-afrikai Köztársaság</option>
+                    <option value="KR">Dél-Korea</option>
+                    <option value="DM">Dominikai Közösség</option>
+                    <option value="DO">Dominikai Köztársaság</option>
+                    <option value="DJ">Dzsibuti</option>
+                    <option value="EC">Ecuador</option>
+                    <option value="GQ">Egyenlítői-Guinea</option>
+                    <option value="AE">Egyesült Arab Emírségek</option>
+                    <option value="GB">Egyesült Királyság</option>
+                    <option value="EG">Egyiptom</option>
+                    <option value="CI">Elefántcsontpart</option>
+                    <option value="ER">Eritrea</option>
+                    <option value="ET">Etiópia</option>
+                    <option value="KP">Észak-Korea</option>
+                    <option value="EE">Észtország</option>
+                    <option value="BY">Fehéroroszország</option>
+                    <option value="FJ">Fidzsi</option>
+                    <option value="FI">Finnország</option>
+                    <option value="FR">Franciaország</option>
+                    <option value="PH">Fülöp-szigetek</option>
+                    <option value="GA">Gabon</option>
+                    <option value="GM">Gambia</option>
+                    <option value="GH">Ghána</option>
+                    <option value="GR">Görögország</option>
+                    <option value="GD">Grenada</option>
+                    <option value="GE">Grúzia</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="GN">Guinea</option>
+                    <option value="GY">Guyana</option>
+                    <option value="HT">Haiti</option>
+                    <option value="NL">Hollandia</option>
+                    <option value="HN">Honduras</option>
+                    <option value="HR">Horvátország</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonézia</option>
+                    <option value="IQ">Irak</option>
+                    <option value="IR">Irán</option>
+                    <option value="IS">Izland</option>
+                    <option value="IL">Izrael</option>
+                    <option value="IE">Írország</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="JP">Japán</option>
+                    <option value="YE">Jemen</option>
+                    <option value="JO">Jordánia</option>
+                    <option value="KH">Kambodzsa</option>
+                    <option value="CM">Kamerun</option>
+                    <option value="CA">Kanada</option>
+                    <option value="QA">Katar</option>
+                    <option value="KZ">Kazahsztán</option>
+                    <option value="TL">Kelet-Timor</option>
+                    <option value="KE">Kenya</option>
+                    <option value="CN">Kína</option>
+                    <option value="KG">Kirgizisztán</option>
+                    <option value="KI">Kiribati</option>
+                    <option value="CO">Kolumbia</option>
+                    <option value="CD">Kongói Demokratikus Köztársaság</option>
+                    <option value="CG">Kongói Köztársaság</option>
+                    <option value="CF">Közép-Afrika</option>
+                    <option value="CU">Kuba</option>
+                    <option value="KW">Kuvait</option>
+                    <option value="LA">Laosz</option>
+                    <option value="PL">Lengyelország</option>
+                    <option value="LS">Lesotho</option>
+                    <option value="LV">Lettország</option>
+                    <option value="LB">Libanon</option>
+                    <option value="LR">Libéria</option>
+                    <option value="LY">Líbia</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Litvánia</option>
+                    <option value="LU">Luxemburg</option>
+                    <option value="MK">Macedónia</option>
+                    <option value="MG">Madagaszkár</option>
+                    <option value="MY">Malajzia</option>
+                    <option value="MW">Malawi</option>
+                    <option value="MV">Maldív-szigetek</option>
+                    <option value="ML">Mali</option>
+                    <option value="MA">Marokkó</option>
+                    <option value="MH">Marshall-szigetek</option>
+                    <option value="MR">Mauritánia</option>
+                    <option value="MU">Mauritius</option>
+                    <option value="MT">Málta</option>
+                    <option value="MX">Mexikó</option>
+                    <option value="FM">Mikronézia</option>
+                    <option value="MD">Moldova</option>
+                    <option value="MC">Monaco</option>
+                    <option value="MN">Mongólia</option>
+                    <option value="ME">Montenegró</option>
+                    <option value="MZ">Mozambik</option>
+                    <option value="MM">Mianmar</option>
+                    <option value="NA">Namíbia</option>
+                    <option value="NR">Nauru</option>
+                    <option value="NP">Nepál</option>
+                    <option value="DE">Németország</option>
+                    <option value="NI">Nicaragua</option>
+                    <option value="NE">Niger</option>
+                    <option value="NG">Nigéria</option>
+                    <option value="NO">Norvégia</option>
+                    <option value="IT">Olaszország</option>
+                    <option value="OM">Omán</option>
+                    <option value="RU">Oroszország</option>
+                    <option value="AM">Örményország</option>
+                    <option value="PK">Pakisztán</option>
+                    <option value="PW">Palau</option>
+                    <option value="PA">Panama</option>
+                    <option value="PY">Paraguay</option>
+                    <option value="PG">Pápua Új-Guinea</option>
+                    <option value="PE">Peru</option>
+                    <option value="PT">Portugália</option>
+                    <option value="RW">Ruanda</option>
+                    <option value="KN">Saint Kitts és Nevis</option>
+                    <option value="LC">Saint Lucia</option>
+                    <option value="VC">Saint Vincent és a Grenadine-szigetek</option>
+                    <option value="SB">Salamon-szigetek</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="SM">San Marino</option>
+                    <option value="ST">São Tomé és Príncipe</option>
+                    <option value="SC">Seychelle-szigetek</option>
+                    <option value="SL">Sierra Leone</option>
+                    <option value="ES">Spanyolország</option>
+                    <option value="LK">Srí Lanka</option>
+                    <option value="SR">Suriname</option>
+                    <option value="CH">Svájc</option>
+                    <option value="SE">Svédország</option>
+                    <option value="WS">Szamoa</option>
+                    <option value="SA">Szaúd-Arábia</option>
+                    <option value="SN">Szenegál</option>
+                    <option value="CS">Szerbia</option>
+                    <option value="SG">Szingapúr</option>
+                    <option value="SY">Szíria</option>
+                    <option value="SI">Szlovénia</option>
+                    <option value="SO">Szomália</option>
+                    <option value="SD">Szudán</option>
+                    <option value="SZ">Szváziföld</option>
+                    <option value="TJ">Tádzsikisztán</option>
+                    <option value="TZ">Tanzánia</option>
+                    <option value="TH">Thaiföld</option>
+                    <option value="TG">Togo</option>
+                    <option value="TO">Tonga</option>
+                    <option value="TR">Törökország</option>
+                    <option value="TT">Trinidad és Tobago</option>
+                    <option value="TN">Tunézia</option>
+                    <option value="TV">Tuvalu</option>
+                    <option value="TM">Türkmenisztán</option>
+                    <option value="US">USA</option>
+                    <option value="UG">Uganda</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="NZ">Új-Zéland</option>
+                    <option value="UZ">Üzbegisztán</option>
+                    <option value="VU">Vanuatu</option>
+                    <option value="VA">Vatikán</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="ZM">Zambia</option>
+                    <option value="ZW">Zimbabwe</option>
+                    <option value="CV">Zöld-foki Köztársaság</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col-xs-7">
+                    <div class="form-group">
+                      <div>
+                        <label for="ticket_city">Település <i class="fa fa-info-circle info-tooltip"
+                            data-toggle="tooltip" data-placement="bottom" title="Településed neve"></i></label>
+                        <input type="text" class="form-control" id="ticket_city" placeholder="" autocomplete='nope'
+                          name="ticket[city]" required
+                          title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!" />
+                      </div>
+                      <div id='settlement_fill'></div>
+                    </div>
+                  </div>
+                  <div class="col-xs-5">
+                    <div class="form-group">
+                      <label for="ticket_zip">Irányítószám</label>
+                      <input type="text" class="form-control influence" id="ticket_zip" autocomplete='nope'
+                        placeholder="" name="ticket[zip]" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_voucher">Kupon/tiszteletjegy kód <i
+                      class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                      title="Itt adhatod meg, ki ajánlotta a tábort, vagy a kedvezményre feljogosító kuponod kódját."></i></label>
+                  <input type="text" class="form-control" id="ticket_voucher" placeholder="Kupon kód"
+                    name="ticket[voucher]" pattern="[0-9]{12}" title="A kupon kódja tizenként számjegyből áll" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_captcha">Megerősítő kód <i
+                      class="fa fa-info-circle info-tooltip re-captcha" data-toggle="tooltip" data-placement="bottom"
+                      title="Az alábbi mezőbe a képen található kódot kell bemásolni. Ha a szöveg nem lenne olvasható, kattints és kapsz újat!"></i></label>
+                  <input type="text" class="form-control" id="ticket_captcha" placeholder="Ezt írd ide --&gt;"
+                    name="ticket[captcha]"
+                    style="background-size: 120px; background-position: right center; background-repeat: no-repeat;"
+                    required />
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label" for="ticket_what">Foglalkozás</label>
+                  <select id="ticket_what" name="ticket[stat_what]" class="form-control"
+                    style='height: 34px !important; font-size: 15px !important;'>
+                    <option value="egyetem">Egyetemista</option>
+                    <option value="erettsegi">Frissen érettségizett</option>
+                    <option value="kozepiskola">Középiskolás</option>
+                    <option value="munka">Dolgozó</option>
+                    <option value="munkanelkuli">Munkanélküli</option>
+                    <option value="egyeb">Egyéb</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_where">Melyik városban?</label>
+                  <input type="text" class="form-control" id="ticket_where" placeholder="" name="ticket[stat_where]" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_bus">Érkezés módja {% comment %}<a class="nocolor"
+                      href="/info#utazas" target="_blank" aria-label="További információ"><i
+                        class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                        title="Itt tudsz helyet foglalni a partivonatra, a szabad helyek számát zárójelben látod. Bővebb információkért kattints!"></i></a>{% endcomment %}</label>
+                  <select id="ticket_bus" name="ticket[bus]" class="form-control influence"
+                    onchange='PartiVonatEventForm(this);' style='height: 34px !important; font-size: 15px !important;'>
+                    <option value="gyalog">Gyalog</option>
+                    <option value="bicikli">Biciklivel</option>
+                    <option value="vonat">Vonattal</option>
+                    <option value="busz">Busszal</option>
+                    <option value="auto">Autóval</option>
+                    <option value="egyeb">Egyéb</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_donation">Támogatás <i class="fa fa-info-circle info-tooltip"
+                      data-toggle="tooltip" data-placement="bottom"
+                      title="A tábor támogatására szolgál. Nem kötelező!"></i></label>
+                  <select id="ticket_donation" name="ticket[donation]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
+                    <option value="x">Még nem döntöttem</option>
+                    <option value="0">Nem szeretném támogatni</option>
+                    <option value="5">5&euro;-val támogatom</option>
+                    <option value="10">10&euro;-val támogatom</option>
+                    <option value="20">20&euro;-val támogatom</option>
+                  </select>
+                </div>
+                {% comment %}<div class="form-group">
+                  <label class="control-label" for="ticket_tshirt">Póló</label>
+                  <select id="ticket_tshirt" name="ticket[tshirt]" class="form-control influence" required
+                    style='height: 34px !important; font-size: 15px !important;'>
+                    <option value="0">Nem kérek</option>
+                  </select>
+                </div>{% endcomment %}
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="ticket_joke">Melliké vagy? <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Azt hitted, hogy itt találsz bármilyen használható információt? Hát NEM!"></i></label>
+                  <input type="text" class="form-control" id="ticket_joke" name="ticket[stat_joke]" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="ticket_why">Mi miatt jössz a táborba?</label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="checkbox">
+                        <label for="ticket_why_zene">
+                          <input type="checkbox" name="ticket[stat_why][zene]" id="ticket_why_zene" value="1">
+                          Zene
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_program">
+                          <input type="checkbox" name="ticket[stat_why][program]" id="ticket_why_program" value="1">
+                          Program
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_eloadasok">
+                          <input type="checkbox" name="ticket[stat_why][eloadasok]" id="ticket_why_eloadasok" value="1">
+                          Előadások
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_csapatjatek">
+                          <input type="checkbox" name="ticket[stat_why][csapatjatek]" id="ticket_why_csapatjatek"
+                            value="1">
+                          Csapatjáték
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="checkbox">
+                        <label for="ticket_why_helyszin">
+                          <input type="checkbox" name="ticket[stat_why][helyszin]" id="ticket_why_helyszin" value="1">
+                          Helyszín
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_baratok">
+                          <input type="checkbox" name="ticket[stat_why][baratok]" id="ticket_why_baratok" value="1">
+                          Barátok
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_szorakozas">
+                          <input type="checkbox" name="ticket[stat_why][szorakozas]" id="ticket_why_szorakozas"
+                            value="1">
+                          Szórakozás
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_why_ismerkedes">
+                          <input type="checkbox" name="ticket[stat_why][ismerkedes]" id="ticket_why_ismerkedes"
+                            value="1">
+                          Ismerkedés
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Honnét tudsz a táborról?</label>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="checkbox">
+                        <label for="ticket_from_facebook">
+                          <input type="checkbox" name="ticket[stat_from][facebook]" id="ticket_from_facebook" value="1">
+                          Facebook
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_from_honlap">
+                          <input type="checkbox" name="ticket[stat_from][honlap]" id="ticket_from_honlap" value="1">
+                          Honlapunk
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_from_ismeros">
+                          <input type="checkbox" name="ticket[stat_from][ismeros]" id="ticket_from_ismeros" value="1">
+                          Ismerős
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="checkbox">
+                        <label for="ticket_from_sajto">
+                          <input type="checkbox" name="ticket[stat_from][sajto]" id="ticket_from_sajto" value="1">
+                          Sajtó
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_from_plakat">
+                          <input type="checkbox" name="ticket[stat_from][plakat]" id="ticket_from_plakat" value="1">
+                          Plakát
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label for="ticket_from_egyeb">
+                          <input type="checkbox" name="ticket[stat_from][egyeb]" id="ticket_from_egyeb" value="1">
+                          Egyéb
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-justified"><input id="ticket_gift" name="ticket[gift]" type="checkbox">
+                  <label for="ticket_gift">A <strong>jegyet ajándékba</strong> vásárlom.</label> <small>Akkor
+                    jelöld be, ha
+                    azt szeretnéd, hogy a jegyet ne a tulajdonosának, hanem egy másik, itt megadott e-mail címre
+                    küldjük, így
+                    ajándékba tudod adni.</small></p>
+                <div class="form-group col-md-4" style='display:none;' id='ticket_from_box'>
+                  <label class="control-label" for="ticket_from">Ajándékozó e-mail címe <i
+                      class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                      title="Ide küldjük a jegyet"></i></a></label>
+                  <input type="email" class="form-control" id="ticket_from" placeholder="Ide küldjük a jegyet!"
+                    name="ticket[gift_from]" pattern="[^@]+@[^@]+\.[^@]+" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p class="text-justified"><input id="ticket_confirm_aszf" name="ticket[confirm_aszf]" type="checkbox">
+                  <label for="ticket_confirm_aszf"><strong>Elfogadom</strong> az <a
+                      href="/altalanos-szerzodesi-feltetelek">általános szerződési feltételeket és adatvédelmi
+                      irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                {% comment %}<p class="text-justified">
+                  A megrendelt jegyek árát <strong>kizárólag személyesen, a tábori portán</strong>
+                  lehet kifizetni. Ha
+                  kérdésed van, vagy akadályba ütköztél a fizetés során írj nekünk a <strong>jegyek [kukac]
+                    gombaszog [pont]
+                    sk</strong> e-mail címre!
+                </p>{% endcomment %}
+                <p class="text-justified">
+                  Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
+                  napon belül meg kell
+                  érkeznie az
+                  alábbi számlára: Sine Metu o.z., IBAN: SK49 5200 0000 0000 1734 7721. Közleménybe kérjük feltüntetni
+                  a vásárló
+                  <strong>itt megadott e-mail címet.</strong>
+                </p>
+                <p class="text-justified">
+                  Külföldről érkező utalás esetén:
+                  <strong>Bank:</strong> OTP Banka Slovensko, a.s.,
+                  <strong>SWIFT/BIC:</strong> OTPVSKBX,
+                  <strong>Cím:</strong> Dunajská 7114/15, 811 08 Bratislava,
+                  <strong>Ország:</strong> Slovakia (SK)
+                </p>
+                <p class="text-justified">
+                  Személyes fizetés esetén kérjük, hogy szintén öt napon belül fizesd ki a jegyed a komáromi
+                  irodánkban (Duna
+                  rakpart 12. (a Danubius diákotthon épülete, az Adóhivatal mellett), 945 01 Komárom, Szlovákia.)
+                </p>
+                <p class="text-justified"><small>
+                    Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a
+                    <strong>"Tovább"</strong> gombra
+                    való kattintás után jelenik meg.
+                  </small></p>
+              </div>
+              <div class="col-md-3">
+                <h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span
+                      id="price"></span>€*</strong></h2>
+                <p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button>
+                </p>
+                {% comment %} <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok"
+                    class="img-responsive" /></p> {% endcomment %}
+              </div>
+            </div>
+            <input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
+            <input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
+        </form>{% endcomment %}
+      </div>
+      <!-- jegyvetel end	-->
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="ticket-barcode-label">Kiegészítő jegy vásárlása</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" class="ticket-form redirect-completed row" action="/jegyek/sikertelen" method="GET"
+          id="ticket-barcode-find">
+          <div class="form-group col-md-offset-2 col-md-8" id='ticket_barcode_find_box'>
+            <label class="control-label" for="barcode_find">Kérlek, add meg a meglévő jegyed vonalkódja melletti
+              számsort! <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip" data-placement="bottom"
+                title="Ez található a jegyen, a vonalkód melletti számsor."></i></a></label>
+            <div class="input-group" style='text-align: middle;'>
+              <input type="text" class="form-control" id="barcode_find" placeholder="Ez található a jegyen"
+                name="barcode_find" />
+              <span class="input-group-btn">
+                <button id="search_barcode" type="submit" class='btn btn-primary btn-xs'>Keresés</button>
+              </span>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Festival",
+    "name": "Gombaszögi Nyári Tábor",
+    "startDate": "2022-07-12",
+    "endDate": "2022-07-17",
+    "location": {
+      "@type": "Place",
+      "name": "Kemping Gombaszög",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "161 Gombasek",
+        "addressLocality": "Slavec",
+        "postalCode": "04911",
+        "addressCountry": "SK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.563772,
+        "longitude": 20.466542
+      }
+    },
+    "image": [
+      "{{ site.url }}{% asset_path og.png %}"
+    ],
+    "description": "{{ site.description }}"
+  }
+</script>
+
