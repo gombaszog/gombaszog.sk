@@ -32,6 +32,7 @@ group: otletborze
 			dataType: 'json',
 			type: 'GET',
 		}).done(function (data) {
+			console.log(data);
 			var max = 0;
 			var num = 0;
 			var tmp;
@@ -139,7 +140,14 @@ group: otletborze
 			} else {
 				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
 			}
-		}).fail(ajax_error);
+		}).fail(function (data) {
+			console.log(data);
+			if (false) {
+				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
+			} else {
+				ajax_error();
+			}
+		});
 	};
 
 	(function (d, s, id) {
