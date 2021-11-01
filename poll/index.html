@@ -141,8 +141,7 @@ group: otletborze
 				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
 			}
 		}).fail(function (data) {
-			console.log(data);
-			if (false) {
+			if (data && data.responseJSON && data.responseJSON.error === "No polls available") {
 				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
 			} else {
 				ajax_error();
