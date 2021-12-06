@@ -1,5 +1,5 @@
 if ($(".ticket-form").length > 0) {
-  var freeCities = [];
+  var freeCities = ["97901","98001","98003","98004","98021","98022","98023","98025","98026","98031","98032","98033","98034","98035","98041","98042","98043","98044","98045","98050","98052","98053","98054","98055","98061","98101","98251","98252","98262","98265","98267","98542"];
   captcha_reload = function () { // reload captcha image
     $('#ticket_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
     $('#ticket_captcha').val("");
@@ -251,7 +251,7 @@ if ($(".ticket-form").length > 0) {
       }
       console.log(obj);
       $.ajax({
-        url: '/api/ticket',
+        url: "/api/ticket",
         type: 'POST',
         timeout: 2000,
         async: false,
@@ -274,7 +274,7 @@ if ($(".ticket-form").length > 0) {
       e.preventDefault();
       var barcode = $('#barcode_find').val();
       $.ajax({
-        url: '/api/ticket/find/' + barcode,
+        url: "/api/ticket/find/" + barcode,
         type: 'GET',
         timeout: 2000,
         async: false,
@@ -527,7 +527,7 @@ jQuery(document).ready(function ($) {
 
         console.log(obj);
         $.ajax({
-          url: '/api/ticket/addition',
+          url: "/api/ticket/addition",
           type: 'POST',
           timeout: 2000,
           async: false,
