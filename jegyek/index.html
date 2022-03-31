@@ -19,43 +19,42 @@ group: jegyek
 					</li>
 					<li class="xplore">
 						<div class="regular-price">
-							<h2>Tavaszi<br>hetijegy</h2>
-							<p class="price">69&euro;</p>
-							<p class="price-content">6 nap elővételben<br></p>
+							<h2><br></h2>
+							<p class="price"></p>
+							<p class="price-content"><br></p>
 						</div>
 					</li>
 					<li class="rock">
 						<div class="regular-price">
-							<h2>Téli<br>Hetijegy</h2>
-							<p class="price">65&euro;</p>
-							<p class="price-content">6 nap elővételben<br>március 31-ig</p>
+							<h2>Tavaszi<br>Hetijegy</h2>
+							<p class="price">69&euro;</p>
+							<p class="price-content">6 nap elővételben<br></p>
 							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
 						</div>
 					</li>
 					<li class="xplore">
-						<div class="regular-price">
-							<h2>Ingyenes<br> hetijegy</h2>
-							<p class="price">0&euro;</p>
-							<p class="price-content">
-								A Rimaszombati járás lakóinak regisztráció március 31-ig
-							</p>
-							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Regisztráció</a>
-						</div>
-					</li>
-					<li class="vip">
 						<div class="regular-price">
 							<h2>Helyszíni<br>hetijegy</h2>
 							<p class="price">79&euro;</p>
 							<p class="price-content">6 nap<br> a helyszínen</p>
 						</div>
 					</li>
+					<li class="vip">
+						<div class="regular-price">
+							<h2><br></h2>
+							<p class="price"></p>
+							<p class="price-content"><br></p>
+						</div>
+					</li>
 				</ul>
 
+				{% comment %}
 				<div style="text-align: center; margin-top: 30px;">
 					Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
 						data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
 							jegy</strong> vásárlása</button>
 				</div>
+				{% endcomment %}
 
 				{% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
 					ért, a helyszinen már nem lehet jegyet vásárolni!<br>
@@ -65,9 +64,10 @@ group: jegyek
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
 					jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
 
-				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
-					pár nap türelmet kérünk!</h2>{% endcomment %}
+				<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
+					pár nap türelmet kérünk!</h2>
 
+				{% comment %}
 				<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
@@ -760,6 +760,7 @@ group: jegyek
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
 				</form>
+				{% endcomment %}
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
