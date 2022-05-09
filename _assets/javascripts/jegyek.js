@@ -53,8 +53,8 @@ if ($(".ticket-form").length > 0) {
 			});
 			$('#hetijegy').data('price', data.ticketweek);
 			$('#hetijegy').html('Hetijegy ' + data.ticketweek + '&euro;');
-			//   $('#napijegy').data('price', data.ticketday);
-			//   $('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
+			$('#napijegy').data('price', data.ticketday);
+			$('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
 			$('#price').html(data.ticketweek);
 		});
 	}
