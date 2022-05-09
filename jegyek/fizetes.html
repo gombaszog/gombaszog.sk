@@ -91,7 +91,7 @@ permalink: /jegyek/fizetes/index.html
 											<label class="control-label" for="ticket_category">Jegytípus </label>
 											<select id="ticket_category" name="ticket[category]" class="form-control influence">
 												<option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
-												{% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option> {% endcomment %}
+												<option value="napijegy" id='napijegy' data-price="">Napijegy</option>
 											</select>
 											<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az
 												ár.</small>
@@ -144,13 +144,13 @@ permalink: /jegyek/fizetes/index.html
 						<!-- jegyvetel start -->
 
 
-						 {% comment %}<div class='row'>
+						<div class='row'>
 							<div class='col-md-12 form-group' id='select_days' style='display:none;'>
 								<div>
 									<h3>Kérjük, válaszd ki a napokat!</h3>
 								</div>
 								<div class="ticket-days days dayMo col-md-2 col-sm-4">
-									<label for="ticket_nap_hetfo">
+									{% comment %}<label for="ticket_nap_hetfo">
 										<div class="ticket-days-inner">
 											<div class="ticket-days-header">
 												<h3>Hétfő</h3>
@@ -163,7 +163,7 @@ permalink: /jegyek/fizetes/index.html
 													<em>... és sokan mások!</em><br><br>
 												</small></div>#endcomment
 										</div>
-									</label>
+									</label>{% endcomment %}
 								</div>
 								<div class="ticket-days days dayTu col-md-2 col-sm-4">
 									<label for="ticket_nap_kedd">
@@ -173,11 +173,11 @@ permalink: /jegyek/fizetes/index.html
 												<input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_kedd]"
 													id="ticket_nap_kedd" value="1">
 											</div>
-											#comment<div><small>
+											{% comment %}<div><small>
 													• Majka<br>
 													• Kaukázus<br>
 													<em>... és sokan mások!</em><br><br>
-												</small></div>#endcomment
+												</small></div>{% endcomment %}
 										</div>
 									</label>
 								</div>
@@ -189,12 +189,12 @@ permalink: /jegyek/fizetes/index.html
 												<input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_szerda]"
 													id="ticket_nap_szerda" value="1">
 											</div>
-											#comment<div><small>
+											{% comment %}<div><small>
 													• Leander Kills<br>
 													• Follow the Flow<br>
 													• Anima Sound System<br>
 													<em>... és sokan mások!</em><br>
-												</small></div>#endcomment
+												</small></div>{% endcomment %}
 										</div>
 									</label>
 								</div>
@@ -206,12 +206,12 @@ permalink: /jegyek/fizetes/index.html
 												<input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_csutortok]"
 													id="ticket_nap_csutortok" value="1">
 											</div>
-											#comment<div><small>
+											{% comment %}<div><small>
 													• Road<br>
 													• Intim Torna Illegál<br>
 													• Alvin és a mókusok<br>
 													<em>... és sokan mások!</em><br>
-												</small></div>#endcomment
+												</small></div>{% endcomment %}
 										</div>
 									</label>
 								</div>
@@ -223,12 +223,12 @@ permalink: /jegyek/fizetes/index.html
 												<input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_pentek]"
 													id="ticket_nap_pentek" value="1">
 											</div>
-											#comment<div><small>
+											{% comment %}<div><small>
 													• JVV<br>
 													• Rúzsa Magdi<br>
 													• Skaar<br>
 													<em>... és sokan mások!</em><br>
-												</small></div>#endcomment
+												</small></div>{% endcomment %}
 										</div>
 									</label>
 								</div>
@@ -240,17 +240,17 @@ permalink: /jegyek/fizetes/index.html
 												<input style="margin-left: 0px;" type="checkbox" class='influence' name="ticket[nap_szombat]"
 													id="ticket_nap_szombat" value="1">
 											</div>
-											#comment<div><small>
+											{% comment %}<div><small>
 													• István a király<br>
 													• Anna and the Barbies<br>
 													• Besh o Drom<br>
 													<em>... és sokan mások!</em><br>
-												</small></div>#endcomment
+												</small></div>{% endcomment %}
 										</div>
 									</label>
 								</div>
 							</div>
-						</div> {% endcomment %}
+						</div>
 
 						<div>
 							<br>
