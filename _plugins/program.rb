@@ -15,7 +15,7 @@ class ProgramDefault < Liquid::Tag
     }
 
     day_l_map = {
-      "Monday"    => "hetfo",
+      #"Monday"    => "hetfo",
       "Tuesday"   => "kedd",
       "Wednesday" => "szerda",
       "Thursday"  => "csutortok",
@@ -115,7 +115,7 @@ end
 class ProgramFull < Liquid::Tag
   def render(_context)
     day_l_map = {
-      "Monday"    => "Hétfő",
+      #"Monday"    => "Hétfő",
       "Tuesday"   => "Kedd",
       "Wednesday" => "Szerda",
       "Thursday"  => "Csütörtök",
