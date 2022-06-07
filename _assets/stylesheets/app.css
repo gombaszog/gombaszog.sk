@@ -853,7 +853,7 @@ div.biglogo {
 
 .biglogo:after {
   content: '';
-  padding-top: 13%;
+  padding-top: 1%;
   display: block;
 }
 

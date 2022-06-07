@@ -4,11 +4,11 @@
 
 body {
   font-family: 'Dosis', sans-serif;
-  background-image: url(asset-path('vardomb.jpg'));
+  background-image: url(asset-path('web-bg.jpg'));
   background-color: #0f582f;
   background-position: center 0;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   /*height:100%;*/
   /*width: 100%;*/
   background-attachment: fixed;
