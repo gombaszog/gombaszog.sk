@@ -29,7 +29,7 @@ group: jegyek
 							<h2>Tavaszi<br>Hetijegy</h2>
 							<p class="price">69&euro;</p>
 							<p class="price-content">6 nap elővételben<br></p>
-							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
+							{% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>{% endcomment %}
 						</div>
 					</li>
 					<li class="xplore">
@@ -48,15 +48,14 @@ group: jegyek
 					</li>
 				</ul>
 
-				<div style="text-align: center; margin-top: 30px;">
+				{% comment %}<div style="text-align: center; margin-top: 30px;">
 					Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
 						data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
 							jegy</strong> vásárlása</button>
-				</div>
+				</div>{% endcomment %}
 
-				{% comment %}<h4 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
-					ért, a helyszinen már nem lehet jegyet vásárolni!<br>
-					<strong>A még nem kiküldött jegyeket már csak a helyszinen van lehetőség kifizetni!</strong></h4>{% endcomment %}
+				<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+					ért!</h2>
 
 				{% comment %}<h4 class="text-center"
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
@@ -65,6 +64,7 @@ group: jegyek
 				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
 					pár nap türelmet kérünk!</h2>{% endcomment %}
 
+				{% comment %}
 				<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
@@ -710,6 +710,7 @@ group: jegyek
 											irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>
 							</div>
 						</div>
+						{% endcomment %}
 						<div class="row">
 							<div class="col-md-9">
 								{% comment %}<p class="text-justified">
@@ -720,7 +721,7 @@ group: jegyek
 										sk</strong> e-mail címre!
 								</p>{% endcomment %}
 								<p class="text-justified">
-									Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
+									Utalás esetén a jegy ellenértékének {% comment %}a "Tovább" gombra való kattintás után{% endcomment %} öt
 									napon belül meg kell
 									érkeznie az
 									alábbi számlára: Sine Metu o.z., IBAN: SK88 7500 0000 0040 3025 3111. Közleménybe kérjük feltüntetni
@@ -739,7 +740,7 @@ group: jegyek
 									hogy szintén öt napon belül fizesd ki a jegyed a komáromi irodánkban
 									(Ferences barátok utcája 26. ( a Limes Galériával, katonatemplommal szemben ), 945 01 Komárom, Szlovákia.)
 								</p>
-								<p class="text-justified"><small>
+								{% comment %}<p class="text-justified"><small>
 										Ha kuponnal rendelkezel, akkor az akciós jegyárral számolt összeg csak a
 										<strong>"Tovább"</strong> gombra
 										való kattintás után jelenik meg.
@@ -751,12 +752,14 @@ group: jegyek
 								<p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Tovább&nbsp;</button>
 								</p>
 								{% comment %} <p class="text-center"><img src="{% asset_path pay.png %}" alt="Elfogadodd fizetési módok"
-										class="img-responsive" /></p> {% endcomment %}
+										class="img-responsive" /></p> {% endcomment %}{% endcomment %}
 							</div>
 						</div>
+						{% comment %}
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
 				</form>
+				{% endcomment %}
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
@@ -765,7 +768,7 @@ group: jegyek
 </div>
 
 
-<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
+{% comment %}<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
 	aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -793,6 +796,7 @@ group: jegyek
 		</div>
 	</div>
 </div>
+{% endcomment %}
 
 <script type="application/ld+json">
 	{
