@@ -18,9 +18,10 @@ permalink: /jegyek/fizetes/index.html
 		<div class="content-404 bg">
 			<div class="container">
 				<div class="row">
-					<div id="msg">{% comment %}Az internetes jegyelővétel véget ért, a helyszinen már nem lehet jegyet vásárolni!{% endcomment %}</div>
-					<div id="pay-form" class="hidden-form">
-						<div>
+					<div id="msg"><h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+						ért!</h2></div>
+					{% comment %}<div id="pay-form" class="hidden-form">
+						<div>{% endcomment %}
 							{% comment %}<p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.
 							</p>{% endcomment %}
 							<p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
@@ -39,7 +40,7 @@ permalink: /jegyek/fizetes/index.html
 							<h3 class='text-justified ticket-price-success-pay'></h3>
 							<p class="text-justified">Sikeres fizetés esetén a jegyedet e-mailben kapod meg.</p>
 							<h3>Várunk a Táborban!</h3>
-						</div>
+						{% comment %}</div>
 						{% comment %}<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 							<input type="hidden" name="first_name" id="first_name" value="" />
 							<input type="hidden" name="last_name" id="last_name" value="" />
@@ -71,10 +72,10 @@ permalink: /jegyek/fizetes/index.html
 							<input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit"
 								alt="Make payments with PayPal - it's fast, free and secure!">
 						</form> {% endcomment %}
-					</div>
+					</div>{% endcomment %}
 
 
-
+					{% comment %}
 					<form role="form" class="ticket-form ticket-addition hidden-form" action="/jegyek/sikertelen" method="post"
 						id="ticket">
 						{% comment %}<h4 class="text-center"
@@ -613,6 +614,7 @@ permalink: /jegyek/fizetes/index.html
 							<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
 							<input type="hidden" name="ticket[extends]" id="ticket_extends" />
 					</form>
+					{% endcomment %}
 				</div>
 			</div>
 		</div>
