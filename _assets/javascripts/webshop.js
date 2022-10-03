@@ -10,19 +10,20 @@ jQuery(document).ready(function ($) {
 			});
 		}
 
-		var calculateOrderPrice = function () {
+		var calculateOrderPrice = function (shipping_price = 0) {
 			let tempPrice = 0;
 			let tmp = price;
+			if (tmp) tempPrice += parseFloat(tmp);
+			tmp = shipping_price;
 			if (tmp) tempPrice += parseFloat(tmp);
 			$('#price').html(tempPrice);
 		}
 		let captcha_reload = function () { // reload captcha image
-			$('#order_captcha').css('background-image', 'url(http://localhost:3000/api/captcha?' + Date.now() + ')');
+			$('#order_captcha').css('background-image', 'url(/api/captcha?' + Date.now() + ')');
 			$('#order_captcha').val("");
 		}
 
-		$.getJSON("http://localhost:3000/api/order/item/" + getParameterByName("id")).done(function (data) {
-			console.log(data)
+		$.getJSON("/api/order/item/" + getParameterByName("id")).done(function (data) {
 			price = data.price;
 			$("#product_list").append(`<tr class='item_${data.id}'></tr>`);
 			$(`#product_list .item_${data.id}`).append(`<td><img src='https://placekitten.com/200/287'  style='max-width:50px' alt=${data.name} /></td>`);
@@ -33,16 +34,18 @@ jQuery(document).ready(function ($) {
 			calculateOrderPrice();
 		})
 
-		$.getJSON("http://localhost:3000/api/order/shipping").done(function (data) {
+		$.getJSON("/api/order/shipping").done(function (data) {
 			$(`#shippingModes`).append('<table class="table table-responsive"></table>');
 			$(`#shippingModes table`).append('<tr class="shippingHead"></tr>');
 			$(`#shippingModes table .shippingHead`).append('<th>&nbsp;</th><th>Szállítási mód</th><th>Ár</th>');
 			$.each(data, function (k, d) {
-				console.log(d)
 				$("#shippingModes table").append(`<tr class='shipping_${d.id}'></tr>`);
-				$(`#shippingModes table .shipping_${d.id}`).append(`<td><input style='vertical-align:middle' type="radio" name="order[shipping]" value="${d.id}"</td>`);
+				$(`#shippingModes table .shipping_${d.id}`).append(`<td><input style='vertical-align:middle' type="radio" class='shipping_toggle' name="order[shipping]" value="${d.id}"</td>`);
 				$(`#shippingModes table .shipping_${d.id}`).append(`<td>${d.name}<br><small>${d.description}</small></td>`);
 				$(`#shippingModes table .shipping_${d.id}`).append(`<td>${d.price} &euro;</td>`);
+				$(`.shipping_${d.id}`).click(function () {
+					calculateOrderPrice(d.price);
+				});
 			})
 		})
 
@@ -53,6 +56,7 @@ jQuery(document).ready(function ($) {
 
 		$('form#order_form').submit(function (e) {
 			e.preventDefault();
+			calculateOrderPrice();
 			if (!$("#order_confirm_aszf").prop("checked")) {
 				e.preventDefault();
 				return alert("A továbblépéshez kérünk, fogadd el az általános szerződési feltételeinket és adatvédelmi irányelveinket.");
@@ -62,7 +66,7 @@ jQuery(document).ready(function ($) {
 			var obj = $("form#order_form").serializeObject();
 			console.log(obj)
 			$.ajax({
-				url: "http://localhost:3000/api/order",
+				url: "/api/order",
 				type: 'POST',
 				timeout: 2000,
 				async: false,
@@ -152,6 +156,30 @@ jQuery(document).ready(function ($) {
 			$('#settlement_fill').html('');
 			$('#settlement_fill').hide();
 		});
+	}
+
+	if ($("#webshop_content").length > 0) {
+		$.getJSON("/api/order/items/").done(function (data) {
+			data.forEach((d) => {
+				$("#webshop_content").append(`<div class='item_${d.id} col-md-3 col-sm-12' style='text-align:center;'></div>`);
+				$(`#webshop_content .item_${d.id}`).append(`<a href="/webshop/termekek/${d.slug}"></a>`);
+				//$(`#webshop_content .item_${d.id} a`).append(`<img src="${data.image}" style='max-width:100%' alt='${d.name}'/>`);
+				$(`#webshop_content .item_${d.id} a`).append(`<img src="https://placekitten.com/700/287" style='max-width:100%' alt='${d.name}'/>`);
+				$(`#webshop_content .item_${d.id} a`).append(`<p><strong>${d.name}</strong><p/>`);
+				$(`#webshop_content .item_${d.id} a`).append(`<a href='/webshop/rendeles/?id=${d.id}'><button>Megrendelés</button></a>`);
+			})
+		})
+	}
+
+	if ($('.order-price-success').length > 0) {
+		console.log(window.location.search)
+		if (!getParameterByName("amount")) {
+			$(".hide-this").hide();
+			$(".show-this").show();
+		} else {
+			$('.order-price-success').html('A rendelés ára: <strong>&euro;' + getParameterByName("amount") + '</strong>');
+			$(".show-this").hide();
+		}
 	}
 
 })
