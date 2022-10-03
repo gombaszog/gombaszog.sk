@@ -1,0 +1,151 @@
+---
+layout: page
+group: webshop
+title: Rendelés
+---
+<div id="order">
+	<div class="container">
+		<div class="bg">
+			<h2 class="heading"><strong>Rendelés</strong></h2>
+			<div class="row">
+				<table class="table table-responsive" id="product_list">
+					<tr>
+						<th>*</th>
+						<th>Termék neve</th>
+						<th>Ár</th>
+						<th>Mennyiség</th>
+					</tr>
+				</table>
+				<hr style="border-color:#333">
+			</div>
+			<div class="row">
+				<form role="form" class="hidden" action="/webshop/rendeles/sikertelen" method="post"
+					id="order_form">
+					<div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="order_last_name">Vezetéknév</label>
+									<input type="text" class="form-control" id="order_last_name" placeholder="" name="order[last_name]"
+										required title="Kérjük, ide add meg a vezetékneved!" />
+								</div>
+								<div class="form-group">
+									<label for="order_first_name">Keresztnév</label>
+									<input type="text" class="form-control" id="order_first_name" placeholder=""
+										name="order[first_name]" required title="Kérjük, ide add meg a keresztneved!" />
+								</div>
+								<div class="form-group">
+									<label for="order_email">E-mail cím <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
+											data-placement="bottom"
+											title="Fontos, hogy valós e-mail címet adj meg, mert erre küldjük el az értesitést!"></i></label>
+									<input type="email" class="form-control" id="order_email" placeholder="A rendelő e-mail címe!"
+										name="order[email]" required pattern="[^@]+@[^@]+\.[^@]+" />
+								</div>
+								<div class="form-group">
+									<label for="order_phone">Telefonszám <i class="fa fa-info-circle info-tooltip" data-toggle="tooltip"
+											data-placement="bottom" title="Országkóddal teljes formájában, például +421901234567"></i></label>
+									<input type="text" class="form-control" id="order_phone" placeholder="+421xxxxxxxxx"
+										name="order[phone]" required pattern="\+[1-9][0-9]{10,}"
+										title="A telefonszámot országkóddal add meg, pl +421905123456" />
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="order_address">Utca, házszám</label>
+									<input type="text" class="form-control" id="order_address" placeholder="" name="order[address]"
+										required />
+								</div>
+								<div class="form-group">
+									<label for="order_country">Ország</label>
+									<select class="form-control select2" id="order_country" placeholder="" name="order[country]">
+										<option value="SK">Szlovákia</option>
+										<option value="HU">Magyarország</option>
+									</select>
+								</div>
+								<div class="row">
+									<div class="col-xs-7">
+										<div class="form-group">
+											<div>
+												<label for="order_city">Település <i class="fa fa-info-circle info-tooltip"
+														data-toggle="tooltip" data-placement="bottom" title="Településed neve"></i></label>
+												<input type="text" class="form-control" id="order_city" placeholder="" autocomplete='nope'
+													name="order[city]" required
+													title="Kérjük, ide add meg a település nevét, amit otthonodnak tartasz!" />
+											</div>
+											<div id='settlement_fill'></div>
+										</div>
+									</div>
+									<div class="col-xs-5">
+										<div class="form-group">
+											<label for="order_zip">Irányítószám</label>
+											<input type="text" class="form-control influence" id="order_zip" autocomplete='nope'
+												placeholder="" name="order[zip]" required />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="order_captcha">Megerősítő kód <i
+											class="fa fa-info-circle info-tooltip re-captcha" data-toggle="tooltip" data-placement="bottom"
+											title="Az alábbi mezőbe a képen található kódot kell bemásolni. Ha a szöveg nem lenne olvasható, kattints és kapsz újat!"></i></label>
+									<input type="text" class="form-control" id="order_captcha" placeholder="Ezt írd ide --&gt;"
+										name="order[captcha]"
+										style="background-size: 120px; background-position: right center; background-repeat: no-repeat;"
+										required />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label>Szállítási módok</label>
+								<div id="shippingModes">
+
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<p class="text-justified"><input id="order_confirm_aszf" name="order[confirm_aszf]" type="checkbox">
+									<label for="order_confirm_aszf"><strong>Elfogadom</strong> az <a
+											href="/altalanos-szerzodesi-feltetelek">általános szerződési feltételeket és adatvédelmi
+											irányelveket</a>, és <strong>hozzájárulok</strong> az adataim kezeléséhez.</label></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-9">
+								<p class="text-justified">
+									Utalás esetén a rendelés ellenértékének a "Rendelés" gombra való kattintás után öt
+									napon belül meg kell
+									érkeznie az
+									alábbi számlára: Sine Metu o.z., IBAN: SK88 7500 0000 0040 3025 3111. Közleménybe kérjük feltüntetni
+									a vásárló
+									<strong>itt megadott e-mail címet.</strong>
+								</p>
+								<p class="text-justified">
+									Külföldről érkező utalás esetén:
+									<strong>Bank:</strong> CSOB, a.s.,
+									<strong>SWIFT/BIC:</strong> CEKOSKBX,
+									<strong>Cím:</strong> Žižkova 11, 811 02 Bratislava,
+									<strong>Ország:</strong> Slovakia (SK)
+								</p>
+								<p class="text-justified">
+									Személyes fizetés esetén kérjük,
+									hogy szintén öt napon belül fizesd ki a rendelésed a komáromi irodánkban
+									(Ferences barátok utcája 26. ( a Limes Galériával, katonatemplommal szemben ), 945 01 Komárom, Szlovákia.)
+								</p>
+							</div>
+							<div class="col-md-3">
+								<h2 class="heading text-center" style="margin-bottom: 0.3em;">Összesen: <strong><span
+											id="price"></span>€*</strong></h2>
+								<p class="text-center"><button id="buybutton" class="btn btn-primary">&nbsp;Rendelés&nbsp;</button>
+								</p>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+		border-color: #333 !important;
+	}
+</style>

@@ -14,6 +14,7 @@
  *= require sajto.js
  *= require terkep.js
  *= require program.js
+ *= require webshop.js
  */
 // require poll.js
 // require christmas_ticket.js
