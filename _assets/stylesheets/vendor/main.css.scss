@@ -5,8 +5,8 @@
 body {
   font-family: 'Dosis', sans-serif;
   background-image: url(asset-path('web-bg.jpg'));
-  background-color: #0f582f;
-  background-position: center 0;
+  background-color: #366775;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 100%;
   /*height:100%;*/
@@ -2496,50 +2496,68 @@ footer .social-link a {
 	background-size:contain;
 	background-position: center center;
 	background-repeat: no-repeat;
-	width: 20vw;
-	height: 20vh;
+	width: 20em;
+	height: 5em;
 	position:fixed;
 	animation-iteration-count: infinite;
-	filter: drop-shadow(5px 2px 45px #333) opacity(.9);
+	filter: drop-shadow(5px 2px 45px #333) opacity(.8);
 }
 
 #cloud-1 {
 	animation-name: move-cloud-from-left;
-	left:-14vw;
-	top:5vh;
+	left:-14em;
+	top:max(5vh,2em);
 	float:left;
 	animation-duration: 60s;
 }
 
 #cloud-2 {
 	animation-name: move-cloud-from-right;
-	right:-14vw;
-	top:25vh;
+	right:-28em;
+	top:max(20vh,20em);
 	float:right;
 	animation-duration: 60s;
 }
 
 #cloud-3 {
 	animation-name: move-cloud-from-left-1;
-	left:-28vw;
-	top:15vh;
+	left:-28em;
+	top:max(17vh,14em);
 	float:left;
 	animation-duration: 80s;
 }
 
 #cloud-4 {
 	animation-name: move-cloud-from-right-1;
-	right:-14vw;
-	top:10vh;
+	right:-14em;
+	top:max(9vh,8em);
 	float:right;
 	animation-duration: 80s;
 }
 
 
+@media only screen and (max-width: 900px) {
+	#cloud-1 {
+		animation-duration: 20s;
+	}
+
+	#cloud-2 {
+		animation-duration: 20s;
+	}
+
+	#cloud-3 {
+		animation-duration: 40s;
+	}
+
+	#cloud-4 {
+		animation-duration: 40s;
+	}
+}
+
 
 @keyframes move-cloud-from-left {
 	from {
-		left:-14vw;
+		left:-14em;
 	}
 
 	to {
@@ -2549,7 +2567,7 @@ footer .social-link a {
 
 @keyframes move-cloud-from-left-1 {
 	from {
-		left:-28vw;
+		left:-28em;
 	}
 
 	to {
@@ -2559,7 +2577,7 @@ footer .social-link a {
 
 @keyframes move-cloud-from-right {
 	from {
-		right:-14vw;
+		right:-14em;
 	}
 
 	to {
@@ -2569,7 +2587,7 @@ footer .social-link a {
 
 @keyframes move-cloud-from-right-1 {
 	from {
-		right:-28vw;
+		right:-28em;
 	}
 
 	to {
