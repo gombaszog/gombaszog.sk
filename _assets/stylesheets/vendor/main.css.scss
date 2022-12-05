@@ -2484,3 +2484,96 @@ footer .social-link a {
 .event-content-inner .carousel li {
   margin-right: 0;
 }
+
+
+.content {
+	z-index: 2 !important;
+	position: relative;
+}
+
+.cloud {
+	background-image: url(asset-path('cloud.png'));
+	background-size:contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 20vw;
+	height: 20vh;
+	position:fixed;
+	animation-iteration-count: infinite;
+	filter: drop-shadow(5px 2px 45px #333) opacity(.9);
+}
+
+#cloud-1 {
+	animation-name: move-cloud-from-left;
+	left:-14vw;
+	top:5vh;
+	float:left;
+	animation-duration: 60s;
+}
+
+#cloud-2 {
+	animation-name: move-cloud-from-right;
+	right:-14vw;
+	top:25vh;
+	float:right;
+	animation-duration: 60s;
+}
+
+#cloud-3 {
+	animation-name: move-cloud-from-left-1;
+	left:-28vw;
+	top:15vh;
+	float:left;
+	animation-duration: 80s;
+}
+
+#cloud-4 {
+	animation-name: move-cloud-from-right-1;
+	right:-14vw;
+	top:10vh;
+	float:right;
+	animation-duration: 80s;
+}
+
+
+
+@keyframes move-cloud-from-left {
+	from {
+		left:-14vw;
+	}
+
+	to {
+		left: 100%;
+	}
+}
+
+@keyframes move-cloud-from-left-1 {
+	from {
+		left:-28vw;
+	}
+
+	to {
+		left: 100%;
+	}
+}
+
+@keyframes move-cloud-from-right {
+	from {
+		right:-14vw;
+	}
+
+	to {
+		right: 100%;
+	}
+}
+
+@keyframes move-cloud-from-right-1 {
+	from {
+		right:-28vw;
+	}
+
+	to {
+		right: 100%;
+	}
+}
+
