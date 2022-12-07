@@ -2506,7 +2506,7 @@ footer .social-link a {
 #cloud-1 {
 	animation-name: move-cloud-from-left;
 	left:-14em;
-	top:max(5vh,2em);
+	top:5vh;
 	float:left;
 	animation-duration: 60s;
 }
@@ -2514,7 +2514,7 @@ footer .social-link a {
 #cloud-2 {
 	animation-name: move-cloud-from-right;
 	right:-28em;
-	top:max(20vh,20em);
+	top:20vh;
 	float:right;
 	animation-duration: 60s;
 }
@@ -2522,7 +2522,7 @@ footer .social-link a {
 #cloud-3 {
 	animation-name: move-cloud-from-left-1;
 	left:-28em;
-	top:max(17vh,14em);
+	top:17vh;
 	float:left;
 	animation-duration: 80s;
 }
@@ -2530,7 +2530,7 @@ footer .social-link a {
 #cloud-4 {
 	animation-name: move-cloud-from-right-1;
 	right:-14em;
-	top:max(9vh,8em);
+	top:9vh;
 	float:right;
 	animation-duration: 80s;
 }
