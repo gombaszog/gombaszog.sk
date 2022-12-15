@@ -114,12 +114,12 @@ $.fn.serializeObject = function () {
 
 var isVisible = false;
 $(window).scroll(function () {
-	document.getElementById("cloud-1").style.cssText += `transform:scale3d(1, 1, 1) translate3d(0px, ${$(window).scrollTop()/100*3}%, 0px)`;
-	document.getElementById("cloud-2").style.cssText += `transform:scale3d(1.2, 1.2, 1) translate3d(0px, ${$(window).scrollTop()/100*3.2}%, 0px)`;
-	document.getElementById("cloud-3").style.cssText += `transform:scale3d(0.4, 0.4, 1) translate3d(0px, ${$(window).scrollTop()/100*2.4}%, 0px)`;
-	document.getElementById("cloud-4").style.cssText += `transform:scale3d(0.7, 0.7, 1) translate3d(0px, ${$(window).scrollTop()/100*2.7}%, 0px)`;
+	document.getElementById("cloud-1").style.cssText += "transform:scale3d(1, 1, 1) translate3d(0px, "+$(window).scrollTop()/100*3 + "%, 0px)";
+	document.getElementById("cloud-2").style.cssText += "transform:scale3d(1.2, 1.2, 1) translate3d(0px," + $(window).scrollTop()/100*3.2 + "%, 0px)";
+	document.getElementById("cloud-3").style.cssText += "transform:scale3d(0.4, 0.4, 1) translate3d(0px," + $(window).scrollTop()/100*2.4 + "%, 0px)";
+	document.getElementById("cloud-4").style.cssText += "transform:scale3d(0.7, 0.7, 1) translate3d(0px," + $(window).scrollTop()/100*2.7 + "%, 0px)";
 
-	document.getElementById("first-bg").style.cssText += `transform:scale3d(1, 1, 1) translate3d(0px, ${$(window).scrollTop()/100*.5}%, 0px)`;
+	document.getElementById("first-bg").style.cssText += "transform:scale3d(1, 1, 1) translate3d(0px," +$(window).scrollTop()/100*.5+"%, 0px)";
 
   var shouldBeVisible = $(window).scrollTop() > 100;
   if (shouldBeVisible && !isVisible) {
