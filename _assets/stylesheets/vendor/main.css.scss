@@ -4,24 +4,50 @@
 
 body {
   font-family: 'Dosis', sans-serif;
-  background-image: url(asset-path('web-bg.jpg'));
-  background-color: #0f582f;
-  background-position: center 0;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   /*height:100%;*/
   /*width: 100%;*/
   background-attachment: fixed;
   font-size: 18px;
   /*color: #e0e0e0;*/
   color: rgb(35, 54, 27);
+  background-color: transparent;
+  background-color: #366775;
 }
 
-@media only screen and (min-width: 1200px) {
-  body {
-    background-position: center -4vw;
-  }
+#first-bg {
+	background-image: url(asset-path('web-bg-2.png'));
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	width:100%;
+	height:100%;
+	position:fixed;
+	float:left;
+	background-color: transparent;
 }
+
+#second-bg {
+	background-image: url(asset-path('web-bg-1.png'));
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	width:100%;
+	height:100%;
+	position:fixed;
+	background-color: transparent;
+	float:left;
+  }
+
+// @media only screen and (min-width: 1200px) {
+//   body {
+//     background-position: center -4vw;
+//   }
+// }
 
 
 /*button*/
@@ -126,7 +152,7 @@ iframe {
 #navigation .navbar-nav li {}
 
 #navigation .navbar-nav li a {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 22px;
   font-weight: bold;
 }
@@ -2483,4 +2509,58 @@ footer .social-link a {
 
 .event-content-inner .carousel li {
   margin-right: 0;
+}
+
+
+.content {
+	z-index: 2 !important;
+	position: relative;
+}
+
+.cloud {
+	background-image: url(asset-path('cloud.png'));
+	background-size:contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 20em;
+	height: 5em;
+	position:fixed;
+	filter: drop-shadow(5px 2px 45px #333) opacity(.5);
+	transform-style: preserve-3d;
+	will-change: transform
+
+}
+
+#cloud-1 {
+	top:5vh;
+	left: 5vw;
+	float:left;
+	transform:scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+}
+
+#cloud-2 {
+	top:20vh;
+	right: 20vw;
+	float:right;
+	transform:scale3d(1.2, 1.2, 1) translate3d(0px, 0px, 0px);
+}
+
+#cloud-3 {
+	top:17vh;
+	left: 17vw;
+	float:left;
+	transform:scale3d(.4, .4, 1) translate3d(0px, 0px, 0px);
+}
+
+#cloud-4 {
+	top:9vh;
+	right:9vw;
+	float:right;
+	transform:scale3d(.7, .7, 1) translate3d(0px, 0px, 0px);
+}
+
+@media only screen and (max-width: 800px) {
+	.cloud {
+		display: none;
+	}
 }

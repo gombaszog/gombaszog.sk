@@ -53,8 +53,8 @@ if ($(".ticket-form").length > 0) {
 			});
 			$('#hetijegy').data('price', data.ticketweek);
 			$('#hetijegy').html('Hetijegy ' + data.ticketweek + '&euro;');
-			$('#napijegy').data('price', data.ticketday);
-			$('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
+			// $('#napijegy').data('price', data.ticketday);
+			// $('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
 			$('#price').html(data.ticketweek);
 		});
 	}
@@ -131,20 +131,20 @@ if ($(".ticket-form").length > 0) {
 		var originalPrice = price;
 		tmp = !$("#ticket_housing").is(':disabled') ? $("#ticket_housing option:selected").data('price') : 0;
 		if (tmp) price += parseFloat(tmp);
-		tmp = !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
-		if (tmp) price += parseFloat(tmp);
-		tmp = !$("#partivonat-select").is(':disabled') ? $("#partivonat-select option:selected").data('price') : 0;
-		if (tmp) price += parseFloat(tmp);
-		tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
-		if (tmp) price += parseFloat(tmp);
+		// tmp = !$("#ticket_food").is(':disabled') ? $("#ticket_food option:selected").data('price') : 0;
+		// if (tmp) price += parseFloat(tmp);
+		// tmp = !$("#partivonat-select").is(':disabled') ? $("#partivonat-select option:selected").data('price') : 0;
+		// if (tmp) price += parseFloat(tmp);
+		// tmp = !$("#ticket_beer").is(':disabled') ? $("#ticket_beer").data('price') * Math.abs($("#ticket_beer").val()) : 0;
+		//if (tmp) price += parseFloat(tmp);
 		tmp = (!$("#ticket_donation").is(':disabled') && $("#ticket_donation").val() != "x") ? $("#ticket_donation").val() : 0;
 		if (tmp) price += parseFloat(tmp);
-		tmp = !$("#ticket_tshirt").is(':disabled') ? $("#ticket_tshirt option:selected").data('price') : 0;
-		if (tmp) price += parseFloat(tmp);
+		// tmp = !$("#ticket_tshirt").is(':disabled') ? $("#ticket_tshirt option:selected").data('price') : 0;
+		// if (tmp) price += parseFloat(tmp);
 		// we keep this line with empty array to have it in the future
-		tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
+		// tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
 		// free if the birth date is before 1990
-		// tmp = (Date.parse($("#ticket_birth").val()) < 631148400000 ? -originalPrice : 0);
+		tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 ? -originalPrice : 0);
 		if (tmp) price += parseFloat(tmp);
 		$('#price').html(price);
 	}
