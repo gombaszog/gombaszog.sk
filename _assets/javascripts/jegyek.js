@@ -93,10 +93,10 @@ if ($(".ticket-form").length > 0) {
 	var handleStupidBirtDateFormats = function () {
 		var actDateTxt = $("#ticket_birth").val();
 		if (!actDateTxt) return; // not yet filled
-		if (/^(19[0-9]{2}|20[01][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(actDateTxt)) return; // actually, good
-		if (/^[^0-9]*(19[0-9]{2}|20[01][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/.test(actDateTxt)) {
+		if (/^(19[0-9]{2}|20[012][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(actDateTxt)) return; // actually, good
+		if (/^[^0-9]*(19[0-9]{2}|20[012][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/.test(actDateTxt)) {
 			// actually, almost good, correct it
-			actDateTxt = actDateTxt.replace(/^.*(19[0-9]{2}|20[01][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/, function (match, p1, p2, p3) {
+			actDateTxt = actDateTxt.replace(/^.*(19[0-9]{2}|20[012][0-9])[^0-9]+(0?[1-9]|1[012])[^0-9]+(0?[1-9]|[12][0-9]|3[01])[^0-9]*$/, function (match, p1, p2, p3) {
 				return addLeadingZeros(p1) + "-" + addLeadingZeros(p2) + "-" + addLeadingZeros(p3);
 			});
 			$("#ticket_birth").val(actDateTxt);
@@ -143,8 +143,11 @@ if ($(".ticket-form").length > 0) {
 		// if (tmp) price += parseFloat(tmp);
 		// we keep this line with empty array to have it in the future
 		// tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
-		// free if the birth date is before 1990
-		tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 ? -originalPrice : 0);
+		// free if the birth date is before 1991
+		tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 && $("#ticket_country").val() === "SK" ? -originalPrice : 0);
+		if (tmp) price += parseFloat(tmp);
+		// free if the age is smalller than 13
+		tmp = (Date.parse($("#ticket_birth").val()) > 1278806400000 ? -originalPrice : 0);
 		if (tmp) price += parseFloat(tmp);
 		$('#price').html(price);
 	}
@@ -372,6 +375,7 @@ if ($(".ticket-form").length > 0) {
 	$('#ticket_country').on('change', function () {
 		$('#settlement_fill').html('');
 		$('#settlement_fill').hide();
+		calculateTicketPrice();
 	});
 
 	function fillSettlement(value) {
