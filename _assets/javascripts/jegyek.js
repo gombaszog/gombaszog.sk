@@ -53,8 +53,8 @@ if ($(".ticket-form").length > 0) {
 			});
 			$('#hetijegy').data('price', data.ticketweek);
 			$('#hetijegy').html('Hetijegy ' + data.ticketweek + '&euro;');
-			// $('#napijegy').data('price', data.ticketday);
-			// $('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
+			$('#napijegy').data('price', data.ticketday);
+			$('#napijegy').html('Napijegy ' + data.ticketday + '&euro;/nap');
 			$('#price').html(data.ticketweek);
 		});
 	}
@@ -144,8 +144,8 @@ if ($(".ticket-form").length > 0) {
 		// we keep this line with empty array to have it in the future
 		// tmp = ($.inArray($("#ticket_zip").val(), freeCities) > -1 ? -originalPrice : 0);
 		// free if the birth date is before 1991
-		tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 && $("#ticket_country").val() === "SK" ? -originalPrice : 0);
-		if (tmp) price += parseFloat(tmp);
+		// tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 && $("#ticket_country").val() === "SK" ? -originalPrice : 0);
+		// if (tmp) price += parseFloat(tmp);
 		// free if the age is smalller than 13
 		tmp = (Date.parse($("#ticket_birth").val()) > 1278806400000 ? -originalPrice : 0);
 		if (tmp) price += parseFloat(tmp);
