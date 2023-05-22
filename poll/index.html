@@ -1,40 +1,222 @@
 ---
-layout: default
-title: Ki lépjen fel Gombaszögön?
+layout: page
+title: Ott leszek!
+shortname: poll
+order: 5
 group: otletborze
 ---
-<style type="text/css">
-  html,
-  body {
-    height: 100%;
-  }
+<!-- remove after end of poll -->
+<div id="fb-root"></div>
+<script type="text/javascript">
+	ajax_error = function () {
+		jQuery("#poll").html(
+			"<strong style=\"color: red;\">Hiba történt a szerverrel való kommunikáció során. Zárd be ezt az ablakot és próbáld újra később! Ha nem tudsz újra szavazni, akkor a szavazatodat sikeresen fogadtuk és a hiba a hiba jelzésében keletkezett :)</strong>"
+		);
+	}
 
-</style>
-<div id="error-page">
-  <div class="error-page-inner">
-    <div class="content-404 bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="error-info">
-              <h2><span>...</span>Hamarosan!</h2>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="back-to">
-              <p class="text-justified">Sajnáljuk, a szavazás jelenleg nem elérhető. Kérlek, nézz vissza később.</p>
+	// add_input = function () {
+	// 	jQuery("#poll .custom-votes").append(
+	// 		"<div class=\"progress poll-progress\"><input type=\"text\" class=\"form-control new-vote\" placeholder=\"Új zenekar nevét itt adhatod meg\"/></div>"
+	// 	);
+	// }
 
-              <h3>Az alábbi linkeket viszont ajánljuk figyelmedbe!</h3>
-              <ul class="pull-left">
-                <li><a href="/"><i class="fa fa-hand-o-right"></i> Főoldal</a></li>
-                <li><a href="//facebook.com/gombaszog"><i class="fa fa-hand-o-right"></i> Facebook</a></li>
-                <li><a href="//twitter.com/gombaszog"><i class="fa fa-hand-o-right"></i> Twitter</a></li>
-                <li><a href="https://www.instagram.com/gombaszog"><i class="fa fa-hand-o-right"></i> Instagram</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '267323596708516',
+			status: true,
+			cookie: true,
+			xfbml: true
+		});
+		jQuery.ajax({
+			url: '/api/poll',
+			dataType: 'json',
+			type: 'GET',
+		}).done(function (data) {
+			console.log(data);
+			var max = 0;
+			var num = 0;
+			var tmp;
+			jQuery.each(data, function (k, v) {
+				num++;
+				tmp = parseInt(v);
+				if (max < tmp) max = tmp;
+			});
+			if (num > 0) {
+				poll = jQuery("#poll").html("<div class=\"custom-votes\"></div>");
+				jQuery.each(data, function (k, v) {
+					tmp = v / max * 90;
+					e = jQuery("<div class=\"progress poll-progress\" data-value=\"" + k +
+						"\"><div class=\"progress-bar progress-bar-info\" role=\"progressbar\" aria-valuenow=\"" + tmp +
+						"\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: " + tmp + "%\"><span>" + k +
+						"</span></div></div>");
+					e.click(function () {
+						if (jQuery(this).hasClass("selected")) {
+							add_input();
+							jQuery(this).removeClass("selected");
+						} else if (jQuery(".poll-progress.selected").length < 3) {
+							jQuery(".custom-votes .new-vote").last().parent().remove();
+							jQuery(this).addClass("selected");
+						}
+					});
+					poll.prepend(e);
+				});
+				// add_input();
+				// add_input();
+				// add_input();
+				var btn = jQuery(
+					"<button class=\"btn\" id=\"vote-button\"><i class=\"fa-fw fa-facebook fa\"></i> Szavazás</button>");
+				btn.click(function () {
+					jQuery(this).remove();
+					FB.login(function (response) { // log in
+						if (response.authResponse) { // logged in
+							FB.api('/me/permissions', function (response) { // request permissions
+								r = response.data;
+								checkPerm = function (a, p) {
+									for (var i = 0; i < a.length; i++) {
+										console.log(a[i]);
+										if (a[i].permission == p && a[i].status == "granted") {
+											return true;
+										}
+									}
+									return false;
+								};
+								if (checkPerm(r, "email") && checkPerm(r,
+									"public_profile")) {
+									data = {};
+									jQuery.each(jQuery(".poll-progress.selected"), function (k, v) {
+										data[jQuery(v).data("value")] = 1;
+									});
+									jQuery.each(jQuery(".new-vote"), function (k, v) {
+										if (jQuery(v).val() != "") data[jQuery(v).val()] = 1;
+									});
+									jQuery("#poll").html(
+										"<p class=\"text-center\"><i class=\"fa fa-spinner fa-spin fa-5x\"></i></p>");
+									jQuery.ajax({
+										url: '/api/poll',
+										dataType: 'json',
+										type: 'PATCH',
+										data: {
+											votes: data
+										}
+									}).done(function (data) {
+										jQuery("#poll").html("<strong style=\"color: red;\">" + data.message +
+											" Az oldal pár másodpercen belül újratöltődik...</strong>");
+										document.getElementById("navigation").scrollIntoView();
+										if (data.votes) {
+											FB.ui({
+												method: 'share',
+												href: 'https://gombaszog.sk/poll',
+												quote: "Ha csak három koncertre mész el Gombaszögön, ezek legyenek azok: " +
+													data.votes + "! Mutasd meg ismerőseidnek, hogy melyik bulikon futhattok össze! 😎",
+											}, function (response) {
+												setTimeout(function () {
+													document.location.reload();
+												}, 5000);
+											});
+										} else {
+											setTimeout(function () {
+												document.location.reload();
+											}, 5000);
+										}
+									}).fail(ajax_error);
+								} else { // refresh for permissions
+									console.log("Permission error, details: email: " + checkPerm(r, "email") +
+										" public_profile: " + checkPerm(r, "public_profile"));
+									jQuery("#poll").html(
+										"<strong style=\"color: red;\">A szavazáshoz először engedélyezned kell az alkalmazásunkat. Ha ez megtörtént, töltsd újra az oldalat!</strong>"
+									);
+								}
+							});
+						} else {
+							jQuery("#poll").html(
+								"<strong style=\"color: red;\">A szavazáshoz először be kell jelentkezned a Facebookon!</strong>"
+							);
+						}
+					}, {
+						scope: 'email,public_profile'
+					});
+				});
+				jQuery(".poll-buttonspace").append(btn);
+			} else {
+				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
+			}
+		}).fail(function (data) {
+			if (data && data.responseJSON && data.responseJSON.error === "No polls available") {
+				jQuery("#poll").html("<strong style=\"color: red;\">A szavazás már nem elérhető!</strong>");
+			} else {
+				ajax_error();
+			}
+		});
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="bg">
+				<h3>
+					<span class="lang-hu">Ott leszek!</span>
+					<span class="lang-en" style="display: none;">Bands</span>
+				</h3>
+				<div>
+					<p class="justified">
+						<span class="lang-hu">Ha csak három koncertre mész el Gombaszögön, akkor melyikek lesznek azok?</span>
+					</p>
+					<p class="justified"><em>
+							<span class="lang-hu">Összesen három zenekarra szavazhatsz!</span>
+						</em></p>
+				</div>
+				<div id="poll">
+					<p class="text-center"><i class="fa fa-spinner fa-spin fa-5x"></i></p>
+				</div>
+				<p class="poll-buttonspace text-center"></p>
+				<div>
+					<p class="justified">
+						<span class="lang-hu"><small>A szavazáshoz Facebook-fiók, valamint az alkalmazásunk
+								engedélyezése szükséges.
+								Szavazni csak egyszer lehet, maximum három zenekarra. A hamis Facebook-fiókokkal és/vagy gyanús IP-címekről érkező
+								szavazatokat
+								rendszerünk automatikusan szűri és érvényteleníti. Ja és ne csaljatok!</small></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="modal fade" id="t_c">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h3>
+					<span class="lang-hu">Adatkezelési és közzétételi feltételek</span>
+        </h3>
+				<button type="button" class="close pull-rught" data-dismiss="modal" aria-hidden="true"
+					style="color: white;"><i class="fa fa-times"></i></button>
+				<p>
+					<span class="lang-hu">Az űrlapon megadott adatok tulajdonjogát a beküldő a beküldés pillanatában
+						átruházza a
+						Diákhálózatra és a Sine Metu polgári társulásra. A megadott e-mail címet ellenben a beküldő
+						személyes
+						adatjaként kezelik és azt harmadik félnek ki nem szolgáltatják. <br />A beérkező ötletek további
+						sorsát a
+						szervezők egymás között döntik el, melyről a beküldőt nem értesítik.</span>
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
