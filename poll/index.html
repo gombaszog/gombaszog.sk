@@ -59,6 +59,13 @@ group: otletborze
     "SunCity Brass",
     "The Beat This",
     "Trapéz",
+    "Góbé",
+    "Pósfa",
+    "Korpás Éva",
+    "Fanfara Complexa",
+    "Romengo együttes",
+    "Sajó Banda",
+    "Herczku Ágnes",
   ]
 
   window.fbAsyncInit = function () {
@@ -148,16 +155,16 @@ group: otletborze
 
                       const res = opt.map(i => optionArray.findIndex(a => a === i))
 
-                      const res2 = res.sort(function(a, b){return a-b})
+                      const res2 = res.sort(function (a, b) { return a - b })
 
                       FB.ui({
-                      	method: 'share',
-                      	href: `https://gombaszog.sk/poll/result/${res2.join("-")}`,
+                        method: 'share',
+                        href: `https://gombaszog.sk/poll/result/${res2.join("-")}`,
                         display: 'popup',
                       }, function (response) {
-                      	setTimeout(function () {
-                      		document.location.reload();
-                      	}, 5000);
+                        setTimeout(function () {
+                          document.location.reload();
+                        }, 5000);
                       });
                     } else {
                       setTimeout(function () {

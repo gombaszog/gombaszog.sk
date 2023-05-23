@@ -44,6 +44,13 @@ module Jekyll
             35=> "SunCity Brass",
             36=> "The Beat This",
             37=> "Trapéz",
+            38=> "Góbé",
+            39=> "Pósfa",
+            40=> "Korpás Éva",
+            41=> "Fanfara Complexa",
+            42=> "Romengo együttes",
+            43=> "Sajó Banda",
+            44=> "Herczku Ágnes",
           }
         dir = "poll/result"
         options.each_key do |result1|
