@@ -153,7 +153,11 @@ group: otletborze
                     if (data.votes) {
                       const opt = data.votes.split(", ");
 
-                      const res = opt.map(i => optionArray.findIndex(a => a === i))
+                      const res = opt.map(i => {
+                        if (i === "Döndi Duó &amp; Roli") return 11;
+                        if (i === "Ivan &amp; The Parazol") return 18;
+                        return optionArray.findIndex(a => i === a)
+                      })
 
                       const res2 = res.sort(function (a, b) { return a - b })
 
