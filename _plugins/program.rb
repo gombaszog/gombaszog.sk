@@ -51,7 +51,7 @@ class ProgramDefault < Liquid::Tag
           html.div(:class => first, :id => day_l_map[d]) do
             first = "tab-pane row"
             html.div(:class => "col-md-2 visible-md visible-lg") do
-              html.ul(:class => "nav nav-pills nav-stacked filter") do
+              html.ul(:class => "nav nav-pills nav-stacked filter custom-filter-list") do
                 html.li(:class => "active alltoggle") { html.a(:href => "#") { html.text "Mutasd mind!" } }
                 html.p(:class => "filter-header", :style => (l[:locations].empty? && l[:events].empty? ? "display:none;" : "").to_s) { html.text "Helyszinek:" }
                 i = 0
