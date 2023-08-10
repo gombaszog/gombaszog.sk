@@ -28,7 +28,7 @@ group: otletborze
 			xfbml: true
 		});
 		jQuery.ajax({
-			url: 'http://localhost:3000/api/poll',
+			url: '/api/poll',
 			dataType: 'json',
 			type: 'GET',
 		}).done(function (data) {
@@ -92,7 +92,7 @@ group: otletborze
 									jQuery("#poll").html(
 										"<p class=\"text-center\"><i class=\"fa fa-spinner fa-spin fa-5x\"></i></p>");
 									jQuery.ajax({
-										url: 'http://localhost:3000/api/poll',
+										url: '/api/poll',
 										dataType: 'json',
 										type: 'POST',
 										data: {
