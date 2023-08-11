@@ -104,10 +104,10 @@ group: otletborze
 										document.getElementById("navigation").scrollIntoView();
 										if (data.votes) {
                       const opt = data.votes.replaceAll("-", "_").split(", ");
-                      console.log(`https://poll.gombaszog.sk/poll/${encodeURIComponent(opt.join("-"))}`)
+                      console.log(`https://poll.gombaszog.sk/${encodeURIComponent(opt.join("-"))}`)
 											FB.ui({
 												method: 'share',
-												href: `https://poll.gombaszog.sk/poll/${encodeURIComponent(opt.join("-"))}`,
+												href: `https://poll.gombaszog.sk/${encodeURIComponent(opt.join("-"))}`,
 											}, function (response) {
 												setTimeout(function () {
 													document.location.reload();
