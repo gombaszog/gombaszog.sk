@@ -107,6 +107,7 @@ group: otletborze
                       console.log(`https://poll.gombaszog.sk/poll/${encodeURIComponent(opt.join("-"))}`)
 											FB.ui({
 												method: 'share',
+                        display: 'popup',
 												href: `https://poll.gombaszog.sk/poll/${encodeURIComponent(opt.join("-"))}`,
 											}, function (response) {
 												setTimeout(function () {
