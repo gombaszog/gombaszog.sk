@@ -147,7 +147,7 @@ if ($(".ticket-form").length > 0) {
 		// tmp = (Date.parse($("#ticket_birth").val()) < 662684400000 && $("#ticket_country").val() === "SK" ? -originalPrice : 0);
 		// if (tmp) price += parseFloat(tmp);
 		// free if the age is smalller than 13
-		tmp = (Date.parse($("#ticket_birth").val()) > 1278806400000 ? -originalPrice : 0);
+		tmp = (Date.parse($("#ticket_birth").val()) > 1310774400000 ? -originalPrice : 0);
 		if (tmp) price += parseFloat(tmp);
 		$('#price').html(price);
 	}
