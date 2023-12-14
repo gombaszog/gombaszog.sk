@@ -18,10 +18,10 @@ permalink: /jegyek/fizetes/index.html
 		<div class="content-404 bg">
 			<div class="container">
 				<div class="row">
-					<div id="msg"><h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
-						ért!</h2></div>
+					{% comment %}<div id="msg"><h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+						ért!</h2></div>{% endcomment %}
 					<div id="pay-form" class="hidden-form">
-						{% comment %}<div>
+						<div>
 							{% comment %}<p class="text-justified">A jegy árát kizárólag személyesen, a tábori portán lehet kifizetni.
 							</p>{% endcomment %}
 							<p class="text-justified">Utalás esetén az alábbi számlaszámra kérjük a jegy ellenértékét: Sine Metu o.z.,
@@ -40,7 +40,7 @@ permalink: /jegyek/fizetes/index.html
 							<h3 class='text-justified ticket-price-success-pay'></h3>
 							<p class="text-justified">Sikeres fizetés esetén a jegyedet e-mailben kapod meg.</p>
 							<h3>Várunk a Táborban!</h3>
-						</div>{% endcomment %}
+						</div>
 						{% comment %}<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 							<input type="hidden" name="first_name" id="first_name" value="" />
 							<input type="hidden" name="last_name" id="last_name" value="" />
