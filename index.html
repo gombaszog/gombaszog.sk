@@ -8,7 +8,7 @@ group: fooldal
     <div class="biglogo">
       <a href="/" style="margin-top: 0;">
         <h1>
-          <a href="/program" ><img src="{% asset_path artists_web.png %}" alt='Banner' /></a>
+          <img src="{% asset_path logo_2024.png %}" alt='Banner' />
         </h1>
       </a>
     </div>
@@ -776,18 +776,18 @@ group: fooldal
     <div class="row">
       <div class="col-sm-12 col-md-8">
         <div class="single-event">
-			<div class="media">
-				<iframe width="560" height="315" src="//www.youtube.com/embed/WwyCCV2dhMI" frameborder="0"
+          <div class="media">
+            <iframe width="560" height="315" src="//www.youtube.com/embed/WwyCCV2dhMI" frameborder="0"
               allowfullscreen></iframe>
-			</div>
+          </div>
         </div>
         <div class="single-event latest-post">
           <h2 class="heading">Friss <strong>híreink</strong></h2>
           {% for post in site.posts limit: 4 %}
           <div class="media">
             <div class="pull-left">
-              <a href="{{ post.url }}"><img src="{{ post.thumbnail | replace: 'image_','thb_image_' }}" alt="{{ post.title}}"
-                  width="125"></a>
+              <a href="{{ post.url }}"><img src="{{ post.thumbnail | replace: 'image_','thb_image_' }}"
+                  alt="{{ post.title}}" width="125"></a>
             </div>
             <div class="media-body">
               <a href="{{ post.url }}">
@@ -831,9 +831,10 @@ group: fooldal
         <div class="single-event">
           <h2 class="heading">Spotify <strong>lista</strong></h2>
 
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6eifiTivCDLXABTWe4gAO4?utm_source=generator"
-		  	width="100%" height="260" frameBorder="0" allowfullscreen=""
-			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/6eifiTivCDLXABTWe4gAO4?utm_source=generator" width="100%"
+            height="260" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         </div>
       </div>
     </div>

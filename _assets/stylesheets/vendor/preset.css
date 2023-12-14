@@ -116,7 +116,7 @@ a:hover,
 #latest-event-content .latest-event:hover .tab .active,
 #navigation li:hover>a {
   /*color: #76C2A8;*/
-  color: rgba(239, 235, 130, 1);
+  color: rgba(0, 0, 0, .5);
 }
 
 /* button hover color */

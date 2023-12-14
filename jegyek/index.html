@@ -12,39 +12,38 @@ group: jegyek
 				<ul class="clearfix">
 					<li class="regular">
 						<div class="regular-price">
-							<h2></h2>
-							<p class="price"></p>
-							<p class="price-content"></p>
+							<h2>Nyári<br>hetijegy</h2>
+							<p class="price">99&euro;</p>
+							<p class="price-content">július 11-ig<br>elővételben</p>
 						</div>
 					</li>
 					<li class="xplore">
-            <div class="regular-price">
-							<h2>Helyszíni<br>hetijegy</h2>
-							<p class="price">85&euro;</p>
-							<p class="price-content">6 nap<br> a helyszínen</p>
+            			<div class="regular-price">
+							<h2>Téli<br>hetijegy</h2>
+							<p class="price">79&euro;</p>
+							<p class="price-content">február 29-ig<br>elővételben</p>
 						</div>
 					</li>
 					<li class="rock">
 						<div class="regular-price">
-							<h2>Jegyelővétel<br></h2>
-							<p class="price"><br></p>
-							<p class="price-content"><br></p>
-							{% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>{% endcomment %}
+							<h2>Karácsonyi<br>hetijegy</h2>
+							<p class="price">69&euro;</p>
+							<p class="price-content">december 31-ig<br>elővételben</p>
+							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
 						</div>
 					</li>
 					<li class="xplore">
 						<div class="regular-price">
-							<h2>Helyszíni<br>napijegy</h2>
-							<p class="price">25&euro;</p>
-							<p class="price-content">1 nap<br> a helyszínen</p>
+							<h2>Tavaszi<br>hetijegy</h2>
+							<p class="price">89&euro;</p>
+							<p class="price-content">április 30-ig<br>elővételben</p>
 						</div>
 					</li>
 					<li class="vip">
 						<div class="regular-price">
-							<h2></h2>
-							<p class="price"></p>
-							<p class="price-content"></p>
-
+							<h2>Helyszíni<br>hetijegy</h2>
+							<p class="price">110&euro;</p>
+							<p class="price-content">&nbsp;<br>a helyszínen</p>
 						</div>
 					</li>
 				</ul>
@@ -52,11 +51,11 @@ group: jegyek
 				{% comment %}<div style="text-align: center; margin-top: 30px;">
 					Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
 						data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
-							jegy</strong> vásárlása</button>{% endcomment %}
-				</div>
+							jegy</strong> vásárlása</button>
+				</div>{% endcomment %}
 
-				<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
-					ért!</h2>
+				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+					ért!</h2>{% endcomment %}
 
 				{% comment %}<h4 class="text-center"
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
@@ -65,7 +64,7 @@ group: jegyek
 				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
 					pár nap türelmet kérünk!</h2>{% endcomment %}
 
-          {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+          		<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
 						<div class="row">
@@ -75,10 +74,10 @@ group: jegyek
 										<img src="{% asset_path jegy.png %}" alt="Jegy ikon" class="img-responsive" />
 									</div>
 									<div class="col-sm-8">
-										<label class="control-label" for="ticket_category">Jegytípus </label>
+										<label class="control-label" for="ticket_category">Jegytípus (Napijegy tavasztól érhető el)</label>
 										<select id="ticket_category" name="ticket[category]" class="form-control influence">
-											<option value="hetijegy" id='hetijegy' data-price="">Hetijegy</option>
-											<option value="napijegy" id='napijegy' data-price="">Napijegy</option>
+											<option value="hetijegy" id='hetijegy' data-price="" selected>Hetijegy</option>
+											{% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option>{% endcomment %}
 										</select>
 											{% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
 									</div>
@@ -724,15 +723,15 @@ group: jegyek
 									Utalás esetén a jegy ellenértékének a "Tovább" gombra való kattintás után öt
 									napon belül meg kell
 									érkeznie az
-									alábbi számlára: Sine Metu o.z., IBAN: SK88 7500 0000 0040 3025 3111. Közleménybe kérjük feltüntetni
+									alábbi számlára: Sine Metu o.z., IBAN: SK61 0900 0000 0052 0898 8727. Közleménybe kérjük feltüntetni
 									a vásárló
 									<strong>itt megadott e-mail címet.</strong>
 								</p>
 								<p class="text-justified">
 									Külföldről érkező utalás esetén:
-									<strong>Bank:</strong> CSOB, a.s.,
-									<strong>SWIFT/BIC:</strong> CEKOSKBX,
-									<strong>Cím:</strong> Žižkova 11, 811 02 Bratislava,
+									<strong>Bank:</strong> Slovenská sporiteľňa, a.s.,
+									<strong>SWIFT/BIC:</strong> GIBASKBX,
+									<strong>Cím:</strong> Tomášikova 48, 832 37 Bratislava,
 									<strong>Ország:</strong> Slovakia (SK)
 								</p>
 								<p class="text-justified">
@@ -757,7 +756,7 @@ group: jegyek
 						</div>
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-				</form>{% endcomment %}
+				</form>
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
@@ -766,7 +765,7 @@ group: jegyek
 </div>
 
 
-<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
+{% comment %}<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
 	aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -793,7 +792,7 @@ group: jegyek
 			</div>
 		</div>
 	</div>
-</div>
+</div>{% endcomment %}
 
 
 <script type="application/ld+json">
