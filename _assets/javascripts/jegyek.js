@@ -432,75 +432,75 @@ jQuery(document).ready(function ($) {
 				} else if (data.status == "dropped") {
 					msg = "Kedves " + data.last_name + " " + data.first_name + ", <br />a fizetés nem kezdeményezhető, mert lejárt a rendelés utáni időkeret. <a href=\"/jegyek/\">Kattints ide</a> új vásárlás indításához.";
 				} else if (data.status == "completed") {
-					msg = "Kiegészítő jegy vásárlására egyelőre nincs lehetőség. Látogass vissza később.";
-					// msg = "Kedves " + data.ticket_last_name + " " + data.ticket_first_name + ", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
-					// $('#pay-form').remove();
-					// $('form')[0].reset();
-					// $('#ticket_voucher').val(getUrlVars().voucher);
-					// captcha_reload();
-					// loadVars();
-					// console.log(data);
-					// $.each(data, function (key, val) {
-					// 	if (key == "ticket_nap_hetfo" ||
-					// 		key == "ticket_nap_kedd" ||
-					// 		key == "ticket_nap_szerda" ||
-					// 		key == "ticket_nap_csutortok" ||
-					// 		key == "ticket_nap_pentek" ||
-					// 		key == "ticket_nap_szombat") {
-					// 		if (val == 1) {
-					// 			$("#" + key).click()
-					// 				.attr('disabled', 'disabled');
-					// 		}
-					// 	} else {
-					// 		$("#" + key).val(val)
-					// 			.change();
-					// 	}
-					// 	if (key == 'ticket_category' && val == "napijegy") {
-					// 		$('#select_days').fadeIn(500);
-					// 	} else if (key == 'ticket_category' && val == "hetijegy") {
-					// 		$(".days").prop("checked", false);
-					// 		$('#ticket_category').attr('disabled', 'disabled');
-					// 		$('#ticket_voucher').attr('disabled', 'disabled');
-					// 	}
-					// 	if (key == 'ticket_camp_id' && val != null) {
-					// 		$('#ticket_housing').val('0')
-					// 			.attr('disabled', 'disabled')
-					// 	} else if (key == 'ticket_housing_id' && val != null) {
-					// 		$('#ticket_housing').val('0')
-					// 			.attr('disabled', 'disabled')
-					// 	}
-					// 	if (key == 'ticket_bus' && val != null) {
-					// 		setTimeout(function () {
-					// 			$("#" + 'partivonat-select').attr('disabled', 'disabled');
-					// 			$("#" + 'partivonat-select').val(val)
-					// 				.change();
-					// 		}, 1000);
-					// 	}
-					// 	if (key == 'ticket_donation' && parseInt(val) > 0) {
-					// 		setTimeout(function () {
-					// 			$("#" + 'ticket_donation').attr('disabled', 'disabled');
-					// 			$("#" + 'ticket_donation').val(val)
-					// 				.change();
-					// 		}, 1000);
-					// 	}
-					// 	if (key == 'ticket_tshirt' && val != null) {
-					// 		setTimeout(function () {
-					// 			$("#" + 'ticket_tshirt').attr('disabled', 'disabled');
-					// 			$("#" + 'ticket_tshirt').val(val)
-					// 				.change();
-					// 		}, 1000);
-					// 	}
-					// 	else if (key == 'ticket_donation' && parseInt(val) == 0) {
-					// 		setTimeout(function () {
-					// 			$("#" + 'ticket_donation').val("x")
-					// 				.change();
-					// 		}, 1000);
-					// 	}
-					// });
+					// msg = "Kiegészítő jegy vásárlására egyelőre nincs lehetőség. Látogass vissza később.";
+					msg = "Kedves " + data.ticket_last_name + " " + data.ticket_first_name + ", <br />ezt a jegyet már kifizetted. <br>Ha szeretnél további elemeket venni, akkor kattints <a href=\"#\" onclick=\"$('.ticket-addition').fadeIn(500); $('#msg').hide(); setTimeout(calculateTicketPrice, 1100);\">ide</a>. <br> Ha nem találod a jegyed a postaládádban, kérünk, nézd meg a SPAM mappában, ha ott sem találod, írj a jegyek@gombaszog.sk címre!";
+					$('#pay-form').remove();
+					$('form')[0].reset();
+					$('#ticket_voucher').val(getUrlVars().voucher);
+					captcha_reload();
+					loadVars();
+					console.log(data);
+					$.each(data, function (key, val) {
+						if (key == "ticket_nap_hetfo" ||
+							key == "ticket_nap_kedd" ||
+							key == "ticket_nap_szerda" ||
+							key == "ticket_nap_csutortok" ||
+							key == "ticket_nap_pentek" ||
+							key == "ticket_nap_szombat") {
+							if (val == 1) {
+								$("#" + key).click()
+									.attr('disabled', 'disabled');
+							}
+						} else {
+							$("#" + key).val(val)
+								.change();
+						}
+						if (key == 'ticket_category' && val == "napijegy") {
+							$('#select_days').fadeIn(500);
+						} else if (key == 'ticket_category' && val == "hetijegy") {
+							$(".days").prop("checked", false);
+							$('#ticket_category').attr('disabled', 'disabled');
+							$('#ticket_voucher').attr('disabled', 'disabled');
+						}
+						if (key == 'ticket_camp_id' && val != null) {
+							$('#ticket_housing').val('0')
+								.attr('disabled', 'disabled')
+						} else if (key == 'ticket_housing_id' && val != null) {
+							$('#ticket_housing').val('0')
+								.attr('disabled', 'disabled')
+						}
+						if (key == 'ticket_bus' && val != null) {
+							setTimeout(function () {
+								$("#" + 'partivonat-select').attr('disabled', 'disabled');
+								$("#" + 'partivonat-select').val(val)
+									.change();
+							}, 1000);
+						}
+						if (key == 'ticket_donation' && parseInt(val) > 0) {
+							setTimeout(function () {
+								$("#" + 'ticket_donation').attr('disabled', 'disabled');
+								$("#" + 'ticket_donation').val(val)
+									.change();
+							}, 1000);
+						}
+						if (key == 'ticket_tshirt' && val != null) {
+							setTimeout(function () {
+								$("#" + 'ticket_tshirt').attr('disabled', 'disabled');
+								$("#" + 'ticket_tshirt').val(val)
+									.change();
+							}, 1000);
+						}
+						else if (key == 'ticket_donation' && parseInt(val) == 0) {
+							setTimeout(function () {
+								$("#" + 'ticket_donation').val("x")
+									.change();
+							}, 1000);
+						}
+					});
 				} else {
 					msg = "A jegy nem található. Kérlek, ellenőrizd a linket, vagy lépj kapcsolatba velünk a jegyek@gombaszog.sk címen.";
 				}
-				
+
 				$('#msg').html(msg);
 			});
 

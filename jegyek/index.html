@@ -12,23 +12,23 @@ group: jegyek
 				<ul class="clearfix">
 					<li class="regular">
 						<div class="regular-price">
+							<h2><br></h2>
+							<p class="price"></p>
+							<p class="price-content"><br></p>
+						</div>
+					</li>
+					<li class="xplore">
+            			<div class="regular-price">
 							<h2>Nyári<br>hetijegy</h2>
 							<p class="price">99&euro;</p>
 							<p class="price-content">július 11-ig<br>elővételben</p>
 						</div>
 					</li>
-					<li class="xplore">
-            			<div class="regular-price">
+					<li class="rock">
+						<div class="regular-price">
 							<h2>Téli<br>hetijegy</h2>
 							<p class="price">79&euro;</p>
 							<p class="price-content">február 29-ig<br>elővételben</p>
-						</div>
-					</li>
-					<li class="rock">
-						<div class="regular-price">
-							<h2>Karácsonyi<br>hetijegy</h2>
-							<p class="price">69&euro;</p>
-							<p class="price-content">december 31-ig<br>elővételben</p>
 							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
 						</div>
 					</li>
@@ -48,11 +48,11 @@ group: jegyek
 					</li>
 				</ul>
 
-				{% comment %}<div style="text-align: center; margin-top: 30px;">
+				<div style="text-align: center; margin-top: 30px;">
 					Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
 						data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
 							jegy</strong> vásárlása</button>
-				</div>{% endcomment %}
+				</div>
 
 				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
 					ért!</h2>{% endcomment %}
@@ -61,10 +61,10 @@ group: jegyek
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
 					jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
 
-				<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
-					pár nap türelmet kérünk!</h2>
+					{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
+					pár nap türelmet kérünk!</h2>{% endcomment %}
 
-          {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+          <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
 						<div class="row">
@@ -756,7 +756,7 @@ group: jegyek
 						</div>
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-				</form>{% endcomment %}
+				</form>
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
@@ -765,7 +765,7 @@ group: jegyek
 </div>
 
 
-{% comment %}<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
+<div class="modal fade" id='ticket-barcode-modal' tabindex="-1" role="dialog" aria-labelledby="ticket-barcode-label"
 	aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -792,7 +792,7 @@ group: jegyek
 			</div>
 		</div>
 	</div>
-</div>{% endcomment %}
+</div>
 
 
 <script type="application/ld+json">
@@ -800,8 +800,8 @@ group: jegyek
 		"@context": "https://schema.org",
 		"@type": "Festival",
 		"name": "Gombaszögi Nyári Tábor",
-		"startDate": "2023-07-11",
-		"endDate": "2023-07-16",
+		"startDate": "2024-07-16",
+		"endDate": "2024-07-21",
 		"location": {
 			"@type": "Place",
 			"name": "Kemping Gombaszög",
