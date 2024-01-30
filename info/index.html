@@ -321,7 +321,7 @@ group: info
             bemutatkozást, és pár sort arról, mihez tudnátok hozzájárulni!</p>
           <p class="text-justified">A rendezvényen számos szolgáltatást külső partnerekkel végzünk. Ha <strong>árusként
               szeretnél jelentkezni</strong>, kérlek, írj a info<i class="fa fa-exclamation-circle"></i>gombaszog.sk
-            címre, vagy keresd Kocskovics Petit, akinek a telefonszámát pár sorral lejjebb találod.</p>
+            címre{% comment %}, vagy keresd Kocskovics Petit, akinek a telefonszámát pár sorral lejjebb találod.{% endcomment %}</p>
         </div>
         <div class="col-md-5">
           <img src="{% asset_path csatlakozz.jpg %}" class="img-responsive" alt="Csapat" />
@@ -369,27 +369,6 @@ group: info
           </div>
           <div class="col-md-3 col-sm-6">
             <div class="single-album">
-              <img src="{% asset_path kapcsolat/kocskovics_2.jpg %}" alt="Kocskovics Péter">
-              <div class="album-heading">
-                <h3>Kocskovics Péter</h3>
-                <p>Főszervező-helyettes</p>
-              </div>
-              <div class="album-overlay">
-                <div class="album-info">
-                  <h3>Kocskovics Péter</h3>
-                  <ul class="icon-list">
-                    <li class="email">info<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
-                    <li class="phone">+421&nbsp;944&nbsp;104&nbsp;494</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-1 hidden-sm">&nbsp;</div>
-          <div class="col-md-3 col-sm-6">
-            <div class="single-album">
               <img src="{% asset_path kapcsolat/laurabarczi.jpg %}" alt="Bárczi Laura">
               <div class="album-heading">
                 <h3>Bárczi Laura</h3>
@@ -400,7 +379,6 @@ group: info
                   <h3>Bárczi Laura</h3>
                   <ul class="icon-list">
                     <li class="email">media<i class="fa fa-exclamation-circle"></i>gombaszog.sk</li>
-                    <li class="email"> mediasator2022<i class="fa fa-exclamation-circle"></i>gmail.com</li>
                     <li class="phone">+421&nbsp;915&nbsp;633&nbsp;426</li>
                     <li class="fa fa-globe fa-3"><a href="/sajto">Sajtószoba</a></li>
                   </ul>
@@ -408,6 +386,9 @@ group: info
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-1 hidden-sm">&nbsp;</div>
           <div class="col-md-3 col-sm-6">
             <div class="single-album">
               <img src="{% asset_path kapcsolat/geroj.jpg %}" alt="Stubendek Attila">
