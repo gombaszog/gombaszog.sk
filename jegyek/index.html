@@ -13,8 +13,8 @@ group: jegyek
 					<li class="regular">
 						<div class="regular-price">
 							<h2>Helyszíni<br>Napijegy</h2>
-							<p class="price">&nbsp;</p>
-							<p class="price-content">Hamarosan<br></p>
+							<p class="price">30&euro;</p>
+							<p class="price-content">&nbsp;<br>a helyszínen</p>
 						</div>
 					</li>
 					<li class="xplore">
@@ -29,14 +29,14 @@ group: jegyek
 							<h2>Nyári<br>hetijegy</h2>
 							<p class="price">99&euro;</p>
 							<p class="price-content">július 11-ig<br>elővételben</p>
-							{% comment %}<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>{% endcomment %}
+							<a class="btn btn-primary btn-pricing" id="btn-weekticket">Jegyelővétel</a>
 						</div>
 					</li>
 					<li class="xplore">
 						<div class="regular-price">
 							<h2>Napijegy<br></h2>
-							<p class="price">&nbsp;</p>
-							<p class="price-content">Hamarosan<br></p>
+							<p class="price">25&euro;</p>
+							<p class="price-content">július 11-ig<br>elővételben</p>
 						</div>
 					</li>
 					<li class="vip">
@@ -61,10 +61,10 @@ group: jegyek
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
 					jegy a 2020-as Gombaszög Lite eseményre szól.</h4>{% endcomment %}
 
-					<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
-					pár nap türelmet kérünk!</h2>
+					{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
+					pár nap türelmet kérünk!</h2>{% endcomment %}
 
-          {% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+          <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
 						<div class="row">
@@ -77,7 +77,7 @@ group: jegyek
 										<label class="control-label" for="ticket_category">Jegytípus (Napijegy tavasztól érhető el)</label>
 										<select id="ticket_category" name="ticket[category]" class="form-control influence">
 											<option value="hetijegy" id='hetijegy' data-price="" selected>Hetijegy</option>
-											{% comment %}<option value="napijegy" id='napijegy' data-price="">Napijegy</option>{% endcomment %}
+											<option value="napijegy" id='napijegy' data-price="">Napijegy</option>
 										</select>
 											{% comment %}<small>Ingyenes járás esetén az irányítószám megadása után nullázódik az ár.</small>{% endcomment %}
 									</div>
@@ -756,7 +756,7 @@ group: jegyek
 						</div>
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-				</form>{% endcomment %}
+				</form>
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
