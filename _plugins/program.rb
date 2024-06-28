@@ -206,6 +206,7 @@ class ProgramTable < Liquid::Tag
                 e["start"] = Time.parse e["start"]
                 e["end"] = Time.parse e["end"]
                 html.td(:class => "program-start") { html.text e["start"].strftime("%k:%M").to_s }
+                html.td(:class => "program-start") { html.text e["end"].strftime("%k:%M").to_s }
                 html.td(:class => "program-location") { html.text (e["location"]).to_s }
                 html.td(:class => "program-title") { html.text (e["name"]).to_s }
                 html.td(:class => "program-description") { html.text (e["description"]).to_s }
