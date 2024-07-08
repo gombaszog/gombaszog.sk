@@ -568,6 +568,9 @@ jQuery(document).ready(function ($) {
 		}
 
 		$('#new-sale-modal').modal('show');
+		$('#ticket_voucher').click(() => {
+			$('#new-sale-modal').modal('show');
+		})
 	});
 });
 
