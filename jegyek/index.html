@@ -803,11 +803,11 @@ group: jegyek
 				<h4 class="modal-title" id="new-sale-label">Válassz webshopot!</h4>
 			</div>
 			<div class="modal-body">
-				<p>Kuponnal jegyet az új felületünkön tudsz vásárolni.</p>
+				<p>Ha kaptál kupont, és arra szeretnél jegyet venni, kérlek, válaszd a második opciót.</p>
 				<div class="modal-footer">
 					<form role="form" class="ticket-form redirect-completed row" action="https://gombaszog.taggin.io" method="GET">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Nincs kuponom</button>
 						<button type="submit" class="btn btn-primary">Van kuponom</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Nincs kuponom</button>
 					</form>
 				</div>
 			</div>
@@ -816,8 +816,8 @@ group: jegyek
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-    	$('#new-sale-modal').modal('show');
+	jQuery(document).ready(function() {
+    	jQuery('#new-sale-modal').modal('show');
 	});
 </script>
 
