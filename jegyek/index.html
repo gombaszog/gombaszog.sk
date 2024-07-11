@@ -48,14 +48,14 @@ group: jegyek
 					</li>
 				</ul>
 
-				<div style="text-align: center; margin-top: 30px;">
+				{% comment %}<div style="text-align: center; margin-top: 30px;">
 					Ha van már jegyed, de vennél még valamit, kattints ide: <button id="ticket_barcode_box" data-toggle="modal"
 						data-target="#ticket-barcode-modal" class='btn btn-warning btn-md' type="button"><strong>Kiegészítő
 							jegy</strong> vásárlása</button>
-				</div>
+				</div>{% endcomment %}
 
-				{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
-					ért!</h2>{% endcomment %}
+				<h2 class="text-center" style="padding-bottom: 1em; color: red">Az internetes jegyelővétel véget
+					ért!</h2>
 
 				{% comment %}<h4 class="text-center"
 					style="padding-bottom: 1em; color: red; font-weight:bold; padding-top:20px; font-size:18px;">A megvásárolt
@@ -64,7 +64,7 @@ group: jegyek
 					{% comment %}<h2 class="text-center" style="padding-bottom: 1em; color: red">Az oldal átalakítás alatt áll,
 					pár nap türelmet kérünk!</h2>{% endcomment %}
 
-          <form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
+					{% comment %}<form role="form" class="ticket-form ticket-orig roll-here" action="/jegyek/sikertelen" method="post"
 					id="ticket">
 					<div class="pricing-content extra-arak">
 						<div class="row">
@@ -756,7 +756,7 @@ group: jegyek
 						</div>
 						<input type="hidden" name="ticket[fbid]" id="ticket_fbid" />
 						<input type="hidden" name="ticket[fb_token]" id="ticket_fb_token" />
-				</form>
+				</form>{% endcomment %}
 			</div>
 			<!-- jegyvetel end	-->
 		</div>
@@ -814,6 +814,10 @@ group: jegyek
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	window.location.replace("https://gombaszog.taggin.io");
+</script>
 
 <script type="application/ld+json">
 	{
