@@ -55,21 +55,21 @@ a,
 .error-info h2 span,
 .event-content-inner .event-title,
 .price {
-  color: rgb(238, 58, 36);
+  color: rgba(125, 139, 9, 1);
 }
 
 .more-link,
 .entry-header .entry-title a,
 .entry-header .author span {
   /*color: rgba(241, 196, 15, 1.0) !important;*/
-  color: rgb(238, 58, 36) !important;
+  color: rgba(125, 139, 9, 1) !important;
 }
 
 .more-link:hover,
 .entry-header .entry-title a:hover,
 .entry-header .author span:hover {
   /*color: rgba(241, 196, 15, 0.7) !important;*/
-  color: rgba(238, 58, 36, 0.7) !important;
+  color: rgba(125, 139, 9, .7) !important;
 }
 
 a:focus,
@@ -116,7 +116,7 @@ a:hover,
 #latest-event-content .latest-event:hover .tab .active,
 #navigation li:hover>a {
   /*color: #76C2A8;*/
-  color: rgba(0, 0, 0, .5);
+  color: rgba(125, 139, 9, 1);
 }
 
 /* button hover color */

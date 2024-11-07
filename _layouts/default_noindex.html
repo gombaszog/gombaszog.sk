@@ -17,14 +17,13 @@
   {% endif %}
   <meta property="og:image"
     content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% else %}{% asset_path og.png %}{% endif %}">
-  <meta name="keywords"
-    content="{% if page.tags %}{{ page.tags | join: ',' }}{% endif %}" />
+  <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ',' }}{% endif %}" />
   {% unless page.tags %}
   <meta name="description" content="{{ site.description }}" />{% endunless %}
 
   <link href="{% asset_path app.css  %}" rel="stylesheet" type="text/css" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="/favicon.ico" rel="shortcut icon" />
+  <link href="/favicon.png" rel="shortcut icon" />
   <link href='//fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel="stylesheet" type="text/css">
 
   <title>{{ site.name }} - {{ page.title }}</title>
