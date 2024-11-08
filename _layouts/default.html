@@ -15,15 +15,14 @@
   <meta property="og:description" content="{{ page.excerpt | strip | markdownify | strip_html | truncatewords: 50 }}" />
   {% endif %}
   <meta property="og:image"
-    content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% elsif page.shortname == 'poll' %}{% asset_path cover.jpg %}{% else %}{% asset_path og.png %}{% endif %}">
-  <meta name="keywords"
-    content="{% if page.tags %}{{ page.tags | join: ',' }}{% endif %}" />
+    content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% elsif page.shortname == 'poll' %}{% asset_path cover.jpg %}{% else %}{% asset_path og_2025.png %}{% endif %}">
+  <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ',' }}{% endif %}" />
   {% unless page.tags %}
   <meta name="description" content="{{ site.description }}" />{% endunless %}
 
   <link href="{% asset_path app.css  %}" rel="stylesheet" type="text/css" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="/favicon.ico" rel="shortcut icon" />
+  <link href="/favicon.png" rel="shortcut icon" />
   <link href='//fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel="stylesheet" type="text/css">
 
   <title>{{ site.name }} - {{ page.title }}</title>
@@ -70,13 +69,13 @@
 </head>
 
 <body>
-	<div id="first-bg"></div>
+  <div id="first-bg"></div>
   {% comment %}
-	<div id="second-bg"></div>
-	<div id="cloud-1" class="cloud"></div>
-	<div id="cloud-2" class="cloud"></div>
-	<div id="cloud-3" class="cloud"></div>
-	<div id="cloud-4" class="cloud"></div>
+  <div id="second-bg"></div>
+  <div id="cloud-1" class="cloud"></div>
+  <div id="cloud-2" class="cloud"></div>
+  <div id="cloud-3" class="cloud"></div>
+  <div id="cloud-4" class="cloud"></div>
   {% endcomment %}
   {{ content }}
   <!--[if lt IE 9]>

@@ -11,15 +11,16 @@
   <meta property="og:title" content="Ott leszek!" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="{{ site.name }}" />
-  <meta property="og:description" content="Ha csak három koncertre mész el Gombaszögön, ezek legyenek azok: {{ page.result }}! Mutasd meg ismerőseidnek, hogy melyik bulikon futhattok össze! 😎" />
+  <meta property="og:description"
+    content="Ha csak három koncertre mész el Gombaszögön, ezek legyenek azok: {{ page.result }}! Mutasd meg ismerőseidnek, hogy melyik bulikon futhattok össze! 😎" />
 
-  <meta property="og:image"
-    content="{{ site.url }}{% asset_path ottleszek.jpg %}">
-  <meta name="description" content="Ha csak három koncertre mész el Gombaszögön, ezek legyenek azok: {{ page.result }}! Mutasd meg ismerőseidnek, hogy melyik bulikon futhattok össze! 😎" />
+  <meta property="og:image" content="{{ site.url }}{% asset_path ottleszek.jpg %}">
+  <meta name="description"
+    content="Ha csak három koncertre mész el Gombaszögön, ezek legyenek azok: {{ page.result }}! Mutasd meg ismerőseidnek, hogy melyik bulikon futhattok össze! 😎" />
 
   <link href="{% asset_path app.css  %}" rel="stylesheet" type="text/css" />
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="/favicon.ico" rel="shortcut icon" />
+  <link href="/favicon.png" rel="shortcut icon" />
   <link href='//fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel="stylesheet" type="text/css">
 
   <title>{{ site.name }} - {{ page.title }}</title>
@@ -66,18 +67,17 @@
 </head>
 
 <body>
-	<div id="first-bg"></div>
-	<div id="second-bg"></div>
-	<div id="cloud-1" class="cloud"></div>
-	<div id="cloud-2" class="cloud"></div>
-	<div id="cloud-3" class="cloud"></div>
-	<div id="cloud-4" class="cloud"></div>
+  <div id="first-bg"></div>
+  <div id="second-bg"></div>
+  <div id="cloud-1" class="cloud"></div>
+  <div id="cloud-2" class="cloud"></div>
+  <div id="cloud-3" class="cloud"></div>
+  <div id="cloud-4" class="cloud"></div>
   <style type="text/css">
     html,
     body {
       height: 100%;
     }
-
   </style>
   <div id="error-page">
     <div class="error-page-inner">
@@ -112,12 +112,12 @@
                       Instagram</a></li>
                 </ul>
               </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <!--[if lt IE 9]>
       {% javascript vendor/html5shiv %}
