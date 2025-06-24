@@ -53,7 +53,7 @@ class ProgramDefault < Liquid::Tag
             html.div(:class => "col-md-2 visible-md visible-lg") do
               html.ul(:class => "nav nav-pills nav-stacked filter custom-filter-list") do
                 html.li(:class => "active alltoggle") { html.a(:href => "#") { html.text "Mutasd mind!" } }
-                html.p(:class => "filter-header", :style => (l[:locations].empty? && l[:events].empty? ? "display:none;" : "").to_s) { html.text "Helyszinek:" }
+                html.p(:class => "filter-header", :style => (l[:locations].empty? && l[:events].empty? ? "display:none;" : "").to_s) { html.text "Helyszínek:" }
                 i = 0
                 l[:locations].each do |loc|
                   loc ? html.li(:class => "active location-filter", "data-toggle" => "#{day_l_map[d]}_#{i}") { html.a(:href => "#") { html.text loc } } : nil
