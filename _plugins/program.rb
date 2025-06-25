@@ -90,7 +90,7 @@ class ProgramDefault < Liquid::Tag
                       end
                       html.div(:class => "col-md-10") do
                         html.h3 { html.text e["name"] }
-                        html.p { html << e["description"] }
+                        html.pre { html << e["description"] }
                       end
                     end
                     if e["logo"]
