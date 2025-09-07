@@ -15,7 +15,7 @@
   <meta property="og:description" content="{{ page.excerpt | strip | markdownify | strip_html | truncatewords: 50 }}" />
   {% endif %}
   <meta property="og:image"
-    content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% elsif page.shortname == 'poll' %}{% asset_path cover.jpg %}{% else %}{% asset_path og_2025.png %}{% endif %}">
+    content="{{ site.url }}{% if page.thumbnail %}{{ page.thumbnail }}{% elsif page.shortname == 'poll' %}{% asset_path cover.jpg %}{% else %}{% asset_path og_2026.png %}{% endif %}">
   <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ',' }}{% endif %}" />
   {% unless page.tags %}
   <meta name="description" content="{{ site.description }}" />{% endunless %}
