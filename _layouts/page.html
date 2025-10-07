@@ -26,8 +26,7 @@ layout: default
           <nav class="navbar-right collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a {% if page.group=='blog' %} class="active" {% endif %}href="/blog">Hírek</a></li>
-              <li><a {% if page.group=='poll' %} class="active" {% endif %}href="/poll">Ki lépjen fel?</a>
-              </li>
+              {% comment %}<li><a {% if page.group=='poll' %} class="active" {% endif %}href="/poll">Ki lépjen fel?</a></li>{% endcomment %}
               {% comment %}<li><a {% if page.group=='rolunk' %} class="active" {% endif %}href="/rolunk">Rólunk</a></li>{% endcomment %}
               {% comment %}<li><a {% if page.group=='zene' %} class="active" {% endif %}href="/zene">Zene</a></li> {% endcomment %}
               {% comment %}<li><a {% if page.group=='program' %} class="active" {% endif %}href="/program">Program</a></li>{% endcomment %}
